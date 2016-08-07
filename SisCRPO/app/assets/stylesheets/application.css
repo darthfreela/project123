@@ -6,10 +6,25 @@
  * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require css/bootstrap
+ *= require "css/font-awesome.min.css"
+ *= require "css/ionicons.min.css"
+ *= require dist/css/skins/skin-red
+ *= require plugins/iCheck/square/blue.css
+ *= require plugins/select2/select2.min.css
+ *= require dist/css/AdminLTE
  *= require_tree .
  *= require_self
  */
+
+.nav.navbar-nav .username{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    line-height: 20px;
+    color: #ffffff;
+    display: block;
+    position: relative;
+}

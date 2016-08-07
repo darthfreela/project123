@@ -1,0 +1,8 @@
+en:
+  views:
+    login:
+      title: Sign in to start your session
+      placeholders:
+        type:
+          username: 'Type the username'
+          password: 'Type the password'

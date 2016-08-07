@@ -1,0 +1,53 @@
+<%% titulo_page_header t('ui.page.<%= plural_table_name %>.title'), t('ui.page.<%= plural_table_name %>.subtitle') %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">&nbsp;</h3>
+        <div class="box-tools">
+          <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-default btn-sm' do %>
+              <i class="fa fa-plus"></i>
+              <%%= t 'ui.buttons.new' %>
+          <%% end %>
+        </div>
+      </div><!-- /.box-header -->
+      <div class="box-body">
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr>
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+              <th><%%= t 'activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>' %></th>
+              <% end -%>
+              <th class="text-center" width="100"><%%= t 'ui.text.action' %></th>
+            </tr>
+            <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+            <tr>
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+              <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+              <% end -%>
+              <td class="text-center">
+                <%%= link_to <%= singular_table_name %>, title: t('ui.buttons.show'), class: 'btn btn-sm btn-default',
+                        data:{container: 'body', toggle: 'tooltip'} do %>
+                    <i class="fa fa-eye"></i>
+                <%% end %>
+                <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>),
+                      title: t('ui.buttons.edit'), class: 'btn btn-sm btn-default',
+                      data:{container: 'body', toggle: 'tooltip'} do %>
+                    <i class="fa fa-pencil"></i>
+                <%% end %>
+                <%%= link_to <%= singular_table_name %>, method: :delete, title: t('ui.buttons.remove'), class: 'btn btn-sm btn-danger',
+                            data:{container: 'body', toggle: 'tooltip',
+                                  confirm: t('messages.are_you_sure')} do %>
+                    <i class="glyphicon glyphicon-trash"></i>
+                <%% end %>
+              </td>
+            </tr>
+          <%% end %>
+          </tbody>
+        </table>
+      </div><!-- /.box-body -->
+      <div class="box-footer clearfix"></div>
+    </div><!-- /.box -->
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<ul class="sidebar-menu">
+  <li class="header"><%= t 'menu.main' %></li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to dashboard_path do %>
+        <i class="fa fa-dashboard"></i>
+        <span><%= t 'menu.dashboard' %></span>
+    <% end  %>
+  </li>
+</ul><!-- /.sidebar-menu -->

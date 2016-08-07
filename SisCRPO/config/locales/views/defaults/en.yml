@@ -1,0 +1,27 @@
+en:
+  title:
+    system_title: My Project
+    system_menu_title_html: <b>My</b> Project
+    system_menu_title_mini_html: <b>M</b>P
+    login: Login
+    actions: Actions
+    new: "New %{entity}"
+    editing: "Editing %{entity}"
+    show: "Show %{entity}"
+    menu_html: Fail to try generate cover.<br/> Try again.
+  menu:
+    main: Main Menu
+    dashboard: Dashboard
+    exit: Exit
+  buttons:
+    close: Close
+    login: Login
+    new: "New %{entity}"
+    remove: Remove
+    edit: Edit
+    show: Show
+    cancel: Cancel
+    create: Create
+    update: Update
+    search: Search
+    clear: Clear

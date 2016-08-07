@@ -1,0 +1,26 @@
+"pt-br":
+  title:
+    system_title: Meu Projeto
+    system_menu_title_html: <b>Meu</b> Projeto
+    system_menu_title_mini_html: <b>M</b>P
+    login: Login
+    actions: Ações
+    new: "Novo(a) %{entity}"
+    editing: "Edição %{entity}"
+    show: "Visualização %{entity}"
+  menu:
+    main: Menu Principal
+    dashboard: Painel Principal
+    exit: Sair
+  buttons:
+    close: Fechar
+    login: Login
+    new: "Novo(a) %{entity}"
+    remove: Remover
+    edit: Editar
+    show: Visualizar
+    cancel: Cancelar
+    create: Criar
+    update: Atualizar
+    search: Pesquisar
+    clear: Limpar
