@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160123135331) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                default: "", null: false
     t.string   "username",            default: "", null: false
@@ -30,6 +33,6 @@ ActiveRecord::Schema.define(version: 20160123135331) do
     t.datetime "locked_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
