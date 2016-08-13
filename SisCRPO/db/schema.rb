@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123135331) do
+ActiveRecord::Schema.define(version: 20160813030452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
+    t.integer  "id_opm"
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "id_endereco"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.boolean  "ativo"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                default: "", null: false
