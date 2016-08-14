@@ -52,7 +52,11 @@
 
     <!-- Main content -->
     <section class="content">
-      <%= render 'shared/messages' %>
+      <% if flash[:notice] %>
+        <div class="alert alert-success alert-dismissible">
+          <h4><%= render 'shared/messages' %></h4>
+        </div>
+      <% end %>
       <%= yield %>
     </section><!-- /.content -->
   </div><!-- /.content-wrapper -->

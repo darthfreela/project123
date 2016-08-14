@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :opms
+
   devise_for :users
 
   concern :paginatable do
