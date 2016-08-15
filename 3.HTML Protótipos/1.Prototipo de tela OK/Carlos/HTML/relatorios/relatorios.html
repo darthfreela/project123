@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker-bs3.css">
     <link rel="stylesheet" href="../../plugins/iCheck/all.css">
-    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">	
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../../plugins/select2/select2.min.css">
     <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
 	<script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -30,7 +30,7 @@
 		$(function() {
 			$(".select2").select2();
 		});
-		
+
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,7 +120,7 @@
 								<a href="#"><i class="fa fa-circle-o"></i> Importações <i class="fa fa-angle-left pull-right"></i></a>
                                 <ul class="treeview-menu">
 									<li><a href="../../pages/verificacaoBoletim/verificacao.html"><i class="fa fa-circle-o"></i>Importar Boletim</a></li>
-									<li><a href="../../pages/importarBoletimInstrucao/importaBoletimInstrucao.html"><i class="fa fa-circle-o"></i>Importar Boletim Instrução</a></li>                                   
+									<li><a href="../../pages/importarBoletimInstrucao/importaBoletimInstrucao.html"><i class="fa fa-circle-o"></i>Importar Boletim Instrução</a></li>
 									<li><a href="../../pages/verificacaoBoletim/visualizarboletim.html"><i class="fa fa-circle-o"></i>Visualizar Importações</a></li>
                                 </ul>
 							</li>
@@ -136,7 +136,7 @@
 						<ul class="treeview-menu">
                             <li><a href="../../pages/apontamentoHoras/apontamento_horas.html"><i class="fa fa-circle-o"></i>Apontamento de Horas</a></li>
 							<li><a href="../../pages/quadroDistribuicaoHoraExtra/list.html"><i class="fa fa-circle-o"></i>Horas Extras</a></li>
-                            <li><a href="../../pages/solicitarDispensa/solicitar_dispensa.html"><i class="fa fa-circle-o"></i>Solicitar dispensa</a></li>							
+                            <li><a href="../../pages/solicitarDispensa/solicitar_dispensa.html"><i class="fa fa-circle-o"></i>Solicitar dispensa</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -145,10 +145,23 @@
         <!-- /MENUS -->
         <!-- CORPO -->
         <div class="content-wrapper">
+          <section class="content-header">
+          <h1>
+            Gerenciamento de Relatórios
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Ferramentas do usuário</a></li>
+            <li class="active">Relatórios Gerais</li>
+          </ol>
+        </section>
             <section class="content">
-                <div class="box box-primary">
+                <div class="box box-default">
                     <div class="box-header with-border">
                         <h3 class="box-title">Relatórios Gerais</h3>
+                        <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
@@ -158,7 +171,7 @@
 								<div class="col-md-12">
 									<div class="form-group col-md-6">
 										<label>Tipo de Relatorio</label>
-										<select class="form-control select2" style="width: 100%;">
+										<select class="form-control">
 											<option selected="Selecione">Selecione</option>
 											<option>Relatório de Horas</option>
 											<option>Relatório de Usuarios</option>
@@ -169,19 +182,19 @@
 									</div>
 								</div>
 								<div class="col-md-12">
-									<div class="form-group col-md-2">
+									<div class="form-group col-md-3">
 										<label> Data de Inicio</label>
                                         <input class="form-control" type="date" id="dtaIni"/>
-									</div>	
-									<div style="float:left">										
+									</div>
+									<div style="float:left">
 										<label><br></label>
 										<label class="form-control" style="border: 0px">a</label>
 									</div>
-									<div class="form-group col-md-2">
+									<div class="form-group col-md-3">
                                         <label>Data de Término</label>
                                         <input class="form-control" type="date" id="dtaFim"/>
 									</div>
-								</div>								
+								</div>
                             </div>
                         </div>
                         <div class="box-footer">
@@ -191,6 +204,59 @@
                     </form>
                 </div>
                 <!-- /.box -->
+                <div class="box">
+                 <div class="box-header">
+                    <h3 class="box-title">Lista de Relatórios</h3>
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                 </div>
+                 <div class="box-body">
+                 <div class="input-group input-group-sm">
+                 <input type="text" class="form-control">
+                   <span class="input-group-btn">
+                     <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                     </span>
+             </div>
+           </div>
+                 <hr>
+                 <div class="box-body">
+
+                 <table id="motivos" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Relatório</th>
+                                <th>Data de Inicio</th>
+                                <th>Data de Término</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td>Usuários</td>
+                                <td>14:30 - 05/06/2016</td>
+                                <td>20:30 - 05/06/2016</td>
+                                <td><button class="btn btn-success">Visualizar</td>
+                                <td><button class="btn btn-danger">Remover</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Horas</td>
+                                <td>07:30 - 04/04/2016</td>
+                                <td>17:30 - 04/04/2016</td>
+                                <td><button class="btn btn-success">Visualizar</td>
+                                <td><button class="btn btn-danger">Remover</td>
+                            </tr>
+                        </tbody>
+                 </table>
+
+               </div>
+                 <div class="box-footer">
+
+                 </div>
             </section>
         </div>
         <!-- /CORPO -->
