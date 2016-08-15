@@ -11,24 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160813230027) do
-=======
-ActiveRecord::Schema.define(version: 20160813030452) do
->>>>>>> a69c1ab6c1bc3de38c2c4c361f6c0f2ce26f20b3
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "opms", force: :cascade do |t|
-    t.string   "sigla"
-    t.string   "nome"
-    t.integer  "cidade"
-    t.text     "descricao"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
   create_table "gpms", id: false, force: :cascade do |t|
     t.integer  "id"
     t.integer  "id_opm"
@@ -38,7 +25,15 @@ ActiveRecord::Schema.define(version: 20160813030452) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.boolean  "ativo"
->>>>>>> a69c1ab6c1bc3de38c2c4c361f6c0f2ce26f20b3
+  end
+
+  create_table "opms", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "cidade"
+    t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
