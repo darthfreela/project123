@@ -50,7 +50,7 @@
     <script src="../../dist/js/app.min.js"></script>
     <script src="../../dist/js/pages/dashboard.js"></script>
     <script src="../../dist/js/demo.js"></script>
-	
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -78,7 +78,7 @@
                 <div class="user-panel">
                     <div class="pull-left image">
                         <img src="../../dist/img/logoCRPO160X160.png" class="img-circle" style="width: 70%; margin-left: 12%; height: 100px; max-width: 100%;">
-                    </div>                   
+                    </div>
                 </div>
                 <ul class="sidebar-menu">
                     <li class="header">CRPO SERRA</li>
@@ -148,7 +148,7 @@
                         <ul class="treeview-menu">
                             <li><a href="../../pages/apontamentoHoras/apontamento_horas.html"><i class="fa fa-circle-o"></i>Apontamento de Horas</a></li>
 							<li><a href="../../pages/quadroDistribuicaoHoraExtra/list.html"><i class="fa fa-circle-o"></i>Horas Extras</a></li>
-                            <li><a href="../../pages/solicitarDispensa/solicitar_dispensa.html"><i class="fa fa-circle-o"></i>Solicitar dispensa</a></li>							
+                            <li><a href="../../pages/solicitarDispensa/solicitar_dispensa.html"><i class="fa fa-circle-o"></i>Solicitar dispensa</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -157,88 +157,129 @@
 		<!-- /MENUS -->
         <!-- CORPO -->
         <div class="content-wrapper">
+          <section class="content-header">
+          <h1>
+            Gerenciamento de Solicitação de Dispensas
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Ferramentas do usuário</a></li>
+            <li class="active">Solicitar Dispensa</li>
+          </ol>
+        </section>
             <section class="content">
                 <div class="box">
                  <div class="box-header">
                     <h3 class="box-title">Solicitar Dispensas</h3>
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
                  </div>
                  <hr>
                   <form role="form">
                         <div class="box-body">
                             <div class="bs-example">
-                                <div class="form-group">
-                                    <div class="camposForm">
-                                        <label class="control-label">Idt Func:</label>
-                                        <input type="text" id="inputIdtFunc" placeholder="nº da identidade func.." />
-                                        <label id="mensagem" style="color:red"></label>
-                                    </div>
-                                    <br />
-                                    <div class="camposForm">
-                                        <label class="control-label">Posto/Graduação:</label>
-                                        <input type="text" id="inputPg"/>
-                                        <label class="control-label1">Nome:</label>
-                                        <input type="text" id="inputNome"/>
-                                         <label class="control-label1">Unidade:</label>
-                                        <input type="text" id="inputUnidade"/>
-                                    </div>
-                                    <br />
-                                    <div>
-                                         <label class="control-label">Solicitação:</label>
-                                    </div>
-                                    <div>     
-                                        <textarea rows="4" cols="50" placeholder="Venho por meio deste, solicitar ... dias de afastamento por motivo de...."></textarea>
-                                    </div>
-                                    <br />
-                                    <div class="camposForm">
-                                        <label class="control-label">Data de Inicio:</label>
-                                        <input type="date" id="inputDtInicio"/>
 
-                                        <label class="control-label">Data de Término:</label>
-                                        <input type="date" id="inputDtInicio"/>
+                                  <div class="form-group col-md-3">
+                                        <label class="control-label">Idt Func</label>
+                                        <input class="form-control" id="inputIdtFunc" placeholder="nº da identidade func.." />
                                     </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label">Posto/Graduação</label>
+                                        <input class="form-control" type="text" id="inputPg"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label1">Nome</label>
+                                        <input class="form-control" type="text" id="inputNome"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                         <label class="control-label1">Unidade</label>
+                                        <input class="form-control" type="text" id="inputUnidade"/>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-md-8">
+                                         <label class="control-label">Solicitação</label>
+                                        <textarea class="form-control" rows="4" cols="50" placeholder="Venho por meio deste, solicitar ... dias de afastamento por motivo de...."></textarea>
+                                    </div>
+                                    <br />
+                                    <div class="form-group col-md-8">
+                                      <div class="form-group col-md-3">
+                                        <label class="control-label">Data de Inicio</label>
+                                        <input type="date" id="inputDtInicio"/>
+                                      </div>
+                                      <div class="form-group col-md-3">
+                                        <label class="control-label">Data de Término</label>
+                                        <input type="date" id="inputDtInicio"/>
+                                      </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </form>
+
                     <div class="box-footer">
-                            <button id="btn" class="btn btn-success">Enviar</button>
+                            <button id="btn" class="btn btn-success">Solicitar</button>
+                            <button id="btn" class="btn btn-danger">Limpar</button>
                         </div>
-                    <table id="motivos" class="table table-bordered table-striped">
-                           <thead>
-                               <tr>
-                                   <th></th>
-                                   <th>Data de Inicio</th>
-                                   <th>Data de Término</th>
-                                   <th>Motivo</th>
-                                   <th>Situação</th>
-                               </tr>
-                           </thead>
-                           <tbody>
-                               <tr>
-                                   <td>1</td>
-                                   <td>04/04/2016</td>
-                                   <td>04/05/2016</td>
-                                   <td>Solicito 15 dias de afastamento por motivo de férias.</td>
-                                   <td><i class="fa fa-check " title="Aprovado"></i></td>
-                               </tr>
-                               <tr>
-                                   <td>2</td>
-                                   <td>05/03/2016</td>
-                                   <td>08/03/2016</td>
-                                   <td>Solicito 3 dias de afastamento por motivo de levar meu cachorro passear.</td>
-                                   <td><i class="fa fa-times " title="Negado"></i></td>
-                               </tr>
-                               <tr>
-                                   <td>3</td>
-                                   <td>05/03/2016</td>
-                                   <td>08/03/2016</td>
-                                   <td>Solicito 3 dias de afastamento por motivo de levar meu cachorro passear.</td>
-                                   <td><i class="fa fa-circle " title="Em análise"></i></td>
-                               </tr>
-                           </tbody>
-                    </table>
-                </div> 
+                        </div>
+                        <div class="box">
+                         <div class="box-header">
+                            <h3 class="box-title">Lista de Solicitações</h3>
+                            <div class="box-tools pull-right">
+                              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            </div>
+                         </div>
+                         <div class="box-body">
+                         <div class="input-group input-group-sm">
+                         <input type="text" class="form-control">
+                           <span class="input-group-btn">
+                             <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                             </span>
+                     </div>
+                   </div>
+                         <hr>
+                         <div class="box-body">
+                           <table id="motivos" class="table table-bordered table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th></th>
+                                          <th>Data de Inicio</th>
+                                          <th>Data de Término</th>
+                                          <th>Motivo</th>
+                                          <th>Situação</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>1</td>
+                                          <td>04/04/2016</td>
+                                          <td>04/05/2016</td>
+                                          <td>Solicito 15 dias de afastamento por motivo de férias.</td>
+                                          <td><i class="fa fa-check " title="Aprovado"></i> Aprovado</td>
+                                      </tr>
+                                      <tr>
+                                          <td>2</td>
+                                          <td>05/03/2016</td>
+                                          <td>08/03/2016</td>
+                                          <td>Solicito 3 dias de afastamento por motivo de levar meu cachorro passear.</td>
+                                          <td><i class="fa fa-times " title="Negado"></i> Negado</td>
+                                      </tr>
+                                      <tr>
+                                          <td>3</td>
+                                          <td>05/03/2016</td>
+                                          <td>08/03/2016</td>
+                                          <td>Solicito 3 dias de afastamento por motivo de levar meu cachorro passear.</td>
+                                          <td><i class="fa fa-circle " title="Em análise"></i> Em análise</td>
+                                      </tr>
+                                  </tbody>
+                           </table>
+
+                       </div>
+                         <div class="box-footer">
+
+                         </div>
+
+
             </section>
         </div>
         <!-- /CORPO -->
