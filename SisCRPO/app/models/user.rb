@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :trackable, :validatable
   validates :name, :username, presence: true
   validates :username, uniqueness: true
+  validates :password, presence: true
 
   def email_required?
     false
