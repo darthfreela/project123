@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820190034) do
+ActiveRecord::Schema.define(version: 20160821213759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,37 +37,34 @@ ActiveRecord::Schema.define(version: 20160820190034) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                default: "", null: false
-    t.string   "username",            default: "", null: false
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "name",                          default: "", null: false
+    t.string   "username",                      default: "", null: false
+    t.string   "encrypted_password",            default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       default: 0,  null: false
+    t.integer  "sign_in_count",                 default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.boolean  "ativo"
-    t.integer  "idFunc"
-    t.string   "email"
-    t.string   "cpf"
-    t.string   "nomeGuerra"
-    t.string   "imagemUsuario"
-    t.integer  "idFuncao"
-    t.date     "dataNascimento"
-    t.string   "sexo"
-    t.integer  "idPerfilAcesso"
-    t.integer  "idPostoGraduacao"
-    t.integer  "idUserAlterador"
     t.string   "endereco"
     t.string   "bairro"
     t.string   "cidade"
     t.string   "estado"
     t.string   "cep"
+    t.boolean  "ativo"
+    t.integer  "idFunc"
+    t.integer  "cpf"
+    t.string   "nomeGuerra",          limit: 1
+    t.string   "imagemUsuario",       limit: 1
+    t.integer  "idFuncao"
+    t.string   "email",               limit: 1
+    t.string   "sexo",                limit: 1
+    t.date     "dataNascimento"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
