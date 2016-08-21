@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813230027) do
+ActiveRecord::Schema.define(version: 20160820190034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,23 @@ ActiveRecord::Schema.define(version: 20160813230027) do
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.boolean  "ativo"
+    t.integer  "idFunc"
+    t.string   "email"
+    t.string   "cpf"
+    t.string   "nomeGuerra"
+    t.string   "imagemUsuario"
+    t.integer  "idFuncao"
+    t.date     "dataNascimento"
+    t.string   "sexo"
+    t.integer  "idPerfilAcesso"
+    t.integer  "idPostoGraduacao"
+    t.integer  "idUserAlterador"
+    t.string   "endereco"
+    t.string   "bairro"
+    t.string   "cidade"
+    t.string   "estado"
+    t.string   "cep"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree

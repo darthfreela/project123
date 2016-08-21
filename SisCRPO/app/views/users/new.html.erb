@@ -1,0 +1,173 @@
+    <!-- CORPO -->
+
+            <div class="content-wrapper">
+              <section class="content-header">
+              <h1>
+                Gerenciamento de Usuário
+              </h1>
+              <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">Ferramentas do usuário</a></li>
+                <li class="active">Gerenciamento de Usuário</li>
+              </ol>
+            </section>
+                <section class="content">
+                    <div class="box">
+                     <div class="box-header">
+                        <h3 class="box-title">Cadastro de Usuário</h3>
+                        <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                     </div>
+                     <hr>
+                     <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+           O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+        </div>
+        <ul>
+         <% @user.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+                      <%= form_for @user do |f| %>
+                           <div class="box-body">
+            <div class="form-group col-md-12">
+            <div class="form-group col-md-2">
+                <%= f.label :ativo %>
+                <%= f.text_field :ativo, placeholder: "Ativo?", maxlength: "80", class:"form-control" %> <!-- trocar para radio buttom -->
+              </div>
+            <div class="form-group col-md-2">
+                <%= f.label :idFunc %>
+                <%= f.text_field :idFunc, placeholder: "Id Funcional", maxlength: "80", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-2">
+                <%= f.label :name %>
+                <%= f.text_field :name, placeholder: "Nome Completo", maxlength: "80", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-5">
+                <%= f.label :username %>
+                <%= f.text_field :username, placeholder: "Usuário",  maxlength: "80", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-5">
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+              <div class="form-group col-md-5">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group col-md-12">
+              <div class="form-group col-md-7">
+                <%= f.label :cpf %>
+                <%= f.text_field :cpf, placeholder: "CPF", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :nomeGuerra %>
+                <%= f.text_field :nomeGuerra, placeholder: "Nome de Guerra", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :imagemUsuario %>
+                <%= f.text_field :imagemUsuario, placeholder: "Imagem do Usuário", class:"form-control" %> <!-- trocar para select file -->
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :idFuncao %>
+                <%= f.text_field :idFuncao, placeholder: "Id da Função", class:"form-control" %><!-- trocar para combo -->
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :email %>
+                <%= f.text_field :email, placeholder: "E-mail", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :dataNascimento %>
+                <%= f.text_field :dataNascimento, placeholder: "Data de Nascimento", class:"form-control" %><!-- trocar para date -->
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :sexo %>
+                <%= f.text_field :sexo, placeholder: "Sexo", class:"form-control" %><!-- trocar para combobox -->
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :cep %>
+                <%= f.text_field :cep, placeholder: "CEP", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :endereco %>
+                <%= f.text_field :endereco, placeholder: "Endereço. Ex: 'Rua ....'", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :bairro %>
+                <%= f.text_field :bairro, placeholder: "Bairro", class:"form-control" %>
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :cidade %>
+                <%= f.text_field :cidade, placeholder: "Cidade", class:"form-control" %><!-- trocar para combobox -->
+              </div>
+              <div class="form-group col-md-7">
+                <%= f.label :estado %>
+                <%= f.text_field :estado, placeholder: "Estado", class:"form-control" %><!-- trocar para combobox -->
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <%= f.submit "Salvar", class: "btn btn-success" %>
+            <%= f.button "Limpar", class: "btn btn-danger" %>
+          </div>
+
+         <% end %>
+        </div>
+
+
+                    <div class="box">
+                     <div class="box-header">
+                        <h3 class="box-title">Listar Usuário</h3>
+                        <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                     </div>
+                     <div class="box-body">
+                     <div class="input-group input-group-sm">
+                     <input type="text" class="form-control">
+                       <span class="input-group-btn">
+                         <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                         </span>
+                 </div>
+               </div>
+                     <hr>
+                     <div class="box-body">
+
+                     <table id="motivos" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Nome</th>
+                                    <th>E-mail</th>
+                                    <th>Data Nascimento</th>
+                                    <th>Sexo</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <% @user_show.each do |o|%>
+                                 <tr>
+                                    <td><%= o.id %></td>
+                                    <td><%= o.name %></td>
+                                    <td><%= o.email %></td>
+                                    <td><%= o.dataNascimento %></td>
+                                    <td><%= o.sexo %></td>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'users', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'users', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                </tr>
+                                <% end %>
+                            </tbody>
+                     </table>
+
+                   </div>
+                     <div class="box-footer">
+
+                     </div>
+                </section>
+            </div>
+            <!-- /CORPO -->

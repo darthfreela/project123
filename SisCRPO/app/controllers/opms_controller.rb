@@ -29,9 +29,9 @@ class OpmsController < ApplicationController
 
       redirect_to new_opm_path, notice: "Opm editada com sucesso."
     end
-    
+
     private
     def opm_params
-      params.require(:opm).permit(:sigla, :nome, :cidade, :descricao)
+      params.require(:opm).permit(:name, :nome, :cidade, :descricao)
     end
 end
