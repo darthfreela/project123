@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821213759) do
+ActiveRecord::Schema.define(version: 20160822214257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,17 +37,17 @@ ActiveRecord::Schema.define(version: 20160821213759) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                          default: "", null: false
-    t.string   "username",                      default: "", null: false
-    t.string   "encrypted_password",            default: "", null: false
+    t.string   "name",                            default: "", null: false
+    t.string   "username",                        default: "", null: false
+    t.string   "encrypted_password",              default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                 default: 0,  null: false
+    t.integer  "sign_in_count",                   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
@@ -57,13 +57,13 @@ ActiveRecord::Schema.define(version: 20160821213759) do
     t.string   "estado"
     t.string   "cep"
     t.boolean  "ativo"
-    t.integer  "idFunc"
-    t.integer  "cpf"
-    t.string   "nomeGuerra",          limit: 1
-    t.string   "imagemUsuario",       limit: 1
-    t.integer  "idFuncao"
-    t.string   "email",               limit: 1
-    t.string   "sexo",                limit: 1
+    t.integer  "idFunc",              limit: 8
+    t.integer  "cpf",                 limit: 8
+    t.string   "nomeGuerra",          limit: 256
+    t.string   "imagemUsuario",       limit: 256
+    t.integer  "idFuncao",            limit: 8
+    t.string   "email",               limit: 256
+    t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
   end
 
