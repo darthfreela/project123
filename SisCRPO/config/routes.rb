@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   get 'users/new'
 
+
   resources :opms
 
   resources :gpm
 
-  resources :users
+  resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   devise_for :users
 
