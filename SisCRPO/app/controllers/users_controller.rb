@@ -7,8 +7,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user_show = User.all
     if @user.save
-        redirect_to new_user_path, notice: "Usuário cadastrado com sucesso."
+        redirect_to new_user_path , notice: "Usuário cadastrado com sucesso."
       else
         render action: :new
     end

@@ -3,7 +3,19 @@
   <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
     <%= link_to dashboard_path do %>
         <i class="fa fa-dashboard"></i>
-        <span><%= t 'menu.dashboard' %></span>
+        <span><%= t 'menu.menu_principal' %></span>
+    <% end  %>
+  </li>
+</ul><!-- /.sidebar-menu -->
+
+
+<!-- Ferramentas de Usuário -->
+  <ul class="sidebar-menu">
+  <li class="header"><%= t 'menu.ferrmentas_de_usuário' %></li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to users_new_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_usuários' %></span>
     <% end  %>
   </li>
 </ul><!-- /.sidebar-menu -->

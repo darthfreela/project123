@@ -44,3 +44,9 @@
 .skin-red .main-header .navbar {
     background-color: #2b2b35;
 }
+
+.skin-red .sidebar-menu > li:hover > a, .skin-red .sidebar-menu > li.active > a {
+    color: #ffffff;
+    background: #1e282c;
+    border-left-color: #3a3847;
+}
