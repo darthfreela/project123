@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :gpm
 
-  resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
+  resources :users, :only => [:new, :create, :edit, :destroy, :update]
 
   devise_for :users
 
