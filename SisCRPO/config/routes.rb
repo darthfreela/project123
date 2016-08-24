@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'gpms/new'
+
+  get 'gpms/edit'
+
   get 'users/new'
 
 
   resources :opms
 
-  resources :gpm
+  resources :gpms
 
   resources :users, :only => [:new, :create, :edit, :destroy, :update]
 
