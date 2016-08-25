@@ -27,8 +27,13 @@ class GpmsController < ApplicationController
 
     def update
       @gpm = Gpm.find(params[:id])
-      @gpm.update_attributes(opm_params)
+      @gpm.update_attributes(gpm_params)
 
       redirect_to new_gpm_path, notice: "Gpm editado com sucesso."
+    end
+
+    private
+    def gpm_params
+      params.require(:gpm).permit(:cidade, :nome, :idOpm, :ativo, :sigla)
     end
 end
