@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   get 'quadro_efetivo/index'
-=======
+
   get 'gpms/new'
 
   get 'gpms/edit'
->>>>>>> 527da9d463bfb6810c2e1fb403f90677fa27dc19
 
   get 'users/new'
 
