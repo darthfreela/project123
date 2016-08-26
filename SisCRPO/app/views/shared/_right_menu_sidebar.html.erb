@@ -20,8 +20,14 @@
   </li>
   <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
     <%= link_to new_opm_path do %>
-        <i class="fa  fa-wrench"></i>
+        <i class="fa fa-circle-o"></i>
         <span><%= t 'menu.gerenciamento_de_Opms' %></span>
+    <% end  %>
+  </li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to quadro_efetivo_index_path do %>
+        <i class="fa  fa-map-o"></i>
+        <span><%= t 'menu.quadro_efetivo' %></span>
     <% end  %>
   </li>
 </ul><!-- /.sidebar-menu -->
