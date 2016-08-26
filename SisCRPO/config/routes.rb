@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'quadro_efetivo/index'
+
   get 'users/new'
 
 
