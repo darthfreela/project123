@@ -4,8 +4,8 @@ class OpmsController < ApplicationController
       @opm_show = Opm.all
       #mock de cidades simulando retorno do banco
       @select_cidades = Array.new
-      ar = [1,2,3,4,5]
-      ar.each do |i|
+
+      (1..5).each do |i|
           @select_cidades <<  "#{i}"
       end
     end
@@ -16,8 +16,8 @@ class OpmsController < ApplicationController
 
        #mock de cidades simulando retorno do banco
       @select_cidades = Array.new
-      ar = [1,2,3,4,5]
-      ar.each do |i|
+
+      (1..5).each do |i|
           @select_cidades <<  "#{i}"
       end
 

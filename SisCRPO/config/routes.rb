@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
+
 
   get 'users/new'
 
-  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
-=======
   get 'licencas/new'
 
   get 'licencas/edit'
@@ -18,10 +16,12 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
+
   resources :uniforms
 
   resources :functions
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
+
 
   resources :opms
 
@@ -31,11 +31,11 @@ Rails.application.routes.draw do
 
   resources :licencas
 
-<<<<<<< HEAD
+
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
-=======
+
   resources :users, :only => [:new, :create, :edit, :destroy, :update]
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
+
 
   devise_for :users
 
