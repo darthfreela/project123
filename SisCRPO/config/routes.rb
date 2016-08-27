@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+<<<<<<< HEAD
+=======
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :quadro_efetivo, :only => [:index]
+>>>>>>> 7b523d7f43c520be7a51419ddeb19c487da37432
   get 'licencas/new'
 
   get 'licencas/edit'
@@ -21,9 +24,15 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
+
   resources :uniforms
 
   resources :functions
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7b523d7f43c520be7a51419ddeb19c487da37432
 
   resources :opms
 
@@ -37,6 +46,10 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:new, :create, :edit, :destroy, :update]
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7b523d7f43c520be7a51419ddeb19c487da37432
 
   devise_for :users
 
