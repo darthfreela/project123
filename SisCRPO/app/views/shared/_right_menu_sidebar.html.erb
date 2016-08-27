@@ -30,4 +30,10 @@
         <span><%= t 'menu.gerenciamento_de_Funções' %></span>
     <% end  %>
   </li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_uniform_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_Uniformes' %></span>
+    <% end  %>
+  </li>
 </ul><!-- /.sidebar-menu -->
