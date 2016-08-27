@@ -1,7 +1,7 @@
 class CreatePostograduacaos < ActiveRecord::Migration
   def change
     create_table :postograduacaos do |t|
-      t.integer :id
+
       t.string :sigla
       t.string :nomePostoGraduacao
       t.boolean :ativo

@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160827161222) do
-=======
-ActiveRecord::Schema.define(version: 20160827145333) do
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,14 +77,14 @@ ActiveRecord::Schema.define(version: 20160827145333) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "postograduacaos", id: false, force: :cascade do |t|
+  create_table "postograduacaos", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
     t.boolean  "ativo"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-=======
+  end
+
   create_table "uniforms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "uniforme"
@@ -96,7 +92,6 @@ ActiveRecord::Schema.define(version: 20160827145333) do
     t.date     "data_alteracao"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
   end
 
   create_table "users", force: :cascade do |t|
