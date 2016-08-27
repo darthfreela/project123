@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  resources :estagiarios
+
   get 'users/new'
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]

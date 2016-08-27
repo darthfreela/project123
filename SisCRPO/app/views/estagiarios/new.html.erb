@@ -1,0 +1,173 @@
+<section class="content-header">
+    <h1>
+        Gerenciamento de Estagiários
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Gerenciamento de Estagiários</li>
+    </ol>
+</section>
+<section class="content">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Cadastro de Estagiários</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="error"><%= flash[:error] %></div>
+    <% if @estagiario.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+           O formulário contém <%= pluralize(@estagiario.errors.count, "erro") %>.
+        </div>
+        <ul>
+         <% @estagiario.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+                    <%= form_for @estagiario do |f| %>
+                        <div class="box-body">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-5">
+                                    <%= f.label :nome %>
+                                    <%= f.text_field :nome, placeholder: "Nome", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <%= f.label :cpf %>
+                                    <%= f.text_field :cpf, placeholder: "CPF", maxlength: "12", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <%= f.label :sexo %>
+                                    <%= f.select :sexo, [['Maculino', 'M'], ['Feminino', 'F']],{}, class: "form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Data Nascimento</label>
+                                    <%= f.date_field :data_nascimento, class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Semestre</label>
+                                    <%= f.select :semestre, [['Primeiro', 1], ['Segundo', 2]],{}, class: "form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Endereço</label>
+                                    <%= f.text_field :endereco, PlaceHolder: "Endereço", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Email</label>
+                                    <%= f.email_field :email, PlaceHolder: "email@email.com", maxlength: "80", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Banco - ag/CC</label>
+                                    <%= f.text_field :agcc, PlaceHolder: "banco - agencia/conta", maxlength: "80", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label>Dias Trabalhados</label>
+                                    <%= f.text_field :dias_trabalhados, PlaceHolder:  "Dias Trabalhados", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="valeTransporte">Vale Transporte</label>
+                                    <%= f.text_field :vale_transporte, PlaceHolder:  "Vale Transporte", class:"form-control" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-success" onclick="window.location = '../../pages/cadastroSiglas/linhaServico.html'">Salvar</button>
+                            <button type="close" class="btn btn-danger" onclick="window.location = '../../pages/cadastroSiglas/linhaServico.html'">Cancelar</button>
+                        </div>
+                    <% end %>
+                </div>
+                <!--Search-->
+                 <div class="box box-default">
+                    <div class="box-header">
+                        <h3 class="box-title">Lista de Estagiários</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="input-group margin">
+                            <input class="form-control" type="text" placeholder="Pesquisar">
+                                <span class="input-group-btn">
+                                <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                                </span>
+                        </div>
+                        <table id="motivos" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Nome</th>
+                                    <th>Semestre</th>
+                                    <th>Vigência do Contrato</th>
+                                    <th>ag/CC</th>
+                                    <th>Dias Trabalhados</th>
+                                    <th>Qtd de Vales Transporte</th>
+                                    <th>Horas Trabalhadas</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Clei Evers Flores</td>
+                                    <td>3º semestre</td>
+                                    <td>25/12/2016</td>
+                                    <td>1487-7/18898-0</td>
+                                    <td>15</td>
+                                    <td>15</td>
+                                    <td>120</td><td><a class="btn btn-success"><i class="fa fa-success"></i>providencia tomada</a></td>
+                                    <td><a class="btn btn-warning"><i class="fa fa-edit"></i>Editar</a></td>
+                                    <td><a class="btn btn-danger"><i class="fa fa-close "></i>Excluir</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                     <td>Carlos André Antunes</td>
+                                    <td>2º semestre</td>
+                                    <td>25/12/2016</td>
+                                    <td>1487-7/18898-0</td>
+                                    <td>15</td>
+                                    <td>15</td>
+                                    <td>120</td>
+                                    <td><a class="btn btn-success"><i class="fa fa-success"></i>providencia tomada</a></td>
+                                    <td><a class="btn btn-warning"><i class="fa fa-edit"></i>Editar</a></td>
+                                    <td><a class="btn btn-danger"><i class="fa fa-close "></i>Excluir</a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                     <td>Carlos André Antunes</td>
+                                    <td>2º semestre</td>
+                                    <td>25/12/2016</td>
+                                    <td>1487-7/18898-0</td>
+                                    <td>15</td>
+                                    <td>15</td>
+                                    <td>120</td>
+                                    <td><a class="btn btn-success"><i class="fa fa-success"></i>providencia tomada</a></td>
+                                    <td><a class="btn btn-warning"><i class="fa fa-edit"></i>Editar</a></td>
+                                    <td><a class="btn btn-danger"><i class="fa fa-close "></i>Excluir</a></td>
+                                </tr>
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                   <th></th>
+                                   <th>Nome</th>
+                                   <th>Semestre</th>
+                                   <th>Vigência do Contrato</th>
+                                   <th>ag/CC</th>
+                                   <th>Dias Trabalhados</th>
+                                   <th>Qtd de Vales Transporte</th>
+                                   <th>Horas Trabalhadas</th>
+                                   <th></th>
+                                   <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
