@@ -36,7 +36,16 @@
         <span><%= t 'menu.gerenciamento_de_Uniformes' %></span>
     <% end  %>
   </li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>"
+    <%= link_to new_estagiario_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_estagiários' %></span>
+    <% end  %>
+  </li>
   <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_postograduacao_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_Posto/Graduação' %></span>
     <%= link_to quadro_efetivo_index_path do %>
         <i class="fa  fa-wrench"></i>
         <span><%= t 'menu.quadro_efetivo' %></span>

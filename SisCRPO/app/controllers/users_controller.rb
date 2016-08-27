@@ -5,8 +5,7 @@ class UsersController < ApplicationController
     @user_show = User.all
     #MockObject simulndo retorno do banco para popular select funcao
     @select_funcoes = Array.new
-    ar = [1,2,3,4,5]
-    ar.each do |i|
+    (1..5).each do |i|
       @select_funcoes <<  "#{i}"
     end
   end
@@ -16,8 +15,7 @@ class UsersController < ApplicationController
     @user_show = User.all
     #mok funcao
     @select_funcao = Array.new
-    ar = [1,2,3,4,5]
-    ar.each do |i|
+    (1..5).each do |i|
       @select_funcao <<  "#{i}"
     end
     if @user.save
