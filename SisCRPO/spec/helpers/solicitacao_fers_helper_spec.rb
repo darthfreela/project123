@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the GpmHelper. For example:
+# the SolicitacaoFersHelper. For example:
 #
-# describe GpmHelper do
+# describe SolicitacaoFersHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe GpmHelper, type: :helper do
+RSpec.describe SolicitacaoFersHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

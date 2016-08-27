@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FersController, type: :controller do
+RSpec.describe SolicitacaoFersController, type: :controller do
 
   describe "GET #new" do
     it "returns http success" do

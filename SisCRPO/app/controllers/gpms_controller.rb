@@ -34,6 +34,6 @@ class GpmsController < ApplicationController
 
     private
     def gpm_params
-      params.require(:gpm).permit(:cidade, :nome, :idOpm, :ativo, :sigla)
+      params.require(:gpm).permit(:cidade, :nome, :opm_id, :ativo, :sigla)
     end
 end

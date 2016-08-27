@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160827161222) do
-=======
-ActiveRecord::Schema.define(version: 20160827145333) do
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
+ActiveRecord::Schema.define(version: 20160827193402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "ferias", force: :cascade do |t|
-    t.integer  "idFunc"
-    t.date     "dataInicial"
-    t.date     "dataFinal"
-    t.boolean  "aprovado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "fers", force: :cascade do |t|
     t.integer  "idFunc"
@@ -48,16 +35,17 @@ ActiveRecord::Schema.define(version: 20160827145333) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
-    t.integer  "id_opm"
+  create_table "gpms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "id_endereco"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "cidade"
     t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "opm_id"
   end
+
+  add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
 
   create_table "licencas", force: :cascade do |t|
     t.integer  "idFunc"
@@ -81,14 +69,23 @@ ActiveRecord::Schema.define(version: 20160827145333) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "postograduacaos", id: false, force: :cascade do |t|
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
     t.boolean  "ativo"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-=======
+  end
+
+  create_table "solicitacao_fers", force: :cascade do |t|
+    t.integer  "id_func"
+    t.date     "data_inicial"
+    t.date     "data_final"
+    t.boolean  "aprovado"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "uniforms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "uniforme"
@@ -96,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160827145333) do
     t.date     "data_alteracao"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
->>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,4 +128,5 @@ ActiveRecord::Schema.define(version: 20160827145333) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "gpms", "opms"
 end

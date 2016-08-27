@@ -42,7 +42,7 @@
 					<div class="form-group col-md-12">
 						<div class="form-group col-md-3">
 							<label>Unidade</label>
-							<%= g.select :idOpm, [['Caxias do Sul - Parque Getúlio Vargas', '1'], ['Caxias do Sul - Cruzeiro', '2'], ['Caxias do Sul - Cruzeiro', '3']],{}, class: "form-control" %>
+							<%= g.select :opm_id, [['Caxias do Sul - Parque Getúlio Vargas', '1'], ['Caxias do Sul - Cruzeiro', '2'], ['Caxias do Sul - Cruzeiro', '3']],{}, class: "form-control" %>
 						</div>
 						<div class="form-group col-md-2">
 							<label for="ativo select2">Ativo</label>
@@ -89,7 +89,7 @@
 					<tr>
 						<td><%= g.id %></td>
 						<td><%= g.nome %></td>
-						<td><%= g.idOpm %></td>
+						<td><%= g.opm_id %></td>
 						<td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'gpms', :action => 'edit', :id => g.id}, class: 'btn btn-warning', method: :get %></td>
 						<td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'gpms', :action => 'destroy', :id => g.id}, class: 'btn btn-danger', method: :delete %></td>
 					</tr>
