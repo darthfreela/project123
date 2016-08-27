@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
+
+
   get 'users/new'
+
+  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :opms
 
   resources :gpm
 
-  resources :users
+  resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   devise_for :users
 
