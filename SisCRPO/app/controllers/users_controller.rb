@@ -3,11 +3,23 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user_show = User.all
+    #MockObject simulndo retorno do banco para popular select funcao
+    @select_funcoes = Array.new
+    ar = [1,2,3,4,5]
+    ar.each do |i|
+      @select_funcoes <<  "#{i}"
+    end
   end
 
   def create
     @user = User.new(user_params)
     @user_show = User.all
+    #mok funcao
+    @select_funcao = Array.new
+    ar = [1,2,3,4,5]
+    ar.each do |i|
+      @select_funcao <<  "#{i}"
+    end
     if @user.save
         redirect_to new_user_path , notice: "Usuário cadastrado com sucesso."
       else
@@ -21,9 +33,12 @@ end
 
 def update
       @user = User.find(params[:id])
-      @user.update_attributes(user_params)
+      if @user.update_attributes(user_params)
+           redirect_to new_user_path, notice: "Usuário editado com sucesso."
+      else
 
-      redirect_to new_user_path, notice: "Usuário editado com sucesso."
+            redirect_to new_user_path, :flash => { :error => "Erro ao editar o usuário!" }
+      end
 end
 
 def destroy

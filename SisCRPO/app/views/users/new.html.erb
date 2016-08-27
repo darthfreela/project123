@@ -19,7 +19,9 @@
         </div>
         <hr>
         <div class="alert-error">
+            <%= flash[:error] %>
           <% if @user.errors.any? %>
+
             <div id="error_explanation">
                 O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
             </div>
@@ -95,7 +97,7 @@
                 <div class="form-group col-md-7">
 				            <!--<%= f.label :idFuncao %>-->
                     <label>Função</label>
-                    <%= f.select :idFuncao, [['Função 1', '1'], ['Função 2', '2'], ['Função 3', '3']],{}, class: "form-control" %>
+                    <%= f.select :idFuncao, options_for_select(@select_funcoes), {}, class: "form-control" %>
                 </div>
                 <div class="form-group col-md-2">
                     <!--<%= f.label :cep %>-->

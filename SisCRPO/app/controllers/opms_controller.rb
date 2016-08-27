@@ -2,10 +2,25 @@ class OpmsController < ApplicationController
     def new
       @opm = Opm.new
       @opm_show = Opm.all
+      #mock de cidades simulando retorno do banco
+      @select_cidades = Array.new
+      ar = [1,2,3,4,5]
+      ar.each do |i|
+          @select_cidades <<  "#{i}"
+      end
     end
 
     def create
       @opm = Opm.new(opm_params)
+      @opm_show = Opm.all
+
+       #mock de cidades simulando retorno do banco
+      @select_cidades = Array.new
+      ar = [1,2,3,4,5]
+      ar.each do |i|
+          @select_cidades <<  "#{i}"
+      end
+
       if @opm.save
         redirect_to new_opm_path, notice: "Opm cadastrada com sucesso."
       else
@@ -32,6 +47,6 @@ class OpmsController < ApplicationController
 
     private
     def opm_params
-      params.require(:opm).permit(:name, :nome, :cidade, :descricao)
+      params.require(:opm).permit(:sigla, :name, :nome, :cidade, :descricao)
     end
 end

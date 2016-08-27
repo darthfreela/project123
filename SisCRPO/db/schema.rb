@@ -11,10 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160827161222) do
+=======
+ActiveRecord::Schema.define(version: 20160827145333) do
+>>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ferias", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "fers", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "functions", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "funcao"
+    t.integer  "vagas"
+    t.date     "data_alteracao"
+    t.boolean  "ativo"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "gpms", id: false, force: :cascade do |t|
     t.integer  "id"
@@ -27,6 +59,19 @@ ActiveRecord::Schema.define(version: 20160827161222) do
     t.boolean  "ativo"
   end
 
+  create_table "licencas", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.string   "nome"
+    t.string   "tipo"
+    t.string   "ordem"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "dias"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "opms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -36,12 +81,22 @@ ActiveRecord::Schema.define(version: 20160827161222) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "postograduacaos", id: false, force: :cascade do |t|
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
     t.boolean  "ativo"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+=======
+  create_table "uniforms", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "uniforme"
+    t.string   "descricao"
+    t.date     "data_alteracao"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+>>>>>>> 877bb6573ee6cdf47215262fbad5e83cd1297574
   end
 
   create_table "users", force: :cascade do |t|

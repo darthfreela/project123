@@ -2,7 +2,18 @@ class User < ActiveRecord::Base
 
 
   devise :database_authenticatable, :trackable, :validatable
-
+validates :name, :username, presence: true, length: { minimum: 8, maximun: 30 } ,numericality: false
+    validates :name, :username, presence: true, length: { minimum: 5, maximun: 30 } ,numericality: false
+    validates :username, uniqueness: true, numericality: false
+    validates :password, presence: true, length: { minimum: 8, maximun: 16 }, format: { with: /\A^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,16}$\z/, on: :create }
+    validates :password_confirmation, presence: true, length: { minimum: 8, maximun: 16 }
+    validates :idFunc, uniqueness: true, numericality: true
+    validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, on: :create }
+    validates :cpf, uniqueness: true, numericality: true, presence: true, length: { minimum: 11, maximun: 11 }
+    validates :cpf, uniqueness: true, numericality: true, presence: true
+    validates :nomeGuerra, presence: true
+    validates :imagemUsuario, presence: true
+    validates :idFuncao, numericality: true
 
   def email_required?
     false
