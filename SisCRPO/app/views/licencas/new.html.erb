@@ -1,0 +1,112 @@
+ <section class="content-header">
+    <h1>
+        Gerenciamento de Licenças
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Gerenciamento de Licenças</li>
+    </ol>
+</section>
+            <section class="content">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Cadastro de Licença</h3>
+                    </div>
+        <div class="error"><%= flash[:error] %></div>
+        <% if @licenca.errors.any? %>
+        <div id="error_explanation">
+            <div class="alert-error">
+                O formulário contém <%= pluralize(@licenca.errors.count, "erro") %>.
+            </div>
+            <ul>
+                <% @licenca.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        <%= form_for @licenca do |l| %>
+                        <div class="box-body">
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-5">
+                                    <label for="Nomenclatura">Idt Func.</label>
+                                        <%= l.text_field :idFunc, PlaceHolder: "ID Func", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="Nomenclatura">Nome</label>
+                                        <%= l.text_field :nome, PlaceHolder: "Nome", class:"form-control" %>
+                                </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="sigla">Tempo da Licença</label><br>
+                            <%= l.select :dias, [['30', '30'], ['60', '60'], ['90', '90']],{}, class: "form-control" %>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                    <label for="sigla">Licença</label>
+                            <%= l.select :tipo, [['L/E', 'L/E'], ['L/TIP', 'L/TIP']],{}, class: "form-control" %>
+                                    </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Data Inicial</label>
+                                        <%= l.text_field :dataInicial, PlaceHolder: "01/01/2000", class:"form-control" %>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Data Final</label>
+                                        <%= l.text_field :dataFinal, PlaceHolder: "01/01/2000", class:"form-control" %>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-5">
+                                   <label for="Nomenclatura">Ordem</label>
+                                   <input type="text" class="form-control" id="nome" placeholder="NI 123/0000">
+                                </div>
+                              </div>
+                            </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-success" onClick="window.location = '../../pages/cadastroSiglas/linhaServico.php'">Salvar</button>
+                            <button type="close" class="btn btn-danger" onClick="window.location = '../../pages/cadastroSiglas/linhaServico.php'">Cancelar</button>
+                        </div>
+                    <% end %>
+                </div>
+            </section>
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Consultar licenças</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <% if @licenca_show.count == 0 %>
+            <tr><td>Não existem licenças cadastradas.</td></tr>
+            <% else %>
+            <table id="motivos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @licanca_show.each do |l|%>
+                    <tr>
+                        <td><%= l.id %></td>
+                        <td><%= l.nome %></td>
+                        <td><%= l.tipo %></td>
+                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'licencas', :action => 'edit', :id => g.id}, class: 'btn btn-warning', method: :get %></td>
+                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'licencas', :action => 'destroy', :id => g.id}, class: 'btn btn-danger', method: :delete %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <% end %>
+        </div>
+    </div>
+</section>
