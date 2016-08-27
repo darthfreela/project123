@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'users/new'
 
+  resources :functions
+
   resources :opms
 
   resources :gpms
