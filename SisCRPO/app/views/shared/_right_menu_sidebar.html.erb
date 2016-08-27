@@ -58,12 +58,11 @@
 
 <!-- Ferramenta Administrativa -->
   <ul class="sidebar-menu">
-  <li class="header"><%= t 'menu.ferrmentas_de_administrativa' %></li>
-    <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_company_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Companhias' %></span>
-    <% end  %>
-  </li>
-  
-</ul><!-- /.sidebar-me
+    <li class="header"><%= t 'menu.ferrmentas_de_administrativa' %></li>
+      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+        <%= link_to new_company_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span><%= t 'menu.gerenciamento_de_Companhias' %></span>
+        <% end  %>
+      </li>
+</ul><!-- /.sidebar-menu

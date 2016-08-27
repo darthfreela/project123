@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @company_show = Company.all
-    #MockObject simulndo retorno do banco para popular select funcao
+    #mok Cidade e Unidade
     @select_cidades = Array.new
     @select_unidades = Array.new
     ar = [1,2,3,4,5]
@@ -15,11 +15,13 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @company_show = Company.all
-    #mok funcao
-    @select_funcao = Array.new
+    #mok Cidade e Unidade
+    @select_cidades = Array.new
+    @select_unidades = Array.new
     ar = [1,2,3,4,5]
     ar.each do |i|
-      @select_funcao <<  "#{i}"
+      @select_cidades <<  "#{i}"
+      @select_unidades <<  "#{i}"
     end
     if @company.save
         redirect_to new_company_path , notice: "Companhia cadastrada com sucesso."
@@ -30,6 +32,13 @@ class CompaniesController < ApplicationController
 
 def edit
       @company = Company.find(params[:id])
+      @select_cidades = Array.new
+    @select_unidades = Array.new
+    ar = [1,2,3,4,5]
+    ar.each do |i|
+      @select_cidades <<  "#{i}"
+      @select_unidades <<  "#{i}"
+    end
 end
 
 def update
