@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
       @select_funcao <<  "#{i}"
     end
     if @company.save
-        redirect_to companies_new_path , notice: "Companhia cadastrada com sucesso."
+        redirect_to new_company_path , notice: "Companhia cadastrada com sucesso."
       else
         render action: :new
     end
@@ -35,17 +35,17 @@ end
 def update
       @company = Company.find(params[:id])
       if @company.update_attributes(company_params)
-           redirect_to companies_new_path, notice: "Companhia editada com sucesso."
+           redirect_to new_company_path, notice: "Companhia editada com sucesso."
       else
 
-            redirect_to companies_new_path, :flash => { :error => "Erro ao editar o Companhia!" }
+            redirect_to new_company_path, :flash => { :error => "Erro ao editar o Companhia!" }
       end
 end
 
 def destroy
       @company = Company.find(params[:id])
       @company.destroy
-      redirect_to companies_new_path, notice: "Companhia removida com sucesso."
+      redirect_to new_company_path, notice: "Companhia removida com sucesso."
 end
 
   private
