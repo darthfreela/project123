@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
+  resources :quadro_efetivo, :only => [:index]
   get 'licencas/new'
 
   get 'licencas/edit'
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
   resources :uniforms
 
   resources :functions
-
 
   resources :opms
 
