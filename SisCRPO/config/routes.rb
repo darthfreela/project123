@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  resources :companies, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :estagiarios
 

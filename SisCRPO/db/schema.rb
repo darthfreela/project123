@@ -11,11 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160827184433) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160827191826) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160827180350) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160827184433) do
+=======
+ActiveRecord::Schema.define(version: 20160827161222) do
+>>>>>>> 7b523d7f43c520be7a51419ddeb19c487da37432
+>>>>>>> 0b2399c8361f7ef720c42179843b854f510ecb94
+>>>>>>> 1057135d2eea35e2f2575ad5312b0869113df79b
+>>>>>>> d67beba5f6a428dd12b0ea6d9d9506725353dd97
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "companies", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cidade"
+    t.string   "unidade"
+    t.integer  "numero_servidor"
+    t.boolean  "ativo"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+=======
   create_table "estagiarios", force: :cascade do |t|
     t.string   "nome"
     t.string   "cpf"
@@ -30,6 +56,7 @@ ActiveRecord::Schema.define(version: 20160827184433) do
     t.integer  "vale_transporte"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+>>>>>>> 1057135d2eea35e2f2575ad5312b0869113df79b
   end
 
   create_table "ferias", force: :cascade do |t|
