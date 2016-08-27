@@ -36,10 +36,10 @@
         <span><%= t 'menu.gerenciamento_de_Uniformes' %></span>
     <% end  %>
   </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>"
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
     <%= link_to new_estagiario_path do %>
         <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_estagiários' %></span>
+        <span><%= t 'menu.gerenciamento_de_Estagiários' %></span>
     <% end  %>
   </li>
   <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
@@ -48,12 +48,22 @@
         <span><%= t 'menu.gerenciamento_de_Posto/Graduação' %></span>
       <% end  %>
   </li>
-   <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_company_path do %>
-    <% end %>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
     <%= link_to quadro_efetivo_index_path do %>
         <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_companhias' %></span>
+        <span><%= t 'menu.gerenciamento_de_QuadroEfetivo' %></span>
     <% end  %>
   </li>
 </ul><!-- /.sidebar-menu -->
+
+<!-- Ferramenta Administrativa -->
+  <ul class="sidebar-menu">
+  <li class="header"><%= t 'menu.ferrmentas_de_administrativa' %></li>
+    <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_company_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_Companhias' %></span>
+    <% end  %>
+  </li>
+  
+</ul><!-- /.sidebar-me
