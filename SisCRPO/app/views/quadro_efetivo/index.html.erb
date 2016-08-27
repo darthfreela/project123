@@ -31,72 +31,74 @@
                                 <!-- CEL -->
                                 <tr>
                                     <td>CEL(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeralCELPrevisto %></td>
+                                    <td><%= @efetivoGeralCELExistente %></td>
+                                    <td><%= @efetivoGeralCELIndisponivel %></td>
                                 </tr>
                                 <!-- TEN - CEL -->
                                 <tr>
                                     <td>Ten Cel(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeralTenCelPrevisto %></td>
+                                    <td><%= @efetivoGeralTenCelExistente %></td>
+                                    <td><%= @efetivoGeralTenCelIndisponivel %></td>
                                 </tr>
                                 <!-- MAJ -->
                                 <tr>
                                     <td>MAJ QOEM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeralMajPrevisto %></td>
+                                    <td><%= @efetivoGeralMajExistente %></td>
+                                    <td><%= @efetivoGeralMajIndisponivel %></td>
+                                </tr>
                                 </tr>
                                 <!-- CAP -->
                                 <tr>
                                     <td>CAP(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeralCapPrevisto %></td>
+                                    <td><%= @efetivoGeralCapExistente %></td>
+                                    <td><%= @efetivoGeralCapIndisponivel %></td>
+                                </tr>
                                 </tr>
                                 <!-- 1º TEN -->
                                 <tr>
                                     <td>1º Ten QTPM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeral1TenPrevisto %></td>
+                                    <td><%= @efetivoGeral1TenExistente %></td>
+                                    <td><%= @efetivoGeral1TenIndisponivel %></td>
                                 </tr>
                                 <!-- 1º SGT -->
                                 <tr>
                                     <td>1º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeral1SgtPrevisto %></td>
+                                    <td><%= @efetivoGeral1SgtExistente %></td>
+                                    <td><%= @efetivoGeral1SgtIndisponivel %></td>
                                 </tr>
                                 <!-- 2º Sgt -->
                                 <tr>
                                     <td>2º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeral2SgtPrevisto %></td>
+                                    <td><%= @efetivoGeral2SgtExistente %></td>
+                                    <td><%= @efetivoGeral2SgtIndisponivel %></td>
                                 </tr>
                                 <!-- 3º SGT -->
                                 <tr>
                                     <td>3º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeral3SgtPrevisto %></td>
+                                    <td><%= @efetivoGeral3SgtExistente %></td>
+                                    <td><%= @efetivoGeral3SgtIndisponivel %></td>
                                 </tr>
                                 <!-- SD -->
                                 <tr>
                                     <td>SD (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @efetivoGeralSdPrevisto %></td>
+                                    <td><%= @efetivoGeralSdExistente %></td>
+                                    <td><%= @efetivoGeralSdIndisponivel %></td>
                                 </tr>
                                 <!-- TOTAL -->
                                 <tr>
                                     <th>TOTAL</th>
-                                    <th>0</th>
-                                    <th>0</th>
-                                    <th>0</th>
+                                    <th><%= @efetivoTotalPrevisto %></th>
+                                    <th><%= @efetivoTotalExistente %></th>
+                                    <th><%= @efetivoTotalIndisponivel %></th>
                                 </tr>
                             </tbody>
                           </table>
@@ -126,82 +128,82 @@
                                 <!-- CEL -->
                                 <tr>
                                     <td>CEL(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @dfCELFaltas %></td>
+                                    <td><%= @dfCELFuncaoSuperior %></td>
+                                    <td><%= @dfCELVagas %></td>
+                                    <td><%= @dfCELVagasOcupadas %></td>
                                 </tr>
                                 <!-- TEN - CEL -->
                                 <tr>
                                     <td>Ten Cel(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @dfTenCelFaltas %></td>
+                                    <td><%= @dfTenCelFuncaoSuperior %></td>
+                                    <td><%= @dfTenCelVagas %></td>
+                                    <td><%= @dfTenCelVagasOcupadas %></td>
                                 </tr>
                                 <!-- MAJ -->
                                 <tr>
                                     <td>MAJ QOEM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @dfMajFaltas %></td>
+                                    <td><%= @dfMajFuncaoSuperior %></td>
+                                    <td><%= @dfMajVagas %></td>
+                                    <td><%= @dfMajVagasOcupadas %></td>
                                 </tr>
                                 <!-- CAP -->
                                 <tr>
                                     <td>CAP(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @dfCapFaltas %></td>
+                                    <td><%= @dfCapFuncaoSuperior %></td>
+                                    <td><%= @dfCapVagas %></td>
+                                    <td><%= @dfCapVagasOcupadas %></td>
                                 </tr>
                                 <!-- 1º TEN -->
                                 <tr>
                                     <td>1º Ten QTPM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @df1TenFaltas %></td>
+                                    <td><%= @df1TenFuncaoSuperior %></td>
+                                    <td><%= @df1TenVagas %></td>
+                                    <td><%= @df1TenVagasOcupadas %></td>
                                 </tr>
                                 <!-- 1º SGT -->
                                 <tr>
                                     <td>1º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @df1SgtFaltas %></td>
+                                    <td><%= @df1SgtFuncaoSuperior %></td>
+                                    <td><%= @df1SgtVagas %></td>
+                                    <td><%= @df1SgtVagasOcupadas %></td>
                                 </tr>
                                 <!-- 2º Sgt -->
                                 <tr>
                                     <td>2º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @df2SgtFaltas %></td>
+                                    <td><%= @df2SgtFuncaoSuperior %></td>
+                                    <td><%= @df2SgtVagas %></td>
+                                    <td><%= @df2SgtVagasOcupadas %></td>
                                 </tr>
                                 <!-- 3º SGT -->
                                 <tr>
                                     <td>3º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @df3SgtFaltas %></td>
+                                    <td><%= @df3SgtFuncaoSuperior %></td>
+                                    <td><%= @df3SgtVagas %></td>
+                                    <td><%= @df3SgtVagasOcupadas %></td>
                                 </tr>
                                 <!-- SD -->
                                 <tr>
                                     <td>SD (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @dfSdFaltas %></td>
+                                    <td><%= @dfSdFuncaoSuperior %></td>
+                                    <td><%= @dfSdVagas %></td>
+                                    <td><%= @dfSdVagasOcupadas %></td>
                                 </tr>
                                 <!-- TOTAL -->
                                 <tr>
                                     <th>TOTAL</th>
-                                    <th>0</th>
-                                    <th>0</th>
-                                    <th>0</th>
-                                    <th>0</th>
+                                    <th><%= @dfTotalFaltas %></th>
+                                    <th><%= @dfTotalFuncaoSuperior %></th>
+                                    <th><%= @dfTotalVagas %></th>
+                                    <th><%= @dfTotalVagasOcupadas %></th>
                                 </tr>
                             </tbody>
                           </table>
@@ -231,82 +233,82 @@
                                 <!-- CEL -->
                                 <tr>
                                     <td>CEL(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivelCELLicenca %></td>
+                                    <td><%= @indisponivelCELAgregado %></td>
+                                    <td><%= @indisponivelCELCurso %></td>
+                                    <td><%= @indisponivelCELOutrasDispensas %></td>
                                 </tr>
                                 <!-- TEN - CEL -->
                                 <tr>
                                     <td>Ten Cel(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivelTenCelLicenca %></td>
+                                    <td><%= @indisponivelTenCelAgregado %></td>
+                                    <td><%= @indisponivelTenCelCurso %></td>
+                                    <td><%= @indisponivelTenCelOutrasDispensas %></td>
                                 </tr>
                                 <!-- MAJ -->
                                 <tr>
                                     <td>MAJ QOEM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivelMajLicenca %></td>
+                                    <td><%= @indisponivelMajAgregado %></td>
+                                    <td><%= @indisponivelMajCurso %></td>
+                                    <td><%= @indisponivelMajOutrasDispensas %></td>
                                 </tr>
                                 <!-- CAP -->
                                 <tr>
                                     <td>CAP(QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivelCapLicenca %></td>
+                                    <td><%= @indisponivelCapAgregado %></td>
+                                    <td><%= @indisponivelCapCurso %></td>
+                                    <td><%= @indisponivelCapOutrasDispensas %></td>
                                 </tr>
                                 <!-- 1º TEN -->
                                 <tr>
                                     <td>1º Ten QTPM</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivel1TenLicenca %></td>
+                                    <td><%= @indisponivel1TenAgregado %></td>
+                                    <td><%= @indisponivel1TenCurso %></td>
+                                    <td><%= @indisponivel1TenOutrasDispensas %></td>
                                 </tr>
                                 <!-- 1º SGT -->
                                 <tr>
                                     <td>1º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivel1SgtLicenca %></td>
+                                    <td><%= @indisponivel1SgtAgregado %></td>
+                                    <td><%= @indisponivel1SgtCurso %></td>
+                                    <td><%= @indisponivel1SgtOutrasDispensas %></td>
                                 </tr>
                                 <!-- 2º Sgt -->
                                 <tr>
                                     <td>2º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivel2SgtLicenca %></td>
+                                    <td><%= @indisponivel2SgtAgregado %></td>
+                                    <td><%= @indisponivel2SgtCurso %></td>
+                                    <td><%= @indisponivel2SgtOutrasDispensas %></td>
                                 </tr>
                                 <!-- 3º SGT -->
                                 <tr>
                                     <td>3º Sgt (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivel3SgtLicenca %></td>
+                                    <td><%= @indisponivel3SgtAgregado %></td>
+                                    <td><%= @indisponivel3SgtCurso %></td>
+                                    <td><%= @indisponivel3SgtOutrasDispensas %></td>
                                 </tr>
                                 <!-- SD -->
                                 <tr>
                                     <td>SD (QOEM ou QOES)</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td><%= @indisponivelSdLicenca %></td>
+                                    <td><%= @indisponivelSdAgregado %></td>
+                                    <td><%= @indisponivelSdCurso %></td>
+                                    <td><%= @indisponivelSdOutrasDispensas %></td>
                                 </tr>
                                 <!-- TOTAL -->
                                 <tr>
                                     <th>TOTAL</th>
-                                    <th>0</th>
-                                    <th>0</th>
-                                    <th>0</th>
-                                    <th>0</th>
+                                    <th><%= @indisponivelTotalLicenca %></th>
+                                    <th><%= @indisponivelTotalAgregado %></th>
+                                    <th><%= @indisponivelTotalCurso %></th>
+                                    <th><%= @indisponivelTotalOutrasDispensas %></th>
                                 </tr>
                             </tbody>
                           </table>
