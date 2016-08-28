@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   get 'solicitacao_fers/new'
+=======
+  resources :companies, :only => [:new, :create, :edit, :destroy, :update]
+
+  resources :estagiarios
+>>>>>>> 3389668ad2a0093d06b16c1c4c1c0e3ac40533ea
 
   get 'users/new'
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
+<<<<<<< HEAD
+=======
+  resources :quadro_efetivo, :only => [:index]
+
+>>>>>>> 3389668ad2a0093d06b16c1c4c1c0e3ac40533ea
   get 'licencas/new'
 
   get 'licencas/edit'
@@ -15,6 +26,8 @@ Rails.application.routes.draw do
   get 'gpms/edit'
 
   get 'users/new'
+
+  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :uniforms
 
@@ -28,6 +41,12 @@ Rails.application.routes.draw do
 
   resources :licencas
 
+<<<<<<< HEAD
+=======
+
+  resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
+
+>>>>>>> 3389668ad2a0093d06b16c1c4c1c0e3ac40533ea
   resources :users, :only => [:new, :create, :edit, :destroy, :update]
 
   devise_for :users
