@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827193402) do
+ActiveRecord::Schema.define(version: 20160828140652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_user_ref_to_pointing_hours", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "add_user_ref_to_pointing_hours", ["user_id"], name: "index_add_user_ref_to_pointing_hours_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "nome"
@@ -106,6 +114,16 @@ ActiveRecord::Schema.define(version: 20160827193402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pointing_hours", force: :cascade do |t|
+    t.integer  "id_func"
+    t.date     "data_inicio"
+    t.date     "hora_inicio"
+    t.date     "data_fim"
+    t.date     "hora_fim"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "postograduacaos", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
@@ -165,5 +183,6 @@ ActiveRecord::Schema.define(version: 20160827193402) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "gpms", "opms"
 end
