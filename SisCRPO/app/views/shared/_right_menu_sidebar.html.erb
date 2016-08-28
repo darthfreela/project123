@@ -54,6 +54,18 @@
         <span><%= t 'menu.gerenciamento_de_QuadroEfetivo' %></span>
     <% end  %>
   </li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_tipo_servico_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_TipoServico' %></span>
+    <% end  %>
+  </li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_sigla_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_Sigla' %></span>
+    <% end  %>
+  </li>
 </ul><!-- /.sidebar-menu -->
 
 <!-- Ferramenta Administrativa -->

@@ -1,0 +1,96 @@
+<section class="content-header">
+    <h1>Gerenciamento de Siglas
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Gerenciamento de Siglas</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Cadastro Siglas</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <hr>
+        <div class="alert-error">
+            <%= flash[:error] %>
+            <% if @sigla.errors.any? %>
+                <div id="error_explanation">
+                    O formulário contém <%= pluralize(@sigla.errors.count, "erro") %>.
+                </div>
+                <ul>
+                    <% @sigla.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>
+        <%= form_for @sigla do |f| %>
+            <div class="box-body">
+                <div class="col-md-2 form-group ">
+                    <label>Sigla</label>
+                    <%= f.text_field :sigla, PlaceHolder: "Sigla", maxlength: "5", class:"form-control" %>
+                </div>
+                <div class="col-md-8 form-group ">
+                    <label>Nome</label>
+                    <%= f.text_field :nome, PlaceHolder: "Nome", maxlength: "80", class:"form-control" %>
+                </div>
+            </div>
+            <div class="box-footer">
+                <%= f.submit "Salvar", class: "btn btn-success"%>
+                <%= f.button "Limpar", class: "btn btn-danger"%>
+            </div>
+        <% end %>
+    </div>
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Listar Siglas</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div class="box-body">
+            <% if @sigla_show.count < 1%>
+                Não existem siglas cadastradas.
+            <% else %>
+                <table id="motivos" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Sigla</th>
+                            <th>Nome</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @sigla_show.each do |o|%>
+                            <tr>
+                                <td><%= o.id %></td>
+                                <td><%= o.sigla %></td>
+                                <td><%= o.nome %></td>
+                                <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'siglas', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'siglas', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
+        </div>
+        <div class="box-footer">
+        </div>
+    </div>
+</section>

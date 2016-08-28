@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'siglas/new'
+
+  get 'siglas/edit'
+
+  resources :siglas
+
+  get 'tipo_servicos/new'
+
+  get 'tipo_servicos/edit'
+
+  resources :tipo_servicos
+
   get 'solicitacao_fers/new'
 
   resources :companies, :only => [:new, :create, :edit, :destroy, :update]
