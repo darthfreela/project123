@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160828151021) do
+=======
+ActiveRecord::Schema.define(version: 20160828140652) do
+>>>>>>> e4a42a639b9862d3a5c24e55dfd7d411f5595498
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_user_ref_to_pointing_hours", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "add_user_ref_to_pointing_hours", ["user_id"], name: "index_add_user_ref_to_pointing_hours_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.string   "nome"
@@ -96,7 +108,21 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "siglas", force: :cascade do |t|
+=======
+  create_table "pointing_hours", force: :cascade do |t|
+    t.integer  "id_func"
+    t.date     "data_inicio"
+    t.date     "hora_inicio"
+    t.date     "data_fim"
+    t.date     "hora_fim"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "postograduacaos", force: :cascade do |t|
+>>>>>>> e4a42a639b9862d3a5c24e55dfd7d411f5595498
     t.string   "sigla"
     t.string   "nome"
     t.datetime "created_at", null: false
@@ -164,5 +190,6 @@ ActiveRecord::Schema.define(version: 20160828151021) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "gpms", "opms"
 end
