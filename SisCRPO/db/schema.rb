@@ -16,6 +16,41 @@ ActiveRecord::Schema.define(version: 20160827193402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "companies", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cidade"
+    t.string   "unidade"
+    t.integer  "numero_servidor"
+    t.boolean  "ativo"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "estagiarios", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cpf"
+    t.string   "sexo"
+    t.date     "data_nascimento"
+    t.string   "semestre"
+    t.string   "endereco"
+    t.string   "email"
+    t.string   "agcc"
+    t.integer  "dias_trabalhados"
+    t.integer  "usuario_ultima_alteracao"
+    t.integer  "vale_transporte"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "ferias", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "fers", force: :cascade do |t|
     t.integer  "idFunc"
     t.date     "dataInicial"
@@ -35,13 +70,15 @@ ActiveRecord::Schema.define(version: 20160827193402) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", force: :cascade do |t|
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
+    t.integer  "id_opm"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "cidade"
+    t.integer  "id_endereco"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "ativo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "opm_id"
   end
 
@@ -69,7 +106,7 @@ ActiveRecord::Schema.define(version: 20160827193402) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "postograduacaos", id: false, force: :cascade do |t|
+  create_table "postograduacaos", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
     t.boolean  "ativo"
