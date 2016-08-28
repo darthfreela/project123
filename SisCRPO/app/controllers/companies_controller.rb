@@ -4,10 +4,14 @@ class CompaniesController < ApplicationController
     @company_show = Company.all
     #mok Cidade e Unidade
     @select_cidades = Array.new
-    @select_unidades = Array.new
-    ar = [1,2,3,4,5]
+    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
     ar.each do |i|
       @select_cidades <<  "#{i}"
+    end
+    #mok Cidade e Unidade
+    @select_unidades = Array.new
+    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
+    ar.each do |i|
       @select_unidades <<  "#{i}"
     end
   end
@@ -17,10 +21,14 @@ class CompaniesController < ApplicationController
     @company_show = Company.all
     #mok Cidade e Unidade
     @select_cidades = Array.new
-    @select_unidades = Array.new
-    ar = [1,2,3,4,5]
+    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
     ar.each do |i|
       @select_cidades <<  "#{i}"
+    end
+    #mok Cidade e Unidade
+    @select_unidades = Array.new
+    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
+    ar.each do |i|
       @select_unidades <<  "#{i}"
     end
     if @company.save
@@ -31,12 +39,17 @@ class CompaniesController < ApplicationController
   end
 
 def edit
-      @company = Company.find(params[:id])
-      @select_cidades = Array.new
-    @select_unidades = Array.new
-    ar = [1,2,3,4,5]
+    @company = Company.find(params[:id])
+    #mok Cidade e Unidade
+    @select_cidades = Array.new
+    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
     ar.each do |i|
       @select_cidades <<  "#{i}"
+    end
+    #mok Cidade e Unidade
+    @select_unidades = Array.new
+    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
+    ar.each do |i|
       @select_unidades <<  "#{i}"
     end
 end
