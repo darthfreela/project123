@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160828151021) do
-=======
 ActiveRecord::Schema.define(version: 20160829013149) do
->>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,15 +58,6 @@ ActiveRecord::Schema.define(version: 20160829013149) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "fers", force: :cascade do |t|
-    t.integer  "idFunc"
-    t.date     "dataInicial"
-    t.date     "dataFinal"
-    t.boolean  "aprovado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -81,15 +68,14 @@ ActiveRecord::Schema.define(version: 20160829013149) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
-    t.integer  "id_opm"
+  create_table "gpms", force: :cascade do |t|
+    t.integer  "idOpm"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "id_endereco"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "cidade"
     t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "opm_id"
   end
 
@@ -127,16 +113,11 @@ ActiveRecord::Schema.define(version: 20160829013149) do
     t.datetime "updated_at",  null: false
   end
 
-<<<<<<< HEAD
   create_table "siglas", force: :cascade do |t|
-=======
-  create_table "postograduacaos", force: :cascade do |t|
->>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
     t.string   "sigla"
-    t.string   "nomePostoGraduacao"
-    t.boolean  "ativo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "solicitacao_fers", force: :cascade do |t|
@@ -146,6 +127,16 @@ ActiveRecord::Schema.define(version: 20160829013149) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
