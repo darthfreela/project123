@@ -1,9 +1,9 @@
 <section class="content">
-  <div class="box box-default">
+  <div class="box box-default collapsed-box">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de Posto/Graduação</h3>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
       </div>
     </div>
     <% if @postograduacao.errors.any? %>
@@ -42,8 +42,7 @@
       </div>
     <% end %>
   </div>
-</section>
-<section class="content">
+
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Consultar Posto/Graduação</h3>
@@ -83,16 +82,6 @@
                                 </tr>
                               <% end %>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th>Sigla</th>
-                                    <th>Nome Posto/Graduação</th>
-                                     <th>Ativo</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
                         </table>
                          <% end %>
                     </div>
