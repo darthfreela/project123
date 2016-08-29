@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
 
-  resources :distribuicao_horas_extra
-=======
+
+ resources :disthoraext
+
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+
   get 'pointing_hours/new'
 
   get 'pointing_hours/edit'
 
->>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
+
   get 'siglas/new'
 
   get 'siglas/edit'
@@ -77,6 +79,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
 
 
 

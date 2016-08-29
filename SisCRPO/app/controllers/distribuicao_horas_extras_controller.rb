@@ -1,4 +1,4 @@
-class DistribuicaoHorasExtraController < ApplicationController
+class DistribuicaoHorasExtrasController < ApplicationController
   def new
       @distribuicaohorasextra = DistribuicaoHorasExtra.new
       @distribuicaohorasextra_show = DistribuicaoHorasExtra.all
@@ -14,7 +14,7 @@ class DistribuicaoHorasExtraController < ApplicationController
     def destroy
       @distribuicaohorasextra = DistribuicaoHorasExtra.find(params[:id])
       @distribuicaohorasextra.destroy
-      redirect_to new_distribuicao_horas_extra_path, notice: "Hora extra removida com sucesso."
+      redirect_to new_distribuicao_horas_extras_path, notice: "Hora extra removida com sucesso."
     end
 
     def edit
@@ -25,7 +25,7 @@ class DistribuicaoHorasExtraController < ApplicationController
       @distribuicaohorasextra = DistribuicaoHorasExtra.find(params[:id])
       @distribuicaohorasextra.update_attributes(distribuicaohorasextra_params)
 
-      redirect_to new_distribuicao_horas_extra_path, notice: "Hora extra editada com sucesso."
+      redirect_to new_distribuicao_horas_extras_path, notice: "Hora extra editada com sucesso."
     end
 
     private
