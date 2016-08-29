@@ -33,7 +33,7 @@ class TipoServicosController < ApplicationController
       end
 
       if @tpServico.save
-          redirect_to new_tipo_servicos_path , notice: "Tipo de serviço cadastrado com sucesso."
+          redirect_to new_tipo_servico_path , notice: "Tipo de serviço cadastrado com sucesso."
       else
           render action: :new
       end
@@ -46,20 +46,20 @@ class TipoServicosController < ApplicationController
   def update
       @tpServico = TipoServico.find(params[:id])
       if @tpServico.update_attributes(tpServico_params)
-          redirect_to new_tipo_servicos_path, notice: "Tipos de serviço editado com sucesso."
+          redirect_to new_tipo_servico_path, notice: "Tipos de serviço editado com sucesso."
       else
-          redirect_to new_tipo_servicos_path, :flash => { :error => "Erro ao editar o tipo de serviço!" }
+          redirect_to new_tipo_servico_path, :flash => { :error => "Erro ao editar o tipo de serviço!" }
       end
   end
 
   def destroy
       @tpServico = TipoServico.find(params[:id])
       @tpServico.destroy
-      redirect_to new_tipo_servicos_path, notice: "Tipos de serviço removido com sucesso."
+      redirect_to new_tipo_servico_path, notice: "Tipos de serviço removido com sucesso."
   end
 
   private
   def tpServico_params
-      params.require(:tpServico).permit(:sigla, :nome, :idFuncao, :idUniformes, :ativo)
+      params.require(:tipo_servico).permit(:sigla, :nome, :idFuncao, :idUniformes, :ativo)
   end
 end

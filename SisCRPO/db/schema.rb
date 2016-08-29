@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828151021) do
+ActiveRecord::Schema.define(version: 20160829164739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,14 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pelotaos", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "gpm_id"
+  end
+
   create_table "pointing_hours", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicio"
@@ -132,6 +140,13 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -139,6 +154,16 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
