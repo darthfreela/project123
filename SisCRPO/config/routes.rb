@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'pointing_hours/new'
+
+  get 'pointing_hours/edit'
+
   get 'siglas/new'
 
   get 'siglas/edit'
