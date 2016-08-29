@@ -36,11 +36,6 @@
                 <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control" %>
             </div>
             <div class="form-group col-md-5">
-                <!--<%= f.label :numero_servidor %>-->
-                <label>Número de Servidores</label>
-                <%= f.text_field :numero_servidor, PlaceHolder: "Número de Servidor", maxlength: "80", class:"form-control" %>
-            </div>
-            <div class="form-group col-md-5">
                 <!--<%= f.label :ativo %>-->
                 <label>Ativo:</label>
                 <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>

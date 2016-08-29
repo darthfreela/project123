@@ -20,16 +20,14 @@ class TipoServicosController < ApplicationController
       @tpServico = TipoServico.new(tpServico_params)
       @tpServico_show = TipoServico.all
 
-      @select_funcoes = Array.new
-      array = [1, 2, 3, 4, 5]
-      array.each do |i|
-          @select_funcoes <<  "#{i}"
+      @select_funcao = Array.new
+      (1..5).each do |i|
+        @select_funcao <<  "#{i}"
       end
 
       @select_uniformes = Array.new
-      array = [1, 2, 3, 4, 5]
-      array.each do |i|
-          @select_uniformes << "#{i}"
+      (1..5).each do |i|
+        @select_uniformes <<  "#{i}"
       end
 
       if @tpServico.save

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160829164739) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160828151021) do
+=======
+ActiveRecord::Schema.define(version: 20160829013149) do
+>>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
+>>>>>>> 660605ea3a4b9d436da860d99e7eb86fdf789be4
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,10 +36,9 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.string   "nome"
     t.string   "cidade"
     t.string   "unidade"
-    t.integer  "numero_servidor"
     t.boolean  "ativo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "estagiarios", force: :cascade do |t|
@@ -132,7 +139,11 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
+<<<<<<< HEAD
+  create_table "siglas", force: :cascade do |t|
+=======
   create_table "postograduacaos", force: :cascade do |t|
+>>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
     t.string   "sigla"
     t.string   "nomePostoGraduacao"
     t.boolean  "ativo"

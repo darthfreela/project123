@@ -72,7 +72,7 @@ end
 
   private
   def company_params
-    params.require(:company).permit(:nome, :ativo, :cidade, :unidade, :numero_servidor)
+    params.require(:company).permit(:nome, :ativo, :cidade, :unidade)
   end
 end
 
