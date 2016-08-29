@@ -66,6 +66,12 @@
         <span><%= t 'menu.gerenciamento_de_Sigla' %></span>
     <% end  %>
   </li>
+ <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to new_distribuicao_horas_extra_path do %>
+        <i class="fa  fa-wrench"></i>
+        <span><%= t 'menu.gerenciamento_de_distribuição_de_horas_extra' %></span>
+    <% end  %>
+  </li>
 </ul><!-- /.sidebar-menu -->
 
 <!-- Ferramenta Administrativa -->

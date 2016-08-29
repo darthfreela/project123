@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  resources :distribuicao_horas_extra
   get 'siglas/new'
 
   get 'siglas/edit'

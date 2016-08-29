@@ -1,0 +1,59 @@
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Distribuição de Horas Extra</h3>
+    </div>
+    <% if @distribuicaohorasextra.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+           O formulário contém <%= pluralize(@distribuicaohorasextra.errors.count, "erro") %>.
+        </div>
+        <ul>
+         <% @distribuicaohorasextra.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= form_for @distribuicaohorasextra do |f| %>
+   <div class="box-body">
+        <div class="form-group col-md-12">
+          <div class="form-group col-md-2">
+            <%= f.label :sigla %>
+            <%= f.text_field :sigla, placeholder: "Sigla", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :idUnidade %>
+            <%= f.text_field :idUnidade, placeholder: "ID Unidade", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :unidade %>
+            <%= f.text_field :unidade, placeholder: "Nome Unidade", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :cidade %>
+            <%= f.text_field :cidade, placeholder: "Cidade", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :numeroDeHoras %>
+            <%= f.text_field :numeroDeHoras, placeholder: "Número De Horas", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :dataInicio %>
+            <%= f.date_field :dataInicio, placeholder: "Data De Início", class:"form-control" %>
+          </div>
+          <div class="form-group col-md-5">
+            <%= f.label :dataTermino %>
+            <%= f.date_field :dataTermino, placeholder: "Data De Término", class:"form-control" %>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="box-footer">
+        <%= f.submit "Salvar", class: "btn btn-success" %>
+        <%= f.button "Limpar", class: "btn btn-danger" %>
+      </div>
+    <% end %>
+  </div>
+</section>
