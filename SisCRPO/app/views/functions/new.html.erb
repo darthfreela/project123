@@ -10,8 +10,8 @@
 </section>
 <section class="content">
   <div class="box box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">Cadastro de Funções</h3>
+    <div class="box-header with-border" data-widget="collapse">
+      <h3 class="box-title" >Cadastro de Funções</h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
       </div>
@@ -56,8 +56,6 @@
       </div>
     <% end %>
   </div>
-</section>
-<section class="content">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listagem de Funções</h3>
@@ -103,7 +101,7 @@
                                       <td>Não</td>
                                     <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'functions', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id},:data => {:confirm=> "Tem certeza que deseja remover este registro?"}, class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                               <% end %>
                             </tbody>
