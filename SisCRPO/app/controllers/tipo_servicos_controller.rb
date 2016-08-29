@@ -3,15 +3,14 @@ class TipoServicosController < ApplicationController
       @tpServico = TipoServico.new
       @tpServico_show = TipoServico.all
 
-      @select_funcoes = Array.new
+      @select_funcao = Array.new
       array = [1, 2, 3, 4, 5]
       array.each do |i|
-          @select_funcoes <<  "#{i}"
+          @select_funcao <<  "#{i}"
       end
 
       @select_uniformes = Array.new
-      array = [1, 2, 3, 4, 5]
-      array.each do |i|
+      (1..5).each do |i|
           @select_uniformes << "#{i}"
       end
   end
@@ -38,6 +37,14 @@ class TipoServicosController < ApplicationController
   end
 
   def edit
+    @select_uniformes = Array.new
+      (1..5).each do |i|
+        @select_uniformes <<  "#{i}"
+      end
+    @select_funcao = Array.new
+      (1..5).each do |i|
+        @select_funcao <<  "#{i}"
+      end
       @tpServico = TipoServico.find(params[:id])
   end
 
