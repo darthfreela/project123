@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-4 form-group">
                     <label>Uniformes</label>
-                    <%= f.select :idUniformes, options_for_select(@select_uniformes), {}, class: "form-control" %>
+                    <%= f.select :idUniformes, options_for_select(@select_uniformes), {}, class: "form-control select2", multiple: "multiple" %>
                 </div>
                 <div class="col-md-2 form-group">
                     <label>Ativo</label>
@@ -95,7 +95,7 @@
                                 <td><%= o.sigla %></td>
                                 <td><%= o.nome %></td>
                                 <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'tipos_Servicos', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'tipos_Servicos', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'opms', :action => 'destroy', :id => o.id}, :data => {:confirm=>'Deseja realmente remover este registro?'},  class: 'btn btn-danger', method: :delete %></td>
                             </tr>
                         <% end %>
                     </tbody>

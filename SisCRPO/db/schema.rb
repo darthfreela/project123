@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160828151021) do
-=======
-ActiveRecord::Schema.define(version: 20160828140652) do
->>>>>>> e4a42a639b9862d3a5c24e55dfd7d411f5595498
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,9 +104,6 @@ ActiveRecord::Schema.define(version: 20160828140652) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-  create_table "siglas", force: :cascade do |t|
-=======
   create_table "pointing_hours", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicio"
@@ -121,8 +114,7 @@ ActiveRecord::Schema.define(version: 20160828140652) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "postograduacaos", force: :cascade do |t|
->>>>>>> e4a42a639b9862d3a5c24e55dfd7d411f5595498
+  create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
     t.datetime "created_at", null: false

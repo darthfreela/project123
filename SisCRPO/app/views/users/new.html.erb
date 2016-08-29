@@ -1,4 +1,4 @@
-
+<%= javascript_include_tag 'users' %>
 <section class="content-header">
     <h1>
         Gerenciamento de Usuário
@@ -47,12 +47,12 @@
 			          <div class="form-group col-md-2">
 				            <!--<%= f.label  :cpf %>-->
                     <label>CPF</label>
-                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control" %>
+                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
                 </div>
 			          <div class="form-group col-md-2">
 				            <!--<%= f.label :dataNascimento %>-->
                     <label>Data Nascimento</label>
-                    <%= f.date_field :dataNascimento, class:"form-control" %>
+                    <%= f.date_field :dataNascimento, class:"form-control data" %>
                 </div>
 			          <div class="form-group col-md-8">
 				            <!--<%= f.label :nomeGuerra %>-->
@@ -97,12 +97,12 @@
                 <div class="form-group col-md-7">
 				            <!--<%= f.label :idFuncao %>-->
                     <label>Função</label>
-                    <%= f.select :idFuncao, options_for_select(@select_funcoes), {}, class: "form-control" %>
+                    <%= f.select :idFuncao, options_for_select(@select_funcoes), {}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-2">
                     <!--<%= f.label :cep %>-->
                     <label>CEP</label>
-                    <%= f.text_field :cep, PlaceHolder: "CEP", class:"form-control" %>
+                    <%= f.text_field :cep, PlaceHolder: "CEP", class:"form-control cep" %>
                 </div>
                 <div class="form-group col-md-7">
                     <!--<%= f.label :endereco %>-->
@@ -117,12 +117,12 @@
                 <div class="form-group col-md-5">
                     <!--<%= f.label :cidade %>-->
                     <label>Cidade</label>
-                    <%= f.select :cidade, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control" %>
+                    <%= f.select :cidade, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-5">
                     <!--<%= f.label :estado %>-->
                     <label>Estado</label>
-                    <%= f.select :estado, [['Rio Grande Do Sul', 'RS'], ['Santa Catarina', 'SC'], ['São Paulo', 'SP']],{}, class: "form-control" %>
+                    <%= f.select :estado, [['Rio Grande Do Sul', 'RS'], ['Santa Catarina', 'SC'], ['São Paulo', 'SP']],{}, class: "form-control select2" %>
                 </div>
             </div>
             <div class="box-footer">
