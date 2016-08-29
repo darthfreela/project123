@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
 
   resources :distribuicao_horas_extra
+=======
+  get 'pointing_hours/new'
+
+  get 'pointing_hours/edit'
+
+>>>>>>> f31588a09042a1c5cfa63174f9943ecc9f50b215
   get 'siglas/new'
 
   get 'siglas/edit'
