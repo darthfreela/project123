@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160829013149) do
+=======
 ActiveRecord::Schema.define(version: 20160829164739) do
+>>>>>>> 553998f55c0b1d5725af8f5348721e8f68504f7f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,15 +62,6 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "fers", force: :cascade do |t|
-    t.integer  "idFunc"
-    t.date     "dataInicial"
-    t.date     "dataFinal"
-    t.boolean  "aprovado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -77,15 +72,14 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
-    t.integer  "id_opm"
+  create_table "gpms", force: :cascade do |t|
+    t.integer  "idOpm"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "id_endereco"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "cidade"
     t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "opm_id"
   end
 
@@ -131,15 +125,11 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "postograduacaos", force: :cascade do |t|
-    t.string   "sigla"
-    t.string   "nomePostoGraduacao"
-    t.boolean  "ativo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
+<<<<<<< HEAD
   create_table "siglas", force: :cascade do |t|
+=======
+  create_table "postograduacaos", force: :cascade do |t|
+>>>>>>> 553998f55c0b1d5725af8f5348721e8f68504f7f
     t.string   "sigla"
     t.string   "nome"
     t.datetime "created_at", null: false

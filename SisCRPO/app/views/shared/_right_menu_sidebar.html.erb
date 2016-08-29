@@ -8,73 +8,77 @@
   </li>
 </ul><!-- /.sidebar-menu -->
 
-
 <!-- Ferramentas de Usuário -->
   <ul class="sidebar-menu">
   <li class="header"><%= t 'menu.ferrmentas_de_usuário' %></li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to users_new_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_usuários' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_opm_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Opms' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_function_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Funções' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_uniform_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Uniformes' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_estagiario_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Estagiários' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_postograduacao_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Posto/Graduação' %></span>
-      <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to quadro_efetivo_index_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_QuadroEfetivo' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_tipo_servico_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_TipoServico' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_sigla_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_Sigla' %></span>
-    <% end  %>
+  <li class="treeview">
+      <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Gerenciar</span>
+          <!--<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>-->
+      </a>
+      <ul class="treeview-menu" style="display: none;">
+          <li class="<%= ative_se_pagina_atual(users_new_path, true) %>">
+            <%= link_to users_new_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.usuários' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_opm_path, true) %>">
+            <%= link_to new_opm_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Opms' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_function_path, true) %>">
+            <%= link_to new_function_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Funções' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_uniform_path, true) %>">
+            <%= link_to new_uniform_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Uniformes' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_estagiario_path, true) %>">
+            <%= link_to new_estagiario_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Estagiários' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_postograduacao_path, true) %>">
+            <%= link_to new_postograduacao_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Posto/Graduação' %></span>
+              <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
+            <%= link_to quadro_efetivo_index_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.QuadroEfetivo' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_tipo_servico_path, true) %>">
+            <%= link_to new_tipo_servico_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.TipoServico' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_sigla_path, true) %>">
+            <%= link_to new_sigla_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Sigla' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_company_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.gerenciamento_de_Companhias' %></span>
+            <% end  %>
+          </li>
+      </ul>
   </li>
 </ul><!-- /.sidebar-menu -->
-
-<!-- Ferramenta Administrativa -->
-  <ul class="sidebar-menu">
-    <li class="header"><%= t 'menu.ferrmentas_de_administrativa' %></li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-        <%= link_to new_company_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.gerenciamento_de_Companhias' %></span>
-        <% end  %>
-      </li>
-</ul><!-- /.sidebar-menu
