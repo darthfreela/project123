@@ -124,12 +124,11 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "postograduacaos", force: :cascade do |t|
+  create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
-    t.string   "nomePostoGraduacao"
-    t.boolean  "ativo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "solicitacao_fers", force: :cascade do |t|
@@ -139,6 +138,16 @@ ActiveRecord::Schema.define(version: 20160828151021) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
