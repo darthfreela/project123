@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "fers", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -68,14 +77,15 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", force: :cascade do |t|
-    t.integer  "idOpm"
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
+    t.integer  "id_opm"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "cidade"
+    t.integer  "id_endereco"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "ativo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "opm_id"
   end
 
