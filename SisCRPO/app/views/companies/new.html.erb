@@ -33,25 +33,26 @@
         </div>
         <%= form_for @company do |f| %>
             <div class="box-body">
-            	<div class="form-group col-md-8">
+
+                <div class="form-group col-md-5">
                     <!--<%= f.label :cidade %>-->
                     <label>Cidade</label>
-                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control" %>
+                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control select2" %>
                 </div>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-7">
 				            <!--<%= f.label :nome %>-->
                     <label>Nome</label>
                     <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
                 </div>
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-5">
                     <!--<%= f.label :unidade %>-->
                     <label>Unidade</label>
-                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control" %>
+                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control select2" %>
                 </div>
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-2">
 				            <!--<%= f.label :ativo %>-->
-                    <label>Ativo:</label>
-                    <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+                    <label>Ativo</label>
+                    <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
                 </div>
             </div>
             <div class="box-footer">
@@ -99,7 +100,7 @@
                                     <td><%= o.unidade %></td>
                                     <td><%= o.ativo %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'companies', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                             <% end %>
                         <% end %>

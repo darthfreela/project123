@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160829151021) do
+=======
+ActiveRecord::Schema.define(version: 20160829164739) do
+>>>>>>> 9d165fa412a9aef49986340e02ed8c6c8c67af82
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +139,14 @@ ActiveRecord::Schema.define(version: 20160829151021) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pelotaos", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cidade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "gpm_id"
+  end
+
   create_table "pointing_hours", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicio"
@@ -145,12 +157,11 @@ ActiveRecord::Schema.define(version: 20160829151021) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "postograduacaos", force: :cascade do |t|
+  create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
-    t.string   "nomePostoGraduacao"
-    t.boolean  "ativo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "siglas", force: :cascade do |t|

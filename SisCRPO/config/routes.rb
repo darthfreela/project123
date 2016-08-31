@@ -17,13 +17,12 @@ Rails.application.routes.draw do
 
   resources :siglas
 
-  get 'tipo_servicos/new'
 
-  get 'tipo_servicos/edit'
-
-  resources :tipo_servicos
+  resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 
   get 'solicitacao_fers/new'
+
+  resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :companies, :only => [:new, :create, :edit, :destroy, :update]
 
