@@ -60,6 +60,6 @@ class TipoServicosController < ApplicationController
 
   private
   def tpServico_params
-      params.require(:tpServico).permit(:sigla, :nome, :idFuncao, :idUniformes, :ativo)
+      params.require(:tipo_servico).permit(:sigla, :nome, :idFuncao, :idUniformes, :ativo)
   end
 end

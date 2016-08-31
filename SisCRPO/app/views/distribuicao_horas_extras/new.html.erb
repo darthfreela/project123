@@ -94,8 +94,8 @@
                                     <td><%= o.numeroDeHoras %></td>
                                     <td><%= o.dataInicio %></td>
                                     <td><%= o.dataTermino %></td>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'distribuicaohorasextra', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'distribuicaohorasextra', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'distribuicao_horas_extras', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'distribuicao_horas_extras', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                               <% end %>
                             </tbody>
