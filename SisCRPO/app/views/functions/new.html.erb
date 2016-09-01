@@ -1,4 +1,5 @@
 <section class="content-header">
+<<<<<<< HEAD
     <h1>
         Gerenciamento de Funções
     </h1>
@@ -11,6 +12,21 @@
   <div class="box box-default collapsed-box">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de Funções</h3>
+=======
+	<h1>
+		Gerenciamento de Funções
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#">Ferramentas do usuário</a></li>
+		<li class="active">Gerenciamento de Funções</li>
+	</ol>
+</section>
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border" data-widget="collapse">
+      <h3 class="box-title" >Cadastro de Funções</h3>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
       </div>
@@ -56,8 +72,6 @@
       </div>
     <% end %>
   </div>
-</section>
-<section class="content">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Listagem de Funções</h3>
@@ -77,7 +91,11 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                       <% if @function_show.count < 1 %>
+<<<<<<< HEAD
                         Não existem Funções cadastradas.
+=======
+                        <tr><td>Não existem Funções cadastradas.</td></tr>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
                       <% else %>
                         <table id="motivos" class="table table-bordered table-striped">
                             <thead>
@@ -104,7 +122,11 @@
                                       <td>Não</td>
                                     <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'functions', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+<<<<<<< HEAD
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id}, :data => {:confirm => "Realmente deseja excluir este registro?"}, class: 'btn btn-danger', method: :delete %></td>
+=======
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id},:data => {:confirm=> "Tem certeza que deseja remover este registro?"}, class: 'btn btn-danger', method: :delete %></td>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
                                 </tr>
                               <% end %>
                             </tbody>
