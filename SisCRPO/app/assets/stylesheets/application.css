@@ -51,3 +51,7 @@
     background: #1e282c;
     border-left-color: #3a3847;
 }
+
+.select2 {
+    width: 100% !important;
+}

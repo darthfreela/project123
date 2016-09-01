@@ -30,28 +30,29 @@
     <% end %>
     <%= form_for @function do |f| %>
       <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
+
+          <div class="form-group col-md-3">
+            <label>Sigla*</label>
             <%= f.text_field :sigla, placeholder: "Descreva uma sigla para a função!", maxlength: "6", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome_da_função %>
+          <div class="form-group col-md-9">
+            <label>Nome da Função*</label>
             <%= f.text_field :funcao, placeholder: "Descreva um nome para a função!", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :número_de_vagas %>
+          <div class="form-group col-md-3">
+            <label>Número de Vagas*</label>
             <%= f.text_field :vagas, placeholder: "Número de vagas para a função!", class: "form-control" %>
           </div>
-        </div>
+
         <div class="form-group col-md-2">
-            <%= f.label :ativo %>
-            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+            <label>Ativo*</label>
+            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
         </div>
       </div>
       <div class="box-footer">
         <%= f.submit "Salvar", class: "btn btn-success" %>
         <%= f.button "Limpar", class: "btn btn-danger" %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
       </div>
     <% end %>
   </div>
@@ -75,12 +76,13 @@
                     <hr>
                     <!-- /.box-header -->
                     <div class="box-body">
-                      <% if @function_show.count < 2 %>
-                        <tr><td>Não existem Funções cadastradas.</td></tr>
+                      <% if @function_show.count < 1 %>
+                        Não existem Funções cadastradas.
                       <% else %>
                         <table id="motivos" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Sigla</th>
                                     <th>Descrição</th>
                                     <th>Qtd Vagas</th>
@@ -102,7 +104,7 @@
                                       <td>Não</td>
                                     <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'functions', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id}, :data => {:confirm => "Realmente deseja excluir este registro?"}, class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                               <% end %>
                             </tbody>
