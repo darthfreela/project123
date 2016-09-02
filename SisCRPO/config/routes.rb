@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
+
+
+ resources :disthoraext
+
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+
   get 'pointing_hours/new'
 
   get 'pointing_hours/edit'
+
 
   get 'siglas/new'
 
@@ -31,9 +38,7 @@ Rails.application.routes.draw do
 
   get 'licencas/edit'
 
-  get 'gpms/new'
-
-  get 'gpms/edit'
+  resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'users/new'
 
@@ -71,6 +76,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
 
 
 

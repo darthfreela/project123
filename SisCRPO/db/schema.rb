@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829164739) do
+ActiveRecord::Schema.define(version: 20160830223740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,28 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.boolean  "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "disthoraextras", force: :cascade do |t|
+    t.integer  "idUnidade"
+    t.string   "unidade"
+    t.string   "cidade"
+    t.decimal  "numeroDeHoras"
+    t.date     "dataInicio"
+    t.date     "dataTermino"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "distribuicao_horas_extras", force: :cascade do |t|
+    t.integer  "idUnidade"
+    t.string   "unidade"
+    t.string   "cidade"
+    t.decimal  "numeroDeHoras"
+    t.date     "dataInicio"
+    t.date     "dataTermino"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "estagiarios", force: :cascade do |t|
@@ -131,6 +153,14 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "postograduacaos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nomePostoGraduacao"
+    t.boolean  "ativo"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -145,6 +175,17 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "subst_temps", force: :cascade do |t|
+    t.integer  "idFuncSubstituido"
+    t.integer  "idFuncSubstituto"
+    t.string   "motivIndisponibilidade"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "nrBoletim"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "tipo_servicos", force: :cascade do |t|

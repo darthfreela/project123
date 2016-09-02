@@ -1,4 +1,5 @@
 <section class="content-header">
+<<<<<<< HEAD
     <h1>
         Gerenciamento de Funções
     </h1>
@@ -7,13 +8,27 @@
         <li><a href="#">Ferramentas do usuário</a></li>
         <li class="active">Gerenciamento de Funções</li>
     </ol>
+
+  <div class="box box-default collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Funções</h3>
+=======
+	<h1>
+		Gerenciamento de Funções
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="#">Ferramentas do usuário</a></li>
+		<li class="active">Gerenciamento de Funções</li>
+	</ol>
 </section>
 <section class="content">
   <div class="box box-default">
     <div class="box-header with-border" data-widget="collapse">
       <h3 class="box-title" >Cadastro de Funções</h3>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
       </div>
     </div>
     <div class="error"><%= flash[:error] %></div>
@@ -31,28 +46,36 @@
     <% end %>
     <%= form_for @function do |f| %>
       <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
+
+          <div class="form-group col-md-3">
+            <label>Sigla*</label>
             <%= f.text_field :sigla, placeholder: "Descreva uma sigla para a função!", maxlength: "6", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome_da_função %>
+          <div class="form-group col-md-9">
+            <label>Nome da Função*</label>
             <%= f.text_field :funcao, placeholder: "Descreva um nome para a função!", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :número_de_vagas %>
+          <div class="form-group col-md-3">
+            <label>Número de Vagas*</label>
             <%= f.text_field :vagas, placeholder: "Número de vagas para a função!", class: "form-control" %>
           </div>
+<<<<<<< HEAD
         </div>
         <div class="form-group col-md-5">
             <%= f.label :ativo %>
             <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+=======
+
+        <div class="form-group col-md-2">
+            <label>Ativo*</label>
+            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
+>>>>>>> cfff180723db0a5ac76f4a568e9456db8774b489
         </div>
       </div>
       <div class="box-footer">
         <%= f.submit "Salvar", class: "btn btn-success" %>
         <%= f.button "Limpar", class: "btn btn-danger" %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
       </div>
     <% end %>
   </div>
@@ -75,7 +98,11 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                       <% if @function_show.count < 1 %>
+<<<<<<< HEAD
+                        Não existem Funções cadastradas.
+=======
                         <tr><td>Não existem Funções cadastradas.</td></tr>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
                       <% else %>
                         <table id="motivos" class="table table-bordered table-striped">
                             <thead>
@@ -102,7 +129,11 @@
                                       <td>Não</td>
                                     <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'functions', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+<<<<<<< HEAD
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id}, :data => {:confirm => "Realmente deseja excluir este registro?"}, class: 'btn btn-danger', method: :delete %></td>
+=======
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id},:data => {:confirm=> "Tem certeza que deseja remover este registro?"}, class: 'btn btn-danger', method: :delete %></td>
+>>>>>>> c042f2932bda44b612d50f080f6cd258ad47ef5c
                                 </tr>
                               <% end %>
                             </tbody>
