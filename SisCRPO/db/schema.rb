@@ -153,14 +153,6 @@ ActiveRecord::Schema.define(version: 20160830223740) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "postograduacaos", force: :cascade do |t|
-    t.string   "sigla"
-    t.string   "nomePostoGraduacao"
-    t.boolean  "ativo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
   create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
