@@ -42,9 +42,7 @@ Rails.application.routes.draw do
 
   get 'licencas/edit'
 
-  get 'gpms/new'
-
-  get 'gpms/edit'
+  resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'users/new'
 

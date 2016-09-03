@@ -9,6 +9,7 @@
     </ol>
 </section>
 <section class="content">
+<<<<<<< HEAD
   <div class="box box-default">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de GPM</h3>
@@ -108,3 +109,95 @@
                     </div>
                 </div>
             </section>
+=======
+	<div class="box box-default collapsed-box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Cadastro de GPM</h3>
+			<div class="box-tools pull-right">
+        			<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+      		</div>
+		</div>
+		<div class="error"><%= flash[:error] %></div>
+		<% if @gpm.errors.any? %>
+		<div id="error_explanation">
+			<div class="alert-error">
+				O formulário contém <%= pluralize(@gpm.errors.count, "erro") %>.
+			</div>
+			<ul>
+				<% @gpm.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %>
+		<%= form_for @gpm do |g| %>
+			<div class="box-body">
+				<div class="bs-example">
+					<div class="col-md-12">
+
+						<div class="form-group col-md-6">
+							<label for="sigla">Nome</label>
+							<%= g.text_field :nome, PlaceHolder: "Nome companhia", class:"form-control" %>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<div class="form-group col-md-3">
+							<label>Unidade</label>
+							<%= g.select :opm_id, [['Caxias do Sul - Parque Getúlio Vargas', '1'], ['Caxias do Sul - Cruzeiro', '2'], ['Caxias do Sul - Cruzeiro', '3']],{}, class: "form-control" %>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="ativo select2">Ativo</label>
+							<%= g.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="sigla">Sigla</label>
+							<%= g.text_field :sigla, PlaceHolder: "Sigla da companhia", class:"form-control" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-footer">
+				<%= g.submit "Salvar", Class: "btn btn-success" %>
+				<%= g.button "Limpar", Class: "btn btn-danger" %>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="box">
+		<div class="box-header">
+			<h3 class="box-title">Consultar GPM</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div>
+		</div>
+		<div class="box-body">
+			<% if @gpm_show.count == 0 %>
+			<tr><td>Não existem GPMs cadastradas.</td></tr>
+			<% else %>
+			<table id="motivos" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Nome</th>
+						<th>Unidade</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @gpm_show.each do |g|%>
+					<tr>
+						<td><%= g.id %></td>
+						<td><%= g.nome %></td>
+						<td><%= g.opm_id %></td>
+						<td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'gpms', :action => 'edit', :id => g.id}, class: 'btn btn-warning', method: :get %></td>
+						<td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'gpms', :action => 'destroy', :id => g.id}, class: 'btn btn-danger', method: :delete %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% end %>
+		</div>
+	</div>
+</section>
+>>>>>>> 049b34b3b9379c31c4732893449938521ac8e6ce
