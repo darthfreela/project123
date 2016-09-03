@@ -14,7 +14,9 @@
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de Funções</h3>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-plus"></i>
+        </button>
       </div>
     </div>
     <div class="error"><%= flash[:error] %></div>
@@ -96,8 +98,8 @@
                         <td><%= o.id %></td>
                         <td><%= o.sigla %></td>
                         <td><%= o.funcao %></td>
-                        <td><%= o.vagas %></td>
-                        <td><%= o.data_alteracao %></td>
+                        <td><%= o.vagas %></td>                      
+                        <td><%= o.updated_at.to_s(:format_date) %></td>
                         <%if o.ativo == true%>
                           <td>Sim</td>
                         <% else %>
