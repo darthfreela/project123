@@ -31,6 +31,12 @@
                 <span><%= t 'menu.Opms' %></span>
             <% end  %>
           </li>
+          <li class="<%= ative_se_pagina_atual(new_opm_path, true) %>">
+            <%= link_to new_gpm_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Gpms' %></span>
+            <% end  %>
+          </li>
           <li class="<%= ative_se_pagina_atual(new_function_path, true) %>">
             <%= link_to new_function_path do %>
                 <i class="fa  fa-wrench"></i>
@@ -79,18 +85,18 @@
               <span><%= t 'menu.Companhias' %></span>
             <% end  %>
           </li>
+           <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_distribuicao_horas_extra_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.HoraExtra' %></span>
+            <% end  %>
+          </li>
+            <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to substituicao_temporarias_new_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.SubstituiçãoTemporária' %></span>
+            <% end  %>
+          </li>
       </ul>
   </li>
- <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_distribuicao_horas_extra_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_distribuição_de_horas_extra' %></span>
-    <% end  %>
-  </li>
-  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-    <%= link_to new_disthoraext_path do %>
-        <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.gerenciamento_de_distribuição_de_horas_extraOK' %></span>
-    <% end  %>
-  </li>
-</ul><!-- /.sidebar-menu -->
+ </ul><!-- /.sidebar-menu -->

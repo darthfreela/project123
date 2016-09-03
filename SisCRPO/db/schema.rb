@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160829151021) do
-=======
-ActiveRecord::Schema.define(version: 20160829164739) do
->>>>>>> 9d165fa412a9aef49986340e02ed8c6c8c67af82
+ActiveRecord::Schema.define(version: 20160902232029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,19 +99,14 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
-    t.integer  "id_opm"
+  create_table "gpms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "id_endereco"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "ativo"
-    t.integer  "opm_id"
+    t.string   "cidade"
+    t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
 
   create_table "licencas", force: :cascade do |t|
     t.integer  "idFunc"
@@ -157,11 +148,12 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "siglas", force: :cascade do |t|
+  create_table "postograduacaos", force: :cascade do |t|
     t.string   "sigla"
-    t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "nomePostoGraduacao"
+    t.boolean  "ativo"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "siglas", force: :cascade do |t|
@@ -178,6 +170,34 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "subst_temps", force: :cascade do |t|
+    t.integer  "idFuncSubstituido"
+    t.integer  "idFuncSubstituto"
+    t.string   "motivIndisponibilidade"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "nrBoletim"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "substituicao_temporaria", force: :cascade do |t|
+    t.integer  "idFunc1"
+    t.string   "nomeServidor1"
+    t.string   "postoGraduacao1"
+    t.string   "funcao1"
+    t.integer  "idFunc2"
+    t.string   "nomeServidor2"
+    t.string   "postoGraduacao2"
+    t.string   "funcao2"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "motivoIndisponibilidade"
+    t.date     "data1"
+    t.date     "data2"
+    t.integer  "numeroBoletim"
   end
 
   create_table "tipo_servicos", force: :cascade do |t|
@@ -233,5 +253,4 @@ ActiveRecord::Schema.define(version: 20160829164739) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
-  add_foreign_key "gpms", "opms"
 end

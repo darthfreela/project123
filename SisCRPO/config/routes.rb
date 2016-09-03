@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'substituicao_temporarias/new'
+
+  get 'substituicao_temporarias/edit'
+
  resources :disthoraext
 
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
