@@ -7,13 +7,14 @@
         <li><a href="#">Ferramentas do usuário</a></li>
         <li class="active">Gerenciamento de Uniformes</li>
     </ol>
-</section>
-<section class="content">
-  <div class="box box-default">
+
+  <div class="box box-default collapsed-box">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de Uniformes</h3>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-plus"></i>
+        </button>
       </div>
     </div>
     <div class="error"><%= flash[:error] %></div>
@@ -31,21 +32,22 @@
     <% end %>
     <%= form_for @uniform do |f| %>
       <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
-            <%= f.text_field :sigla, placeholder: "Descreva uma sigla para o uniforme!", maxlength: "6", class:"form-control" %>
+          <div class="form-group col-md-3">
+            <label>Sigla*</label>
+            <%= f.text_field :sigla, placeholder: "Descreva uma sigla para o uniforme!",
+             maxlength: "6", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome_do_uniforme %>
-            <%= f.text_field :uniforme, placeholder: "Descreva um nome para o uniforme!", class:"form-control" %>
+          <div class="form-group col-md-9">
+            <label>Nome do uniforme*</label>
+            <%= f.text_field :uniforme, placeholder: "Descreva um nome para o uniforme!",
+             class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :descricao_para_o_uniforme %>
-            <%= f.text_area :descricao, placeholder: "Descreva o uniforme em 400 caracteres!", class: "form-control", size: "24x6" %>
+          <div class="form-group col-md-12">
+            <label>Descrição para o uniforme*</label>
+            <%= f.text_area :descricao, placeholder: "Descreva o uniforme em 400 caracteres!",
+             class: "form-control", size: "24x6" %>
           </div>
         </div>
-      </div>
       <div class="box-footer">
         <%= f.submit "Salvar", class: "btn btn-success" %>
         <%= f.button "Limpar", class: "btn btn-danger" %>
@@ -54,50 +56,57 @@
   </div>
 </section>
 <section class="content">
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Listagem de Uniformes</h3>
-                        <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
-                            </span>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                      <% if @uniform_show.count < 1 %>
-                        <tr><td>Não existem Uniformes cadastrados.</td></tr>
-                      <% else %>
-                        <table id="motivos" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Sigla</th>
-                                    <th>Nome do Uniforme</th>
-                                    <th>Ultima alteração</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              <% @uniform_show.each do |o|%>
-                                <tr>
-                                    <td><%= o.id %></td>
-                                    <td><%= o.sigla %></td>
-                                    <td><%= o.uniforme %></td>
-                                    <td><%= o.data_alteracao %></td>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'uniforms', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'uniforms', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
-                                </tr>
-                              <% end %>
-                            </tbody>
-                          </table>
-                        <% end %>
-                    </div>
-                </div>
-            </section>
+  <div class="box">
+      <div class="box-header">
+          <h3 class="box-title">Listagem de Uniformes</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+      </div>
+      <div class="box-body">
+          <div class="input-group input-group-sm">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+              </span>
+          </div>
+      </div>
+      <hr>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <% if @uniform_show.count < 1 %>
+          <tr><td>Não existem Uniformes cadastrados.</td></tr>
+        <% else %>
+          <table id="motivos" class="table table-bordered table-striped">
+              <thead>
+                  <tr>
+                      <th></th>
+                      <th>Sigla</th>
+                      <th>Nome do Uniforme</th>
+                      <th>Ultima alteração</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% @uniform_show.each do |o|%>
+                  <tr>
+                      <td><%= o.id %></td>
+                      <td><%= o.sigla %></td>
+                      <td><%= o.uniforme %></td>
+                      <td><%= o.updated_at.to_s(:format_date) %></td>
+                      <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                       {:controller => 'uniforms', :action => 'edit', :id => o.id},
+                        class: 'btn btn-warning', method: :get %></td>
+                      <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                       {:controller => 'uniforms', :action => 'destroy', :id => o.id},
+                       :data => {:confirm => "Realmente deseja excluir este registro?"},
+                        class: 'btn btn-danger', method: :delete %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+      </div>
+  </div>
+</section>
