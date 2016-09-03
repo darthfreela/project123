@@ -1,59 +1,57 @@
-<section class="content">
-  <div class="box box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">Cadastro de Distribuição Horas Extras</h3>
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-      </div>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Cadastro de Distribuição de Hora Extra</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
     </div>
-    <% if @distribuicaohorasextra.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@distribuicaohorasextra.errors.count, "erro") %>.
+    <hr>
+    <div class="alert-error">
+      <% if @distribuicaohorasextra.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@distribuicaohorasextra.errors.count, "erro") %>.
         </div>
         <ul>
-         <% @distribuicaohorasextra.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
+            <% @distribuicaohorasextra.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
         </ul>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <%= form_for @distribuicaohorasextra do |f| %>
-      <div class="box-body">
+<div class="box-body">
         <div class="form-group col-md-12">
-
-          <div class="form-group col-md-5">
-            <%= f.label :idUnidade %>
-            <%= f.text_field :idUnidade, placeholder: "ID Unidade", class:"form-control" %>
+          <div class="form-group col-md-2">
+            <label>Id Unidade</label>
+            <%= f.text_field :idUnidade, placeholder: "ID Unidade", maxlength: "11", class:"form-control" %>
           </div>
           <div class="form-group col-md-5">
-            <label>Unidade *</label>
-            <%= f.text_field :unidade, placeholder: "Nome Unidade", class:"form-control" %>
+            <label>Unidade</label>
+            <%= f.text_field :unidade, placeholder: "Nome Unidade", maxlength: "80",class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :cidade %>
-            <%= f.text_field :cidade, placeholder: "Cidade", class:"form-control" %>
+          <div class="form-group col-md-2">
+            <label>Cidade</label>
+           <%= f.select :cidade, [[' ', '0'], ['Passo Fundo', '1'], ['Vacaria', '2'],['Caxias do Sul', '3']],{}, class: "form-control select2" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :numeroDeHoras %>
-            <%= f.text_field :numeroDeHoras, placeholder: "Número De Horas", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :dataInicio %>
-            <%= f.date_field :dataInicio, placeholder: "Data De Início", class:"form-control" %>
+          <div class="form-group col-md-12">
+          <div class="form-group col-md-2">
+            <label>Número de horas</label>
+            <%= f.text_field :numeroDeHoras, placeholder: "Número de  Horas", class:"form-control" %>
           </div>
-          <div class="form-group col-md-5">
-            <%= f.label :dataTermino %>
-            <%= f.date_field :dataTermino, placeholder: "Data De Término", class:"form-control" %>
+               <div class="form-group col-md-3">
+            <label>Data Início</label>
+            <%= f.date_field :dataInicio, placeholder: "Data Inicio", class:"form-control data" %>
           </div>
-
-        </div>
-
+          <div class="form-group col-md-3">
+            <label>Data Término</label>
+            <%= f.date_field :dataTermino, placeholder: "Data Término", class:"form-control data" %>
+          </div>
       </div>
       <div class="box-footer">
         <%= f.submit "Salvar", class: "btn btn-success" %>
         <%= f.button "Limpar", class: "btn btn-danger" %>
       </div>
-    <% end %>
+  <% end %>
   </div>
 </section>

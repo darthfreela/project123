@@ -4,21 +4,19 @@ class UsersController < ApplicationController
     @user = User.new
     @user_show = User.all
     #MockObject simulndo retorno do banco para popular select funcao
-    @select_funcoes = Array.new
-    (1..5).each do |i|
-      @select_funcoes <<  "#{i}"
-    end
+    @select_funcoes = Function.all
+
   end
 
   def create
     @user = User.new(user_params)
     @user_show = User.all
     #mok funcao
-    @select_funcao = Array.new
-    (1..5).each do |i|
-      @select_funcao <<  "#{i}"
-    end
+    @select_funcao = Function.all
+
     if @user.save
+        @user_function = UsersFunction.new(@user.id, :idUsuarioFuncao)
+        @user_function.save
         redirect_to new_user_path , notice: "Usuário cadastrado com sucesso."
       else
         render action: :new
@@ -48,7 +46,7 @@ end
   private
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation, :ativo, :idFunc,
-       :email,  :cpf, :nomeGuerra, :imagemUsuario, :idFuncao, :dataNascimento, :sexo, :endereco, :bairro, :cidade, :estado, :cep)
+       :email,  :cpf, :nomeGuerra, :imagemUsuario, :idUsuarioFuncao, :dataNascimento, :sexo, :endereco, :bairro, :cidade, :estado, :cep)
   end
 end
 

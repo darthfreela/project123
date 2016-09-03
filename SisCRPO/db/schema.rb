@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160902232029) do
-=======
-ActiveRecord::Schema.define(version: 20160830223740) do
->>>>>>> 049b34b3b9379c31c4732893449938521ac8e6ce
+ActiveRecord::Schema.define(version: 20160903200000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +156,13 @@ ActiveRecord::Schema.define(version: 20160830223740) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -180,7 +183,6 @@ ActiveRecord::Schema.define(version: 20160830223740) do
     t.datetime "updated_at",             null: false
   end
 
-<<<<<<< HEAD
   create_table "substituicao_temporaria", force: :cascade do |t|
     t.integer  "idFunc1"
     t.string   "nomeServidor1"
@@ -198,8 +200,6 @@ ActiveRecord::Schema.define(version: 20160830223740) do
     t.integer  "numeroBoletim"
   end
 
-=======
->>>>>>> 049b34b3b9379c31c4732893449938521ac8e6ce
   create_table "tipo_servicos", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -244,13 +244,20 @@ ActiveRecord::Schema.define(version: 20160830223740) do
     t.integer  "cpf",                 limit: 8
     t.string   "nomeGuerra",          limit: 256
     t.string   "imagemUsuario",       limit: 256
-    t.integer  "idFuncao",            limit: 8
     t.string   "email",               limit: 256
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
+    t.integer  "idUsuarioFuncao"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "users_functions", force: :cascade do |t|
+    t.integer  "functions_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "users_id"
+  end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
 end
