@@ -15,6 +15,9 @@ validates :name, :username, presence: true, length: { minimum: 8, maximun: 30 } 
     validates :imagemUsuario, presence: true
     validates :idFuncao, numericality: true
 
+    #relacionamentos
+    belongs_to :users_functions
+
   def email_required?
     false
   end

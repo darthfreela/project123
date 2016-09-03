@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160903190516) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160903200000) do
+=======
+ActiveRecord::Schema.define(version: 20160903182918) do
+>>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
+>>>>>>> 96c0336fe182cd4a8b7d63c185f8b4aa446118ea
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +195,27 @@ ActiveRecord::Schema.define(version: 20160903190516) do
     t.datetime "updated_at",             null: false
   end
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  create_table "substituicao_temporaria", force: :cascade do |t|
+    t.integer  "idFunc1"
+    t.string   "nomeServidor1"
+    t.string   "postoGraduacao1"
+    t.string   "funcao1"
+    t.integer  "idFunc2"
+    t.string   "nomeServidor2"
+    t.string   "postoGraduacao2"
+    t.string   "funcao2"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "motivoIndisponibilidade"
+    t.date     "data1"
+    t.date     "data2"
+    t.integer  "numeroBoletim"
+  end
+
+>>>>>>> 96c0336fe182cd4a8b7d63c185f8b4aa446118ea
   create_table "tipo_servicos", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -197,6 +226,11 @@ ActiveRecord::Schema.define(version: 20160903190516) do
     t.datetime "updated_at",  null: false
   end
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
+>>>>>>> 96c0336fe182cd4a8b7d63c185f8b4aa446118ea
   create_table "uniforms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "uniforme"
@@ -231,13 +265,20 @@ ActiveRecord::Schema.define(version: 20160903190516) do
     t.integer  "cpf",                 limit: 8
     t.string   "nomeGuerra",          limit: 256
     t.string   "imagemUsuario",       limit: 256
-    t.integer  "idFuncao",            limit: 8
     t.string   "email",               limit: 256
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
+    t.integer  "idUsuarioFuncao"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "users_functions", force: :cascade do |t|
+    t.integer  "functions_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "users_id"
+  end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
 end

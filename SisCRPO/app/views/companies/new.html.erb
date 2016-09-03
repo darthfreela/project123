@@ -36,10 +36,20 @@
 
                 <div class="form-group col-md-5">
                     <!--<%= f.label :cidade %>-->
+<<<<<<< HEAD
+
+                    <label>Cidade*</label>
+                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control" %>
+
+                    <label>Cidade</label>
+                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control select2" %>
+
+=======
                     <label>Cidade*</label>
                     <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control" %>
                     <label>Cidade</label>
                     <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control select2" %>
+>>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
                 </div>
                 <div class="form-group col-md-7">
 				            <!--<%= f.label :nome %>-->
@@ -48,6 +58,26 @@
                 </div>
                 <div class="form-group col-md-5">
                     <!--<%= f.label :unidade %>-->
+<<<<<<< HEAD
+
+                    <label>Unidade*</label>
+                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control" %>
+
+                    <label>Unidade</label>
+                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control select2" %>
+
+                </div>
+                <div class="form-group col-md-2">
+				            <!--<%= f.label :ativo %>-->
+
+                    <label>Ativo*</label>
+                    <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+                </div>
+
+                    <label>Ativo</label>
+                    <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
+
+=======
                     <label>Unidade*</label>
                     <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control" %>
                     <label>Unidade</label>
@@ -60,6 +90,7 @@
                 </div>
                     <label>Ativo</label>
                     <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
+>>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
                 </div>
             </div>
             <div class="box-footer">
