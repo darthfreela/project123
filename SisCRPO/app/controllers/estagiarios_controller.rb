@@ -1,18 +1,12 @@
 class EstagiariosController < ApplicationController
   def new
     @estagiario = Estagiario.new
-    @estagiario_show = Opm.all
+    @estagiario_show = Estagiario.all
   end
 
  def create
       @estagiario = Estagiario.new(estagiario_params)
       @estagiario_show = Estagiario.all
-
-       #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
 
       if @estagiario.save
         redirect_to new_estagiario_path, notice: "Estagiário cadastrado com sucesso."
@@ -39,9 +33,14 @@ def destroy
 end
 
 def update
-      @estagiarios = estagiarios.find(params[:id])
-      @estagiarios.update_attributes(estagiarios_params)
+      @estagiarios = Estagiario.find(params[:id])
+      @estagiarios.update_attributes(estagiario_params)
 
-      redirect_to new_estagiarios_path, notice: "Estagiário editado com sucesso."
-    end
+      redirect_to new_estagiario_path, notice: "Estagiário editado com sucesso."
+end
+
+private
+def estagiario_params
+     params.require(:estagiario).permit(:nome, :cpf, :sexo, :data_nascimento, :semestre, :endereco, :email, :agcc, :dias_trabalhados, :vale_transporte, :vigencia_contrato)
+end
 end

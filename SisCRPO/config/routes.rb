@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'release_vacations/index'
+
+  get 'release_vacations/edit'
+
   get 'substituicao_temporarias/new'
 
   get 'substituicao_temporarias/edit'
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :siglas
 
+  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 

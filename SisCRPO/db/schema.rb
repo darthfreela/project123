@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904162516) do
+ActiveRecord::Schema.define(version: 20160904232324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160904162516) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.date     "vigencia_contrato"
+    t.float    "horas_trabalhadas"
   end
 
   create_table "ferias", force: :cascade do |t|
@@ -160,6 +161,22 @@ ActiveRecord::Schema.define(version: 20160904162516) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "release_vacations", force: :cascade do |t|
+    t.date     "inicial_date"
+    t.date     "final_date"
+    t.boolean  "approved"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+  end
+
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -178,6 +195,16 @@ ActiveRecord::Schema.define(version: 20160904162516) do
     t.integer  "nrBoletim"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -230,4 +257,5 @@ ActiveRecord::Schema.define(version: 20160904162516) do
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
+  add_foreign_key "release_vacations", "users"
 end
