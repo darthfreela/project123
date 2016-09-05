@@ -256,3 +256,4 @@ ActiveRecord::Schema.define(version: 20160905222339) do
   add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "release_vacations", "users"
 end
+
