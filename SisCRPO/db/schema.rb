@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160904181846) do
+=======
 ActiveRecord::Schema.define(version: 20160904232324) do
+>>>>>>> 6139b3f3ecd4b261c38a10fe54ab5327a00c3323
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,15 +86,6 @@ ActiveRecord::Schema.define(version: 20160904232324) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "fers", force: :cascade do |t|
-    t.integer  "idFunc"
-    t.date     "dataInicial"
-    t.date     "dataFinal"
-    t.boolean  "aprovado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -101,6 +96,17 @@ ActiveRecord::Schema.define(version: 20160904232324) do
     t.datetime "updated_at",     null: false
   end
 
+<<<<<<< HEAD
+  create_table "gpms", force: :cascade do |t|
+    t.integer  "idOpm"
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "cidade"
+    t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "opm_id"
+=======
   create_table "gpms", id: false, force: :cascade do |t|
     t.integer  "id"
     t.string   "sigla"
@@ -110,6 +116,7 @@ ActiveRecord::Schema.define(version: 20160904232324) do
     t.boolean  "ativo"
     t.string   "cidade"
     t.text     "descricao"
+>>>>>>> 6139b3f3ecd4b261c38a10fe54ab5327a00c3323
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -186,6 +193,25 @@ ActiveRecord::Schema.define(version: 20160904232324) do
     t.datetime "updated_at",   null: false
   end
 
+<<<<<<< HEAD
+  create_table "temporary_replacements", force: :cascade do |t|
+    t.integer  "idFuncOcupante"
+    t.integer  "idFuncSubstituto"
+    t.string   "situacao"
+    t.string   "motivoIndisponibilidade"
+    t.integer  "idSoliDispAfastamento"
+    t.date     "dataAssuncao"
+    t.date     "dataDispensa"
+    t.integer  "idBoletim"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "nomeOcupante"
+    t.integer  "idGraduacaoOcupante"
+    t.integer  "idFuncaoOcupante"
+    t.string   "nomeSubstituto"
+    t.integer  "idFuncaoSubstituto"
+    t.integer  "idGraduacaoSubstituto"
+=======
   create_table "subst_temps", force: :cascade do |t|
     t.integer  "idFuncSubstituido"
     t.integer  "idFuncSubstituto"
@@ -195,6 +221,7 @@ ActiveRecord::Schema.define(version: 20160904232324) do
     t.integer  "nrBoletim"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+>>>>>>> 6139b3f3ecd4b261c38a10fe54ab5327a00c3323
   end
 
   create_table "tipo_servicos", force: :cascade do |t|
