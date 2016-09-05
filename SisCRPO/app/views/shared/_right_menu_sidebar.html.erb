@@ -103,6 +103,26 @@
               <span><%= t 'menu.SubstituiçãoTemporária' %></span>
             <% end  %>
           </li>
+<<<<<<< HEAD
+      </ul>
+  </li>
+
+<!-- Ferramentas de Usuário -->
+  <ul class="sidebar-menu">
+  <li class="header"><%= t 'menu.ferramentas_administrativas' %></li>
+  <li class="treeview">
+      <a href="#">
+          <i class="fa fa-wrench"></i> <span>Relatórios</span>
+          <!--<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span>-->
+      </a>
+      <ul class="treeview-menu" style="display: none;">
+          <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
+            <%= link_to quadro_efetivo_index_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.QuadroEfetivo' %></span>
+
           <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
             <%= link_to new_release_vacation_path do %>
               <i class="fa  fa-wrench"></i>
@@ -113,7 +133,13 @@
             <%= link_to new_temporary_replacement_path do %>
               <i class="fa  fa-wrench"></i>
               <span><%= t 'menu.Subs_Temporárias' %></span>
+
             <% end  %>
           </li>
       </ul>
+<% end  %>
   </li>
+</ul><!-- /.sidebar-menu -->
+
+  </li>
+

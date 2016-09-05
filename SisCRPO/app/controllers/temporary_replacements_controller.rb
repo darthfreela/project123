@@ -35,7 +35,7 @@ class TemporaryReplacementsController < ApplicationController
   private
   def tempReplacement_params
       params.require(:temporary_replacement).permit(:idFuncOcupante, :nomeOcupante, :idGraduacaoOcupante, 
-        :idFuncaoOcupante, :idFuncSubstituto, :nomeSubstituto, :idFuncaoSubstituto, :idGraduacaoSubstituto,
+        :idFuncaoOcupante, :idFuncSubstituto :nomeSubstituto, :idFuncaoSubstituto, :idGraduacaoSubstituto,
         :situacao, :motivoIndisponibilidade, :idSoliDispAfastamento, :idBoletim)
   end
 end
