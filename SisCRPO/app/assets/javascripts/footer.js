@@ -70,7 +70,5 @@ $(function () {
 	});
 });
 
+$(".time").inputmask("99:99:99");
 
-$(".form_datetime").datetimepicker({
-
-});
