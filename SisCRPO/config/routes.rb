@@ -12,12 +12,9 @@ Rails.application.routes.draw do
 
  resources :disthoraext
 
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+ resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  get 'pointing_hours/new'
-
-  get 'pointing_hours/edit'
-
+resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'siglas/new'
 
