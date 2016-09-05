@@ -2,6 +2,7 @@ class PointingHoursController < ApplicationController
 def new
     @pointingHour = PointingHour.new
     @pointingHour_show = PointingHour.all
+    @tipos_servico = TipoServico.all
     
   end
 
