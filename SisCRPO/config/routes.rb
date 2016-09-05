@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'temporary_replacements/edit'
 
+  get 'temporary_replacements/new'
+
+  get 'pointing_hours/new'
+
+  get 'release_vacations/index'
+
+  get 'release_vacations/edit'
 
   get 'substituicao_temporarias/new'
 
@@ -8,12 +16,9 @@ Rails.application.routes.draw do
 
  resources :disthoraext
 
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+ resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  get 'pointing_hours/new'
-
-  get 'pointing_hours/edit'
-
+  resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'siglas/new'
 
@@ -21,6 +26,9 @@ Rails.application.routes.draw do
 
   resources :siglas
 
+  resources :temporary_replacements
+
+  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 

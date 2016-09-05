@@ -85,8 +85,8 @@
               <span><%= t 'menu.companhias' %></span>
             <% end  %>
           </li>
-          <li class="<%= ative_se_pagina_atual(pointing_hours_new_path, true) %>">
-            <%= link_to pointing_hours_new_path do %>
+          <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
+            <%= link_to new_pointing_hour_path do %>
               <i class="fa  fa-wrench"></i>
               <span><%= t 'menu.ApontamentoDeHoras' %></span>
             <% end  %>
@@ -103,6 +103,7 @@
               <span><%= t 'menu.SubstituiçãoTemporária' %></span>
             <% end  %>
           </li>
+<<<<<<< HEAD
       </ul>
   </li>
 
@@ -121,8 +122,24 @@
             <%= link_to quadro_efetivo_index_path do %>
                 <i class="fa  fa-wrench"></i>
                 <span><%= t 'menu.QuadroEfetivo' %></span>
+=======
+          <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
+            <%= link_to new_release_vacation_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.LançamentoDeFérias' %></span>
             <% end  %>
-         </li>
+          </li>
+          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_temporary_replacement_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.Subs_Temporárias' %></span>
+>>>>>>> 48c060408b230fa27e3c9035a6aad272d7dc1787
+            <% end  %>
+          </li>
       </ul>
+<<<<<<< HEAD
   </li>
 </ul><!-- /.sidebar-menu -->
+=======
+  </li>
+>>>>>>> 48c060408b230fa27e3c9035a6aad272d7dc1787
