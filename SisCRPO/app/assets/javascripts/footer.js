@@ -62,6 +62,15 @@ $(function () {
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 	$('.data').datepicker({
-		autoclose: true
+		autoclose: true,
+		isRTL: false,
+    		format: 'dd.mm.yyyy hh:ii',
+    		autoclose:true,
+    		language: 'br'
 	});
+});
+
+
+$(".form_datetime").datetimepicker({
+
 });

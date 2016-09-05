@@ -33,4 +33,11 @@ module ApplicationHelper
 
     label_collection.join.html_safe
   end
+#formta datas
+    def data_br(date)
+      # formatting date: Aug, 31 2007 - 9:55PM
+      if date != nil
+        date.strftime("%d/%m/%Y")
+      end
+    end
 end

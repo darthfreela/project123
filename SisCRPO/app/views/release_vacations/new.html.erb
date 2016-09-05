@@ -31,22 +31,26 @@
     <% end %>
                     <%= form_for @lancamento_ferias do |f| %>
                         <div class="box-body">
-                                <div class="form-group col-md-12">
-                                 <div class="form-group col-md-5">
+                                <div class="form-group col-md-2">
+                                    <label>Id Func</label>
+                                    <input type="text" class="form-control " value="<%= @user_atual.idFunc%>" disabled="" />
+                                </div>
+                               <div class="form-group col-md-3">
+                                    <label>Posto/Graduação</label>
+                                    <input type="text" class="form-control " value="<%= @user_atual.cep%>" disabled="" />
+                               </div>
+                               <div class="form-group col-md-6">
                                     <label>Usuário</label>
                                     <%= f.text_field :user_id, value: current_user.name, class:"form-control", :disabled=>"" %>
-                                </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                <div class="form-group col-md-5">
+                               </div>
+                                <div class="form-group col-md-2">
                                     <label>Data Inicial</label>
                                     <%= f.text_field :inicial_date, class:"form-control data" %>
                                 </div>
-                                <div class="form-group col-md-5">
+                                <div class="form-group col-md-2">
                                     <label>Data Final</label>
                                     <%= f.text_field :final_date, class:"form-control data" %>
                                 </div>
-                            </div>
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-success">Solicitar</button>
@@ -88,9 +92,13 @@
                             <% @lancamento_ferias_show.each do |e|%>
                                 <tr>
                                     <td><%= e.id %></td>
-                                    <td><%= e.inicial_date %></td>
-                                    <td><%= e.final_date %></td>
-                                    <td><%= e.approved %></td>
+                                    <td><%= data_br e.inicial_date %></td>
+                                    <td><%= data_br e.final_date %></td>
+                                    <% if e.approved %>
+                                    <td>Sim</td>
+                                    <% else %>
+                                    <td>Não</td>
+                                    <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'release_vacations', :action => 'edit', :id => e.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'release_vacations', :action => 'destroy', :id => e.id}, :data => {:confirm=>'Deseja realmente remover este registro?'},  class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
@@ -100,5 +108,4 @@
                         <% end %>
                     </div>
                 </div>
-
             </section>
