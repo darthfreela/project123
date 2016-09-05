@@ -51,7 +51,7 @@
                 <div class="form-group col-md-2">
 				    <!--<%= f.label :hora_inicio %>-->
                     <label>Hora Inicio*</label>
-                    <%= f.datetime_field :hora_inicio, class:"form-control datetime" %>
+                    <%= f.time_field :hora_inicio, class:"form-control time" %>
                 </div>
                 <div class="form-group col-md-2">
 				    <!--<%= f.label :data_fim %>-->
@@ -61,7 +61,7 @@
                 <div class="form-group col-md-2">
 				    <!--<%= f.label :hora_fim %>-->
                     <label>Hora Fim*</label>
-                    <%= f.datetime_field :hora_fim, class:"form-control datetime" %>
+                    <%= f.time_field :hora_fim, class:"form-control time" %>
                 </div>
                 <div class="form-group col-md-7">
                             <!--<%= f.label :tipo_servico_id %>-->
@@ -110,15 +110,19 @@
                         <% @pointingHour_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= s.nome %></td>
+                                    <% @tpServico.each do |tp| %>
+                                        <% if o.tipo_servico_id == tp.id %>
+                                            <td><%= tp.nome %></td>
+                                        <% end %>
+                                    <% end %>
                                     <td><%= o.hora_inicio %></td>
                                     <td><%= o.data_inicio %></td>
                                     <td><%= o.hora_fim %></td>
                                     <td><%= o.data_fim %></td>
                                     <td><%= o.hora_inicio %></td>
 
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'companies', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'pointing_hours', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'pointing_hours', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                             <% end %>
                         <% end %>
