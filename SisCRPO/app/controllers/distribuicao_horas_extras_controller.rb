@@ -27,15 +27,20 @@ class DistribuicaoHorasExtrasController < ApplicationController
     end
 
     def update
-      @distribuicaohorasextra = DistribuicaoHorasExtra.find(params[:id])
-      @distribuicaohorasextra.update_attributes(distribuicaohorasextra_params)
 
-      redirect_to new_distribuicao_horas_extra_path, notice: "Hora extra editada com sucesso."
+      @distribuicaohorasextra = DistribuicaoHorasExtra.find(params[:id])
+        if @distribuicaohorasextra.update_attributes(distribuicaohorasextra_params)
+            redirect_to new_distribuicao_horas_extra_path, notice: "Hora extra editada com sucesso."
+        else
+            redirect_to new_distribuicao_horas_extra_path, :flash => { :error => "Erro ao editar a Hora Extra!" }
+        end
+
     end
 
     private
     def distribuicaohorasextra_params
-      params.require(:distribuicao_horas_extra).permit(:idUnidade, :unidade, :cidade, :numeroDeHoras, :dataInicio, :dataTermino)
+      params.require(:distribuicao_horas_extra).permit(:idUnidade, :unidade, :cidade, :numeroDeHoras,
+        :dataInicio, :dataTermino)
     end
 
 end
