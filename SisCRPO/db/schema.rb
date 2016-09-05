@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160903200000) do
-=======
-ActiveRecord::Schema.define(version: 20160903182918) do
->>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,15 +99,13 @@ ActiveRecord::Schema.define(version: 20160903182918) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
+  create_table "gpms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "ativo"
     t.string   "cidade"
     t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -190,7 +184,6 @@ ActiveRecord::Schema.define(version: 20160903182918) do
     t.datetime "updated_at",             null: false
   end
 
-<<<<<<< HEAD
   create_table "substituicao_temporaria", force: :cascade do |t|
     t.integer  "idFunc1"
     t.string   "nomeServidor1"
@@ -218,8 +211,6 @@ ActiveRecord::Schema.define(version: 20160903182918) do
     t.datetime "updated_at",  null: false
   end
 
-=======
->>>>>>> 5ee5273b707de87db1151e9b2460ae3ac285e0b2
   create_table "uniforms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "uniforme"
