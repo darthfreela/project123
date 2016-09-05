@@ -13,7 +13,7 @@
   <li class="header"><%= t 'menu.ferrmentas_de_usuário' %></li>
   <li class="treeview">
       <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Gerenciar</span>
+          <i class="fa fa-wrench"></i> <span>Gerenciar</span>
           <!--<span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
           </span>-->
@@ -29,6 +29,12 @@
             <%= link_to new_opm_path do %>
                 <i class="fa  fa-wrench"></i>
                 <span><%= t 'menu.Opms' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_opm_path, true) %>">
+            <%= link_to new_gpm_path do %>
+                <i class="fa  fa-wrench"></i>
+                <span><%= t 'menu.Gpms' %></span>
             <% end  %>
           </li>
           <li class="<%= ative_se_pagina_atual(new_function_path, true) %>">
@@ -73,10 +79,34 @@
                 <span><%= t 'menu.Sigla' %></span>
             <% end  %>
           </li>
-          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+          <li class="<%= ative_se_pagina_atual(new_company_path, true) %>">
             <%= link_to new_company_path do %>
               <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.Companhias' %></span>
+              <span><%= t 'menu.companhias' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
+            <%= link_to new_pointing_hour_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.ApontamentoDeHoras' %></span>
+            <% end  %>
+          </li>
+           <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_distribuicao_horas_extra_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.HoraExtra' %></span>
+            <% end  %>
+          </li>
+            <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to substituicao_temporarias_new_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.SubstituiçãoTemporária' %></span>
+            <% end  %>
+          </li>
+          <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
+            <%= link_to new_release_vacation_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.LançamentoDeFérias' %></span>
             <% end  %>
           </li>
           <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
@@ -87,4 +117,3 @@
           </li>
       </ul>
   </li>
-</ul><!-- /.sidebar-menu -->

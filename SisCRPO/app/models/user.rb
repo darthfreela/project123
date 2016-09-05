@@ -15,6 +15,10 @@ validates :name, :username, presence: true, length: { minimum: 8, maximun: 30 } 
     validates :imagemUsuario, presence: true
     validates :idFuncao, numericality: true
 
+    #relacionamentos
+    belongs_to :users_functions
+    belongs_to :add_user_ref_to_pointing_hours
+
   def email_required?
     false
   end

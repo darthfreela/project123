@@ -6,7 +6,19 @@ Rails.application.routes.draw do
 
   get 'pointing_hours/new'
 
-  get 'pointing_hours/edit'
+  get 'release_vacations/index'
+
+  get 'release_vacations/edit'
+
+  get 'substituicao_temporarias/new'
+
+  get 'substituicao_temporarias/edit'
+
+ resources :disthoraext
+
+ resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'siglas/new'
 
@@ -15,6 +27,8 @@ Rails.application.routes.draw do
   resources :siglas
 
   resources :temporary_replacements
+
+  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 
@@ -36,9 +50,7 @@ Rails.application.routes.draw do
 
   get 'licencas/edit'
 
-  get 'gpms/new'
-
-  get 'gpms/edit'
+  resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
 
   get 'users/new'
 
@@ -76,6 +88,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
 
 
 

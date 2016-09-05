@@ -1,19 +1,22 @@
 <section class="content-header">
-	<h1>
-		Gerenciamento de Funções
-	</h1>
-	<ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li><a href="#">Ferramentas do usuário</a></li>
-		<li class="active">Gerenciamento de Funções</li>
-	</ol>
+  <h1>
+      Gerenciamento de Funções
+  </h1>
+  <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Ferramentas do usuário</a></li>
+      <li class="active">Gerenciamento de Funções</li>
+  </ol>
 </section>
+
 <section class="content">
-  <div class="box box-default">
-    <div class="box-header with-border" data-widget="collapse">
-      <h3 class="box-title" >Cadastro de Funções</h3>
+  <div class="box box-default collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Funções</h3>
       <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-plus"></i>
+        </button>
       </div>
     </div>
     <div class="error"><%= flash[:error] %></div>
@@ -31,83 +34,91 @@
     <% end %>
     <%= form_for @function do |f| %>
       <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
-            <%= f.text_field :sigla, placeholder: "Descreva uma sigla para a função!", maxlength: "6", class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome_da_função %>
-            <%= f.text_field :funcao, placeholder: "Descreva um nome para a função!", class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :número_de_vagas %>
-            <%= f.text_field :vagas, placeholder: "Número de vagas para a função!", class: "form-control" %>
-          </div>
+        <div class="form-group col-md-3">
+          <label>Sigla*</label>
+          <%= f.text_field :sigla, placeholder: "Descreva uma sigla para a função!", maxlength: "6", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-9">
+          <label>Nome da Função*</label>
+          <%= f.text_field :funcao, placeholder: "Descreva um nome para a função!", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+          <label>Número de Vagas*</label>
+          <%= f.text_field :vagas, placeholder: "Número de vagas para a função!", class: "form-control" %>
         </div>
         <div class="form-group col-md-2">
-            <%= f.label :ativo %>
-            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+            <label>Ativo*</label>
+            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
         </div>
       </div>
       <div class="box-footer">
         <%= f.submit "Salvar", class: "btn btn-success" %>
         <%= f.button "Limpar", class: "btn btn-danger" %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
       </div>
     <% end %>
   </div>
-                <div class="box">
-                    <div class="box-header">
-                        <h3 class="box-title">Listagem de Funções</h3>
-                        <div class="box-tools pull-right">
-                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                        </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
-                            </span>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                      <% if @function_show.count < 1 %>
-                        <tr><td>Não existem Funções cadastradas.</td></tr>
-                      <% else %>
-                        <table id="motivos" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Sigla</th>
-                                    <th>Descrição</th>
-                                    <th>Qtd Vagas</th>
-                                    <th>Ultima alteração</th>
-                                    <th>Ativo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              <% @function_show.each do |o|%>
-                                <tr>
-                                    <td><%= o.id %></td>
-                                    <td><%= o.sigla %></td>
-                                    <td><%= o.funcao %></td>
-                                    <td><%= o.vagas %></td>
-                                    <td><%= o.data_alteracao %></td>
-                                    <%if o.ativo == true%>
-                                      <td>Sim</td>
-                                    <% else %>
-                                      <td>Não</td>
-                                    <% end %>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'functions', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'functions', :action => 'destroy', :id => o.id},:data => {:confirm=> "Tem certeza que deseja remover este registro?"}, class: 'btn btn-danger', method: :delete %></td>
-                                </tr>
-                              <% end %>
-                            </tbody>
-                          </table>
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Listagem de Funções</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                </span>
+            </div>
+        </div>
+        <hr>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <% if @function_show.count < 1 %>
+            Não existem Funções cadastradas.
+          <% else %>
+            <table id="motivos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Sigla</th>
+                        <th>Descrição</th>
+                        <th>Qtd Vagas</th>
+                        <th>Ultima alteração</th>
+                        <th>Ativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @function_show.each do |o|%>
+                    <tr>
+                        <td><%= o.id %></td>
+                        <td><%= o.sigla %></td>
+                        <td><%= o.funcao %></td>
+                        <td><%= o.vagas %></td>                      
+                        <td><%= o.updated_at.to_s(:format_date) %></td>
+                        <%if o.ativo == true%>
+                          <td>Sim</td>
+                        <% else %>
+                          <td>Não</td>
                         <% end %>
-                    </div>
-                </div>
-            </section>
+                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                         {:controller => 'functions', :action => 'edit', :id => o.id},
+                          class: 'btn btn-warning', method: :get %>
+                        </td>
+                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                         {:controller => 'functions', :action => 'destroy', :id => o.id},
+                          :data => {:confirm => "Realmente deseja excluir este registro?"},
+                           class: 'btn btn-danger', method: :delete %>
+                         </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            <% end %>
+        </div>
+    </div>
+</section>
