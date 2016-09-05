@@ -2,7 +2,7 @@ class PointingHoursController < ApplicationController
 def new
     @pointingHour = PointingHour.new
     @pointingHour_show = PointingHour.all
-    @tipos_servico = TipoServico.all
+    @tpServico = TipoServico.all
     
   end
 
@@ -40,6 +40,7 @@ end
 
   private
   def pointingHour_params
-    params.require(:pointingHour).permit(:idfunc, :data_inicio, :hora_inicio, :data_fim, :hora_fim)
+    params.require(:pointingHour).permit(:idfunc, :data_inicio, :hora_inicio, :data_fim, :hora_fim, :tipo_servico_id)
   end
 end
+

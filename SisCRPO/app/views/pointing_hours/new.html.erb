@@ -63,12 +63,13 @@
                     <label>Hora Fim*</label>
                     <%= f.datetime_field :hora_fim, class:"form-control datetime" %>
                 </div>
-                <div> <label> Tipo de Serviço <labe>
-                <%= f.select(:tipo_servico_id) %>
+                <div class="form-group col-md-7">
+                            <!--<%= f.label :tipo_servico_id %>-->
+                    <label>Tipo De Serviço</label>
+                    <%= f.select :tipo_servico_id, @tpServico.map{|s| [s.nome, s.id]}, {}, class: "form-control select2"%>
                 </div>
-
             </div>
-            <div class="box-footer">iv
+            <div class="box-footer">
                 <%= f.submit "Salvar", Class: "btn btn-success" %>
                 <%= f.button "Limpar", Class: "btn btn-danger" %>
                 <div class=" small pull-right">* Campos obrigatórios</div>
@@ -98,21 +99,24 @@
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Id Func</th>
-                            <th>Hora/Data Inicio</th>
-                            <th>Hora/Data Fim</th>
-                            <th>Etapas</th>
-                            <th>Verificado</th>
+                            <th>Tipo de Serviço</th>
+                            <th>Hora Inicio</th>
+                            <th>Data Inicio</th>
+                            <th>Hora Fim</th>
+                            <th>Data Fim</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @pointingHour_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.id_func %></td>
-                                    <td><%= o.nome %></td>
-                                    <td><%= o.unidade %></td>
-                                    <td><%= o.ativo %></td>
+                                    <td><%= s.nome %></td>
+                                    <td><%= o.hora_inicio %></td>
+                                    <td><%= o.data_inicio %></td>
+                                    <td><%= o.hora_fim %></td>
+                                    <td><%= o.data_fim %></td>
+                                    <td><%= o.hora_inicio %></td>
+
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'companies', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>

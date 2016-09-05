@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160904232324) do
+=======
 ActiveRecord::Schema.define(version: 20160905222339) do
+>>>>>>> 38c6383e849ea6d833c6e2dea63b0344485f97da
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +105,17 @@ ActiveRecord::Schema.define(version: 20160905222339) do
     t.datetime "updated_at",     null: false
   end
 
+<<<<<<< HEAD
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean  "ativo"
+    t.string   "cidade"
+    t.text     "descricao"
+=======
   create_table "gpms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -108,6 +123,7 @@ ActiveRecord::Schema.define(version: 20160905222339) do
     t.text     "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+>>>>>>> 38c6383e849ea6d833c6e2dea63b0344485f97da
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -196,6 +212,8 @@ ActiveRecord::Schema.define(version: 20160905222339) do
     t.datetime "updated_at",             null: false
   end
 
+<<<<<<< HEAD
+=======
   create_table "substituicao_temporaria", force: :cascade do |t|
     t.integer  "idFunc1"
     t.string   "nomeServidor1"
@@ -213,6 +231,7 @@ ActiveRecord::Schema.define(version: 20160905222339) do
     t.integer  "numeroBoletim"
   end
 
+>>>>>>> 38c6383e849ea6d833c6e2dea63b0344485f97da
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -295,3 +314,4 @@ ActiveRecord::Schema.define(version: 20160905222339) do
   add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "release_vacations", "users"
 end
+
