@@ -52,11 +52,11 @@
           </div>
                <div class="form-group col-md-2">
             <label>Data Início*</label>
-            <%= f.date_field :dataInicio, placeholder: "Data Inicio", class:"form-control data" %>
+            <%=f.text_field :dataInicio, placeholder: "Data Inicio", class:"form-control data" %>
           </div>
           <div class="form-group col-md-2">
             <label>Data Término*</label>
-            <%= f.date_field :dataTermino, placeholder: "Data Término", class:"form-control data" %>
+            <%= f.text_field :dataTermino, placeholder: "Data Término", class:"form-control data" %>
           </div>
       </div>
       <div class="box-footer">
@@ -106,8 +106,8 @@
                                       <td>Vacaria</td>
                                     <% end %>
                                     <td><%= o.numeroDeHoras %></td>
-                                    <td><%= o.dataInicio %></td>
-                                    <td><%= o.dataTermino %></td>
+                                    <td><%= data_br o.dataInicio %></td>
+                                    <td><%= data_br  o.dataTermino %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'distribuicao_horas_extras', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),{:controller => 'distribuicao_horas_extras', :action => 'destroy', :id => o.id}, :data => {:confirm => "Realmente deseja excluir este registro?"},class: 'btn btn-danger', method: :delete %></td>
                                     </tr>

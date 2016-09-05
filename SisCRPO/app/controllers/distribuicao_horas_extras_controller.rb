@@ -8,7 +8,7 @@ class DistribuicaoHorasExtrasController < ApplicationController
       @distribuicaohorasextra = DistribuicaoHorasExtra.new(distribuicaohorasextra_params)
       @distribuicaohorasextra_show = DistribuicaoHorasExtra.all
       if @distribuicaohorasextra.save
-        redirect_to new_distribuicao_horas_extra_path, notice: "Opm cadastrada com sucesso."
+        redirect_to new_distribuicao_horas_extra_path, notice: "Hora extra cadastrada com sucesso."
       else
         render action: :new
       end
@@ -24,6 +24,8 @@ class DistribuicaoHorasExtrasController < ApplicationController
 
     def edit
       @distribuicaohorasextra = DistribuicaoHorasExtra.find(params[:id])
+       @distribuicaohorasextra.dataInicio = @distribuicaohorasextra.dataInicio.strftime("%d/%m/%Y")
+     @distribuicaohorasextra.dataTermino = @distribuicaohorasextra.dataTermino.strftime("%d/%m/%Y")
     end
 
     def update
