@@ -4,4 +4,5 @@ class TipoServico < ActiveRecord::Base
   validates :ativo, presence: true
   validates :idFuncao, numericality:true
   validates :idUniformes, numericality:true
+  has_many :pointing_hours
 end
