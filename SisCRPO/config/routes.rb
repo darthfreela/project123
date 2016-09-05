@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'temporary_replacements/edit'
+
+  get 'temporary_replacements/new'
+
   get 'pointing_hours/new'
 
   get 'pointing_hours/edit'
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :siglas
 
+  resources :temporary_replacements
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 

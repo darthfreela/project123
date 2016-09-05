@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829164739) do
+ActiveRecord::Schema.define(version: 20160904181846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,15 +58,6 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "fers", force: :cascade do |t|
-    t.integer  "idFunc"
-    t.date     "dataInicial"
-    t.date     "dataFinal"
-    t.boolean  "aprovado"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -77,15 +68,14 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
-    t.integer  "id_opm"
+  create_table "gpms", force: :cascade do |t|
+    t.integer  "idOpm"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "id_endereco"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "cidade"
     t.boolean  "ativo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "opm_id"
   end
 
@@ -145,6 +135,25 @@ ActiveRecord::Schema.define(version: 20160829164739) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "temporary_replacements", force: :cascade do |t|
+    t.integer  "idFuncOcupante"
+    t.integer  "idFuncSubstituto"
+    t.string   "situacao"
+    t.string   "motivoIndisponibilidade"
+    t.integer  "idSoliDispAfastamento"
+    t.date     "dataAssuncao"
+    t.date     "dataDispensa"
+    t.integer  "idBoletim"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "nomeOcupante"
+    t.integer  "idGraduacaoOcupante"
+    t.integer  "idFuncaoOcupante"
+    t.string   "nomeSubstituto"
+    t.integer  "idFuncaoSubstituto"
+    t.integer  "idGraduacaoSubstituto"
   end
 
   create_table "tipo_servicos", force: :cascade do |t|
