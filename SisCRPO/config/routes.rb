@@ -1,74 +1,44 @@
 Rails.application.routes.draw do
 
-  get 'temporary_replacements/edit'
 
-  get 'temporary_replacements/new'
-
-  get 'pointing_hours/new'
-
-  get 'release_vacations/index'
-
-  get 'release_vacations/edit'
-
-  get 'substituicao_temporarias/new'
-
-  get 'substituicao_temporarias/edit'
-
- resources :disthoraext
-
- resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'siglas/new'
+  resources :siglas, :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'siglas/edit'
-
-  resources :siglas
-
-  resources :temporary_replacements
+  resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'solicitacao_fers/new'
-
   resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :companies, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :estagiarios
-
-  get 'users/new'
+  resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :quadro_efetivo, :only => [:index]
 
-  get 'licencas/new'
-
-  get 'licencas/edit'
-
   resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
-
-  get 'users/new'
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :uniforms
+  resources :uniforms, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :functions
+  resources :functions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :opms
+  resources :opms, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :solicitacao_fers
+  resources :solicitacao_fers, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :licencas
+  resources :licencas, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :users, :only => [:new, :create, :edit, :destroy, :update]
 
   devise_for :users
 
