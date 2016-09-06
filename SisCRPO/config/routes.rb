@@ -62,8 +62,6 @@ Rails.application.routes.draw do
 
   resources :opms
 
-  resources :gpms
-
   resources :solicitacao_fers
 
   resources :licencas
