@@ -18,6 +18,8 @@ def new
 
 def edit
     @pointingHour = PointingHour.find(params[:id])
+    @pointingHour.data_inicio = @pointingHour.data_inicio.strftime("%d/%m/%Y")
+    @pointingHour.data_fim = @pointingHour.data_fim.strftime("%d/%m/%Y")
     @tpServico = TipoServico.all
 end
 
