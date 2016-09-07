@@ -1,12 +1,12 @@
-<% titulo_page_header t('views.dasboard.title')  %>
+<% titulo_page_header t('Menu Principal')  %>
 <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Efetivo Total</span>
-              <span class="info-box-number">90<small>%</small></span>
+              <span class="info-box-number">2.500</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -15,11 +15,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-hotel"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Em Férias</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-number">210</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -32,11 +32,11 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa  fa-ambulance"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Dispensas Médica</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Disp. Médica</span>
+              <span class="info-box-number">30</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -45,11 +45,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-fighter-jet"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text"></span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Em Operação</span>
+              <span class="info-box-number">600</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -59,43 +59,36 @@
       </div>
 
       <!-- PIZZA -->
-      <div class="col-md-4 pull-right">
-       <div class="box box-default">
-            <div class="box-header with-border">
-              <h3 class="box-title">Browser Usage</h3>
+<div class="row ">
+    <div class="pull-right col-md-5">
+              <!-- DIRECT CHAT PRIMARY -->
+              <div class="box box-primary direct-chat direct-chat-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Lembretes</h3>
 
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                 </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <!-- Conversations are loaded here -->
+                  <div class="direct-chat-messages">
+
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <form action="#" method="post">
+                    <div class="input-group">
+                      <input type="text" name="message" placeholder="Escreva um lembrete..." class="form-control">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary btn-flat">Adicionar</button>
+                          </span>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.box-footer-->
               </div>
+              <!--/.direct-chat -->
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="chart-responsive">
-                    <canvas id="pieChart" height="155" width="205" style="width: 205px; height: 155px;"></canvas>
-                  </div>
-                  <!-- ./chart-responsive -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-4">
-                  <ul class="chart-legend clearfix">
-                    <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                    <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                    <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                    <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                    <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                    <li><i class="fa fa-circle-o text-gray"></i> Navigator</li>
-                  </ul>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-         </div>
-      </div>
 </div>
-
-
-
