@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :siglas, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
+  resources :substituicao_temporarias, :only => [:new, :create, :edit, :destroy, :update]
+
+ resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 

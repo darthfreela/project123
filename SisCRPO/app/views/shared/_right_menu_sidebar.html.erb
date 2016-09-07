@@ -19,8 +19,8 @@
           </span>-->
       </a>
       <ul class="treeview-menu" style="display: none;">
-          <li class="<%= ative_se_pagina_atual(users_new_path, true) %>">
-            <%= link_to users_new_path do %>
+          <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
+            <%= link_to new_user_path do %>
                 <i class="fa  fa-wrench"></i>
                 <span><%= t 'menu.usuários' %></span>
             <% end  %>
@@ -98,12 +98,11 @@
             <% end  %>
           </li>
             <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-            <%= link_to substituicao_temporarias_new_path do %>
+            <%= link_to new_substituicao_temporaria_path do %>
               <i class="fa  fa-wrench"></i>
               <span><%= t 'menu.SubstituiçãoTemporária' %></span>
             <% end  %>
           </li>
-<<<<<<< HEAD
       </ul>
   </li>
 
