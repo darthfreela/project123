@@ -11,11 +11,13 @@
 // about supported directives.
 //
 //= require js/bootstrap.min.js
+//= require plugins/jQueryUI/jquery-ui.js
 //= require dist/js/app.min.js
 //= require plugins/iCheck/icheck.min.js
 //= require plugins/select2/select2.full.min.js
 //= require plugins/input-mask/jquery.inputmask.js
 //= require plugins/datepicker/bootstrap-datepicker.js
+//= require plugins/timepicker/bootstrap-timepicker.js
 
 $(function () {
 	// Iniciliazar combobox select2
@@ -68,7 +70,18 @@ $(function () {
     		autoclose:true,
     		language: 'br'
 	});
+
+	$(".time").inputmask("99:99:99");
+
+	$( "#birds" ).autocomplete({
+		source: "search.php",
+		minLength: 2,
+		select: function( event, ui ) {
+			log( ui.item ?
+				alert('sad');
+		}
+	});
 });
 
-$(".time").inputmask("99:99:99");
+
 

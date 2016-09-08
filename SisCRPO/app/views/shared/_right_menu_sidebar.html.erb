@@ -91,19 +91,19 @@
               <span><%= t 'menu.ApontamentoDeHoras' %></span>
             <% end  %>
           </li>
-           <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
             <%= link_to new_distribuicao_horas_extra_path do %>
               <i class="fa  fa-wrench"></i>
               <span><%= t 'menu.HoraExtra' %></span>
             <% end  %>
           </li>
-            <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-            <%= link_to substituicao_temporarias_new_path do %>
+          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_temporary_replacement_path do %>
               <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.SubstituiçãoTemporária' %></span>
+              <span><%= t 'menu.Subs_Temporárias' %></span>
+
             <% end  %>
           </li>
-<<<<<<< HEAD
       </ul>
   </li>
 
@@ -128,18 +128,11 @@
               <i class="fa  fa-wrench"></i>
               <span><%= t 'menu.LançamentoDeFérias' %></span>
             <% end  %>
-          </li>
-          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-            <%= link_to new_temporary_replacement_path do %>
-              <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.Subs_Temporárias' %></span>
-
-            <% end  %>
-          </li>
+          </li>          
       </ul>
 <% end  %>
   </li>
-</ul><!-- /.sidebar-menu -->
+</ul>
 
   </li>
 
