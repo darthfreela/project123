@@ -95,13 +95,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @licanca_show.each do |l|%>
+                    <% @licenca_show.each do |l|%>
                     <tr>
                         <td><%= l.id %></td>
                         <td><%= l.nome %></td>
                         <td><%= l.tipo %></td>
-                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'licencas', :action => 'edit', :id => g.id}, class: 'btn btn-warning', method: :get %></td>
-                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'licencas', :action => 'destroy', :id => g.id}, class: 'btn btn-danger', method: :delete %></td>
+                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                         {:controller => 'licencas', :action => 'edit', :id => l.id},
+                          class: 'btn btn-warning', method: :get %>
+                        </td>
+                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                         {:controller => 'licencas', :action => 'destroy', :id => l.id},
+                          :data => {:confirm => "Realmente deseja excluir este registro?"},
+                           class: 'btn btn-danger', method: :delete %>
+                         </td>
                     </tr>
                     <% end %>
                 </tbody>

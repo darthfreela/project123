@@ -103,6 +103,12 @@
               <span><%= t 'menu.SubstituiçãoTemporária' %></span>
             <% end  %>
           </li>
+          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+          <%= link_to new_licenca_path do %>
+            <i class="fa  fa-wrench"></i>
+            <span><%= t 'menu.Licença' %></span>
+          <% end  %>
+        </li>
       </ul>
   </li>
 
@@ -141,4 +147,3 @@
 </ul><!-- /.sidebar-menu -->
 
   </li>
-
