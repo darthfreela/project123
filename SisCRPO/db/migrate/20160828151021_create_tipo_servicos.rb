@@ -1,6 +1,5 @@
 class CreateTipoServicos < ActiveRecord::Migration
   def change
-    
     create_table :tipo_servicos do |t|
       t.string :sigla
       t.string :nome

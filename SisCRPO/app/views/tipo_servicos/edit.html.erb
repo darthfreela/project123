@@ -41,11 +41,11 @@
                 </div>
                 <div class="col-md-4 form-group">
                     <label>Função</label>
-                    <%= f.select :idFuncao, options_for_select(@select_funcoes), {}, class: "form-control" %>
+                    <%= f.select :idFuncao, options_for_select(@select_funcao), {}, class: "form-control" %>
                 </div>
                 <div class="col-md-4 form-group">
                     <label>Uniformes</label>
-                    <%= f.select :idUniformes, options_for_select(@select_uniformes), {}, class: "form-control" %>
+                    <%= f.select :idUniformes, options_for_select(@select_uniformes), {}, class: "form-control select2", multiple: "multiple" %>
                 </div>
                 <div class="col-md-2 form-group">
                     <label>Ativo</label>

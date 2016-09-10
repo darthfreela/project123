@@ -16,6 +16,7 @@
  *= require plugins/iCheck/square/blue.css
  *= require plugins/select2/select2.min.css
  *= require dist/css/AdminLTE
+ *= require plugins/datepicker/datepicker3.css
  *= require_tree .
  *= require_self
  */
@@ -49,4 +50,8 @@
     color: #ffffff;
     background: #1e282c;
     border-left-color: #3a3847;
+}
+
+.select2 {
+    width: 100% !important;
 }

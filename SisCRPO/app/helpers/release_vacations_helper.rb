@@ -1,0 +1,2 @@
+module ReleaseVacationsHelper
+end

@@ -33,35 +33,31 @@
         </div>
         <%= form_for @company do |f| %>
             <div class="box-body">
-            	<div class="form-group col-md-8">
+                <div class="form-group col-md-5">
                     <!--<%= f.label :cidade %>-->
+
                     <label>Cidade</label>
-                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control" %>
+                    <%= f.select :cidade, options_for_select(@select_cidades),{}, class: "form-control select2" %>
                 </div>
-                <div class="form-group col-md-8">
-				            <!--<%= f.label :nome %>-->
-                    <label>Nome</label>
+                <div class="form-group col-md-7">
+                            <!--<%= f.label :nome %>-->
+                    <label>Nome*</label>
                     <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
                 </div>
-                <div class="form-group col-md-8">
-                    <!--<%= f.label :unidade %>-->
+                <div class="form-group col-md-5">
                     <label>Unidade</label>
-                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control" %>
+                    <%= f.select :unidade, options_for_select(@select_unidades),{}, class: "form-control select2" %>
                 </div>
-                <div class="form-group col-md-5">
-				            <!--<%= f.label :numero_servidor %>-->
-                    <label>Número de Servidores</label>
-                    <%= f.text_field :numero_servidor, PlaceHolder: "Número de Servidor", maxlength: "80", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-5">
-				            <!--<%= f.label :ativo %>-->
-                    <label>Ativo:</label>
+                <div class="form-group col-md-2">
+                    <!--<%= f.label :ativo %>-->
+                    <label>Ativo*</label>
                     <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
                 </div>
             </div>
             <div class="box-footer">
                 <%= f.submit "Salvar", Class: "btn btn-success" %>
                 <%= f.button "Limpar", Class: "btn btn-danger" %>
+                <div class=" small pull-right">* Campos obrigatórios</div>
             </div>
         <% end %>
     </div>
@@ -82,14 +78,17 @@
         </div>
         <hr>
         <div class="box-body">
+        <% if @company_show.count <= 0 %>
+                        <tr><td>Não existem companhias cadastradas.</td></tr>
+        <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
                             <th>Cidade</th>
                             <th>Nome</th>
                             <th>Unidade</th>
-                            <th>Número de Servidores</th>
                             <th>Ativo</th>
+                            <th>Sexo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -99,16 +98,15 @@
                                     <td><%= o.cidade %></td>
                                     <td><%= o.nome %></td>
                                     <td><%= o.unidade %></td>
-                                    <td><%= o.numero_servidor %></td>
                                     <td><%= o.ativo %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'companies', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'companies', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                             <% end %>
                         <% end %>
                     </tbody>
                 </table>
-      
+            <% end %>
             </div>
         <div class="box-footer"></div>
     </div>

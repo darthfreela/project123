@@ -1,60 +1,46 @@
 Rails.application.routes.draw do
 
-  get 'pointing_hours/new'
 
-  get 'pointing_hours/edit'
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  get 'siglas/new'
+  resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'siglas/edit'
+  resources :siglas, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :siglas
+  resources :substituicao_temporarias, :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'tipo_servicos/new'
+ resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'tipo_servicos/edit'
+  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :tipo_servicos
+  resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 
-  get 'solicitacao_fers/new'
+  resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :companies, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :estagiarios
-
-  get 'users/new'
+  resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :quadro_efetivo, :only => [:index]
 
-  get 'licencas/new'
-
-  get 'licencas/edit'
-
-  get 'gpms/new'
-
-  get 'gpms/edit'
-
-  get 'users/new'
+  resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :uniforms
+  resources :uniforms, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :functions
+  resources :functions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :opms
+  resources :opms, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :gpms
+  resources :solicitacao_fers, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :solicitacao_fers
-
-  resources :licencas
+  resources :licencas, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :users, :only => [:new, :create, :edit, :destroy, :update]
 
   devise_for :users
 
@@ -72,6 +58,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
 
 
 

@@ -1,4 +1,3 @@
-
 <section class="content-header">
     <h1>
         Gerenciamento de Usuário
@@ -10,14 +9,15 @@
     </ol>
 </section>
 <section class="content">
-    <div class="box">
+    <div class="box collapsed-box">
         <div class="box-header">
             <h3 class="box-title">Cadastro de Usuário</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-plus"></i>
+                </button>
             </div>
         </div>
-        <hr>
         <div class="alert-error">
             <%= flash[:error] %>
           <% if @user.errors.any? %>
@@ -47,12 +47,12 @@
 			          <div class="form-group col-md-2">
 				            <!--<%= f.label  :cpf %>-->
                     <label>CPF</label>
-                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control" %>
+                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
                 </div>
 			          <div class="form-group col-md-2">
 				            <!--<%= f.label :dataNascimento %>-->
                     <label>Data Nascimento</label>
-                    <%= f.date_field :dataNascimento, class:"form-control" %>
+                    <%= f.date_field :dataNascimento, class:"form-control data" %>
                 </div>
 			          <div class="form-group col-md-8">
 				            <!--<%= f.label :nomeGuerra %>-->
@@ -97,12 +97,12 @@
                 <div class="form-group col-md-7">
 				            <!--<%= f.label :idFuncao %>-->
                     <label>Função</label>
-                    <%= f.select :idFuncao, options_for_select(@select_funcoes), {}, class: "form-control" %>
+                    <%= f.select :idUsuarioFuncao, @select_funcoes.map{|s| [s.funcao, s.id]}, {}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-2">
                     <!--<%= f.label :cep %>-->
                     <label>CEP</label>
-                    <%= f.text_field :cep, PlaceHolder: "CEP", class:"form-control" %>
+                    <%= f.text_field :cep, PlaceHolder: "CEP", class:"form-control cep" %>
                 </div>
                 <div class="form-group col-md-7">
                     <!--<%= f.label :endereco %>-->
@@ -117,12 +117,12 @@
                 <div class="form-group col-md-5">
                     <!--<%= f.label :cidade %>-->
                     <label>Cidade</label>
-                    <%= f.select :cidade, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control" %>
+                    <%= f.select :cidade, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-5">
                     <!--<%= f.label :estado %>-->
                     <label>Estado</label>
-                    <%= f.select :estado, [['Rio Grande Do Sul', 'RS'], ['Santa Catarina', 'SC'], ['São Paulo', 'SP']],{}, class: "form-control" %>
+                    <%= f.select :estado, [['Rio Grande Do Sul', 'RS'], ['Santa Catarina', 'SC'], ['São Paulo', 'SP']],{}, class: "form-control select2" %>
                 </div>
             </div>
             <div class="box-footer">
@@ -135,7 +135,9 @@
         <div class="box-header">
             <h3 class="box-title">Listar Usuário</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
             </div>
         </div>
         <div class="box-body">
@@ -149,12 +151,12 @@
         <hr>
         <div class="box-body">
         <% if @user_show.count < 2 %>
-                        <tr><td>Não existem usuários cadastrados.</td></tr>
+          Não existem usuários cadastrados.
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Id Funcional</th>
+                              <th>Id Funcional</th>
                             <th>Nome</th>
                             <th>E-mail</th>
                             <th>Data Nascimento</th>
@@ -170,8 +172,15 @@
                                     <td><%= o.email %></td>
                                     <td><%= o.dataNascimento %></td>
                                     <td><%= o.sexo %></td>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'users', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'users', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                                     {:controller => 'users', :action => 'edit', :id => o.id},
+                                      class: 'btn btn-warning', method: :get %>
+                                    </td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                                     {:controller => 'users', :action => 'destroy', :id => o.id},
+                                      :data => {:confirm => "Realmente deseja excluir este registro?"},
+                                       class: 'btn btn-danger', method: :delete %>
+                                     </td>
                                 </tr>
                             <% end %>
                         <% end %>
@@ -179,6 +188,6 @@
                 </table>
             <% end %>
             </div>
-        <div class="box-footer"></div>
+
     </div>
 </section>
