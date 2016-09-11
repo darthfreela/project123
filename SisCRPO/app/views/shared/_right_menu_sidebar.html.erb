@@ -109,6 +109,13 @@
             <span><%= t 'menu.Licença' %></span>
           <% end  %>
         </li>
+        </li>
+            <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+            <%= link_to new_profile_path do %>
+              <i class="fa  fa-wrench"></i>
+              <span><%= t 'menu.Perfil' %></span>
+            <% end  %>
+          </li>
       </ul>
   </li>
 

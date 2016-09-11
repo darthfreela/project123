@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
+
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
