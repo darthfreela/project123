@@ -4,7 +4,7 @@ ex: rails g model Contato telefone:integer nome:string
 
 Cria controller:
 rails g controller <nome do controller> <metodo>
-ex: rails g controller Contatos index new update         ---- j· cria a pasta view com a view de cada mÈtodo
+ex: rails g controller Contatos index new update         ---- j√° cria a pasta view com a view de cada m√©todo
 
 Adiciona campos:
 rails g migration Add<nomedocampo>To<nomedatabela> <nomedocampo>:<tipo>
@@ -16,3 +16,18 @@ rails g migration Remove<nomedocampo>From<nomedatabela> <nomedocampo>:<tipo>
 Remover qualquer arquivo:
 rails destroy <tipomvc> <nome>
 ex para remover controler: rails destroy controller Contatos 
+
+Na Tela de Edit, pro ComboBox vim populado
+ <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>
+ 
+ comandos da FK:
+
+rails g migration AddIdFuncaoToUsers functions:references
+rails g migration AddFunctionIdToUsers function_id:integer
+rails g migration AddFunctionsRefToUsers functions:references
+
+#relacionamentos adicionar no controler
+belongs_to :users_functions
+belongs_to :add_user_ref_to_pointing_hours
+has_many :licenca
+

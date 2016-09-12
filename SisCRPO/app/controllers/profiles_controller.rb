@@ -2,12 +2,7 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     @profile_show = Profile.all
-    #mok
-    @select_patente = Array.new
-    ar = ["   ","Coronel","Tenente-coronel","Major","Capitão", "Primeiro-tenente", "Segundo-tenente", "Aspirante"]
-    ar.each do |i|
-      @select_patente <<  "#{i}"
-    end
+    @postograduacao = Postograduacao.all
     #mok
     @select_tipo_usuario = Array.new
     ar = ["  ","Administrador","Usuário"]
@@ -19,12 +14,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile_show = Profile.all
-    #mok
-    @select_patente = Array.new
-    ar = ["   ","Coronel","Tenente-coronel","Major","Capitão", "Primeiro-tenente", "Segundo-tenente", "Aspirante"]
-    ar.each do |i|
-      @select_patente <<  "#{i}"
-    end
+    @postograduacao = Postograduacao.all
     #mok
     @select_tipo_usuario = Array.new
     ar = ["  ","Administrador","Usuário"]
@@ -40,12 +30,7 @@ class ProfilesController < ApplicationController
 
 def edit
     @profile = Profile.find(params[:id])
-    #mok
-    @select_patente = Array.new
-    ar = ["   ","Coronel","Tenente-coronel","Major","Capitão", "Primeiro-tenente", "Segundo-tenente", "Aspirante"]
-    ar.each do |i|
-      @select_patente <<  "#{i}"
-    end
+    @postograduacao = Postograduacao.all
     #mok
     @select_tipo_usuario = Array.new
     ar = ["  ","Administrador","Usuário"]
@@ -57,6 +42,7 @@ end
 def update
       @profile = Profile.find(params[:id])
       if @profile.update_attributes(profile_params)
+      	@postograduacao = Postograduacao.all
            redirect_to new_profile_path, notice: "Perfil editado com sucesso."
       else
 
@@ -72,6 +58,6 @@ end
 
   private
   def profile_params
-    params.require(:profile).permit(:nome, :patente, :tipo_usuario)
+    params.require(:profile).permit(:nome, :postograduacao_id)
   end
 end
