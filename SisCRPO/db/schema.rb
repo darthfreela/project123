@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912220155) do
+ActiveRecord::Schema.define(version: 20160912223936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "fers", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -92,18 +101,16 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", force: :cascade do |t|
-    t.integer  "idOpm"
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "cidade"
-    t.boolean  "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "opm_id"
+    t.boolean  "ativo"
+    t.string   "cidade"
+    t.text     "descricao"
   end
-
-  add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
 
   create_table "licencas", force: :cascade do |t|
     t.integer  "idFunc"
@@ -145,13 +152,19 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "comfirmacao"
-    t.integer  "idTipoServico"
     t.integer  "tipo_servico_id"
+  end
+
+  create_table "postograduacaos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nomePostoGraduacao"
+    t.boolean  "ativo"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "nome"
-    t.string   "tipo_usuario"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "postograduacao_id"
@@ -166,6 +179,13 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.integer  "user_id"
   end
 
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -173,6 +193,17 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.boolean  "aprovado"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "subst_temps", force: :cascade do |t|
+    t.integer  "idFuncSubstituido"
+    t.integer  "idFuncSubstituto"
+    t.string   "motivIndisponibilidade"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "nrBoletim"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "temporary_replacements", force: :cascade do |t|
@@ -192,6 +223,16 @@ ActiveRecord::Schema.define(version: 20160912220155) do
     t.string   "nomeSubstituto"
     t.integer  "idFuncaoSubstituto"
     t.integer  "idGraduacaoSubstituto"
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -244,8 +285,8 @@ ActiveRecord::Schema.define(version: 20160912220155) do
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
-  add_foreign_key "gpms", "opms"
   add_foreign_key "licencas", "users"
+  add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
 end

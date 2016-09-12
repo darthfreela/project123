@@ -58,6 +58,6 @@ end
 
   private
   def profile_params
-    params.require(:profile).permit(:nome, :postograduacao_id, :tipo_usuario)
+    params.require(:profile).permit(:nome, :postograduacao_id)
   end
 end
