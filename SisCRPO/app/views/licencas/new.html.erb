@@ -37,7 +37,7 @@
 
         <div class="form-group col-md-4">
           <label>Id Func</label>
-          <%= l.text_field :user_id, value:current_user.idFunc, disabled:"true",
+          <%= l.text_field :idFunc, value:current_user.idFunc, readonly:"true",
            maxlength: "80", class:"form-control autocompleteFunc" %>
 <!--
           <label>Usuário</label>
@@ -46,7 +46,7 @@
 
         <div class="form-group col-md-4">
           <label>Nome</label>
-          <%= l.text_field :user_id, value:current_user.name, disabled:"true",
+          <%= l.text_field :nome, value:current_user.name, readonly:"true",
            maxlength: "80", class:"form-control" %>
 
           <!-- <label>Nome</label>
