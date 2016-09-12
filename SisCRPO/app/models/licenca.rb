@@ -4,7 +4,7 @@ class Licenca < ActiveRecord::Base
       validates :tipo, presence: true
       validates :dataInicial, presence: true
       validates :dataFinal, presence: true
-      validates :dias, presence: true
-      validates :ordem, presence: true
-      validates :aprovado, presence: true
+
+      # relacionamentos
+      belongs_to :user
 end

@@ -1,0 +1,52 @@
+   RF1 - Login
+  RF16 - Cadastro de Usuários
+  
+  
+  RF5 - Cadastro de OPM
+  RF7 - Cadastro de Companhias 
+  RF6 - Cadastro de GPM 
+		Pelotão *Fazer Requisito
+   RF8 - Cadastro de Postos/Graduações
+  RF10 - Cadastro de Funções 
+  RF11 - Cadastro de Tipos de Serviço 
+  
+  
+  RF12 - Cadastro de Siglas 
+  RF13 - Cadastro do Uniformes 
+  RF14 - Cadastro de Distribuição de Horas Extras 
+   RF9 - Lançamento De Férias 
+  RF17 - Apontamento de Horas 
+  RF20 - Quadro de Efetivo 
+ 
+
+  RF31 - Gerenciamento do Estagiário 
+  RF32 - Gerenciamento De Perfil 
+  RF33 - Gerenciamento de L/E e L/TIP 
+  RF34 - Gerenciamento de Substituição temporária 
+  RF35 - Gerenciamento de Carga Horária                            
+   RF2 -  Pagina Inicial 
+  RF23 - Substituição Temporária (RH) 
+
+  
+  RF18 - Solicitação de Dispensa e Afastamento                                
+  RF21 - Aprovação Indisponibilidade e Afastamento (Superior) 
+  RF22 - Aprovação Indisponibilidade E Afastamento (RH) 
+  RF19 - Aprovar Indisponibilidade e Afastamento 
+  RF15 - Relatório de Horas Extras/Suplementação 
+ 
+ 
+  RF3 - Importar Boletim 
+  RF4 - Visualizar Boletim 
+  
+  
+  RF25 - Gerenciamento de Boletim de Instrução 
+  RF27 - Gerenciamento de Informativo 
+  
+  
+  RF29 - Gerador de Boletim Diário 
+  
+  
+  RF24 - Importar Boletim de Instrução Pt 2 Boletim Diário 
+  RF26 - Gerenciamento Texto de Informativo Pt 3 Boletim Diário  
+  RF28 - Gerenciamento de Justiça e Disciplina Pt 4 Boletim Diário 
+  RF30 - Gerenciador de Boletim Diário 

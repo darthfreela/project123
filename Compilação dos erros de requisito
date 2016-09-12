@@ -11,6 +11,23 @@ RF9
 -Não possui tela de protótipo
 - Dicionário de dados errado
 
+RF10
+Não tem nomeFuncao
+Dicionário de dados não tem nomeFuncao
+
 RF23
 -fazer merge com a RF 34
 -excluir RF 34
+
+RF31
+Não tem endereço 
+Dicionário de Dadoa não tem Endereço e numeroValeTransporte
+
+Escala de Serviço não possui Requisito
+Arrumar tela de Gerenciamento de Escalas
+
+Trocar Endereço por endereço completo (Olhar a classe de endereço)
+
+Gerenciamento de Pelotão falta Requisitos e todo o resto
+
+Dicionário de dados Tipo de Serviço falta idFuncao

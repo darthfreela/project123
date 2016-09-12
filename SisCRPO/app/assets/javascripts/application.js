@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+<<<<<<< HEAD
 //= require autocomplete-rails
+=======
+
+$('#calendar').fullCalendar({});
+
+
+>>>>>>> cf206a925e9a3f9b0279f793ba69aa5491318fe0
