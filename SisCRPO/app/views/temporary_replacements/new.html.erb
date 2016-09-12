@@ -128,7 +128,7 @@
 						</thead>
 						<tbody>
 							<% @tempReplacement_show.each do |o|%>
-								<tr>
+								<tr style="cursor:pointer">
 									<td><%= o.id %></td>
 									<td><%= o.idFuncSubstituto %></td>
 									<td><%= o.nomeSubstituto%></td>
@@ -157,7 +157,7 @@
 </section>
 <script>
     $(document).ready(function () {
-        $("#motivos tr:odd").addClass("odd");
+        $("#motivos tr:odd").addClass("odd");        
         $("#motivos tr:not(.odd)").hide();
         $("#motivos tr:first-child").show();
 
@@ -167,4 +167,9 @@
         });
         //$("#motivos").jExpand();
     });
+
+     $(function(){
+        var notice = "<%= flash[:notice] %>"
+         $.notify(notice, "success" );
+     })
 </script>

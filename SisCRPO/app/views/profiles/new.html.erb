@@ -39,14 +39,9 @@
                     <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
                 </div>
                 <div class="form-group col-md-5">
-                    <!--<%= f.label :patente %>-->
-                    <label>Patente</label>
-                    <%= f.select :patente, options_for_select(@select_patente),{}, class: "form-control select2" %>
-                </div>
-                <div class="form-group col-md-5">
-                	<!--<%= f.label :tipo_usuario %>-->
-                    <label>Tipo de Usuário</label>
-                    <%= f.select :tipo_usuario, options_for_select(@select_tipo_usuario),{}, class: "form-control select2" %>
+                    <!--<%= f.label :postograduacao_id %>-->
+                    <label>PostoGraduação*</label>
+                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
                 </div>
             </div>
             <div class="box-footer">
@@ -80,8 +75,7 @@
                 <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Patente</th>
-                            <th>Tipo de Usuário</th>
+                            <th>Posto Graduação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,8 +83,11 @@
                             <% if o.id >= 0 %>
                                 <tr>
                                     <td><%= o.nome %></td>
-                                    <td><%= o.patente %></td>
-                                    <td><%= o.tipo_usuario %></td>
+                                    <% @postograduacao.each do |tp| %>
+                                        <% if o.postograduacao_id == tp.id %>
+                                            <td><%= tp.nomePostoGraduacao %></td>
+                                        <% end %>
+                                    <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'profiles', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'profiles', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>

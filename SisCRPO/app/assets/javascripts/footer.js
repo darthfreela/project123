@@ -75,6 +75,7 @@ $(function () {
 
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
+
 	$('.data').datepicker({
 		autoclose: true,
 		isRTL: false,

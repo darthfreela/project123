@@ -26,14 +26,9 @@
                     <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
                 </div>
                 <div class="form-group col-md-5">
-                    <!--<%= f.label :patente %>-->
-                    <label>Patente</label>
-                    <%= f.select :patente, options_for_select(@select_patente),{}, class: "form-control select2" %>
-                </div>
-                <div class="form-group col-md-5">
-                	<!--<%= f.label :tipo_usuario %>-->
-                    <label>Tipo de Usuário</label>
-                    <%= f.select :tipo_usuario, options_for_select(@select_tipo_usuario),{}, class: "form-control select2" %>
+                    <!--<%= f.label :postograduacao_id %>-->
+                    <label>Posto Graduação</label>
+                    <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>
                 </div>
             </div>
         <div class="box-footer">

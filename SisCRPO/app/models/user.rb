@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 
 
-  devise :database_authenticatable, :trackable, :validatable
-validates :name, :username, presence: true, length: { minimum: 8, maximun: 30 } ,numericality: false
+    devise :database_authenticatable, :trackable, :validatable
+    validates :name, :username, presence: true, length: { minimum: 8, maximun: 30 } ,numericality: false
     validates :name, :username, presence: true, length: { minimum: 5, maximun: 30 } ,numericality: false
     validates :username, uniqueness: true, numericality: false
     validates :password, presence: true, length: { minimum: 8, maximun: 16 }, format: { with: /\A^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){8,16}$\z/, on: :create }
