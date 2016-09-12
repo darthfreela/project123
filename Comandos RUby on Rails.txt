@@ -16,3 +16,6 @@ rails g migration Remove<nomedocampo>From<nomedatabela> <nomedocampo>:<tipo>
 Remover qualquer arquivo:
 rails destroy <tipomvc> <nome>
 ex para remover controler: rails destroy controller Contatos 
+
+Na Tela de Edit, pro ComboBox vim populado
+ <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>

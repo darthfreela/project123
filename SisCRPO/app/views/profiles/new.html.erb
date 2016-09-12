@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group col-md-5">
                     <!--<%= f.label :postograduacao_id %>-->
-                    <label>PostoGraduação</label>
+                    <label>PostoGraduação*</label>
                     <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
                 </div>
             </div>
