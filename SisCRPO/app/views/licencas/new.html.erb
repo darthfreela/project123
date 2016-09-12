@@ -35,14 +35,22 @@
     <%= form_for @licenca do |l| %>
       <div class="box-body">
 
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-4">
+          <label>Id Func</label>
+          <%= l.text_field :user_id, value:current_user.idFunc, disabled:"true",
+           maxlength: "80", class:"form-control autocompleteFunc" %>
+<!--
           <label>Usuário</label>
-          <%= l.select :user_id, @select_users.map{|s| [s.id.to_s + ':'+ s.name.to_s , s.id]}, {}, class: "form-control select2" %>
+          <%= l.select :user_id, @select_users.map{|s| [s.id.to_s + ':'+ s.name.to_s , s.id]}, {}, class: "form-control select2" %> -->
         </div>
 
-        <div class="form-group col-md-9">
-          <label>Nome para a licença</label>
-          <%= l.text_field :nome, PlaceHolder: "Nome", class:"form-control" %>
+        <div class="form-group col-md-4">
+          <label>Nome</label>
+          <%= l.text_field :user_id, value:current_user.name, disabled:"true",
+           maxlength: "80", class:"form-control" %>
+
+          <!-- <label>Nome</label>
+          <%= l.text_field :nome, PlaceHolder: "Nome", class:"form-control" %> -->
         </div>
         <div class="form-group col-md-2">
             <label>Tempo da Licença</label>
