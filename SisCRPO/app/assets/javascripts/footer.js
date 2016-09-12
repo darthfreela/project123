@@ -68,21 +68,22 @@ $(function () {
       $("#diasTrabalhados").keyup(function(){
         $("#valeTransporte").val($("#diasTrabalhados").val()*2);
         $("#horasTrabalhadas").val($("#diasTrabalhados").val()*6);
-        $("#valeTransporte").removeProp("disabled");
-        $("#horasTrabalhadas").removeProp("disabled");
       });
 
 
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 
+      $(".data").datepicker($.datepicker.regional["pt-BR"]);
+
 	$('.data').datepicker({
 		autoclose: true,
 		isRTL: false,
     		format: 'dd.mm.yyyy hh:ii',
-    		autoclose:true,
-    		language: 'br'
+    		autoclose:true
 	});
+
+
 
 	$(".time").inputmask("99:99:99");
 
