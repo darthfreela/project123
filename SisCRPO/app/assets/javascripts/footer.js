@@ -73,12 +73,11 @@ $(function () {
 
 	$(".time").inputmask("99:99:99");
 
-	$( "#birds" ).autocomplete({
-		source: "search.php",
+	$(".autocompleteFunc" ).autocomplete({
+		source: "users/findIdFunc",
 		minLength: 2,
 		select: function( event, ui ) {
-			log( ui.item ?
-				alert('sad');
+			alert('sad');
 		}
 	});
 });

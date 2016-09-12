@@ -1,4 +1,7 @@
 class TemporaryReplacementsController < ApplicationController
+  #autocomplete :food, :name, :full => true
+
+
   def new
       @tempReplacement = TemporaryReplacement.new
       @tempReplacement_show = TemporaryReplacement.all
@@ -6,6 +9,8 @@ class TemporaryReplacementsController < ApplicationController
 
   def edit
       @tempReplacement = TemporaryReplacement.find(params[:id])
+      @tempReplacement.dataAssuncao = @tempReplacement.dataAssuncao.strftime("%d/%m/%Y")
+      @tempReplacement.dataDispensa = @tempReplacement.dataDispensa.strftime("%d/%m/%Y")
   end
 
   def create
@@ -37,6 +42,6 @@ class TemporaryReplacementsController < ApplicationController
       params.require(:temporary_replacement).permit(:idFuncOcupante, :nomeOcupante, 
         :idGraduacaoOcupante, :idFuncaoOcupante, :idFuncSubstituto, :nomeSubstituto, 
         :idFuncaoSubstituto, :idGraduacaoSubstituto, :situacao, :motivoIndisponibilidade, 
-        :idSoliDispAfastamento, :idBoletim)
+        :idSoliDispAfastamento, :dataAssuncao, :dataDispensa, :idBoletim)
   end
 end
