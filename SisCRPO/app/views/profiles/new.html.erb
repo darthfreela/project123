@@ -43,11 +43,6 @@
                     <label>PostoGraduação</label>
                     <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
                 </div>
-                <div class="form-group col-md-5">
-                	<!--<%= f.label :tipo_usuario %>-->
-                    <label>Tipo de Usuário</label>
-                    <%= f.select :tipo_usuario, options_for_select(@select_tipo_usuario),{}, class: "form-control select2" %>
-                </div>
             </div>
             <div class="box-footer">
                 <%= f.submit "Salvar", Class: "btn btn-success" %>
@@ -81,7 +76,6 @@
                         <tr>
                             <th>Nome</th>
                             <th>Posto Graduação</th>
-                            <th>Tipo de Usuário</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,7 +88,6 @@
                                             <td><%= tp.nomePostoGraduacao %></td>
                                         <% end %>
                                     <% end %>
-                                    <td><%= o.tipo_usuario %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'profiles', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'profiles', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
