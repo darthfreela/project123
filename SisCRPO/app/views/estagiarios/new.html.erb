@@ -41,27 +41,27 @@
                         <div class="box-body">
                             <div class="form-group col-md-12">
                                 <div class="form-group col-md-5">
-                                    <label>Nome</label>
+                                    <label>Nome*</label>
                                     <%= f.text_field :nome, placeholder: "Nome", class:"form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>CPF</label>
+                                    <label>CPF*</label>
                                     <%= f.text_field :cpf, placeholder: "CPF", maxlength: "15", class:"form-control cpf" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Sexo</label>
+                                    <label>Sexo*</label>
                                     <%= f.select :sexo, [['Maculino', 'M'], ['Feminino', 'F']],{}, class: "form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Data Nascimento</label>
+                                    <label>Data Nascimento*</label>
                                     <%= f.date_field :data_nascimento, class:"form-control data" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Vigencia do Contrato</label>
+                                    <label>Vigencia do Contrato*</label>
                                     <%= f.date_field :vigencia_contrato, class:"form-control data" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Semestre</label>
+                                    <label>Semestre*</label>
                                     <%= f.select :semestre, [['Primeiro', 1], ['Segundo', 2]],{}, class: "form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
@@ -73,11 +73,11 @@
                                     <%= f.email_field :email, PlaceHolder: "email@email.com", maxlength: "80", class:"form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Banco - ag/CC</label>
+                                    <label>Banco - ag/CC*</label>
                                     <%= f.text_field :agcc, PlaceHolder: "banco - agencia/conta", maxlength: "80", class:"form-control bancoAg" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label>Dias Trabalhados</label>
+                                    <label>Dias Trabalhados*</label>
                                     <%= f.text_field :dias_trabalhados, id:"diasTrabalhados",  PlaceHolder:  "Dias Trabalhados", class:"form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
@@ -93,6 +93,7 @@
                         <div class="box-footer">
                             <button id="sbm" type="submit" class="btn btn-success">Salvar</button>
                             <button type="close" class="btn btn-danger">Cancelar</button>
+                            <div class=" small pull-right">* Campos obrigatórios</div>
                         </div>
                     <% end %>
                 </div>
