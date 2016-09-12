@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
+  resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
+
 
   devise_for :users
 
