@@ -37,10 +37,14 @@ def update
       end
 end
 
+def findIdFunc
+    @user = User.find(params[:idFunc])
+end 
+
 def destroy
-      @user = User.find(params[:id])
-      @user.destroy
-      redirect_to new_user_path, notice: "Usuário removido com sucesso."
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to new_user_path, notice: "Usuário removido com sucesso."
 end
 
   private

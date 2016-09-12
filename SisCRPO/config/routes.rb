@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'temporary_replacements/new'
 
-  resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
+<<<<<<< HEAD
+  get 'pointing_hours/new'
+
+  get 'release_vacations/index'
+
+  get 'release_vacations/edit'
+
+  resources :disthoraext
 
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+=======
+  resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
+
+>>>>>>> cf206a925e9a3f9b0279f793ba69aa5491318fe0
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
@@ -11,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :substituicao_temporarias, :only => [:new, :create, :edit, :destroy, :update]
 
- resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
+  resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
@@ -42,6 +56,8 @@ Rails.application.routes.draw do
   resources :licencas, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
+
+  resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
 
 
   devise_for :users
