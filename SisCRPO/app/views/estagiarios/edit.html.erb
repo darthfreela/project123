@@ -33,24 +33,24 @@
                         <div class="box-body">
                             <div class="form-group col-md-12">
                                 <div class="form-group col-md-5">
-                                    <%= f.label :nome %>
+                                    <label>Nome</label>
                                     <%= f.text_field :nome, placeholder: "Nome", class:"form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <%= f.label :cpf %>
-                                    <%= f.text_field :cpf, placeholder: "CPF", maxlength: "12", class:"form-control" %>
+                                    <label>CPF</label>
+                                    <%= f.text_field :cpf, placeholder: "CPF", maxlength: "15", class:"form-control cpf" %>
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <%= f.label :sexo %>
+                                    <label>Sexo</label>
                                     <%= f.select :sexo, [['Maculino', 'M'], ['Feminino', 'F']],{}, class: "form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>Data Nascimento</label>
-                                    <%= f.date_field :data_nascimento, class:"form-control" %>
+                                    <%= f.date_field :data_nascimento, class:"form-control data" %>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>Vigencia do Contrato</label>
-                                    <%= f.date_field :vigencia_contrato, class:"form-control" %>
+                                    <%= f.date_field :vigencia_contrato, class:"form-control data" %>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>Semestre</label>
@@ -66,20 +66,24 @@
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>Banco - ag/CC</label>
-                                    <%= f.text_field :agcc, PlaceHolder: "banco - agencia/conta", maxlength: "80", class:"form-control" %>
+                                    <%= f.text_field :agcc, PlaceHolder: "banco - agencia/conta", maxlength: "80", class:"form-control bancoAg" %>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label>Dias Trabalhados</label>
-                                    <%= f.text_field :dias_trabalhados, PlaceHolder:  "Dias Trabalhados", class:"form-control" %>
+                                    <%= f.text_field :dias_trabalhados, id:"diasTrabalhados",  PlaceHolder:  "Dias Trabalhados", class:"form-control" %>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="valeTransporte">Vale Transporte</label>
-                                    <%= f.text_field :vale_transporte, PlaceHolder:  "Vale Transporte", class:"form-control" %>
+                                    <%= f.text_field :vale_transporte, id:"valeTransporte", PlaceHolder:  "Vale Transporte", disabled:"", class:"form-control" %>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="valeTransporte">Horas Trabalhadas</label>
+                                    <%= f.text_field :horas_trabalhadas, id:"horasTrabalhadas", PlaceHolder:  "Horas Trabalhadas", disabled:"", class:"form-control" %>
                                 </div>
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button id="sbm" type="submit" class="btn btn-success">Salvar</button>
                             <button type="close" class="btn btn-danger">Cancelar</button>
                         </div>
                     <% end %>
