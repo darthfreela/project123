@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912215414) do
+ActiveRecord::Schema.define(version: 20160912220155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,8 +166,9 @@ ActiveRecord::Schema.define(version: 20160912215414) do
   create_table "profiles", force: :cascade do |t|
     t.string   "nome"
     t.string   "tipo_usuario"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "postograduacao_id"
   end
 
   create_table "release_vacations", force: :cascade do |t|
@@ -269,5 +270,6 @@ ActiveRecord::Schema.define(version: 20160912215414) do
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "licencas", "users"
+  add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
 end
