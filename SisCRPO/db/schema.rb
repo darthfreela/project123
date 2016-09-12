@@ -179,6 +179,13 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.integer  "user_id"
   end
 
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -216,6 +223,16 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.string   "nomeSubstituto"
     t.integer  "idFuncaoSubstituto"
     t.integer  "idGraduacaoSubstituto"
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -269,6 +286,10 @@ ActiveRecord::Schema.define(version: 20160912223936) do
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "licencas", "users"
+<<<<<<< HEAD
+  add_foreign_key "pointing_hours", "tipo_servicos"
+=======
   add_foreign_key "profiles", "postograduacaos"
+>>>>>>> 1a82a3364bb493012e4c7b5ada7535f825cab234
   add_foreign_key "release_vacations", "users"
 end
