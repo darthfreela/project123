@@ -30,11 +30,6 @@
                     <label>Posto Graduação</label>
                     <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>
                 </div>
-                <div class="form-group col-md-5">
-                	<!--<%= f.label :tipo_usuario %>-->
-                    <label>Tipo de Usuário</label>
-                    <%= f.select :tipo_usuario, options_for_select(@select_tipo_usuario),{}, class: "form-control select2" %>
-                </div>
             </div>
         <div class="box-footer">
             <%= f.submit "Salvar", Class: "btn btn-success" %>
