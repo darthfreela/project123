@@ -18,7 +18,7 @@
 //= require plugins/input-mask/jquery.inputmask.js
 //= require plugins/datepicker/bootstrap-datepicker.js
 //= require plugins/timepicker/bootstrap-timepicker.js
-
+$('#calendar').fullCalendar({});
 $(function () {
 	// Iniciliazar combobox select2
 	$(".select2").select2();

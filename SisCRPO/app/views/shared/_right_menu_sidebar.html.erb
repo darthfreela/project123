@@ -95,12 +95,6 @@
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-        <%= link_to new_temporary_replacement_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Subs_Temporárias' %></span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
         <%= link_to new_licenca_path do %>
           <i class="fa  fa-wrench"></i>
           <span><%= t 'menu.Licença' %></span>
@@ -135,7 +129,6 @@
   <!-- Ferramentas de Usuário -->
   <li class="header"><%= t 'menu.ferramentas_administrativas' %></li>
   <li class="treeview">
-<<<<<<< HEAD
     <a href="#">
       <i class="fa fa-wrench"></i> 
       <span>Relatórios</span>     
@@ -149,45 +142,5 @@
         <% end %>
       </li>      
     </ul>
-=======
-      <a href="#">
-          <i class="fa fa-wrench"></i> <span>Relatórios</span>
-          <!--<span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-          </span>-->
-      </a>
-      <ul class="treeview-menu" style="display: none;">
-          <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
-            <%= link_to quadro_efetivo_index_path do %>
-                <i class="fa  fa-wrench"></i>
-                <span><%= t 'menu.QuadroEfetivo' %></span>
-
-          <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
-            <%= link_to new_release_vacation_path do %>
-              <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.LançamentoDeFérias' %></span>
-            <% end  %>
-<<<<<<< HEAD
-          </li>
-=======
-          </li>
-          <li class="<%= ative_se_pagina_atual(new_temporary_replacement_path, true) %>">
-            <%= link_to new_temporary_replacement_path do %>
-              <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.Subs_Temporárias' %></span>
-
-            <% end  %>
-          </li>
-          <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
-            <%= link_to new_management_hour_path do %>
-              <i class="fa  fa-wrench"></i>
-              <span><%= t 'menu.Gerencia de Horas' %></span>
-
-            <% end  %>
-          </li>
-
-      </ul>
-<% end  %>
->>>>>>> 3f846e98c1abeaf78df0568e414f628edf7a073e
   </li>
 </ul>
