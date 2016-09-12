@@ -27,8 +27,8 @@
                 </div>
                 <div class="form-group col-md-5">
                     <!--<%= f.label :postograduacao_id %>-->
-                    <label>PostoGraduação</label>
-                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                    <label>Posto Graduação</label>
+                    <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>
                 </div>
                 <div class="form-group col-md-5">
                 	<!--<%= f.label :tipo_usuario %>-->
