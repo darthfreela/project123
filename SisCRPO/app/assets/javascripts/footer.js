@@ -61,6 +61,18 @@ $(function () {
 
 	$(".cep").inputmask("99999-999");
 
+      $(".vigencia").inputmask("99 meses");
+
+      $(".bancoAg").inputmask("999 - 9999-9/99999999-9");
+
+      $("#diasTrabalhados").keyup(function(){
+        $("#valeTransporte").val($("#diasTrabalhados").val()*2);
+        $("#horasTrabalhadas").val($("#diasTrabalhados").val()*6);
+        $("#valeTransporte").removeProp("disabled");
+        $("#horasTrabalhadas").removeProp("disabled");
+      });
+
+
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 	$('.data').datepicker({

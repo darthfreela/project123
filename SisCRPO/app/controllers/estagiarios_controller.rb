@@ -41,6 +41,6 @@ end
 
 private
 def estagiario_params
-     params.require(:estagiario).permit(:nome, :cpf, :sexo, :data_nascimento, :semestre, :endereco, :email, :agcc, :dias_trabalhados, :vale_transporte, :vigencia_contrato)
+     params.require(:estagiario).permit(:nome, :cpf, :sexo, :data_nascimento, :semestre, :endereco, :email, :agcc, :dias_trabalhados, :horas_trabalhadas , :vale_transporte, :vigencia_contrato)
 end
 end
