@@ -58,25 +58,25 @@
              class: "form-control" %>
         </div>
         <div class="form-group col-md-3">
-          <label>Tipo de Licença</label>
+          <label>Tipo de Licença*</label>
           <%= l.select :tipo, [['Especial','L/E'], ['Interesses próprios','L/TIP']],{},
            class: "form-control" %>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label>Data Inicial</label>
+            <label>Data Inicial*</label>
              <%= l.date_field :dataInicial, class:"form-control data" %>
           </div>
         </div>
         <div class="col-md-2">
           <div class="form-group">
-            <label>Data Final</label>
+            <label>Data Final*</label>
             <%= l.date_field :dataFinal, class:"form-control data" %>
           </div>
         </div>
         <div class="form-group col-md-2">
           <label>Ordem da licença</label>
-          <input type="text" class="form-control" id="nome" placeholder="NI 123/0000">
+          <%= l.text_field :ordem, placeholder: "NI 123/0000", class: "form-control" %>        
         </div>
       </div>
       <div class="box-footer">
