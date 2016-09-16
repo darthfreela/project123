@@ -1,18 +1,18 @@
 <section class="content-header">
   <h1>
-    Gerenciamento de Licenças
+    Gerenciamento de Horas
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">Ferramentas do usuário</a></li>
-    <li class="active">Gerenciamento de Licenças</li>
+    <li class="active">Gerenciamento de Horas</li>
   </ol>
 </section>
 
 <section class="content">
   <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title">Cadastro de Licença</h3>
+      <h3 class="box-title">Filtros para consulta de horas</h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" data-widget="collapse">
           <i class="fa fa-plus"></i>
@@ -35,52 +35,14 @@
     <%= form_for @licenca do |l| %>
       <div class="box-body">
 
-        <div class="form-group col-md-4">
-          <label>Id Func</label>
-          <%= l.text_field :idFunc, value:current_user.idFunc, readonly:"true",
-           maxlength: "80", class:"form-control autocompleteFunc" %>
-<!--
-          <label>Usuário</label>
-          <%= l.select :user_id, @select_users.map{|s| [s.id.to_s + ':'+ s.name.to_s , s.id]}, {}, class: "form-control select2" %> -->
+        <div class="form-group col-md-7">
+          <label>Selecione um usuário</label>
+          <%= l.select :user_id, @select_users.map{|s| [s.id.to_s + ':'+ s.name.to_s , s.id]}, {}, class: "form-control select2" %>
         </div>
 
-        <div class="form-group col-md-4">
-          <label>Nome</label>
-          <%= l.text_field :nome, value:current_user.name, readonly:"true",
-           maxlength: "80", class:"form-control" %>
-
-          <!-- <label>Nome</label>
-          <%= l.text_field :nome, PlaceHolder: "Nome", class:"form-control" %> -->
-        </div>
-        <div class="form-group col-md-2">
-            <label>Tempo da Licença</label>
-            <%= l.select :dias, [['30', '30'], ['60', '60'], ['90', '90']],{},
-             class: "form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <label>Tipo de Licença*</label>
-          <%= l.select :tipo, [['Especial','L/E'], ['Interesses próprios','L/TIP']],{},
-           class: "form-control" %>
-        </div>
-        <div class="col-md-2">
-          <div class="form-group">
-            <label>Data Inicial*</label>
-             <%= l.date_field :dataInicial, class:"form-control data" %>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="form-group">
-            <label>Data Final*</label>
-            <%= l.date_field :dataFinal, class:"form-control data" %>
-          </div>
-        </div>
-        <div class="form-group col-md-2">
-          <label>Ordem da licença</label>
-          <%= l.text_field :ordem, placeholder: "NI 123/0000", class: "form-control" %>        
-        </div>
       </div>
       <div class="box-footer">
-        <%= l.submit "Salvar", class: "btn btn-success" %>
+        <%= l.submit "Consultar", class: "btn btn-success" %>
         <%= l.button "Limpar", class: "btn btn-danger" %>
         <div class=" small pull-right">* Campos obrigatórios</div>
       </div>

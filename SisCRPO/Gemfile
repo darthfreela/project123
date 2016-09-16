@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'notifyjs_rails', '~> 0.0.2'
 
+gem 'rails-jquery-autocomplete', '~> 1.0', '>= 1.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+
+gem 'jquery-ui-rails'
 
 gem 'pg', '0.18.3'
 #gem 'sqlite3'

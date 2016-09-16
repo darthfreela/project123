@@ -1,4 +1,4 @@
-class LicencasController < ApplicationController
+class ManagementHoursController < ApplicationController
   def new
       @licenca = Licenca.new
       @licenca_show = Licenca.all
@@ -7,13 +7,10 @@ class LicencasController < ApplicationController
   end
 
     def create
-      @licenca = Licenca.new(licenca_params)
-      @licenca_show = Licenca.all
 
-      @select_users = User.all
-
-      if @licenca.save
-        redirect_to new_licenca_path, notice: "Solicitação registrada com sucesso."
+      if @licenca.user_id
+        @licencas_show = Licenca.find(params[:user_id])
+        redirect_to new_management_hour_path, notice: "Solicitação consultada com sucesso."
       else
         render action: :new
       end

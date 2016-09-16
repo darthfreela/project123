@@ -1,0 +1,39 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Cadastro de Perfil</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <hr>
+    <div class="alert-error">
+      <% if @profile.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@profile.errors.count, "erro") %>.
+        </div>
+        <ul>
+            <% @profile.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <%= form_for @profile do |f| %>
+        <div class="box-body">
+            	<div class="form-group col-md-7">
+                            <!--<%= f.label :nome %>-->
+                    <label>Nome*</label>
+                    <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :postograduacao_id %>-->
+                    <label>Posto Graduação</label>
+                    <%= f.select :postograduacao_id, options_for_select(@postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, select_key = @profile.postograduacao_id), {},  class: "form-control select2"%>
+                </div>
+            </div>
+        <div class="box-footer">
+            <%= f.submit "Salvar", Class: "btn btn-success" %>
+            <%= f.button "Limpar", Class: "btn btn-danger" %>
+        </div>
+    <% end %>
+</div>
