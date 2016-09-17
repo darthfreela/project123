@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-language" content="pt-br">
   <title><%= t 'title.system_title' %></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -52,10 +53,8 @@
 
     <!-- Main content -->
     <section class="content">
-      <% if flash[:notice] %>
-        <div class="alert alert-success alert-dismissible">
-          <h4><%= render 'shared/messages' %></h4>
-        </div>
+     <% if flash[:notice] %>
+        <%= render 'shared/messages' %>
       <% end %>
       <%= yield %>
     </section><!-- /.content -->
@@ -130,5 +129,6 @@
 
 <!-- REQUIRED JS SCRIPTS -->
 <%= javascript_include_tag 'footer' %>
+
 </body>
 </html>
