@@ -15,53 +15,41 @@
       <i class="fa fa-wrench"></i> 
       <span>Gerenciar</span>      
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + quadro_efetivo_index_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_licenca_path + "," + new_profile_path) %>;">
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_licenca_path + "," + new_profile_path) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.usuários' %></span>
+          <span>Usuários</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_opm_path, true) %>">
         <%= link_to new_opm_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Opms' %></span>
+          <span>Opms</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_gpm_path, true) %>">
         <%= link_to new_gpm_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Gpms' %></span>
+          <span>Gpms</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_function_path, true) %>">
         <%= link_to new_function_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Funções' %></span>
+          <span>Funções</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_uniform_path, true) %>">
         <%= link_to new_uniform_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Uniformes' %></span>
+          <span>Uniformes</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_estagiario_path, true) %>">
         <%= link_to new_estagiario_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Estagiários' %></span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_postograduacao_path, true) %>">
-        <%= link_to new_postograduacao_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Posto Graduação' %></span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
-        <%= link_to quadro_efetivo_index_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.QuadroEfetivo' %></span>
+          <span>Estagiários</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_tipo_servico_path, true) %>">
@@ -73,55 +61,55 @@
       <li class="<%= ative_se_pagina_atual(new_sigla_path, true) %>">
         <%= link_to new_sigla_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Sigla' %></span>
+          <span>Sigla</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_company_path, true) %>">
         <%= link_to new_company_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.companhias' %></span>
+          <span>Companhias</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
         <%= link_to new_pointing_hour_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.ApontamentoDeHoras' %></span>
+          <span>Apontamentos de Horas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(new_distribuicao_horas_extra_path, true) %>">
         <%= link_to new_distribuicao_horas_extra_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.HoraExtra' %></span>
+          <span>Horas Extras</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(new_licenca_path, true) %>">
         <%= link_to new_licenca_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Licença' %></span>
+          <span>Licença</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(new_profile_path, true) %>">
         <%= link_to new_profile_path do %>
           <i class="fa  fa-wrench"></i>
-        <span><%= t 'menu.Perfil' %></span>
+        <span>Perfil</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
         <%= link_to new_release_vacation_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.LançamentoDeFérias' %></span>
+          <span>Lanç. Férias</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(new_temporary_replacement_path, true) %>">
         <%= link_to new_temporary_replacement_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Subs_Temporárias' %></span>
+          <span>Subs Temporárias</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
         <%= link_to new_management_hour_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.Gerencia de Horas' %></span>
+          <span>Gerencia de Horas</span>
         <% end  %>
       </li>
     </ul>
@@ -138,7 +126,7 @@
       <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
         <%= link_to quadro_efetivo_index_path do %>
           <i class="fa  fa-wrench"></i>
-          <span><%= t 'menu.QuadroEfetivo' %></span>
+          <span>Quadro Efetivo</span>
         <% end %>
       </li>      
     </ul>
