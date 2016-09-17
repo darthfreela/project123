@@ -39,7 +39,7 @@ end
 
 def findIdFunc
     @user = User.find(params[:idFunc])
-end 
+end
 
 def destroy
     @user = User.find(params[:id])
