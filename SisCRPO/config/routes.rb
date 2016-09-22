@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'report_overtime_supplementation/report'
+
   resources :disthoraext
 
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
