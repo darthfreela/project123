@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+
+  get 'approval_unavailability_and_removals/new'
+
+  resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
+
   resources :request_dispenses, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :disthoraext

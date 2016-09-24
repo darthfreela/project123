@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160924180632) do
 
   add_index "add_user_ref_to_pointing_hours", ["user_id"], name: "index_add_user_ref_to_pointing_hours_on_user_id", using: :btree
 
+  create_table "approval_unavailability_and_removals", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "licencas_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string   "nome"
     t.string   "cidade"
