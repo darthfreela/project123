@@ -112,6 +112,12 @@
           <span>Gerencia de Horas</span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
+        <%= link_to new_request_dispense_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Solicitação de Dispensa</span>
+        <% end  %>
+      </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
