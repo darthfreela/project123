@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912223936) do
+ActiveRecord::Schema.define(version: 20160924170302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160912223936) do
   end
 
   add_index "add_user_ref_to_pointing_hours", ["user_id"], name: "index_add_user_ref_to_pointing_hours_on_user_id", using: :btree
+
+  create_table "approval_unavailability_and_removals", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "licencas_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "nome"
@@ -101,13 +108,15 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", force: :cascade do |t|
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
     t.string   "sigla"
     t.string   "nome"
-    t.string   "cidade"
-    t.text     "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "ativo"
+    t.string   "cidade"
+    t.text     "descricao"
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -204,23 +213,6 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "substituicao_temporaria", force: :cascade do |t|
-    t.integer  "idFunc1"
-    t.string   "nomeServidor1"
-    t.string   "postoGraduacao1"
-    t.string   "funcao1"
-    t.integer  "idFunc2"
-    t.string   "nomeServidor2"
-    t.string   "postoGraduacao2"
-    t.string   "funcao2"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "motivoIndisponibilidade"
-    t.date     "data1"
-    t.date     "data2"
-    t.integer  "numeroBoletim"
-  end
-
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -287,6 +279,7 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.string   "email",               limit: 256
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
+    t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
   end
 
@@ -296,7 +289,6 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.integer  "functions_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "users_id"
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
