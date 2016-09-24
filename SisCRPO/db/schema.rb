@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160924170302) do
-=======
 ActiveRecord::Schema.define(version: 20160924180632) do
->>>>>>> f3c550b34da782a72f94418a3e6988bda50eed13
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +195,13 @@ ActiveRecord::Schema.define(version: 20160924180632) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -236,6 +239,16 @@ ActiveRecord::Schema.define(version: 20160924180632) do
     t.string   "nomeSubstituto"
     t.integer  "idFuncaoSubstituto"
     t.integer  "idGraduacaoSubstituto"
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -290,6 +303,7 @@ ActiveRecord::Schema.define(version: 20160924180632) do
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "licencas", "users"
+  add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
   add_foreign_key "request_dispenses", "users"

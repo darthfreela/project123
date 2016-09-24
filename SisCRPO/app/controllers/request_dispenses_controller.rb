@@ -2,7 +2,7 @@ class RequestDispensesController < ApplicationController
 def new
     @request_dispenses = RequestDispense.new
     @request_dispenses_show = RequestDispense.all
-    @user = User.all
+    @user = User.joins("INNER JOIN postograduacaos ON users.postograduacao_id = postograduacaos.id")
 end
 
   def create
