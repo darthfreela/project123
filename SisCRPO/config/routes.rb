@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
   get 'approval_unavailability_and_removals/new'
 
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]

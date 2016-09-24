@@ -74,7 +74,7 @@ $(function () {
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 
-      $(".data").datepicker($.datepicker.regional["pt-BR"]);
+      
 
 	$('.data').datepicker({
 		autoclose: true,

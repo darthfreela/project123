@@ -2,13 +2,12 @@ class RequestDispensesController < ApplicationController
 def new
     @request_dispenses = RequestDispense.new
     @request_dispenses_show = RequestDispense.all
-    @user = User.all
+    @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
 end
 
   def create
     @request_dispenses = RequestDispense.new(request_dispenses_params)
     @request_dispenses_show = RequestDispense.all
-    @user = User.all
     if @request_dispenses.save
         redirect_to new_request_dispense_path , notice: "Solicitação de Dispensa cadastrada com sucesso."
       else
@@ -18,14 +17,12 @@ end
 
 def edit
     @request_dispenses = RequestDispense.find(params[:id])
-    @user = User.all
     end
 end
 
 def update
       @request_dispenses = RequestDispense.find(params[:id])
       if @request_dispenses.update_attributes(request_dispenses_params)
-      	@user = User.all
            redirect_to new_request_dispense_path, notice: "Solicitação de Dispensa editado com sucesso."
       else
 
@@ -41,5 +38,5 @@ end
 
   private
   def request_dispenses_params
-    params.require(:request_dispenses).permit(:solicitacao, :data_inicio, :data_fim, :user_id)
+    params.require(:request_dispense).permit(:solicitacao, :data_inicio, :data_fim, :user_id)
   end
