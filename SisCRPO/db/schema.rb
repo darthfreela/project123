@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924172033) do
+ActiveRecord::Schema.define(version: 20160924180632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -266,6 +266,7 @@ ActiveRecord::Schema.define(version: 20160924172033) do
     t.date     "dataNascimento"
     t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
+    t.integer  "postograduacao_id"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
@@ -281,4 +282,5 @@ ActiveRecord::Schema.define(version: 20160924172033) do
   add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
   add_foreign_key "request_dispenses", "users"
+  add_foreign_key "users", "postograduacaos"
 end

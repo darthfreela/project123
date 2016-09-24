@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     belongs_to :users_functions
     belongs_to :add_user_ref_to_pointing_hours
     has_many :licenca
+    has_one :postograduacaos
 
   def email_required?
     false

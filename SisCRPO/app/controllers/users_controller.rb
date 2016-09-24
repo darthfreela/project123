@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user_show = User.all
+    @postograduacao = Postograduacao.all
     #MockObject simulndo retorno do banco para popular select funcao
     @select_funcoes = Function.all
 
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user_show = User.all
+    @postograduacao = Postograduacao.all
     #mok funcao
     @select_funcao = Function.all
 
@@ -25,11 +27,13 @@ class UsersController < ApplicationController
 
 def edit
       @user = User.find(params[:id])
+      @postograduacao = Postograduacao.all
 end
 
 def update
       @user = User.find(params[:id])
       if @user.update_attributes(user_params)
+        @postograduacao = Postograduacao.all
            redirect_to new_user_path, notice: "Usuário editado com sucesso."
       else
 
@@ -49,8 +53,11 @@ end
 
   private
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation, :ativo, :idFunc,
-       :email,  :cpf, :nomeGuerra, :imagemUsuario, :idUsuarioFuncao, :dataNascimento, :sexo, :endereco, :bairro, :cidade, :estado, :cep)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation, 
+                                 :ativo, :idFunc, :email,  :cpf, :nomeGuerra,
+                                 :imagemUsuario, :idUsuarioFuncao, :dataNascimento,
+                                 :sexo, :endereco, :bairro, :cidade, :estado, :cep,
+                                 :postograduacao_id)
   end
 end
 

@@ -1,2 +1,58 @@
-<h1>RequestDispenses#edit</h1>
-<p>Find me in app/views/request_dispenses/edit.html.erb</p>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Solicitação de Dispensa e Afastamento</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
+    </div>
+    <hr>
+    <div class="alert-error">
+      <% if @@request_dispenses.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@@request_dispenses.errors.count, "erro") %>.
+        </div>
+        <ul>
+            <% @@request_dispenses.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <%= form_for @@request_dispenses do |f| %>
+        <div class="box-body">
+            	<div class="form-group col-md-5">
+                    <!--<%= f.label :user_id %>-->
+                    <label>IdFunc</label>
+                    <%= f.select :user_id, @user.map{|s| [s.idFunc, s.id]}, {}, class: "form-control select2"%>
+                </div>
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :user_id %>-->
+                    <label>Nome</label>
+                    <%= f.select :user_id, @user.map{|s| [s.name, s.id]}, {}, class: "form-control select2"%>
+                </div>
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :user_id %>-->
+                    <label>Posto Graduação</label>
+                    <%= f.select :user_id, @user.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                </div>
+                <div class="col-md-8 form-group ">
+                    <label>Solicitação</label>
+                    <%= f.text_area :solicitacao, PlaceHolder: "Texto da solicitação", maxlength: "300", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_inicio %>-->
+                    <label>Data Inicio*</label>
+                    <%= f.text_field :data_inicio, class:"form-control data" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_fim %>-->
+                    <label>Data Fim*</label>
+                    <%= f.text_field :data_fim, class:"form-control data" %>
+                </div>
+            </div>
+        <div class="box-footer">
+            <%= f.submit "Salvar", Class: "btn btn-success" %>
+            <%= f.button "Cancelar", Class: "btn btn-danger" %>
+        </div>
+    <% end %>
+</div>

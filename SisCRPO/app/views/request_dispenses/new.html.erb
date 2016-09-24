@@ -19,28 +19,47 @@
         <hr>
         <div class="alert-error">
             <%= flash[:error] %>
-          <% if @profile.errors.any? %>
+          <% if @request_dispenses.errors.any? %>
             <div id="error_explanation">
-                O formulário contém <%= pluralize(@profile.errors.count, "erro") %>.
+                O formulário contém <%= pluralize(@request_dispenses.errors.count, "erro") %>.
             </div>
             <ul>
-                <% @profile.errors.full_messages.each do |msg| %>
+                <% @request_dispenses.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
                 <% end %>
             </ul>
           <% end %>
         </div>
-        <%= form_for @profile do |f| %>
+        <%= form_for @request_dispenses do |f| %>
             <div class="box-body">
-            	<div class="form-group col-md-7">
-                            <!--<%= f.label :nome %>-->
-                    <label>Nome*</label>
-                    <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :user_id %>-->
+                    <label>IdFunc</label>
+                    <%= f.select :user_id, @user.map{|s| [s.idFunc, s.id]}, {}, class: "form-control select2"%>
                 </div>
                 <div class="form-group col-md-5">
-                    <!--<%= f.label :postograduacao_id %>-->
-                    <label>PostoGraduação*</label>
-                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                    <!--<%= f.label :user_id %>-->
+                    <label>Nome</label>
+                    <%= f.select :user_id, @user.map{|s| [s.name, s.id]}, {}, class: "form-control select2"%>
+                </div>
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :user_id %>-->
+                    <label>Posto Graduação</label>
+                    <%= f.select :user_id, @user.map{|s| [s.postograduacao_id, s.id]}, {}, class: "form-control select2"%>
+                </div>
+                <div class="col-md-8 form-group ">
+                    <label>Solicitação</label>
+                    <%= f.text_area :solicitacao, PlaceHolder: "Texto da solicitação", maxlength: "300", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_inicio %>-->
+                    <label>Data Inicio*</label>
+                    <%= f.text_field :data_inicio, class:"form-control data" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_fim %>-->
+                    <label>Data Fim*</label>
+                    <%= f.text_field :data_fim, class:"form-control data" %>
                 </div>
             </div>
             <div class="box-footer">
@@ -67,28 +86,26 @@
         </div>
         <hr>
         <div class="box-body">
-        <% if @profile_show.count <= 0 %>
+        <% if @request_dispenses_show.count <= 0 %>
                         <tr><td>Não existem companhias cadastradas.</td></tr>
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Posto Graduação</th>
+                        	<th>Hora Fim</th>
+                            <th>Data Fim</th>
+                            <th>Motivo</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% @profile_show.each do |o|%>
+                        <% @request_dispenses_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.nome %></td>
-                                    <% @postograduacao.each do |tp| %>
-                                        <% if o.postograduacao_id == tp.id %>
-                                            <td><%= tp.nomePostoGraduacao %></td>
-                                        <% end %>
-                                    <% end %>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'profiles', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'profiles', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= o.hora_inicio %></td>
+                                    <td><%= o.data_inicio %></td>
+                                    <td><%= o.solicitacao %></td>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'request_dispenses', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'request_dispenses', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                             <% end %>
                         <% end %>
