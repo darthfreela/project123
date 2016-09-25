@@ -8,6 +8,7 @@ end
   def create
     @request_dispenses = RequestDispense.new(request_dispenses_params)
     @request_dispenses_show = RequestDispense.all
+    @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
     if @request_dispenses.save
         redirect_to new_request_dispense_path , notice: "Solicitação de Dispensa cadastrada com sucesso."
       else
@@ -17,12 +18,14 @@ end
 
 def edit
     @request_dispenses = RequestDispense.find(params[:id])
+    @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
     end
 end
 
 def update
       @request_dispenses = RequestDispense.find(params[:id])
       if @request_dispenses.update_attributes(request_dispenses_params)
+        @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
            redirect_to new_request_dispense_path, notice: "Solicitação de Dispensa editado com sucesso."
       else
 
