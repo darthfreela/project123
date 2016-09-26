@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
+  get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
+  get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
+
+  get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
+
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :request_dispenses
