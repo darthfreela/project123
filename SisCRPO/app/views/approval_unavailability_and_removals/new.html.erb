@@ -21,7 +21,7 @@
                                 <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
                                 </span>
                         </div>
-                        <% if @licencas.count < 1 %>
+                        <% if @requests.count < 1 %>
             <tr><td>Não existem solicitações pendentes.</td></tr>
             <% else %>
                         <table id="motivos" class="table table-bordered table-striped">
@@ -36,7 +36,7 @@
                                     </tr>
                                 </thead>
                             <tbody>
-                            <% @licencas.each do |e|%>
+                            <% @requests.each do |e|%>
                                 <tr>
                                     <td><%= e.id %>4</td>
                                     <td><%= e.idFunc %>321</td>
