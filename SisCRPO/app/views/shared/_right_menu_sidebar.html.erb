@@ -12,8 +12,8 @@
   <li class="header"><%= t 'menu.ferrmentas_de_usuário' %></li>
   <li class="treeview">
     <a href="#">
-      <i class="fa fa-wrench"></i> 
-      <span>Gerenciar</span>      
+      <i class="fa fa-wrench"></i>
+      <span>Gerenciar</span>
     </a>
     <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_licenca_path + "," + new_profile_path) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
@@ -118,14 +118,20 @@
           <span>Solicitação de Dispensa</span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual(new_approval_unavailability_and_removal_path, true) %>">
+        <%= link_to new_approval_unavailability_and_removal_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação de Dispensas</span>
+        <% end  %>
+      </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
   <li class="header"><%= t 'menu.ferramentas_administrativas' %></li>
   <li class="treeview">
     <a href="#">
-      <i class="fa fa-wrench"></i> 
-      <span>Relatórios</span>     
+      <i class="fa fa-wrench"></i>
+      <span>Relatórios</span>
     </a>
     <ul class="treeview-menu" style="display: <%= abrir_menu(quadro_efetivo_index_path) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
@@ -134,7 +140,7 @@
           <i class="fa  fa-wrench"></i>
           <span>Quadro Efetivo</span>
         <% end %>
-      </li>      
+      </li>
     </ul>
   </li>
 </ul>

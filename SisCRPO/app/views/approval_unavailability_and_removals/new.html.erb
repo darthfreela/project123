@@ -38,12 +38,12 @@
                             <tbody>
                             <% @licencas.each do |e|%>
                                 <tr>
-                                    <td><%= #e.id %>4</td>
-                                    <td><%= #e.idFunc %>321</td>
-                                    <td><%= #e.nome %>asd</td>
-                                    <td><%= #e.nome %>PG</td>
-                                    <td><%= #e.nome %>Clóvis</td>
-                                    <td><%= link_to raw("<i class='fa fa-check-square-o  '>Visualizar</i>"), {:controller => 'estagiarios', :action => 'edit', :id => e.id}, class: 'btn btn-success', method: :get %></td>
+                                    <td><%= e.id %>4</td>
+                                    <td><%= e.idFunc %>321</td>
+                                    <td><%= e.nome %>asd</td>
+                                    <td><%= e.nome %>PG</td>
+                                    <td><%= e.nome %>Clóvis</td>
+                                    <td><%= link_to raw("<i class='fa fa-check-square-o  '>Visualizar</i>"), {:controller => 'approval_unavailability_and_removals', :action => 'view_request', :id => e.id}, class: 'btn btn-success', method: :get %></td>
                                 </tr>
                                <% end %>
                             </tbody>
