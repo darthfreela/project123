@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  resources :request_dispenses, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :request_dispenses
 
   resources :disthoraext
 
