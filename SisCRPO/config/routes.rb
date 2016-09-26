@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
 
-  resources :disthoraext
+
+
+
+  resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
+
+   resources :disthoraext
 
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 

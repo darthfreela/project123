@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912223936) do
+ActiveRecord::Schema.define(version: 20160924220452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,31 @@ ActiveRecord::Schema.define(version: 20160912223936) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
+  end
+
+  create_table "rh_license_approvals", force: :cascade do |t|
+    t.integer  "id_func"
+    t.string   "nome_servidor"
+    t.string   "posto_graduacao"
+    t.string   "motivo"
+    t.string   "funcao"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.date     "data_inicio"
+    t.date     "data_termino"
+    t.boolean  "status"
+  end
+
+  create_table "rh_unavailabilities", force: :cascade do |t|
+    t.integer  "id_func"
+    t.string   "nome_servidor"
+    t.string   "posto_grad"
+    t.string   "motivo_indisponibilidade"
+    t.string   "func_exercida"
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "siglas", force: :cascade do |t|
