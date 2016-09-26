@@ -128,6 +128,12 @@
           <span>Aprovação de Dispensas</span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual(new_approval_request_dispense_superior_path, true) %>">
+        <%= link_to new_approval_request_dispense_superior_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação Disp (Superior)</span>
+        <% end  %>
+      </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
