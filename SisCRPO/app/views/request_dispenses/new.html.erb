@@ -32,20 +32,20 @@
         </div>
         <%= form_for @request_dispenses do |f| %>
             <div class="box-body">
-                <div class="form-group col-md-5">
-                    <!--<%= f.label :user_id %>-->
-                    <label>IdFunc</label>
-                    <%= f.select :user_id, @user.map{|s| [s.idFunc, s.id]}, {}, class: "form-control select2"%>
+                <div class="form-group col-md-4">
+                     <!--<%= f.label :idfunc %>-->
+                    <label>Id Func</label>
+                    <%= f.text_field :id_func, value:current_user.idFunc, disabled:"true" , maxlength: "80", class:"form-control autocompleteFunc" %>
                 </div>
-                <div class="form-group col-md-5">
-                    <!--<%= f.label :user_id %>-->
+                <div class="form-group col-md-4">
+                     <!--<%= f.label :name %>-->
                     <label>Nome</label>
-                    <%= f.select :user_id, @user.map{|s| [s.name, s.id]}, {}, class: "form-control select2"%>
+                    <%= f.text_field :name, value:current_user.name, disabled:"true" , maxlength: "80", class:"form-control autocompleteFunc" %>
                 </div>
-                <div class="form-group col-md-5">
-                    <!--<%= f.label :user_id %>-->
+                <div class="form-group col-md-4">
+                     <!--<%= f.label :postograduacao_id %>-->
                     <label>Posto Graduação</label>
-                    <%= f.select :user_id, @user.map{|s| [s.postograduacao_id, s.id]}, {}, class: "form-control select2"%>
+                    <%= f.text_field :postograduacao_id, value:@postograduacao.nomePostoGraduacao, disabled:"true" , maxlength: "80", class:"form-control autocompleteFunc" %>
                 </div>
                 <div class="col-md-8 form-group ">
                     <label>Solicitação</label>
@@ -60,6 +60,10 @@
 				    <!--<%= f.label :data_fim %>-->
                     <label>Data Fim*</label>
                     <%= f.text_field :data_fim, class:"form-control data" %>
+                </div>
+                <div class="form-group col-md-4">
+                     <!--<%= f.label :id %>-->
+                    <%= f.hidden_field :id, value:current_user.id, disabled:"true", class:"form-control autocompleteFunc" %>
                 </div>
             </div>
             <div class="box-footer">
@@ -92,7 +96,7 @@
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                        	<th>Hora Fim</th>
+                        	<th>Data Inicio</th>
                             <th>Data Fim</th>
                             <th>Motivo</th>
                         </tr>
@@ -101,8 +105,8 @@
                         <% @request_dispenses_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.hora_inicio %></td>
                                     <td><%= o.data_inicio %></td>
+                                    <td><%= o.data_fim %></td>
                                     <td><%= o.solicitacao %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'request_dispenses', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'request_dispenses', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
