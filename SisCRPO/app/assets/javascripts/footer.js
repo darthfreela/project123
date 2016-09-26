@@ -18,10 +18,7 @@
 //= require plugins/input-mask/jquery.inputmask.js
 //= require plugins/datepicker/bootstrap-datepicker.js
 //= require plugins/timepicker/bootstrap-timepicker.js
-<<<<<<< HEAD
-=======
 
->>>>>>> e695cd1a715830f6c38c44bb7cb958e804d1c022
 $(function () {
 	// Iniciliazar combobox select2
 	$(".select2").select2();
@@ -77,7 +74,7 @@ $(function () {
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 
-      $(".data").datepicker($.datepicker.regional["pt-BR"]);
+      
 
 	$('.data').datepicker({
 		autoclose: true,
@@ -86,11 +83,6 @@ $(function () {
     		autoclose:true
 	});
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> e695cd1a715830f6c38c44bb7cb958e804d1c022
 	$(".time").inputmask("99:99:99");
 
 	$(".autocompleteFunc" ).autocomplete({
@@ -102,7 +94,7 @@ $(function () {
 	});
 	$('#calendar').fullCalendar({});
 
-	
+
 });
 
 

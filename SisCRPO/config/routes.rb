@@ -1,19 +1,28 @@
 Rails.application.routes.draw do
 
 
+<<<<<<< HEAD
 
 
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
    resources :disthoraext
+=======
+  get 'approval_unavailability_and_removals/new'
+>>>>>>> 9daa37443c25948bfd3fe8d7cdf43e6242821046
+
+  resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :request_dispenses, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :disthoraext
 
   resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
-
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
-
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 

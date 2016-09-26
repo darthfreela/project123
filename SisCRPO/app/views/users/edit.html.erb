@@ -65,6 +65,11 @@
                 <label>Ativo:</label>
                 <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
             </div>
+            <div class="form-group col-md-5">
+                    <!--<%= f.label :postograduacao_id %>-->
+                    <label>PostoGraduação*</label>
+                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                </div>
             <div class="form-group col-md-4">
                 <!--<%= f.label :username %>-->
                 <label>Login</label>
