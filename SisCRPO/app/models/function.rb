@@ -7,4 +7,6 @@ class Function < ActiveRecord::Base
   # formata a data na tela
   Time::DATE_FORMATS[:format_date] = "%d/%m/%y- %H:%Mhrs"
 
+  has_many :users
+
 end

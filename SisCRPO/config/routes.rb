@@ -8,6 +8,8 @@ Rails.application.routes.draw do
    resources :disthoraext
   get 'approval_unavailability_and_removals/new'
 
+  resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
+
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
