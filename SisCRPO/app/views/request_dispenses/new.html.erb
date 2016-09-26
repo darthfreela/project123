@@ -68,7 +68,7 @@
             </div>
             <div class="box-footer">
                 <%= f.submit "Salvar", Class: "btn btn-success" %>
-                <%= f.button "Limpar", Class: "btn btn-danger" %>
+                <button name="button" type="reset" class="btn btn-danger">Limpar</button>
                 <div class=" small pull-right">* Campos obrigatórios</div>
             </div>
         <% end %>
@@ -105,8 +105,8 @@
                         <% @request_dispenses_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.data_inicio %></td>
-                                    <td><%= o.data_fim %></td>
+                                    <td><%= data_br o.data_inicio %></td>
+                                    <td><%= data_br o.data_fim %></td>
                                     <td><%= o.solicitacao %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'request_dispenses', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'request_dispenses', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>

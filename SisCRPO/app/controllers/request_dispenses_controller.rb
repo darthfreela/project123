@@ -11,15 +11,16 @@ end
     @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
     if @request_dispenses.save
         redirect_to new_request_dispense_path , notice: "Solicitação de Dispensa cadastrada com sucesso."
-      else
+    else
         render action: :new
     end
   end
 
 def edit
     @request_dispenses = RequestDispense.find(params[:id])
+    @request_dispenses.data_inicio = @request_dispenses.data_inicio.strftime("%d/%m/%Y")
+    @request_dispenses.data_fim = @request_dispenses.data_fim.strftime("%d/%m/%Y")
     @postograduacao = Postograduacao.where(id: current_user.postograduacao_id).first
-    end
 end
 
 def update
@@ -43,3 +44,4 @@ end
   def request_dispenses_params
     params.require(:request_dispense).permit(:solicitacao, :data_inicio, :data_fim, :user_id)
   end
+end
