@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
 
+
+
+  resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
+
+   resources :disthoraext
   get 'approval_unavailability_and_removals/new'
 
+  resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
+
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
 

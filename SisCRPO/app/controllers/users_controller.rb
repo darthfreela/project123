@@ -14,9 +14,10 @@ class UsersController < ApplicationController
     @user_show = User.all
     @postograduacao = Postograduacao.all
     #mok funcao
-    @select_funcao = Function.all
+    @select_funcoes = Function.all
 
     if @user.save
+      puts(":idUsuarioFuncao")
         @user_function = UsersFunction.new(@user.id, :idUsuarioFuncao)
         @user_function.save
         redirect_to new_user_path , notice: "Usuário cadastrado com sucesso."
@@ -28,6 +29,8 @@ class UsersController < ApplicationController
 def edit
       @user = User.find(params[:id])
       @postograduacao = Postograduacao.all
+
+      @select_funcoes = Function.all
 end
 
 def update
@@ -53,12 +56,10 @@ end
 
   private
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation, 
+    params.require(:user).permit(:name, :username, :password, :password_confirmation,
                                  :ativo, :idFunc, :email,  :cpf, :nomeGuerra,
                                  :imagemUsuario, :idUsuarioFuncao, :dataNascimento,
                                  :sexo, :endereco, :bairro, :cidade, :estado, :cep,
                                  :postograduacao_id)
   end
 end
-
-
