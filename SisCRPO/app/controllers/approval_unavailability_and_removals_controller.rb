@@ -1,7 +1,7 @@
 class ApprovalUnavailabilityAndRemovalsController < ApplicationController
 
  def new
-       @licencas = Licenca.includes(:user)
+       @requests = Licenca.all
        @toApprove = ApprovalUnavailabilityAndRemoval.new
  end
 
@@ -22,7 +22,7 @@ def destroy
 
     def view_request
       @toApprove = ApprovalUnavailabilityAndRemoval.new
-      @licenca = Licenca.find(params[:id])
+      @request = Licenca.find(params[:id])
       @user = User.find(4)#@licenca.idFunc)
       @pg = Postograduacao.find(7)#@user.postograduacao_id)
       @funcao = Function.find(1)#@user.function_id)
