@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
 
-<<<<<<< HEAD
-
 
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
    resources :disthoraext
-=======
   get 'approval_unavailability_and_removals/new'
->>>>>>> 9daa37443c25948bfd3fe8d7cdf43e6242821046
 
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
 
