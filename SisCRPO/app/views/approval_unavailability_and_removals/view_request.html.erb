@@ -19,7 +19,7 @@
                                 <div class="col-lg-2">
                                     <div class="form-group">
                                         <label>Id Funcional</label>
-                                        <%= text_field_tag :idFunc , @licenca.idFunc , class: "form-control", :readonly => true %>
+                                        <%= text_field_tag :idFunc , @request.idFunc , class: "form-control", :readonly => true %>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label> Data de Inicio</label>
-                                        <%= text_field_tag :data_inicio, @licenca.dataInicial, class:"form-control data", :readonly => true  %>
+                                        <%= text_field_tag :data_inicio, @request.dataInicial, class:"form-control data", :readonly => true  %>
                                     </div>
                                 <div style="float:left">
                                     <label><br></label>
@@ -60,11 +60,11 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>Data de Término</label>
-                                    <%= text_field_tag :data_fim, @licenca.dataFinal,  class:"form-control data", :readonly => true  %>
+                                    <%= text_field_tag :data_fim, @request.dataFinal,  class:"form-control data", :readonly => true  %>
                                 </div>
                             </div>
                             <div class="box-footer">
-                                <%= link_to raw("<i class='fa fa-like'>Permitir</i>"), {:controller => 'approval_unavailability_and_removals', :action => 'approve', :id => @licenca.id}, class: 'btn btn-success', method: :get %>
+                                <%= link_to raw("<i class='fa fa-like'>Permitir</i>"), {:controller => 'approval_unavailability_and_removals', :action => 'approve', :id => @request.id}, class: 'btn btn-success', method: :get %>
                                 <button type="button" class="btn btn-danger" onclick="funcao1()">Negar</button>
                             </div>
                         </div>
