@@ -40,7 +40,7 @@ def destroy
     end
 
     def approve
-        Licenca.update(:id, :aprovado => 1)
+        Licenca.update(:id, :approved => 2)
         redirect_to new_approval_unavailability_and_removal_path
     end
 
