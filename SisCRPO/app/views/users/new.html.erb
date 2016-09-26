@@ -97,7 +97,7 @@
                 <div class="form-group col-md-7">
 				            <!--<%= f.label :idFuncao %>-->
                     <label>Função</label>
-                    <%= f.select :idUsuarioFuncao, @select_funcoes.map{|s| [s.funcao, s.id]}, {}, class: "form-control select2" %>
+                    <%= f.select :idUsuarioFuncao, @select_opms.map{|s| [s.funcao, s.id]}, {}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-2">
                     <!--<%= f.label :cep %>-->

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe ReportOvertimeSupplementationController, type: :controller do
 
-  describe "GET #report" do
+  describe "GET #index" do
     it "returns http success" do
-      get :report
+      get :index
       expect(response).to have_http_status(:success)
     end
   end

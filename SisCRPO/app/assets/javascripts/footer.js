@@ -18,13 +18,12 @@
 //= require plugins/input-mask/jquery.inputmask.js
 //= require plugins/datepicker/bootstrap-datepicker.js
 //= require plugins/timepicker/bootstrap-timepicker.js
-<<<<<<< HEAD
-=======
-
->>>>>>> e695cd1a715830f6c38c44bb7cb958e804d1c022
 $(function () {
 	// Iniciliazar combobox select2
 	$(".select2").select2();
+
+	// Somente numeros
+	$('.number').bind('keydown',soNums);
 
 	// Formatar campos
 	$(".telefone").inputmask("(99) 9999-9999");
@@ -86,11 +85,6 @@ $(function () {
     		autoclose:true
 	});
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> e695cd1a715830f6c38c44bb7cb958e804d1c022
 	$(".time").inputmask("99:99:99");
 
 	$(".autocompleteFunc" ).autocomplete({
@@ -102,8 +96,32 @@ $(function () {
 	});
 	$('#calendar').fullCalendar({});
 
-	
+
+   
+
 });
 
-
-
+function soNums(e){
+ 
+    //teclas adicionais permitidas (tab,delete,backspace,setas direita e esquerda)
+    keyCodesPermitidos = new Array(8,9,37,39,46);
+     
+    //numeros e 0 a 9 do teclado alfanumerico
+    for(x=48;x<=57;x++){
+        keyCodesPermitidos.push(x);
+    }
+     
+    //numeros e 0 a 9 do teclado numerico
+    for(x=96;x<=105;x++){
+        keyCodesPermitidos.push(x);
+    }
+     
+    //Pega a tecla digitada
+    keyCode = e.which; 
+     
+    //Verifica se a tecla digitada é permitida
+    if ($.inArray(keyCode,keyCodesPermitidos) != -1){
+        return true;
+    }    
+    return false;
+}

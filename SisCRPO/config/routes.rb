@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get 'report_overtime_supplementation/report'
+  resources :report_overtime_supplementations, :only =>  [:index, :cities_by_state]
+  get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
 
   resources :disthoraext
 

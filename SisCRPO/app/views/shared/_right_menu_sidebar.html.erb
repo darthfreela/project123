@@ -9,7 +9,7 @@
 </ul><!-- /.sidebar-menu -->
 <!-- Ferramentas de Usuário -->
 <ul class="sidebar-menu">
-  <li class="header"><%= t 'menu.ferrmentas_de_usuário' %></li>
+  <li class="header"><span>Ferrmentas De Usuário</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i> 
@@ -115,20 +115,26 @@
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
-  <li class="header"><%= t 'menu.ferramentas_administrativas' %></li>
+  <li class="header"><span>Ferramentas Administrativas</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i> 
       <span>Relatórios</span>     
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(quadro_efetivo_index_path) %>;">
+    <ul class="treeview-menu" style="display: <%= abrir_menu(quadro_efetivo_index_path+ "," +  report_overtime_supplementations_path) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
       <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
         <%= link_to quadro_efetivo_index_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Quadro Efetivo</span>
         <% end %>
-      </li>      
+      </li> 
+      <li class="<%= ative_se_pagina_atual(report_overtime_supplementations_path, true) %>">
+        <%= link_to report_overtime_supplementations_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Horas Extras/Supletamente</span>
+        <% end %>
+      </li>    
     </ul>
   </li>
 </ul>
