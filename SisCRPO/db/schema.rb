@@ -213,8 +213,6 @@ ActiveRecord::Schema.define(version: 20160926000022) do
     t.boolean  "status"
   end
 
-<<<<<<< HEAD
-=======
   create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -222,7 +220,6 @@ ActiveRecord::Schema.define(version: 20160926000022) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> 46303fbb3d72a2cf21a3685d6c92ce193d931767
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"

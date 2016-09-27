@@ -52,13 +52,16 @@
       </div>
 
       <div class="box-footer">
-        <%= link_to raw("<i class='fa fa-check-square-o  '>Permitir</i>"),
-          {:controller => 'approval_request_dispense_superior', :action => 'update', :id => @request_dispense.id},
-          class: 'btn btn-success', method: :get %>
-          <%= link_to raw("<i class='fa fa-close'>Negar</i>"),
-           {:controller => 'approval_request_dispense_superior', :action => 'edit', :id => @request_dispense.id},
+        <%= link_to raw("<i class='fa fa-check-square-o  '> Permitir</i>"),
+          {:controller => 'approval_request_dispense_superior',
+            :action => 'approve', :id => @request_dispense.id},
+            :data => {:confirm => "Realmente deseja aprovar o registro ?"},
+            class: 'btn btn-success', method: :get %>
+        <%= link_to raw("<i class='fa fa-close'> Negar</i>"),
+          {:controller => 'approval_request_dispense_superior',
+            :action => 'reprove', :id => @request_dispense.id},
             :data => {:confirm => "Realmente deseja negar o registro ?"},
-             class: 'btn btn-danger', method: :get %>
+           class: 'btn btn-danger', method: :get %>
         <div class=" small pull-right">* Campos obrigatórios</div>
       </div>
 
