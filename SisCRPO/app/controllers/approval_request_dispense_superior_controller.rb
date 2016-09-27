@@ -11,7 +11,14 @@ class ApprovalRequestDispenseSuperiorController < ApplicationController
     redirect_to approval_request_dispense_superior_new_path, notice: "Solicitação alterada com sucesso."
   end
   def reprove
-    RequestDispense.update(:id, :aprovado => false)
+    @toApprove = RequestDispense.find(params[:id])
+    @toApprove.update(:approved => 1)
     redirect_to new_approval_request_dispense_superior_path, notice: "Solicitação negada com sucesso."
   end
+  def approve
+      @toApprove = RequestDispense.find(params[:id])
+      @toApprove.update(:approved => 2)
+      redirect_to new_approval_request_dispense_superior_path, notice: "Solicitação aprovada com sucesso."
+  end
+
 end

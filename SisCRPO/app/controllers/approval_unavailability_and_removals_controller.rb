@@ -1,8 +1,9 @@
 class ApprovalUnavailabilityAndRemovalsController < ApplicationController
 
  def new
-       @requests = Licenca.all
+       @requests = RequestDispense.joins(:user => [:postograduacao, :function])
        @toApprove = ApprovalUnavailabilityAndRemoval.new
+
  end
 
  def create
@@ -23,10 +24,10 @@ def destroy
     def view_request
       #Licenca.update(:id, :approved => 2)
       @toApprove = ApprovalUnavailabilityAndRemoval.new
-      @request = Licenca.find(params[:id])
-      @user = User.find(4)#@licenca.idFunc)
-      @pg = Postograduacao.find(7)#@user.postograduacao_id)
-      @funcao = Function.find(1)#@user.function_id)
+      @request = RequestDispense.find(params[:id])
+      @user = User.find(@request.user_id)
+      @pg = Postograduacao.find(@user.postograduacao_id)#@user.postograduacao_id)
+      @funcao = Function.find(@user.function_id)
     end
 
     def edit
@@ -41,7 +42,11 @@ def destroy
     end
 
     def approve
+<<<<<<< HEAD
         #Licenca.update(:id, :approved => 2)
+=======
+        RequestDispense.update(RequestDispense.find(params[:id]), :approved => 1)
+>>>>>>> a3eef34a7511e3a9d216b755545513e3eba8ef5d
         redirect_to new_approval_unavailability_and_removal_path
     end
 
