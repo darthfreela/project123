@@ -21,6 +21,7 @@ def destroy
     end
 
     def view_request
+      #Licenca.update(:id, :approved => 2)
       @toApprove = ApprovalUnavailabilityAndRemoval.new
       @request = Licenca.find(params[:id])
       @user = User.find(4)#@licenca.idFunc)
@@ -40,7 +41,7 @@ def destroy
     end
 
     def approve
-        Licenca.update(:id, :approved => 2)
+        #Licenca.update(:id, :approved => 2)
         redirect_to new_approval_unavailability_and_removal_path
     end
 
