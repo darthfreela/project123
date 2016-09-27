@@ -1,6 +1,6 @@
 class ApprovalRequestDispenseSuperiorController < ApplicationController
   def new
-    @request_dispenses = RequestDispense.where(aprovado: nil).all
+    @request_dispenses = RequestDispense.where(approved: [nil, 3]).all
   end
 
   def edit

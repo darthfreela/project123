@@ -38,10 +38,10 @@
                             <% @request_dispenses.each do |e|%>
                                 <tr>
                                     <td><%= e.id %></td>
-                                    <td><%= e.data_inicio %></td>
-                                    <td><%= e.data_fim %></td>
+                                    <td><%= e.user_id %></td>
                                     <td><%= e.user.name %></td>
-                                    <td><%= e.updated_at %></td>
+                                    <td><%= e.user.postograduacao.sigla%></td>
+                                    <td><%= e.user.function.funcao %></td>
                                     <td><%= link_to raw("<i class='fa fa-check-square-o  '>Visualizar</i>"),
                                       {:controller => 'approval_request_dispense_superior', :action => 'edit', :id => e.id},
                                       class: 'btn btn-success', method: :get %>
