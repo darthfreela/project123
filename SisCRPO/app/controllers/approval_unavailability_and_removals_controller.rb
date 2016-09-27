@@ -41,8 +41,7 @@ def destroy
     end
 
     def approve
-        RequestDispense.update(:id, :aprovado => 1)
-        Licenca.update(:id, :approved => 2)
+        RequestDispense.update(RequestDispense.find(params[:id]), :approved => 1)
         redirect_to new_approval_unavailability_and_removal_path
     end
 
