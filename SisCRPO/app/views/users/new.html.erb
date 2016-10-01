@@ -79,7 +79,12 @@
                     <label>Ativo:</label>
                     <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
                 </div>
-			          <div class="form-group col-md-4">
+                <div class="form-group col-md-5">
+                    <!--<%= f.label :postograduacao_id %>-->
+                    <label>PostoGraduação*</label>
+                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                </div>
+			    <div class="form-group col-md-4">
 				            <!--<%= f.label :username %>-->
                     <label>Login</label>
                     <%= f.text_field :username, PlaceHolder: "Usuário",  maxlength: "80", class:"form-control" %>
@@ -156,7 +161,7 @@
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                              <th>Id Funcional</th>
+                            <th>Id Funcional</th>
                             <th>Nome</th>
                             <th>E-mail</th>
                             <th>Data Nascimento</th>

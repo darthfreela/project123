@@ -9,16 +9,20 @@ class User < ActiveRecord::Base
     validates :password_confirmation, presence: true, length: { minimum: 8, maximun: 16 }
     validates :idFunc, uniqueness: true, numericality: true
     validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, on: :create }
-    validates :cpf, uniqueness: true, numericality: true, presence: true, length: { minimum: 11, maximun: 11 }
-    validates :cpf, uniqueness: true, numericality: true, presence: true
+    validates :cpf, uniqueness: true, presence: true
+    validates :cpf, uniqueness: true, presence: true
     validates :nomeGuerra, presence: true
     validates :imagemUsuario, presence: true
-    validates :idFuncao, numericality: true
+
 
     #relacionamentos
     belongs_to :users_functions
     belongs_to :add_user_ref_to_pointing_hours
     has_many :licenca
+    has_one :postograduacaos
+    has_many :request_dispenses
+    belongs_to :postograduacao
+    belongs_to :function
 
   def email_required?
     false

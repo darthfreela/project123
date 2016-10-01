@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160926135951) do
 
   add_index "add_user_ref_to_pointing_hours", ["user_id"], name: "index_add_user_ref_to_pointing_hours_on_user_id", using: :btree
 
+  create_table "approval_unavailability_and_removals", force: :cascade do |t|
+    t.integer  "users_id"
+    t.integer  "licencas_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string   "nome"
     t.string   "uf"
@@ -182,6 +189,30 @@ ActiveRecord::Schema.define(version: 20160926135951) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "request_dispenses", force: :cascade do |t|
+    t.string   "solicitacao"
+    t.date     "data_inicio"
+    t.date     "data_fim"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.boolean  "aprovado"
+    t.string   "descricao_superior"
+  end
+
+  create_table "rh_license_approvals", force: :cascade do |t|
+    t.integer  "id_func"
+    t.string   "nome_servidor"
+    t.string   "posto_graduacao"
+    t.string   "motivo"
+    t.string   "funcao"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.date     "data_inicio"
+    t.date     "data_termino"
+    t.boolean  "status"
+  end
+
   create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -281,4 +312,5 @@ ActiveRecord::Schema.define(version: 20160926135951) do
   add_foreign_key "licencas", "users"
   add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "release_vacations", "users"
+  add_foreign_key "request_dispenses", "users"
 end

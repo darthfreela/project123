@@ -80,7 +80,7 @@
               </div>
           </div>
           <div class="box-footer">
-              <button name="button" class="btn btn-success">Gerar</button>
+              <div id="btnGerar" class="btn btn-success">Gerar</div>
               <button name="button" type="reset" class="btn btn-danger">Limpar</button>
           </div>
       <% end %>
@@ -88,9 +88,12 @@
 </section>
 <script type="text/javascript">
   $(document).ready(function() {
-    $("#report_overtime_supplementation_id_cidade").addClass( "form-control select2" )
+    $("#report_overtime_supplementation_id_cidade").addClass( "form-control select2" );
    $("#states").change(function() {
       getCitiesByState("uf="+$("#states").val());
+    });
+    $("#btnGerar").click(function() {
+      gerarRelatorio("cidade="+$("#report_overtime_supplementation_id_cidade").val());
     });
   });
 
@@ -106,10 +109,12 @@
     
   }
 
-  function gerarRelatorio(id_cidade, id_unidade, qt_horas, dt_inicial, dt_final){
-    $.getJson("/makeReportSupplemention", id_cidade, id_unidade, qt_horas, dt_inicial, dtfinal, function(j)), 
+  function gerarRelatorio(id_cidade){
+    alert(id_cidade);
+    $.getJSON("/make_report_supplemention", id_cidade, function(j){
       $.each(j.make, function(i, item) {        
-        alert(gerou).
+        alert(gerou);
       });
+    });
   }
 </script>
