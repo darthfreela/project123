@@ -1,4 +1,6 @@
-<div class="<%= type %> <%= type %>-danger alert-dismissable">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-  <%= message %>
-</div>
+<script>
+  $(function(){
+        var notice = "<%= flash[:notice] %>"
+         $.notify(notice, "success" );
+     })
+</script>

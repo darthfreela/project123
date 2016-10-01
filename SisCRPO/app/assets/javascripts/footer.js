@@ -74,7 +74,7 @@ $(function () {
 	// Formata'r cam'po data
 	$(".data").inputmask("99/99/9999");
 
-      $(".data").datepicker($.datepicker.regional["pt-BR"]);
+      
 
 	$('.data').datepicker({
 		autoclose: true,
@@ -82,8 +82,6 @@ $(function () {
     		format: 'dd.mm.yyyy hh:ii',
     		autoclose:true
 	});
-
-
 
 	$(".time").inputmask("99:99:99");
 
@@ -94,6 +92,9 @@ $(function () {
 			alert('sad');
 		}
 	});
+	$('#calendar').fullCalendar({});
+
+
 });
 
 
