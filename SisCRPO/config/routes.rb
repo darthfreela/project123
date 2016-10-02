@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-
+  resources :imported_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
