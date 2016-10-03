@@ -1,18 +1,18 @@
 <section class="content-header">
   <h1>
-    Aprovação de Licença / Afastamento
+    Aprovação de Indisponibilidade
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="#">Ferramentas do usuário</a></li>
-    <li class="active">Aprovação de Licença / Afastamento</li>
+    <li class="active">Aprovação de Indisponibilidade </li>
   </ol>
 </section>
 
 <section class="content">
   <div class="box box-default collapsed-box">
     <div class="box-header with-border">
-      <h3 class="box-title">Cadastro de Licença / Afastamento</h3>
+      <h3 class="box-title">Cadastro de Indisponibilidade </h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" data-widget="collapse">
           <i class="fa fa-plus"></i>
@@ -78,7 +78,7 @@
 
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Listagem de licenças</h3>
+      <h3 class="box-title">Listagem de Indisponibilidade </h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" data-widget="collapse">
         <i class="fa fa-minus"></i>
@@ -96,7 +96,7 @@
     <hr>
     <div class="box-body">
       <% if @rhLicenseapproval_show.count == 0 %>
-        Não existem licenças cadastradas.
+        Não existem Indisponibilidade / Afastamento cadastradas.
       <% else %>
         <table id="motivos" class="table table-bordered table-striped">
           <thead>
@@ -110,7 +110,6 @@
               <th>Data Termino</th>
               <th>Situação</th>
               <th></th>
-
             </tr>
           </thead>
           <tbody>

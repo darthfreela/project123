@@ -31,6 +31,7 @@
             </ul>
           <% end %>
         </div>
+<<<<<<< HEAD
         <%binding.pry%>
         <%= form_for @imported_file do |f| %>
             <div class="box-body">
@@ -68,6 +69,27 @@
                             <!--<%= f.label :tipo_servico_id %>-->
                     <label>Tipo De Serviço</label>
                     <%= f.select :tipo_servico_id, @tpServico.map{|s| [s.nome, s.id]}, {}, class: "form-control select2"%>
+=======
+        <%= form_for @importedFile do |f| %>
+               <div class="box-body">
+                <div class="form-group col-md-5">
+                    <label>Arquivo importado</label>
+                    <%= f.text_field :imported_file, class: "form-control " %>
+                </div>
+                <div class="form-group col-md-7">
+
+                    <label>Arquivo Gerado</label>
+                    <%= f.text_field :generated_file, class:"form-control" %>
+                </div>
+                <div class="form-group col-md-5">
+                    <label>log</label>
+                    <%= f.text_field :log, class: "form-control" %>
+                </div>
+                <div class="form-group col-md-2">
+
+                    <label>user id number*</label>
+                    <%= f.text_field :user_id, class: "form-control" %>
+>>>>>>> 106bba38d43d8d0deb22bb5581db8d8a4073420d
                 </div>
             </div>
             <div class="box-footer">
@@ -111,6 +133,7 @@
                         <% @imported_file_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
+<<<<<<< HEAD
                                     <% @tpServico.each do |tp| %>
                                         <% if o.tipo_servico_id == tp.id %>
                                             <td><%= tp.nome %></td>
@@ -121,6 +144,8 @@
                                     <td><%= o.hora_fim %></td>
                                     <td><%= o.data_fim %></td>
                                     <td><%= o.hora_inicio %></td>
+=======
+>>>>>>> 106bba38d43d8d0deb22bb5581db8d8a4073420d
 
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'imported_files', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'imported_files', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>

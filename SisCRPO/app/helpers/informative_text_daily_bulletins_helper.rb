@@ -1,0 +1,2 @@
+module InformativeTextDailyBulletinsHelper
+end
