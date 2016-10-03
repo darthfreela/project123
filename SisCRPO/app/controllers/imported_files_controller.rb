@@ -1,4 +1,4 @@
-class ImportedFileController < ApplicationController
+class ImportedFilesController < ApplicationController
   	def new
     	@importedFile = ImportedFile.new
     	@importedFile_show = ImportedFile.all
