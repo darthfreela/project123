@@ -1,0 +1,2 @@
+module ImportNewslettersHelper
+end

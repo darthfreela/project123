@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
+<<<<<<< HEAD
 
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   resources :disthoraext
 
 
+=======
+  resources :imported_files, :only =>  [:new, :edit, :destroy, :update]
+>>>>>>> 334b0396d929e96a1640f0184111de6f5aa95983
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 

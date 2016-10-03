@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161001131524) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160926214742) do
+=======
+ActiveRecord::Schema.define(version: 20161003140305) do
+>>>>>>> 531438562f1a8cf2ba81a04a9c26563e4c02b651
+>>>>>>> 334b0396d929e96a1640f0184111de6f5aa95983
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +115,7 @@ ActiveRecord::Schema.define(version: 20161001131524) do
   end
 
   create_table "gpms", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "idOpm"
     t.string   "sigla"
     t.string   "nome"
@@ -125,6 +134,31 @@ ActiveRecord::Schema.define(version: 20161001131524) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+    t.string   "sigla"
+    t.string   "nome"
+    t.string   "cidade"
+    t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "import_newsletters", force: :cascade do |t|
+    t.string   "id_user"
+    t.string   "nome"
+    t.string   "posto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imported_files", force: :cascade do |t|
+    t.string   "imported_file"
+    t.string   "generated_file"
+    t.string   "log"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+>>>>>>> 334b0396d929e96a1640f0184111de6f5aa95983
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -221,6 +255,18 @@ ActiveRecord::Schema.define(version: 20161001131524) do
     t.boolean  "status"
   end
 
+  create_table "rh_unavailabilities", force: :cascade do |t|
+    t.integer  "id_func"
+    t.string   "nome_servidor"
+    t.string   "posto_grad"
+    t.string   "motivo_indisponibilidade"
+    t.string   "func_exercida"
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "siglas", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
@@ -237,6 +283,37 @@ ActiveRecord::Schema.define(version: 20161001131524) do
     t.datetime "updated_at",   null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "subst_temps", force: :cascade do |t|
+    t.integer  "idFuncSubstituido"
+    t.integer  "idFuncSubstituto"
+    t.string   "motivIndisponibilidade"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "nrBoletim"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "substituicao_temporaria", force: :cascade do |t|
+    t.integer  "idFunc1"
+    t.string   "nomeServidor1"
+    t.string   "postoGraduacao1"
+    t.string   "funcao1"
+    t.integer  "idFunc2"
+    t.string   "nomeServidor2"
+    t.string   "postoGraduacao2"
+    t.string   "funcao2"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "motivoIndisponibilidade"
+    t.date     "data1"
+    t.date     "data2"
+    t.integer  "numeroBoletim"
+  end
+
+>>>>>>> 334b0396d929e96a1640f0184111de6f5aa95983
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -303,7 +380,6 @@ ActiveRecord::Schema.define(version: 20161001131524) do
     t.string   "email",               limit: 256
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
-    t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
   end
 
@@ -313,10 +389,15 @@ ActiveRecord::Schema.define(version: 20161001131524) do
     t.integer  "functions_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "users_id"
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
+<<<<<<< HEAD
   add_foreign_key "gpms", "opms"
+=======
+  add_foreign_key "imported_files", "users"
+>>>>>>> 334b0396d929e96a1640f0184111de6f5aa95983
   add_foreign_key "licencas", "users"
   add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "release_vacations", "users"
