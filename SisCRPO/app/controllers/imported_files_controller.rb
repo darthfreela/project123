@@ -31,6 +31,6 @@ class ImportedFilesController < ApplicationController
 
   	private
   	def importedFile_params
-    	params.require(:imported_files).permit()
+    	params.require(:imported_file).permit(:imported_file,:generated_file,:log,:user_id)
   	end
 end

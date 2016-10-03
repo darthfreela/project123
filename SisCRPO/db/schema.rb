@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002195847) do
+ActiveRecord::Schema.define(version: 20161003140305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,15 +108,21 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "gpms", id: false, force: :cascade do |t|
-    t.integer  "id"
+  create_table "gpms", force: :cascade do |t|
     t.string   "sigla"
     t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean  "ativo"
     t.string   "cidade"
     t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "import_newsletters", force: :cascade do |t|
+    t.string   "id_user"
+    t.string   "nome"
+    t.string   "posto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "imported_files", force: :cascade do |t|
@@ -220,6 +226,25 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.boolean  "status"
   end
 
+  create_table "rh_unavailabilities", force: :cascade do |t|
+    t.integer  "id_func"
+    t.string   "nome_servidor"
+    t.string   "posto_grad"
+    t.string   "motivo_indisponibilidade"
+    t.string   "func_exercida"
+    t.datetime "data_inicio"
+    t.datetime "data_fim"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "siglas", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "solicitacao_fers", force: :cascade do |t|
     t.integer  "id_func"
     t.date     "data_inicial"
@@ -240,6 +265,23 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "substituicao_temporaria", force: :cascade do |t|
+    t.integer  "idFunc1"
+    t.string   "nomeServidor1"
+    t.string   "postoGraduacao1"
+    t.string   "funcao1"
+    t.integer  "idFunc2"
+    t.string   "nomeServidor2"
+    t.string   "postoGraduacao2"
+    t.string   "funcao2"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "motivoIndisponibilidade"
+    t.date     "data1"
+    t.date     "data2"
+    t.integer  "numeroBoletim"
+  end
+
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -257,6 +299,16 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.string   "nomeSubstituto"
     t.integer  "idFuncaoSubstituto"
     t.integer  "idGraduacaoSubstituto"
+  end
+
+  create_table "tipo_servicos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nome"
+    t.integer  "idFuncao"
+    t.integer  "idUniformes"
+    t.boolean  "ativo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -296,7 +348,6 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.string   "email",               limit: 256
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
-    t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
     t.integer  "postograduacao_id"
   end
@@ -307,11 +358,13 @@ ActiveRecord::Schema.define(version: 20161002195847) do
     t.integer  "functions_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "users_id"
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
   add_foreign_key "imported_files", "users"
   add_foreign_key "licencas", "users"
+  add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
   add_foreign_key "request_dispenses", "users"

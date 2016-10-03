@@ -140,6 +140,12 @@
           <span>Importar Boletim</span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual( new_import_newsletter_path, true) %>">
+        <%= link_to  new_import_newsletter_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Importar </span>
+        <% end  %>
+      </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
