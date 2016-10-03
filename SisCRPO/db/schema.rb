@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926135951) do
+ActiveRecord::Schema.define(version: 20161001131524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,13 @@ ActiveRecord::Schema.define(version: 20160926135951) do
 
   add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
 
+  create_table "informative_text_daily_bulletins", force: :cascade do |t|
+    t.string   "type_info"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "licencas", force: :cascade do |t|
     t.integer  "idFunc"
     t.string   "nome"
@@ -198,6 +205,7 @@ ActiveRecord::Schema.define(version: 20160926135951) do
     t.datetime "updated_at",         null: false
     t.boolean  "aprovado"
     t.string   "descricao_superior"
+    t.integer  "approved"
   end
 
   create_table "rh_license_approvals", force: :cascade do |t|

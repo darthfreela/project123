@@ -18,6 +18,7 @@
  *= require dist/css/AdminLTE
  *= require plugins/timepicker/bootstrap-timepicker.css
  *= require plugins/datepicker/datepicker3.css
+ *= require plugins/datatables/dataTables.bootstrap.css
  *= require_tree .
  *= require_self
  */

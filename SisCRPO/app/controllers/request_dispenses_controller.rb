@@ -42,6 +42,6 @@ end
 
   private
   def request_dispenses_params
-    params.require(:request_dispense).permit(:solicitacao, :data_inicio, :data_fim, :user_id)
+    params.require(:request_dispense).permit(:solicitacao, :data_inicio, :data_fim, :user_id, :approved)
   end
 end
