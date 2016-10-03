@@ -42,11 +42,8 @@ def destroy
     end
 
     def approve
-<<<<<<< HEAD
         #Licenca.update(:id, :approved => 2)
-=======
         RequestDispense.update(RequestDispense.find(params[:id]), :approved => 1)
->>>>>>> a3eef34a7511e3a9d216b755545513e3eba8ef5d
         redirect_to new_approval_unavailability_and_removal_path
     end
 
