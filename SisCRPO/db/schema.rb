@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160926214742) do
-=======
-
-ActiveRecord::Schema.define(version: 20160926000022) do
-
->>>>>>> a3eef34a7511e3a9d216b755545513e3eba8ef5d
+ActiveRecord::Schema.define(version: 20161003211640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +117,23 @@ ActiveRecord::Schema.define(version: 20160926000022) do
     t.boolean  "ativo"
     t.string   "cidade"
     t.text     "descricao"
+  end
+
+  create_table "import_newsletters", force: :cascade do |t|
+    t.string   "id_user"
+    t.string   "nome"
+    t.string   "posto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imported_files", force: :cascade do |t|
+    t.string   "imported_file"
+    t.string   "generated_file"
+    t.string   "log"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -274,12 +285,11 @@ ActiveRecord::Schema.define(version: 20160926000022) do
   end
 
   create_table "uniforms", force: :cascade do |t|
-    t.string   "sigla"
-    t.string   "uniforme"
-    t.string   "descricao"
-    t.date     "data_alteracao"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "initials"
+    t.string   "name"
+    t.string   "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -297,22 +307,20 @@ ActiveRecord::Schema.define(version: 20160926000022) do
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "endereco"
-    t.string   "bairro"
-    t.string   "cidade"
-    t.string   "estado"
-    t.string   "cep"
-    t.boolean  "ativo"
-    t.integer  "idFunc",              limit: 8
-    t.integer  "cpf",                 limit: 8
-    t.string   "nomeGuerra",          limit: 256
-    t.string   "imagemUsuario",       limit: 256
     t.string   "email",               limit: 256
-    t.string   "sexo",                limit: 256
-    t.date     "dataNascimento"
     t.integer  "function_id"
-    t.integer  "idUsuarioFuncao"
-    t.integer  "postograduacao_id"
+    t.string   "address"
+    t.string   "neighborhood"
+    t.integer  "city_id"
+    t.string   "state"
+    t.string   "zip_code"
+    t.boolean  "actived"
+    t.integer  "id_func"
+    t.string   "war_name"
+    t.string   "gender"
+    t.string   "birth"
+    t.integer  "post_graduation_id"
+    t.string   "profile_id"
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
@@ -324,10 +332,10 @@ ActiveRecord::Schema.define(version: 20160926000022) do
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
+  add_foreign_key "imported_files", "users"
   add_foreign_key "licencas", "users"
   add_foreign_key "pointing_hours", "tipo_servicos"
   add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
   add_foreign_key "request_dispenses", "users"
-  add_foreign_key "users", "postograduacaos"
 end

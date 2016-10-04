@@ -1,0 +1,120 @@
+<section class="content-header">
+    <h1>
+       Relatório de Horas Extras/Suplementação 
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas Administrativas</a></li>
+        <li class="active">Relatório de Horas Extras/Suplementação </li>
+    </ol>
+</section>
+<section class="content">
+  <div class="box">
+      <div class="box-header">
+          <h3 class="box-title">Cadastro Siglas</h3>
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+      </div>
+      <hr>      
+      <%= form_for @report do |f| %>
+          <div class="box-body">
+              <div class="col-md-3 form-group ">
+                  <label>Estado</label>
+                  <select id="states" class="form-control select2">
+                    <option value="0">Selecionar Estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espirito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                  </select>
+              </div>
+              <div class="col-md-5 form-group ">
+                  <label>Cidade</label>
+                  <%= f.collection_select :id_cidade, [], :id, :nome, :include_blank => 'Selecionar primeiro Estado'%>
+              </div>
+              <div class="col-md-5 form-group ">
+                  <label>Unidade</label>
+                  <%= f.select :id_unidade, @select_opms.map{|s| [s.nome, s.id]}, {}, class: "form-control select2" %>
+              </div>
+              <div class="col-md-3 form-group">
+                  <label>Quantidades de horas</label>
+                  <%= f.text_field :qt_horas, class:"form-control number", maxlength: "3"%>
+              </div>
+              <div class="form-group col-md-6">         
+                  <label>Período</label>
+                  <div class="row"> 
+                    <div class="col-md-4">          
+                      <%= f.text_field :dt_inicial, class:"form-control data"%>
+                    </div>
+                    <div class="col-md-1">          
+                      à
+                    </div>
+                    <div class="col-md-4">          
+                      <%= f.text_field :dt_final, class:"form-control data"%> 
+                    </div>              
+                  </div>
+              </div>
+          </div>
+          <div class="box-footer">
+              <div id="btnGerar" class="btn btn-success">Gerar</div>
+              <button name="button" type="reset" class="btn btn-danger">Limpar</button>
+          </div>
+      <% end %>
+  </div>
+</section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#report_overtime_supplementation_id_cidade").addClass( "form-control select2" );
+   $("#states").change(function() {
+      getCitiesByState("uf="+$("#states").val());
+    });
+    $("#btnGerar").click(function() {
+      gerarRelatorio("cidade="+$("#report_overtime_supplementation_id_cidade").val());
+    });
+  });
+
+  function getCitiesByState(uf) {
+
+    $.getJSON("/cities_by_state", uf, function(j) {
+      var options = '<option value="">Selecionar Cidade</option>';
+      $.each(j.cty, function(i, item) {        
+        options += '<option value="' + item.id + '">' + item.n + '</option>';
+      });
+      $("#report_overtime_supplementation_id_cidade").html(options);
+    });
+    
+  }
+
+  function gerarRelatorio(id_cidade){
+    alert(id_cidade);
+    $.getJSON("/make_report_supplemention", id_cidade, function(j){
+      $.each(j.make, function(i, item) {        
+        alert(gerou);
+      });
+    });
+  }
+</script>

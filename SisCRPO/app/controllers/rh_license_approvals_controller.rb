@@ -29,6 +29,8 @@ class RhLicenseApprovalsController < ApplicationController
 
     def edit
         @rhLicenseapproval = RhLicenseApproval.find(params[:id])
+        @rhLicenseapproval.data_inicio = @rhLicenseapproval.data_inicio.strftime("%d/%m/%Y")
+        @rhLicenseapproval.data_termino = @rhLicenseapproval.data_termino.strftime("%d/%m/%Y")
     end
 
     def update
