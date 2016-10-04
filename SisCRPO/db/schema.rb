@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161003140305) do
+=======
+ActiveRecord::Schema.define(version: 20161003211640) do
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,13 +33,6 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.integer  "licencas_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "nome"
-    t.string   "uf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -96,6 +93,15 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "fers", force: :cascade do |t|
+    t.integer  "idFunc"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.boolean  "aprovado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "functions", force: :cascade do |t|
     t.string   "sigla"
     t.string   "funcao"
@@ -106,20 +112,31 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.datetime "updated_at",     null: false
   end
 
+<<<<<<< HEAD
   create_table "gpms", force: :cascade do |t|
     t.integer  "idOpm"
+=======
+  create_table "gpms", id: false, force: :cascade do |t|
+    t.integer  "id"
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
     t.string   "sigla"
     t.string   "nome"
-    t.integer  "cidade"
-    t.boolean  "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer  "opm_id"
     t.string   "descricao"
   end
 
   add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
 
+=======
+    t.boolean  "ativo"
+    t.string   "cidade"
+    t.text     "descricao"
+  end
+
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   create_table "import_newsletters", force: :cascade do |t|
     t.string   "id_user"
     t.string   "nome"
@@ -135,6 +152,7 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+<<<<<<< HEAD
   end
 
   create_table "informative_text_daily_bulletins", force: :cascade do |t|
@@ -142,6 +160,8 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -184,14 +204,22 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "comfirmacao"
-    t.integer  "idTipoServico"
     t.integer  "tipo_servico_id"
+  end
+
+  create_table "postograduacaos", force: :cascade do |t|
+    t.string   "sigla"
+    t.string   "nomePostoGraduacao"
+    t.boolean  "ativo"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "postograduacao_id"
   end
 
   create_table "release_vacations", force: :cascade do |t|
@@ -201,16 +229,6 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
-  end
-
-  create_table "report_overtime_supplementations", force: :cascade do |t|
-    t.integer  "id_cidade"
-    t.integer  "id_unidade"
-    t.integer  "qt_horas"
-    t.date     "dt_inicial"
-    t.date     "dt_final"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "request_dispenses", force: :cascade do |t|
@@ -254,6 +272,20 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.datetime "updated_at",   null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "subst_temps", force: :cascade do |t|
+    t.integer  "idFuncSubstituido"
+    t.integer  "idFuncSubstituto"
+    t.string   "motivIndisponibilidade"
+    t.date     "dataInicial"
+    t.date     "dataFinal"
+    t.integer  "nrBoletim"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -284,12 +316,11 @@ ActiveRecord::Schema.define(version: 20161003140305) do
   end
 
   create_table "uniforms", force: :cascade do |t|
-    t.string   "sigla"
-    t.string   "uniforme"
-    t.string   "descricao"
-    t.date     "data_alteracao"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "initials"
+    t.string   "name"
+    t.string   "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -307,21 +338,27 @@ ActiveRecord::Schema.define(version: 20161003140305) do
     t.integer  "failed_attempts"
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "endereco"
-    t.string   "bairro"
-    t.string   "cidade"
-    t.string   "estado"
-    t.string   "cep"
-    t.boolean  "ativo"
-    t.integer  "idFunc",              limit: 8
-    t.integer  "cpf",                 limit: 8
-    t.string   "nomeGuerra",          limit: 256
-    t.string   "imagemUsuario",       limit: 256
     t.string   "email",               limit: 256
+<<<<<<< HEAD
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
     t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
+=======
+    t.integer  "function_id"
+    t.string   "address"
+    t.string   "neighborhood"
+    t.integer  "city_id"
+    t.string   "state"
+    t.string   "zip_code"
+    t.boolean  "actived"
+    t.integer  "id_func"
+    t.string   "war_name"
+    t.string   "gender"
+    t.string   "birth"
+    t.integer  "post_graduation_id"
+    t.string   "profile_id"
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
@@ -333,10 +370,14 @@ ActiveRecord::Schema.define(version: 20161003140305) do
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
+<<<<<<< HEAD
   add_foreign_key "gpms", "opms"
+=======
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   add_foreign_key "imported_files", "users"
   add_foreign_key "licencas", "users"
   add_foreign_key "pointing_hours", "tipo_servicos"
+  add_foreign_key "profiles", "postograduacaos"
   add_foreign_key "release_vacations", "users"
   add_foreign_key "request_dispenses", "users"
 end
