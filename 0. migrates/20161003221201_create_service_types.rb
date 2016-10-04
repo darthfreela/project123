@@ -4,7 +4,7 @@ class CreateServiceTypes < ActiveRecord::Migration
       t.string :initials
       t.string :name
       t.integer :function_id
-      t.string :uniform_id
+      t.integer :uniform_id
       t.boolean :actived
 
       t.timestamps null: false

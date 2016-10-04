@@ -9,8 +9,8 @@ class AddColumnsToUsers < ActiveRecord::Migration
     add_column :users, :id_func, :integer
     add_column :users, :war_name, :string
     add_column :users, :gender, :string
-    add_column :users, :birth, :string
+    add_column :users, :birth, :date
     add_column :users, :post_graduation_id, :integer
-    add_column :users, :profile_id, :string
+    add_column :users, :profile_id, :integer
   end
 end
