@@ -12,6 +12,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20161003211640) do
+=======
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161003172730) do
 =======
 <<<<<<< HEAD
@@ -20,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161003140305) do
 ActiveRecord::Schema.define(version: 20161003211640) do
 >>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
 >>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
+>>>>>>> 6970c1664b7545190dab60705f7737b8ffc1e842
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,30 +120,25 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.datetime "updated_at",     null: false
   end
 
-<<<<<<< HEAD
-  create_table "gpms", force: :cascade do |t|
-    t.integer  "idOpm"
-=======
+
   create_table "gpms", id: false, force: :cascade do |t|
     t.integer  "id"
->>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
     t.string   "sigla"
     t.string   "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.integer  "opm_id"
     t.string   "descricao"
   end
 
   add_index "gpms", ["opm_id"], name: "index_gpms_on_opm_id", using: :btree
-
-=======
     t.boolean  "ativo"
     t.string   "cidade"
     t.text     "descricao"
   end
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
   create_table "import_files", force: :cascade do |t|
     t.string   "id_user"
@@ -152,6 +151,7 @@ ActiveRecord::Schema.define(version: 20161003211640) do
 =======
 >>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
 >>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
+>>>>>>> 6970c1664b7545190dab60705f7737b8ffc1e842
   create_table "import_newsletters", force: :cascade do |t|
     t.string   "id_user"
     t.string   "nome"
@@ -175,7 +175,6 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-<<<<<<< HEAD
   end
 
   create_table "informative_text_daily_bulletins", force: :cascade do |t|
@@ -183,8 +182,6 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-=======
->>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   end
 
   create_table "licencas", force: :cascade do |t|
@@ -294,9 +291,6 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
-
-<<<<<<< HEAD
-=======
   create_table "subst_temps", force: :cascade do |t|
     t.integer  "idFuncSubstituido"
     t.integer  "idFuncSubstituto"
@@ -307,8 +301,6 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
->>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "idFuncOcupante"
     t.integer  "idFuncSubstituto"
@@ -362,12 +354,10 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "email",               limit: 256
-<<<<<<< HEAD
     t.string   "sexo",                limit: 256
     t.date     "dataNascimento"
     t.integer  "function_id"
     t.integer  "idUsuarioFuncao"
-=======
     t.integer  "function_id"
     t.string   "address"
     t.string   "neighborhood"
@@ -381,7 +371,6 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.string   "birth"
     t.integer  "post_graduation_id"
     t.string   "profile_id"
->>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
@@ -393,10 +382,7 @@ ActiveRecord::Schema.define(version: 20161003211640) do
   end
 
   add_foreign_key "add_user_ref_to_pointing_hours", "users"
-<<<<<<< HEAD
   add_foreign_key "gpms", "opms"
-=======
->>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   add_foreign_key "imported_files", "users"
   add_foreign_key "licencas", "users"
   add_foreign_key "pointing_hours", "tipo_servicos"
