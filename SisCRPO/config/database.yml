@@ -1,10 +1,11 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: project_development
+  database: dbcrpoftec
+  host: dbcrpoftec.conf6vxfcs4e.us-west-2.rds.amazonaws.com
   pool: 5
-  username:
-  password:
+  username: CRPOFTEC
+  password: crpo2016#ftec
 
 test: &TEST
   adapter: postgresql
