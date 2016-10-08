@@ -8,11 +8,39 @@ class RhLicenseApprovalsController < ApplicationController
     ar.each do |i|
       @select_status <<  "#{i}"
       end
-    end
+
+      #arq =  File.open("teste.txt")
+     #arq.each do |a|
+      #@teste = a+"\n"
+      #end
+
+        #File.open("teste.txt") do |f1|
+        #while line = f1.gets
+        #@teste = line+"\n"
+        #end
+        #end
+
+        #ne_num=0
+        #File.open("teste.txt").each do |line|
+        #@teste = line
+        #end
+
+        lines = IO.readlines("teste.doc","w+")
+        puts lines.length
+        lines.each do |line|
+        @teste = line
+        end
+
+
+
+
+           end
 
     def create
         @rhLicenseapproval = RhLicenseApproval.new(rhLicenseapproval_params)
         @rhLicenseapproval_show = RhLicenseApproval.all
+
+
     # Mok
     @select_status = Array.new
     ar = ["  ","Aprovar","Negar"]
@@ -52,4 +80,11 @@ class RhLicenseApprovalsController < ApplicationController
     def rhLicenseapproval_params
         params.require(:rh_license_approval).permit(:id_func, :nome_servidor, :posto_graduacao, :motivo, :funcao, :data_inicio, :data_termino, :status)
     end
+
+
+def teste
+
+end
+
+
 end
