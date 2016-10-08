@@ -68,10 +68,25 @@
             <%= l.select :status, [['Permitir', 'true'], ['Negar', 'false']],{}, class: "form-control" %>
             </div>
         </div>
+
+
+
+       <div>
+ <div>
+
+
+        </div><br>
+
+
+
+
       <div class="box-footer">
         <%= l.submit "Salvar", class: "btn btn-success" %>
         <%= l.button "Limpar", class: "btn btn-danger" %>
-        <div class=" small pull-right">* Campos obrigatórios</div>
+        <div class=" small pull-right">
+        <%=
+          @teste
+        %> * Campos obrigatórios</div>
       </div>
     <% end %>
   </div>

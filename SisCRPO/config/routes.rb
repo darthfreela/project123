@@ -1,7 +1,24 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
+  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+
+=======
+  
+>>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
+<<<<<<< HEAD
+  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :report_overtime_supplementations, :only =>  [:index]
+  get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
+  get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
+
+  resources :disthoraext
+
+=======
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
   resources :imported_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
