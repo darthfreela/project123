@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
-=======
+
   
->>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
+
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
