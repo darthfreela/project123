@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161003211640) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20161003172730) do
+=======
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20161003140305) do
+=======
+ActiveRecord::Schema.define(version: 20161003211640) do
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
+>>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
+>>>>>>> 6970c1664b7545190dab60705f7737b8ffc1e842
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,7 +137,30 @@ ActiveRecord::Schema.define(version: 20161003211640) do
     t.text     "descricao"
   end
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  create_table "import_files", force: :cascade do |t|
+    t.string   "id_user"
+    t.string   "nome"
+    t.string   "posto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+=======
+>>>>>>> 2fd806f74bf39eccbd5ecb464a431a4301165f4c
+>>>>>>> 0be2a2ad183bdd6ada5898683ed37b14f083f254
+>>>>>>> 6970c1664b7545190dab60705f7737b8ffc1e842
   create_table "import_newsletters", force: :cascade do |t|
+    t.string   "id_user"
+    t.string   "nome"
+    t.string   "posto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "import_report_cards", force: :cascade do |t|
     t.string   "id_user"
     t.string   "nome"
     t.string   "posto"
