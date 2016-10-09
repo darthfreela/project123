@@ -34,6 +34,6 @@ class UniformsController < ApplicationController
 
   private
   def uniform_params
-    params.require(:uniform).permit(:sigla, :uniforme, :descricao, :data_alteracao)
+    params.require(:uniform).permit(:initials, :name, :description)
   end
 end
