@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *= require css/bootstrap
+ *= require "css/font-awesome.min.css"
+ *= require "css/ionicons.min.css"
+ *= require dist/css/skins/skin-red
+ *= require plugins/iCheck/square/blue.css
+ *= require plugins/select2/select2.min.css
+ *= require dist/css/AdminLTE
+ *= require plugins/timepicker/bootstrap-timepicker.css
+ *= require plugins/datepicker/datepicker3.css
+ *= require plugins/datatables/dataTables.bootstrap.css
+ *= require_tree .
+ *= require_self
+ */
+
+.nav.navbar-nav .username{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    line-height: 20px;
+    color: #ffffff;
+    display: block;
+    position: relative;
+}
+
+/*Mudanças de CSS*/
+
+.skin-red .main-header .logo:hover {
+    background-color: #000;
+}
+
+.skin-red .main-header .logo {
+    background-color: #1e1a19;
+    color: #ffffff;
+    border-bottom: 0 solid transparent;
+}
+
+.skin-red .main-header .navbar {
+    background-color: #2b2b35;
+}
+
+.skin-red .sidebar-menu > li:hover > a, .skin-red .sidebar-menu > li.active > a {
+    color: #ffffff;
+    background: #1e282c;
+    border-left-color: #3a3847;
+}
+
+.select2 {
+    width: 100% !important;
+}

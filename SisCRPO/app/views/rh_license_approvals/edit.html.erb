@@ -1,0 +1,81 @@
+<section class="content-header">
+    <h1>Aprovação de Licença / Afastamento
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Aprovação de Licença / Afastamento</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="box">
+      <div class="box-header">
+          <h3 class="box-title">Cadastro de Aprovação de Licença / Afastamento</h3>
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+      </div>
+      <hr>
+      <div class="alert-error">
+          <%= flash[:error] %>
+          <% if @rhLicenseapproval.errors.any? %>
+              <div id="error_explanation">
+                  O formulário contém <%= pluralize(@rhLicenseapproval.errors.count, "erro") %>.
+              </div>
+              <ul>
+                  <% @rhLicenseapproval.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                  <% end %>
+              </ul>
+          <% end %>
+      </div>
+      <%= form_for @rhLicenseapproval do |f| %>
+          <div class="box-body">
+ <div class="form-group col-md-2">
+          <label>Id Func</label>
+          <%= f.text_field :id_func,placeholder: "Id Funcionário",class:"form-control" %>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Nome</label>
+          <%= f.text_field :nome_servidor, placeholder: "Nome", maxlength: "80", class:"form-control" %>
+
+         </div>
+        <div class="form-group col-md-3">
+            <label>Posto</label>
+<%= f.text_field :posto_graduacao, placeholder: "Posto / Graduação", maxlength: "20", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+          <label>Motivo</label>
+          <%= f.text_field :motivo, placeholder: "Motivo", maxlength: "20", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+        <label>Função</label>
+          <%= f.text_field :funcao, placeholder: "Função", maxlength: "20", class:"form-control" %>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Data Inicial*</label>
+             <%= f.text_field :data_inicio,placeholder: "Data inicial", class:"form-control data" %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <label>Data Final*</label>
+            <%= f.text_field :data_termino, placeholder: "Data final",class:"form-control data" %>
+          </div>
+        </div>
+        <div class="form-group col-md-2">
+            <label>Aprovação*</label>
+            <%= f.select :status, [['Permitir', 'true'], ['Negar', 'false']],{}, class: "form-control" %>
+          </div>
+
+          </div>
+          <div class="box-footer">
+              <%= f.submit "Salvar", class: "btn btn-success"%>
+              <%= f.button "Limpar", class: "btn btn-danger"%>
+          </div>
+      <% end %>
+  </div>
+</section>
+

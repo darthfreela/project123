@@ -1,0 +1,75 @@
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Licença</h3>
+    </div>
+    <div class="error"><%= flash[:error] %></div>
+    <% if @licenca.errors.any? %>
+    <div id="error_explanation">
+    <div class="alert-error">
+        O formulário contém <%= pluralize(@licenca.errors.count, "erro") %>.
+    </div>
+    <ul>
+      <% @licenca.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+    <%= form_for @licenca do |l| %>
+      <div class="box-body">
+        <div class="form-group col-md-12">
+          <div class="form-group col-md-4">
+            <label>Id Func</label>
+            <%= l.text_field :idFunc, value:current_user.idFunc, disabled:"true",
+             maxlength: "80", class:"form-control autocompleteFunc" %>
+
+            <!-- <label>Usuário</label>
+            <%= l.select :user_id, @select_users.map{|s| [s.id.to_s + ':'+ s.name.to_s , s.id]}, {}, class: "form-control select2" %> -->
+          </div>
+          <div class="form-group col-md-4">
+            <label>Nome</label>
+            <%= l.text_field :nome, value:current_user.name, disabled:"true",
+             maxlength: "80", class:"form-control" %>
+
+            <!-- <label>Nome para a licença</label>
+            <%= l.text_field :nome, PlaceHolder: "Nome", class:"form-control" %> -->
+          </div>
+          <div class="form-group col-md-2">
+              <label>Tempo da Licença</label>
+              <%= l.select :dias, [['30', '30'], ['60', '60'], ['90', '90']],{},
+               class: "form-control" %>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Tipo de Licença*</label>
+            <%= l.select :tipo, [['Especial','L/E'], ['Interesses próprios','L/TIP']],{},
+             class: "form-control" %>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Data Inicial*</label>
+               <%= l.date_field :dataInicial, class:"form-control data" %>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Data Final*</label>
+              <%= l.date_field :dataFinal, class:"form-control data" %>
+            </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label>Ordem da licença</label>
+            <%= l.text_field :ordem, placeholder: "NI 123/0000", class: "form-control" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-footer">
+        <%= l.submit "Salvar", class: "btn btn-success" %>
+        <%= l.button "Cancelar", class: "btn btn-danger" %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+      </div>
+
+    <% end %>
+  </div>
+</section>

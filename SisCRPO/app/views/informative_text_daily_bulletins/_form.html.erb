@@ -1,0 +1,31 @@
+<%= form_for @informative_text do |f| %>
+  <div class="box-body">
+    <div class="col-md-12">
+      <div class="form-group col-md-2">
+        <label>Tipo</label>        
+           <%= f.select :type_info, [
+                ['Afastamento','Afastamento'], 
+                ['Licenças(todas)','Licenças'],
+                ['Substituições','Substituições'], 
+                ['Transferências','Transferências'],
+                ['Movimentação sanitária','Movimentação sanitária'], 
+                ['Entrega de Uniformes','Entrega de Uniformes'], 
+                ['Ação e contenção','Ação e contenção'], 
+                ['Operações que participou','Operações que participou'], 
+                ['Diversas', 'Diversas']
+              ],{},
+                class: "form-control select2" %>
+      </div>
+    </div>
+    <div class="col-md-12">                                    
+      <div class="form-group col-md-6">
+        <label>Descrição</label>                    
+        <%= f.text_area :description, maxlength: "255", class:"form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= f.submit "Salvar", class: "btn btn-success" %>
+    <%= f.button "Cancelar", class: "btn btn-danger" %>
+  </div>
+<%end%>

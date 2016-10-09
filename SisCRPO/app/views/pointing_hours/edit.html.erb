@@ -1,0 +1,77 @@
+
+<section class="content-header">
+    <h1>
+        Apontamento de Horas
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Apontamento de Horas</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box default">
+        <div class="box-header">
+            <h3 class="box-title">Apontamento de Horas</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <hr>
+        <div class="alert-error">
+            <%= flash[:error] %>
+          <% if @pointingHour.errors.any? %>
+            <div id="error_explanation">
+                O formulário contém <%= pluralize(@pointingHour.errors.count, "erro") %>.
+            </div>
+            <ul>
+                <% @pointingHour.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+          <% end %>
+        </div>
+        <%= form_for @pointingHour do |f| %>
+            <div class="box-body">
+            	<div class="form-group col-md-4">
+				     <!--<%= f.label :idfunc %>-->
+                    <label>Id Func</label>
+                    <%= f.text_field :id_func, value:current_user.idFunc, disabled:"true" , maxlength: "80", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-7">
+                     <!--<%= f.label :idfunc %>-->
+                    <label>Nome</label>
+                    <%= f.text_field :id_func, value:current_user.name, disabled:"true" , maxlength: "80", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_inicio %>-->
+                    <label>Data Inicio*</label>
+                    <%= f.date_field :data_inicio, class:"form-control data" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :hora_inicio %>-->
+                    <label>Hora Inicio*</label>
+                    <%= f.datetime_field :hora_inicio, class:"form-control datetime" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :data_fim %>-->
+                    <label>Data Fim*</label>
+                    <%= f.date_field :data_fim, class:"form-control data" %>
+                </div>
+                <div class="form-group col-md-2">
+				    <!--<%= f.label :hora_fim %>-->
+                    <label>Hora Fim*</label>
+                    <%= f.datetime_field :hora_fim, class:"form-control datetime" %>
+                </div>
+                <div class="form-group col-md-7">
+                            <!--<%= f.label :tipo_servico_id %>-->
+                    <label>Tipo De Serviço</label>
+                    <%= f.select :tipo_servico_id, @tpServico.map{|s| [s.nome, s.id]}, {}, class: "form-control select2"%>
+                </div>
+            </div>
+        <div class="box-footer">
+            <%= f.submit "Salvar", Class: "btn btn-success" %>
+            <%= f.button "Limpar", Class: "btn btn-danger" %>
+        </div>
+    <% end %>
+</div>

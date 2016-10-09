@@ -1,0 +1,181 @@
+<ul class="sidebar-menu">
+  <li class="header"><%= t 'menu.main' %></li>
+  <li class="<%= ative_se_pagina_atual(dashboard_path, true) %>">
+    <%= link_to dashboard_path do %>
+      <i class="fa fa-dashboard"></i>
+      <span><%= t 'menu.menu_principal' %></span>
+    <% end  %>
+  </li>
+</ul><!-- /.sidebar-menu -->
+<!-- Ferramentas de Usuário -->
+<ul class="sidebar-menu">
+  <li class="header"><span>Ferrmentas De Usuário</span></li>
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-wrench"></i>
+      <span>Gerenciar</span>
+    </a>
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," +new_licenca_path + "," + new_profile_path) %>;">
+      <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
+        <%= link_to new_user_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Usuários</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_opm_path, true) %>">
+        <%= link_to new_opm_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Opms</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_gpm_path, true) %>">
+        <%= link_to new_gpm_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Gpms</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_function_path, true) %>">
+        <%= link_to new_function_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Funções</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_uniform_path, true) %>">
+        <%= link_to new_uniform_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Uniformes</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_estagiario_path, true) %>">
+        <%= link_to new_estagiario_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Estagiários</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_tipo_servico_path, true) %>">
+        <%= link_to new_tipo_servico_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span><%= t 'menu.TipoServico' %></span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_sigla_path, true) %>">
+        <%= link_to new_sigla_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Sigla</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_company_path, true) %>">
+        <%= link_to new_company_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Companhias</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
+        <%= link_to new_pointing_hour_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Apontamentos de Horas</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_distribuicao_horas_extra_path, true) %>">
+        <%= link_to new_distribuicao_horas_extra_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Horas Extras</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_licenca_path, true) %>">
+        <%= link_to new_licenca_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Licença</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_profile_path, true) %>">
+        <%= link_to new_profile_path do %>
+          <i class="fa  fa-wrench"></i>
+        <span>Perfil</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
+        <%= link_to new_release_vacation_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Lanç. Férias</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_temporary_replacement_path, true) %>">
+        <%= link_to new_temporary_replacement_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Subs Temporárias</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
+        <%= link_to new_management_hour_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Gerencia de Horas</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual( new_rh_license_approval_path, true) %>">
+        <%= link_to new_rh_license_approval_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação Licença</span>
+      <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
+        <%= link_to new_request_dispense_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Solicitação de Dispensa</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_approval_unavailability_and_removal_path, true) %>">
+        <%= link_to new_approval_unavailability_and_removal_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação de Dispensas</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_approval_request_dispense_superior_path, true) %>">
+        <%= link_to new_approval_request_dispense_superior_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação Disp (Superior)</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_imported_file_path, true) %>">
+        <%= link_to new_imported_file_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Importar Boletim</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual( new_import_file_path, true) %>">
+        <%= link_to  new_import_file_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Importar </span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual( new_import_newsletter_path, true) %>">
+        <%= link_to  new_informative_text_daily_bulletin_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Textos Informativos</span>
+        <% end  %>
+      </li>
+    </ul>
+  </li>
+  <!-- Ferramentas de Usuário -->
+  <li class="header"><span>Ferramentas Administrativas</span></li>
+  <li class="treeview">
+    <a href="#">
+      <i class="fa fa-wrench"></i>
+      <span>Relatórios</span>
+    </a>
+    <ul class="treeview-menu" style="display: <%= abrir_menu(quadro_efetivo_index_path+ "," +  report_overtime_supplementations_path) %>;">
+      <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
+        <%= link_to quadro_efetivo_index_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Quadro Efetivo</span>
+        <% end %>
+      </li> 
+      <li class="<%= ative_se_pagina_atual(report_overtime_supplementations_path, true) %>">
+        <%= link_to report_overtime_supplementations_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Horas Extras/Supletamente</span>
+        <% end %>
+      </li>    
+    </ul>
+    <% end %>
+  </li>
+</ul>

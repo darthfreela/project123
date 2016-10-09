@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CRPO SERRA</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="../../plugins/fastclick/fastclick.min.js"></script>
+    <script src="../../dist/js/app.min.js"></script>
+    <script src="../../dist/js/demo.js"></script>
+    <script>
+        $(function () {
+            $("#motivos").DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ entradas",
+                    "zeroRecords": "Nenhum registro encontrado",
+                    "info": "Mostrando _PAGE_ de _PAGES_ páginas",
+                    "infoEmpty": "Nenhum registro encontrado",
+                    "infoFiltered": "(filtrado apartir de  _MAX_ registros no total)",
+                    "search": "Pesquisar: "
+                },
+                "oLanguage": {
+                    "oPaginate": {
+                      "sPrevious": "Anterior",
+                      "sNext": "Próximo"
+                }
+              }
+            });
+        });
+    </script>
+    <style type="text/css">
+        .btn-warning, .btn-danger {
+            height: 4px;
+        }
+
+            .btn-warning > .fa, .btn-warning > .glyphicon, .btn-warning > .ion,
+            .btn-danger > .fa, .btn-danger > .glyphicon, .btn-danger > .ion {
+                font-size: 15px;
+                display: inline-block;
+            }
+
+        .btn-warning, .btn-danger {
+            padding: 2px 5px 22px 5px;
+            margin: 0 0 0 10px;
+        }
+
+        .btn-block {
+            width: 6%;
+        }
+		td, th {white-space:nowrap}
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header">
+            <a href="../../index.html" class="logo">
+                <span class="logo-mini"><b>CRPO</b></span>
+                <span class="logo-lg"><b>CRPO</b>&nbsp;Serra</span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+            </nav>
+        </header>
+        <!-- MENUS -->
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="../../dist/img/logoCRPO160X160.png" class="img-circle" style="width: 70%; margin-left: 12%; height: 100px; max-width: 100%;">
+                    </div>                   
+                </div>
+                <ul class="sidebar-menu">
+                    <li class="header">CRPO SERRA</li>
+					<li class="active treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i><span>Substituição Temporária</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+						<ul class="treeview-menu">
+                            <li><a href="../../pages/substituicaoTemporaria/edit.html"><i class="fa fa-circle-o"></i>Novo</a></li>
+                        </ul>
+                        <ul class="treeview-menu">
+					<li><a href="../../pages/substituicaoTemporaria/list.html"><i class="fa fa-circle-o"></i>Procurar</a></li>
+                        </ul>
+				   </li>
+					<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i><span>Aprovar Indisponibilidade</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../../pages/workflowIndisponibilidadeAprovacao/aprovacaoPorSuperior.html"><i class="fa fa-circle-o"></i>Aprovação Superior</a></li>
+                        </ul>
+						<ul class="treeview-menu">
+							<li><a href="../../pages/workflowIndisponibilidadeAprovacao/aprovacaoPorRh.html"><i class="fa fa-circle-o"></i>Aprovação RH</a></li>
+                        </ul>
+                    </li>
+					<li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i> <span>Ferramentas administrativas</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="#"><i class="fa fa-circle-o"></i> Cadastros <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="../../pages/03companhias/companhias.html"><i class="fa fa-circle-o"></i>Companhias </a></li>
+                                    <li><a href="../../pages/contingente/listaContigente.html"><i class="fa fa-circle-o"></i>Contigente</a></li>
+                                    <li><a href="../../pages/escalaServico/listaEscala.html"><i class="fa fa-circle-o"></i>Escala de Serviço</a></li>
+									<li><a href="../../pages/cadastroEstagiarios/listaEscala.html"><i class="fa fa-circle-o"></i>Estagiarios</a></li>
+                                    <li><a href="../../pages/cadastroFuncoes/funcoes.html"><i class="fa fa-circle-o"></i>Funções </a></li>
+									<li><a href="../../pages/cadastroInformativo/listaInformativos.html"><i class="fa fa-circle-o"></i>Informativos Pt 3 </a></li>
+									<li><a href="../../pages/cadastroJusticaDisciplina/listaJusticaDisciplina.html"><i class="fa fa-circle-o"></i>Justiça e disciplina </a></li>
+									<li><a href="../../pages/cadastroLicenca/licenca.html"><i class="fa fa-circle-o"></i>Licença</a></li>
+                                    <li><a href="../../pages/01quartelGeneral/opm.html"><i class="fa fa-circle-o"></i>OPM </a></li>
+									<li><a href="../../pages/perfil/linhaPerfil.html"><i class="fa fa-circle-o"></i>Perfil</a></li>
+									<li><a href="../../pages/permissao/linhaPermissao.html"><i class="fa fa-circle-o"></i>Permissão</a></li>
+                                    <li><a href="../../pages/cadastroPostoGraduacao/postoGraduacao.html"><i class="fa fa-circle-o"></i>Posto/Graduação </a></li>
+                                    <li><a href="../../pages/cadastroSiglas/linhaServico.html"><i class="fa fa-circle-o"></i>Siglas</a></li>
+                                    <li><a href="../../pages/cadastroTiposServico/tiposServico.html"><i class="fa fa-circle-o"></i>Tipo de Serviço </a></li>
+									<li><a href="../../pages/cadastroTextoInformativo/listaTextoInformativos.html"><i class="fa fa-circle-o"></i>Texto Inf Pt 3 </a></li>
+								<li><a href="../../pages/02unidades/unidades.html"><i class="fa fa-circle-o"></i>Unidades </a></li>
+								<li><a href="../../pages/uniformes/listaUniformes.html"><i class="fa fa-circle-o"></i>Uniformes</a></li>
+									<li><a href="../../pages/usuario/linhaUsuario.html"><i class="fa fa-circle-o"></i>Usuário</a></li>
+								</ul>
+                            </li>
+                            <li>
+								<a href="#"><i class="fa fa-circle-o"></i> Importações <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+									<li><a href="../../pages/verificacaoBoletim/verificacao.html"><i class="fa fa-circle-o"></i>Importar Boletim</a></li>
+									<li><a href="../../pages/importarBoletimInstrucao/importaBoletimInstrucao.html"><i class="fa fa-circle-o"></i>Importar Boletim Instrução</a></li>                                   
+									<li><a href="../../pages/verificacaoBoletim/visualizarboletim.html"><i class="fa fa-circle-o"></i>Visualizar Importações</a></li>
+                                </ul>
+							</li>
+                            <li><a href="../../pages/relatorios/relatorios.html"><i class="fa fa-circle-o"></i>Relatórios Gerais</a></li>
+                        </ul>
+                    </li>
+                    <!-- CARLOS -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-share"></i><span>Ferramentas do Usuário</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../../pages/apontamentoHoras/apontamento_horas.html"><i class="fa fa-circle-o"></i>Apontamento de Horas</a></li>
+							<li><a href="../../pages/quadroDistribuicaoHoraExtra/list.html"><i class="fa fa-circle-o"></i>Horas Extras</a></li>
+                            <li><a href="../../pages/solicitarDispensa/solicitar_dispensa.html"><i class="fa fa-circle-o"></i>Solicitar dispensa</a></li>							
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <!-- /MENUS -->
+        <!-- CORPO -->
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Substituição Temporária</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div>
+                            <button type="button" onClick="window.location = '../../pages/substituicaoTemporaria/edit.html'" class="btn btn-block btn-primary">Novo</button>
+                        </div>
+                        </br>
+						<div style="overflow: scroll">
+							<table id="motivos" class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Id Func.</th>
+										<th>Nome do Servidor</th>
+										<th>Posto Grad.</th>
+										<th>Cargo Assumido Lei 10993/97</th>
+										<th>Situação</th>
+										<th>Ocupante</th>
+										<th>Data de Assunção</th>
+										<th>Data de Dispensa</th>
+										<th>N° de dias a Pagar</th>
+										<th>N° e data do BI Publição</th>
+										<th>N° Boletim</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>2081597</td>
+										<td>João da Silva Di no Sauro</td>
+										<td>MAJ QOEM</td>
+										<td>Chefe P1</td>
+										<td>Férias</td>
+										<td>1º Sgt Marcelo</td>
+										<td>22/01/2016</td>
+										<td></td>
+										<td>29</td>
+										<td>BI 012 de 29/01/16</td>
+										<th>BI 34/2016</th>
+										<td><a class="btn btn-warning"><i class="fa fa-edit"></i>Editar</a></td>
+										<td><a class="btn btn-danger"><i class="fa fa-close "></i>Excluir</a></td>
+									</tr>
+									
+								</tbody>
+								<tfoot>
+									<tr>
+										<th></th>
+										<th>Id Func.</th>
+										<th>Nome do Servidor</th>
+										<th>Posto Grad.</th>
+										<th>Cargo Assumido Lei 10993/97</th>
+										<th>Situação do Cargo</th>
+										<th>Ocupante</th>
+										<th>Motivo de Indisponibilidade</th>
+										<th>Função Superior Exercida</th>
+										<th>Data de Assunção</th>
+										<th>Data de Dispensa</th>
+										<th>N° de dias a Pagar</th>
+										<th>N° e data do BI Publição</th>
+										<th>N° Boletim</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /CORPO -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+</body>
+</html>

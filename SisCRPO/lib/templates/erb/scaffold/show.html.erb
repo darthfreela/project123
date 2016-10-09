@@ -1,0 +1,29 @@
+<%%= titulo_page_header t('ui.page.<%= plural_table_name %>.title ), t('ui.page.<%= plural_table_name %>.show') %>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title"><%%= t('ui.page.<%= plural_table_name %>.form_title_new') %></h3>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <dl class="dl-horizontal">
+          <% attributes.reject(&:password_digest?).each do |attribute| -%>
+          <dt><%%= t 'activerecord.attributes.<%= singular_table_name %>.<%= attribute.name %>' %></dt>
+          <dd><%%= @<%= singular_table_name %>.<%= attribute.name %> %></dd>
+          <% end -%>
+        </dl>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <%%= link_to t('ui.buttons.cancel'), <%= index_helper %>_path, class: 'btn btn-default' %>
+
+        <%%= link_to t('ui.buttons.remove'), <%= singular_table_name %>, method: :delete, class: 'btn btn-sm btn-danger pull-right',
+                      confirm: t('messages.are_you_sure')} %>
+
+        <%%= link_to t('ui.buttons.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-warning %> |
+      </div>
+    </div>
+  </div>
+</div>
