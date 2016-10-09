@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+=======
+  resources :dashboard, :only => [:index]
+
+  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+>>>>>>> 51ce549d0322eb3a2c63f3d491d8b19b7c563ab3
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
@@ -54,7 +60,7 @@ Rails.application.routes.draw do
 
   resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :companies, :only => [:new, :create, :edit, :destroy, :update]
+  resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
 
