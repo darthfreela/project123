@@ -19,44 +19,11 @@
         </button>
       </div>
     </div>
-    <div class="error"><%= flash[:error] %></div>
-    <% if @function.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@function.errors.count, "erro") %>.
-        </div>
-        <ul>
-         <% @function.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= form_for @function do |f| %>
-      <div class="box-body">
-        <div class="form-group col-md-3">
-          <label>Sigla*</label>
-          <%= f.text_field :sigla, placeholder: "Descreva uma sigla para a função!", maxlength: "6", class:"form-control" %>
-        </div>
-        <div class="form-group col-md-9">
-          <label>Nome da Função*</label>
-          <%= f.text_field :funcao, placeholder: "Descreva um nome para a função!", class:"form-control" %>
-        </div>
-        <div class="form-group col-md-3">
-          <label>Número de Vagas*</label>
-          <%= f.text_field :vagas, placeholder: "Número de vagas para a função!", class: "form-control" %>
-        </div>
-        <div class="form-group col-md-2">
-            <label>Ativo*</label>
-            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
-        </div>
-      </div>
-      <div class="box-footer">
-        <%= f.submit "Salvar", class: "btn btn-success" %>
-        <%= f.button "Limpar", class: "btn btn-danger" %>
-        <div class=" small pull-right">* Campos obrigatórios</div>
-      </div>
-    <% end %>
+
+  <!--INICIO form-->
+    <%= render 'form' %>
+  <!--FIM form-->
+
   </div>
     <div class="box">
         <div class="box-header">
@@ -96,11 +63,11 @@
                   <% @function_show.each do |o|%>
                     <tr>
                         <td><%= o.id %></td>
-                        <td><%= o.sigla %></td>
-                        <td><%= o.funcao %></td>
-                        <td><%= o.vagas %></td>                      
+                        <td><%= o.initials %></td>
+                        <td><%= o.name %></td>
+                        <td><%= o.vacancies %></td>
                         <td><%= o.updated_at.to_s(:format_date) %></td>
-                        <%if o.ativo == true%>
+                        <%if o.actived == true%>
                           <td>Sim</td>
                         <% else %>
                           <td>Não</td>

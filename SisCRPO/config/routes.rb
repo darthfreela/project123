@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :dashboard, :only => [:index]
+
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
-<<<<<<< HEAD
-
-  
-
-=======
->>>>>>> b08472a799a75bae2feee8d373b076660e85c52e
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
@@ -60,7 +56,7 @@ Rails.application.routes.draw do
 
   resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :companies, :only => [:new, :create, :edit, :destroy, :update]
+  resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
 
