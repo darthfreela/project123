@@ -1,5 +1,0 @@
-host:     bsocial.cmrhnljhowci.us-west-2.rds.amazonaws.com
-posta:    5432
-database: crpo
-usuario:  crpo
-senha:    crpo2016

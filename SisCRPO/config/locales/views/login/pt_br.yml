@@ -1,8 +1,0 @@
-"pt-br":
-  views:
-    login:
-      title: Faça login para entrar
-      placeholders:
-        type:
-          username: Digite o usuário
-          password: Digite a senha
