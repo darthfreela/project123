@@ -16,8 +16,7 @@ class CompaniesController < ApplicationController
   def create
     @companie = Companie.new(companie_params)
     @companie_show = Companie.all
-    @select_opms = Opm.all
-    
+
     #mok Cidade e Unidade
     @select_cidades = Array.new
     ar = [1,2,3,4,5]

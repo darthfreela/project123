@@ -33,11 +33,6 @@ class GpmsController < ApplicationController
     end
 
     def edit
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
-
       @gpm = Gpm.find(params[:id])
     end
 
@@ -50,6 +45,6 @@ class GpmsController < ApplicationController
 
     private
     def gpm_params
-      params.require(:gpm).permit(:initials, :name, :city_id, :actived)
+      params.require(:gpm).permit(:sigla, :nome, :cidade, :descricao)
     end
 end

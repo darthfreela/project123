@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-  resources :dashboard, :only => [:index]
 
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+
+  resources :dashboard, :only => [:index]
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
