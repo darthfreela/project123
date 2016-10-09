@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'docx', '~> 0.2.07'
+
+gem 'string_utility_belt', '~> 0.4.0'
+
 gem 'notifyjs_rails', '~> 0.0.2'
 
 gem 'rails-jquery-autocomplete', '~> 1.0', '>= 1.0.3'

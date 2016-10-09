@@ -1,0 +1,32 @@
+                        List of relations
+ Schema |                 Name                 | Type  |  Owner   
+--------+--------------------------------------+-------+----------
+ public | approval_unavailability_and_removals | table | CRPOFTEC
+ public | bulletins                            | table | CRPOFTEC
+ public | companies                            | table | CRPOFTEC
+ public | daily_bulletins                      | table | CRPOFTEC
+ public | extra_hour_distributions             | table | CRPOFTEC
+ public | functions                            | table | CRPOFTEC
+ public | gpms                                 | table | CRPOFTEC
+ public | import_report_cards                  | table | CRPOFTEC
+ public | imported_file_by_import_files        | table | CRPOFTEC
+ public | imported_files                       | table | CRPOFTEC
+ public | informatives                         | table | CRPOFTEC
+ public | instructions                         | table | CRPOFTEC
+ public | justice_disciplines                  | table | CRPOFTEC
+ public | opms                                 | table | CRPOFTEC
+ public | platoons                             | table | CRPOFTEC
+ public | pointing_hours                       | table | CRPOFTEC
+ public | post_graduations                     | table | CRPOFTEC
+ public | profiles                             | table | CRPOFTEC
+ public | request_dispenses                    | table | CRPOFTEC
+ public | request_licences                     | table | CRPOFTEC
+ public | request_vacations                    | table | CRPOFTEC
+ public | schema_migrations                    | table | CRPOFTEC
+ public | service_types                        | table | CRPOFTEC
+ public | text_informatives                    | table | CRPOFTEC
+ public | trainees                             | table | CRPOFTEC
+ public | uniforms                             | table | CRPOFTEC
+ public | users                                | table | CRPOFTEC
+(27 rows)
+

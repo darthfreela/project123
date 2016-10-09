@@ -1,15 +1,34 @@
 class ImportFilesController < ApplicationController
+require "docx"
 def new
-    @importfile = ImportFile.new
-    @importfile_show = ImportFile.all
+    @importedFile = ImportedFile.new
+    @importedFile_show = ImportedFile.all
+
+
+
+#    lines = IO.readlines("demetrius.txt","w+")
+  #   puts lines.length
+    # lines.each do |line|
+    #@teste = line
+     #end
+
+
+
+# Create a Docx::Document object for our existing docx file
+doc = Docx::Document.open('BMP.doc')
+
+# Retrieve and display paragraphs
+doc.paragraphs.each do |p|
+  @teste =  p
+end
 
   end
 
   def create
-    @importfile = ImportFile.new(importfile_params)
-    @iimportfile_show = ImportFile.all
+    @importedFile = ImportedFile.new(importedFile_params)
+    @iimportedFile_show = importedFile.all
 
-    if @importfile.save
+    if @importedFile.save
         redirect_to new_import_file_path , notice: "Companhia cadastrada com sucesso."
       else
         render action: :new
@@ -17,13 +36,13 @@ def new
   end
 
 def edit
-    @importfile = ImportFile.find(params[:id])
+    @importedFile = importedFile.find(params[:id])
 
 end
 
 def update
-      @importfile = ImportFile.find(params[:id])
-      if @importfile.update_attributes(importfile_params)
+      @importedFile = importedFile.find(params[:id])
+      if @importedFile.update_attributes(importedFile_params)
            redirect_to new_import_file_path, notice: "Companhia editada com sucesso."
       else
 
@@ -32,15 +51,13 @@ def update
 end
 
 def destroy
-      @importfile = ImportFile.find(params[:id])
-      @importfile.destroy
+      @importedFile = importedFile.find(params[:id])
+      @importedFile.destroy
       redirect_to new_import_file_path, notice: "Companhia removida com sucesso."
 end
 
   private
-  def importfile_params
-    params.require(:importfile).permit(:id_user, :nome, :posto)
+  def importedFile_params
+    params.require(:imported_file).permit(:id_user, :nome, :posto)
   end
 end
-
-

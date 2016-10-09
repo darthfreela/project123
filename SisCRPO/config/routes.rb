@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :disthoraext
 
-  resources :imported_files, :only =>  [:new, :edit, :destroy, :update]
+  resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
