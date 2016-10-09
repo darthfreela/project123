@@ -1,6 +1,5 @@
 class Companie < ActiveRecord::Base
 	validates :name, presence: true
-	validates :actived, presence: true
 	validates :city_id, presence: true
 	validates :opm_id, presence: true
 

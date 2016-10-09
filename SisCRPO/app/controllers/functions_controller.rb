@@ -20,6 +20,7 @@ class FunctionsController < ApplicationController
   def create
     @function = Function.new(function_params)
     @function_show = Function.all
+    @select_funcoes = Function.all
 
     if @function.save
       redirect_to new_function_path, notice: "Função cadastrada com sucesso."
