@@ -1,7 +1,7 @@
-class TipoServicosController < ApplicationController
+class ServiceTypesController < ApplicationController
   def new
-      @tpServico = TipoServico.new
-      @tpServico_show = TipoServico.all
+      @tpServico = ServiceType.new
+      @tpServico_show = ServiceType.all
 
       @select_funcao = Array.new
       array = [1, 2, 3, 4, 5]
@@ -16,8 +16,8 @@ class TipoServicosController < ApplicationController
   end
 
   def create
-      @tpServico = TipoServico.new(tpServico_params)
-      @tpServico_show = TipoServico.all
+      @tpServico = ServiceType.new(tpServico_params)
+      @tpServico_show = ServiceType.all
 
       @select_funcao = Array.new
       (1..5).each do |i|
@@ -45,11 +45,11 @@ class TipoServicosController < ApplicationController
       (1..5).each do |i|
         @select_funcao <<  "#{i}"
       end
-      @tpServico = TipoServico.find(params[:id])
+      @tpServico = ServiceType.find(params[:id])
   end
 
   def update
-      @tpServico = TipoServico.find(params[:id])
+      @tpServico = ServiceType.find(params[:id])
       if @tpServico.update_attributes(tpServico_params)
           redirect_to new_tipo_servico_path, notice: "Tipos de serviço editado com sucesso."
       else
@@ -58,7 +58,7 @@ class TipoServicosController < ApplicationController
   end
 
   def destroy
-      @tpServico = TipoServico.find(params[:id])
+      @tpServico = ServiceType.find(params[:id])
       @tpServico.destroy
       redirect_to new_tipo_servico_path, notice: "Tipos de serviço removido com sucesso."
   end

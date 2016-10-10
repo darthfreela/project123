@@ -1,4 +1,4 @@
-class SiglasController < ApplicationController
+class InitialsController < ApplicationController
   def new
         @sigla = Sigla.new
         @sigla_show = Sigla.all
@@ -36,6 +36,6 @@ class SiglasController < ApplicationController
 
     private
     def sigla_params
-        params.require(:sigla).permit(:sigla, :nome)
+        params.require(:initial).permit(:initial, :name)
     end
 end

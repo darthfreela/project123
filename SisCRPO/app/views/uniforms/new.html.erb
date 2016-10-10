@@ -35,17 +35,17 @@
       <div class="box-body">
           <div class="form-group col-md-3">
             <label>Sigla*</label>
-            <%= f.text_field :sigla, placeholder: "Descreva uma sigla para o uniforme!",
+            <%= f.text_field :initials, placeholder: "Descreva uma sigla para o uniforme!",
              maxlength: "6", class:"form-control" %>
           </div>
           <div class="form-group col-md-9">
             <label>Nome do uniforme*</label>
-            <%= f.text_field :uniforme, placeholder: "Descreva um nome para o uniforme!",
+            <%= f.text_field :name, placeholder: "Descreva um nome para o uniforme!",
              class:"form-control" %>
           </div>
           <div class="form-group col-md-12">
             <label>Descrição para o uniforme*</label>
-            <%= f.text_area :descricao, placeholder: "Descreva o uniforme em 400 caracteres!",
+            <%= f.text_area :description, placeholder: "Descreva o uniforme em 400 caracteres!",
              class: "form-control", size: "24x6" %>
           </div>
         </div>
@@ -91,8 +91,8 @@
                 <% @uniform_show.each do |o|%>
                   <tr>
                       <td><%= o.id %></td>
-                      <td><%= o.sigla %></td>
-                      <td><%= o.uniforme %></td>
+                      <td><%= o.initials %></td>
+                      <td><%= o.name %></td>
                       <td><%= o.updated_at.to_s(:format_date) %></td>
                       <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
                        {:controller => 'uniforms', :action => 'edit', :id => o.id},

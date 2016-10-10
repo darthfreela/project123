@@ -15,7 +15,7 @@
       <i class="fa fa-wrench"></i>
       <span>Gerenciar</span>
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," +new_licenca_path + "," + new_profile_path) %>;">
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_service_type_path + "," + new_initial_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," +new_licenca_path + "," + new_profile_path) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
           <i class="fa  fa-wrench"></i>
@@ -52,14 +52,14 @@
           <span>Estagiários</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_tipo_servico_path, true) %>">
-        <%= link_to new_tipo_servico_path do %>
+      <li class="<%= ative_se_pagina_atual(new_service_type_path, true) %>">
+        <%= link_to new_service_type_path do %>
           <i class="fa  fa-wrench"></i>
           <span><%= t 'menu.TipoServico' %></span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_sigla_path, true) %>">
-        <%= link_to new_sigla_path do %>
+      <li class="<%= ative_se_pagina_atual(new_initial_path, true) %>">
+        <%= link_to new_initial_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Sigla</span>
         <% end  %>
@@ -161,20 +161,20 @@
       <i class="fa fa-wrench"></i>
       <span>Relatórios</span>
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(quadro_efetivo_index_path+ "," +  report_overtime_supplementations_path) %>;">
-      <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
-      <li class="<%= ative_se_pagina_atual(quadro_efetivo_index_path, true) %>">
-        <%= link_to quadro_efetivo_index_path do %>
+    <ul class="treeview-menu" style="display: <%= abrir_menu(person_table_index_path+ "," +  report_overtime_supplementations_path) %>;">
+      <li class="<%= ative_se_pagina_atual(person_table_index_path, true) %>">
+      <li class="<%= ative_se_pagina_atual(person_table_index_path, true) %>">
+        <%= link_to person_table_index_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Quadro Efetivo</span>
         <% end %>
-      </li> 
+      </li>
       <li class="<%= ative_se_pagina_atual(report_overtime_supplementations_path, true) %>">
         <%= link_to report_overtime_supplementations_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Horas Extras/Supletamente</span>
         <% end %>
-      </li>    
+      </li>
     </ul>
     <% end %>
   </li>
