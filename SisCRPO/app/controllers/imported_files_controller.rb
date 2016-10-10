@@ -1,41 +1,98 @@
 class ImportedFilesController < ApplicationController
-  	def new
-    	@imported_file = ImportedFile.new
-    	@imported_file_show = ImportedFile.all
-  	end
+require "docx"
+def new
+    @importedFile = ImportedFile.new
+    @importedFile_show = ImportedFile.all
+    @user = User.all
 
-  	def create
-    	@imported_file = ImportedFile.new(imported_file_params)
-    	@imported_file_show = ImportedFile.all
-  	end
+      # Open .txt
+        #lines = IO.readlines("BMP.doc","w+")
+        #puts lines.length
+        #lines.each do |line|
+        #@teste = line
+        #end
 
-	def edit
-    	@imported_file = ImportedFile.find(params[:id])
-	end
+      # Open docx
+        doc = Docx::Document.open('boletim.docx')
+        doc.paragraphs.each do |p|
+        puts p
+        @teste = puts
+        end
 
-	def update
-      	@imported_file = ImportedFile.find(params[:id])
-      	if @imported_file.update_attributes(imported_file_params)
-           redirect_to new_imported_file_path, notice: "Arquivo importatdo com suscesso."
-      	else
+        doc.bookmarks.each_pair do |bookmark_name, bookmark_object|
+        puts bookmark_name
+        end
 
-            redirect_to new_imported_file_path, :flash => { :error => "Erro ao Importar Arquivo" }
-      	end
-	end
+        doc = Docx::Document.open('boletim.docx')
+        doc.paragraphs.each do |p|
+        puts p.to_html
+        first_table = doc.tables[0]
+        puts first_table.row_count
+        puts first_table.column_count
+        puts first_table.rows[0].cells[0].text
+        puts first_table.columns[0].cells[0].text
+        end
 
-	def destroy
-      	@imported_file = ImportedFile.find(params[:id])
-      	@imported_file.destroy
-      	redirect_to new_imported_file_path, notice: "Arquivo removido com sucesso."
-	end
+      #  doc = Docx::Document.open('boletim.docx')
+      #  first_table = doc.tables[0]
+      #  puts first_table.row_count
+      #  puts first_table.column_count
+      #  puts first_table.rows[0].cells[0].text
+      #  puts first_table.columns[0].cells[0].text
 
-  	private
-<<<<<<< HEAD
-  	def imported_file_params
-    	params.require(:imported_file).permit()
-=======
-  	def importedFile_params
-    	params.require(:imported_file).permit(:imported_file,:generated_file,:log,:user_id)
->>>>>>> 106bba38d43d8d0deb22bb5581db8d8a4073420d
-  	end
+      # Row-based iteration
+      #  Iterate through tables
+      #  doc.tables.each do |table|
+      #    table.rows.each do |row| 
+      #      row.cells.each do |cell|
+      #        puts cell.text
+      #      end
+      #   end
+
+        # Column-based iteration
+        #  table.columns.each do |column| 
+        #    column.cells.each do |cell|
+        #      puts cell.text
+        #    end
+        # end
+      #  end
+
+end
+
+  def create
+    @importedFile = ImportedFile.new(importedFile_params)
+    @iimportedFile_show = importedFile.all
+
+    if @importedFile.save
+        redirect_to new_import_file_path , notice: "Companhia cadastrada com sucesso."
+      else
+        render action: :new
+    end
+  end
+
+def edit
+    @importedFile = importedFile.find(params[:id])
+
+end
+
+def update
+      @importedFile = importedFile.find(params[:id])
+      if @importedFile.update_attributes(importedFile_params)
+           redirect_to new_import_file_path, notice: "Companhia editada com sucesso."
+      else
+
+            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o Companhia!" }
+      end
+end
+
+def destroy
+      @importedFile = importedFile.find(params[:id])
+      @importedFile.destroy
+      redirect_to new_import_file_path, notice: "Companhia removida com sucesso."
+end
+
+  private
+  def importedFile_params
+    params.require(:imported_file).permit(:id_user, :nome, :posto)
+  end
 end

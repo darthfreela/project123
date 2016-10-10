@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 
   resources :dashboard, :only => [:index]
 
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+=======
+<<<<<<< HEAD
+  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+=======
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+  resources :dashboard, :only => [:index]
 
+>>>>>>> 93d6a12fd0b8f4047654a90a54cf21b34247e7ae
+
+>>>>>>> 9753f61bd9cae867df969b07803ad5d18f6f301c
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
@@ -47,7 +57,7 @@ Rails.application.routes.draw do
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :siglas, :only => [:new, :create, :edit, :destroy, :update]
+  resources :initials, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :substituicao_temporarias, :only => [:new, :create, :edit, :destroy, :update]
 
@@ -55,7 +65,7 @@ Rails.application.routes.draw do
 
   resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :service_types,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
 
@@ -65,7 +75,7 @@ Rails.application.routes.draw do
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :quadro_efetivo, :only => [:index]
+  resources :person_table, :only => [:index]
 
   resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
 

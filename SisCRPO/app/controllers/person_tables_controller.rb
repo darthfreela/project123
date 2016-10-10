@@ -1,4 +1,4 @@
-class QuadroEfetivoController < ApplicationController
+class PersonTablesController < ApplicationController
     class MockQuadroEfetivo
         attr_accessor :efetivoGeralCELPrevisto, :efetivoGeralTenCelPrevisto, :efetivoGeralMajPrevisto,
                              :efetivoGeral1TenPrevisto, :efetivoGeral1SgtPrevisto, :efetivoGeral2SgtPrevisto,

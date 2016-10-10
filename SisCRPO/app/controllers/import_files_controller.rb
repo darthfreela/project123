@@ -1,3 +1,11 @@
+ Não usar esse arquivo
+ Usar imported_files
+
+
+
+
+
+
 class ImportFilesController < ApplicationController
 require "docx"
 def new
