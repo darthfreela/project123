@@ -1,37 +1,30 @@
 class CompaniesController < ApplicationController
   def new
-    @company = Company.new
-    @company_show = Company.all
+    @companie = Companie.new
+    @companie_show = Companie.all
+
+    @select_opms = Opm.all
+
     #mok Cidade e Unidade
     @select_cidades = Array.new
-    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
+    ar = [1,2,3,4,5]
     ar.each do |i|
       @select_cidades <<  "#{i}"
-    end
-    #mok Cidade e Unidade
-    @select_unidades = Array.new
-    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
-    ar.each do |i|
-      @select_unidades <<  "#{i}"
     end
   end
 
   def create
-    @company = Company.new(company_params)
-    @company_show = Company.all
+    @companie = Companie.new(companie_params)
+    @companie_show = Companie.all
+    @select_opms = Opm.all
+    
     #mok Cidade e Unidade
     @select_cidades = Array.new
-    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
+    ar = [1,2,3,4,5]
     ar.each do |i|
       @select_cidades <<  "#{i}"
     end
-    #mok Cidade e Unidade
-    @select_unidades = Array.new
-    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
-    ar.each do |i|
-      @select_unidades <<  "#{i}"
-    end
-    if @company.save
+    if @companie.save
         redirect_to new_company_path , notice: "Companhia cadastrada com sucesso."
       else
         render action: :new
@@ -39,24 +32,19 @@ class CompaniesController < ApplicationController
   end
 
 def edit
-    @company = Company.find(params[:id])
+    @companie = Companie.find(params[:id])
+    @select_opms = Opm.all
     #mok Cidade e Unidade
     @select_cidades = Array.new
-    ar = ["Caxias do Sul","Vacaria","Cidade3","Cidade4","Cidade5"]
+    ar = [1,2,3,4,5]
     ar.each do |i|
       @select_cidades <<  "#{i}"
-    end
-    #mok Cidade e Unidade
-    @select_unidades = Array.new
-    ar = ["Parque Getúlio Vargas","Centro","Cruseiro","Kayser"]
-    ar.each do |i|
-      @select_unidades <<  "#{i}"
     end
 end
 
 def update
-      @company = Company.find(params[:id])
-      if @company.update_attributes(company_params)
+      @companie = Companie.find(params[:id])
+      if @companie.update_attributes(companie_params)
            redirect_to new_company_path, notice: "Companhia editada com sucesso."
       else
 
@@ -65,15 +53,13 @@ def update
 end
 
 def destroy
-      @company = Company.find(params[:id])
-      @company.destroy
+      @companie = Companie.find(params[:id])
+      @companie.destroy
       redirect_to new_company_path, notice: "Companhia removida com sucesso."
 end
 
   private
-  def company_params
-    params.require(:company).permit(:nome, :ativo, :cidade, :unidade)
+  def companie_params
+    params.require(:companie).permit(:name, :actived, :city_id, :opm_id)
   end
 end
-
-

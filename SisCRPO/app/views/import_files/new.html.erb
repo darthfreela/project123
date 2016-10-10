@@ -1,18 +1,22 @@
+ Não usar esse arquivo
+ Usar imported_files
+
+
 
 <section class="content-header">
     <h1>
-        Gerenciamento de Companhia
+        Gerenciamento de
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Ferramentas do usuário</a></li>
-        <li class="active">Gerenciamento de Companhia</li>
+        <li class="active">Gerenciamento de </li>
     </ol>
 </section>
 <section class="content">
     <div class="box collapsed-box">
         <div class="box-header">
-            <h3 class="box-title">Cadastro de Companhia</h3>
+            <h3 class="box-title">Cadastro de</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
             </div>
@@ -20,18 +24,18 @@
         <hr>
         <div class="alert-error">
             <%= flash[:error] %>
-          <% if @importfile.errors.any? %>
+          <% if @importedFile.errors.any? %>
             <div id="error_explanation">
-                O formulário contém <%= pluralize(@importfile.errors.count, "erro") %>.
+                O formulário contém <%= pluralize(@importedFile.errors.count, "erro") %>.
             </div>
             <ul>
-                <% @importfile.errors.full_messages.each do |msg| %>
+                <% @importedFile.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
                 <% end %>
             </ul>
           <% end %>
         </div>
-        <%= form_for @importfile do |f| %>
+        <%= form_for @importedFile do |f| %>
             <div class="box-body">
                 <div class="form-group col-md-5">
 
@@ -52,13 +56,15 @@
             <div class="box-footer">
                 <%= f.submit "Salvar", Class: "btn btn-success" %>
                 <%= f.button "Limpar", Class: "btn btn-danger" %>
-                <div class=" small pull-right">* Campos obrigatórios</div>
+                <div class=" small pull-right"><%=
+          @teste
+        %>* Campos obrigatórios</div>
             </div>
         <% end %>
     </div>
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Listar Companhias</h3>
+            <h3 class="box-title">Listar </h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
             </div>
@@ -73,21 +79,21 @@
         </div>
         <hr>
         <div class="box-body">
-        <% if @importfile_show.count <= 0 %>
-                        <tr><td>Não existem companhias cadastradas.</td></tr>
+        <% if @importedFile_show.count <= 0 %>
+                        <tr><td>Não existem cadastradas.</td></tr>
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Cidade</th>
+                            <th>ID</th>
                             <th>Nome</th>
-                            <th>Unidade</th>
-                            <th>Ativo</th>
-                            <th>Sexo</th>
+                            <th>Posto</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% @importfile_show.each do |o|%>
+                        <% @importedFile_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
                                     <td><%= o.id_user %></td>

@@ -3,17 +3,24 @@ class FunctionsController < ApplicationController
   def new
     @function = Function.new
     @function_show = Function.all
+    @select_funcoes = Function.all
   end
 
 
   def edit
     @function = Function.find(params[:id])
+
+    @select_funcoes = Function.where(manager_funcion_id: @function.manager_funcion_id)
+    if !@select_funcoes
+        @select_funcoes = []
+    end
   end
 
 
   def create
     @function = Function.new(function_params)
     @function_show = Function.all
+    @select_funcoes = Function.all
 
     if @function.save
       redirect_to new_function_path, notice: "Função cadastrada com sucesso."
@@ -40,6 +47,6 @@ class FunctionsController < ApplicationController
 
   private
   def function_params
-    params.require(:function).permit(:sigla, :funcao, :vagas, :data_alteracao, :ativo)
+    params.require(:function).permit(:initials, :name, :vacancies, :actived, :manager_funcion_id)
   end
 end

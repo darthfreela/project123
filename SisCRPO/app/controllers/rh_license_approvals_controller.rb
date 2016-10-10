@@ -31,9 +31,6 @@ class RhLicenseApprovalsController < ApplicationController
         @teste = line
         end
 
-
-
-
            end
 
     def create

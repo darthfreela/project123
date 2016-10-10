@@ -1,47 +1,12 @@
 <section class="content">
   <div class="box box-default">
     <div class="box-header with-border">
-      <h3 class="box-title">Cadastro de Função</h3>
+      <h3 class="box-title">Editar Função</h3>
     </div>
-    <% if @function.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@function.errors.count, "erro") %>.
-        </div>
-        <ul>
-         <% @function.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= form_for @function do |f| %>
-      <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
-            <%= f.text_field :sigla, maxlength: "6", class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome_da_função %>
-            <%= f.text_field :funcao, class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :número_de_vagas %>
-            <%= f.text_field :vagas, class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-7">
-            <%= f.label :ativo %>
-            <%= f.select :ativo, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
-          </div>
-        </div>
-      </div>
-      <div class="box-footer">
-        <%= f.submit "Salvar", class: "btn btn-success" %>
-        <%= f.button "Limpar", class: "btn btn-danger" %>
-      </div>
-    <% end %>
+
+    <!--INICIO form-->
+      <%= render 'form' %>
+    <!--FIM form-->
+
   </div>
 </section>
