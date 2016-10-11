@@ -11,20 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003233211) do
+ActiveRecord::Schema.define(version: 20161011000005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "approval_unavailability_and_removals", force: :cascade do |t|
+  create_table "approval_solicitations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "request_licence_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "request_solicitation_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "bulletins", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.string   "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,8 +69,9 @@ ActiveRecord::Schema.define(version: 20161003233211) do
     t.string   "name"
     t.integer  "vacancies"
     t.boolean  "actived"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "manager_function_id"
   end
 
   create_table "gpms", force: :cascade do |t|
@@ -71,33 +79,27 @@ ActiveRecord::Schema.define(version: 20161003233211) do
     t.string   "name"
     t.boolean  "actived"
     t.integer  "city_id"
-    t.integer  "companies_id"
-    t.integer  "extra_hour_distributions_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  create_table "import_files", force: :cascade do |t|
-    t.string   "id_user"
-    t.string   "nome"
-    t.string   "posto"
+    t.integer  "platoon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "import_report_cards", force: :cascade do |t|
+  create_table "imported_files", force: :cascade do |t|
     t.string   "id_user"
     t.string   "nome"
     t.string   "posto"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "imported_file_by_import_files", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "imported_file_path"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.string   "imported_file_path"
+    t.string   "title"
+    t.string   "description"
+    t.string   "graduation"
+    t.string   "bulletin_name"
+    t.integer  "id_func"
+    t.string   "opm"
+    t.string   "name_func"
+    t.date     "bulletin_date"
   end
 
   create_table "informatives", force: :cascade do |t|
@@ -165,35 +167,15 @@ ActiveRecord::Schema.define(version: 20161003233211) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "request_dispenses", force: :cascade do |t|
+  create_table "request_solicitations", force: :cascade do |t|
     t.string   "description"
     t.date     "date_begin"
     t.date     "date_end"
     t.integer  "user_id"
     t.integer  "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "request_licences", force: :cascade do |t|
-    t.string   "type"
-    t.date     "date_begin"
-    t.date     "date_end"
-    t.integer  "licence_days"
-    t.integer  "status"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "request_vacations", force: :cascade do |t|
-    t.date     "date_begin"
-    t.date     "date_end"
-    t.string   "description"
-    t.integer  "status"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "type_solicitation"
   end
 
   create_table "service_types", force: :cascade do |t|
@@ -204,6 +186,19 @@ ActiveRecord::Schema.define(version: 20161003233211) do
     t.boolean  "actived"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "temporary_replacements", force: :cascade do |t|
+    t.integer  "substitute_id_func"
+    t.integer  "occupant_id_func"
+    t.string   "unavailability_reason"
+    t.date     "date_begin"
+    t.date     "date_end"
+    t.integer  "buletim_number"
+    t.boolean  "status"
+    t.integer  "exemption_clearence_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "text_informatives", force: :cascade do |t|
