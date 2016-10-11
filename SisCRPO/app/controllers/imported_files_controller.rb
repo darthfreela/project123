@@ -7,6 +7,47 @@ def new
     @importedFile_show = ImportedFile.all
     @user = User.all
 
+<<<<<<< HEAD
+=======
+    # Open docx
+        doc = Docx::Document.open('boletim.docx')
+        first_table = doc.tables[0]
+        puts first_table.row_count
+        first_table.rows.each do |row| # Row-based iteration
+          puts row.cells.count
+          if row.cells.count == 5
+            #puts "Grad. #{row.cells[0]}"
+            @userdodemetrius = User.where(id_func: 2314312).first
+            if !@userdodemetrius.nil?
+              puts "UUUIIIIII CACTCHORROOO!! #{@userdodemetrius.name}"
+            end
+          end
+          # row.cells.each do |cell|
+          #   puts cell.text
+          # end
+        end
+        #doc.paragraphs.each do |p|
+          #puts p
+          #if p.to_s.match(/([0-9]{7})/)
+
+          #  @user.each do |u|
+          #    if u.id_func.to_s == p.to_s
+               # @teste = p
+
+                
+          #    end
+          #  end 
+          #end
+          
+        #end
+
+      # Open .txt
+        #lines = IO.readlines("BMP.doc","w+")
+        #puts lines.length
+        #lines.each do |line|
+        #@teste = line
+        #end
+>>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
 
 #f=File.open('BMP.doc')
 #doc =Nokogiri::XML(f)
@@ -45,6 +86,7 @@ def new
 
       #akii demetrius
       # Open docx
+<<<<<<< HEAD
         #doc = Docx::Document.open('boletim.docx')
         #doc.paragraphs.each do |p|
         #puts p
@@ -65,6 +107,27 @@ def new
         #puts first_table.rows[0].cells[0].text
         #puts first_table.columns[0].cells[0].text
         #end
+=======
+      #  doc = Docx::Document.open('boletim.docx')
+      #  doc.paragraphs.each do |p|
+      # puts p
+      #  @teste = puts
+      # end
+
+      #  doc.bookmarks.each_pair do |bookmark_name, bookmark_object|
+      #  puts bookmark_name
+      #  end
+
+      #  doc = Docx::Document.open('boletim.docx')
+      #  doc.paragraphs.each do |p|
+      #  puts p.to_html
+      #  first_table = doc.tables[0]
+      #  puts first_table.row_count
+      #  puts first_table.column_count
+      #  puts first_table.rows[0].cells[0].text
+      #  puts first_table.columns[0].cells[0].text
+      #  end
+>>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
 
       #  doc = Docx::Document.open('boletim.docx')
       #  first_table = doc.tables[0]
