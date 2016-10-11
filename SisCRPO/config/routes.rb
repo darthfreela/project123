@@ -55,7 +55,8 @@ Rails.application.routes.draw do
 
   resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :platoons,  :only => [:new, :create, :edit, :destroy, :update, :cities_platoon]
+  get "/cities_platoon" => "platoons#cities_platoon"
 
   resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
@@ -74,10 +75,11 @@ Rails.application.routes.draw do
   resources :functions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :opms, :only => [:index, :new, :create, :edit, :destroy, :update]
+  get "/cities_opm" => "platoons#cities_opm"
 
   resources :solicitacao_fers, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :licencas, :only => [:new, :create, :edit, :destroy, :update]
+  resources :request_licences, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 

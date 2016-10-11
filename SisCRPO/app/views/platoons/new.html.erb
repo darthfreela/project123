@@ -1,0 +1,75 @@
+<section class="content-header">
+  <h1>
+    Gerenciamento de Pelotão
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Ferramentas do usuário</a></li>
+    <li class="active">Gerenciamento de Pelotão</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Pelotão</h3>
+      <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+      </div>
+    </div>
+    <div class="error"><%= flash[:error] %></div>
+    <% if @platoon.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+          O formulário contém <%= pluralize(@platoon.errors.count, "erro") %>.
+        </div>
+        <ul>
+          <% @platoon.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= render 'form' %>
+  </div>
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Consultar Pelotão</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <% if @platoon_show.count < 1 %>
+        Não existem Pelotões cadastrados.
+      <% else %>
+        <table id="motivos" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th></th>
+            <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @platoon_show.each do |o|%>
+              <tr>
+                <td><%= o.id %></td>
+                <td><%= o.name %></td>
+                <td><%= o.city_id %></td>
+                <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'platoons', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'platoons', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -15,7 +15,7 @@
       <i class="fa fa-wrench"></i>
       <span>Gerenciar</span>
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," +new_licenca_path + "," + new_profile_path) %>;">
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_tipo_servico_path + "," + new_sigla_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," + new_request_licence_path + "," + new_profile_path + "," + new_import_newsletter_path + "," + new_platoon_path ) %>;">
       <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
           <i class="fa  fa-wrench"></i>
@@ -82,8 +82,8 @@
           <span>Horas Extras</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_licenca_path, true) %>">
-        <%= link_to new_licenca_path do %>
+      <li class="<%= ative_se_pagina_atual(new_request_licence_path, true) %>">
+        <%= link_to new_request_licence_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Licença</span>
         <% end  %>
@@ -116,6 +116,8 @@
         <%= link_to new_rh_license_approval_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Aprovação Licença</span>
+        <% end  %>
+      </li>
       <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
         <%= link_to new_request_dispense_path do %>
           <i class="fa  fa-wrench"></i>
@@ -152,6 +154,12 @@
           <span>Textos Informativos</span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual( new_platoon_path, true) %>">
+        <%= link_to  new_platoon_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Pelotão</span>
+        <% end  %>
+      </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
@@ -176,6 +184,5 @@
         <% end %>
       </li>    
     </ul>
-    <% end %>
   </li>
 </ul>

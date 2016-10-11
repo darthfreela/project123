@@ -35,6 +35,6 @@ class InformativeTextDailyBulletinsController < ApplicationController
 
   private
   def informative_text_params
-    params.require(:informative_text_daily_bulletin).permit(:type_info, :description)
+    params.require(:informative_text_daily_bulletin).permit(:type, :description)
   end
 end

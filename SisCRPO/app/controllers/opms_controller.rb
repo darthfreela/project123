@@ -3,27 +3,28 @@ class OpmsController < ApplicationController
       @opm = Opm.new
       @opm_show = Opm.all
       #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
     end
 
     def create
       @opm = Opm.new(opm_params)
       @opm_show = Opm.all
 
-       #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
-
       if @opm.save
         redirect_to new_opm_path, notice: "Opm cadastrada com sucesso."
       else
         render action: :new
       end
+    end
+
+    def cities_opm
+      uf = params[:uf]
+      cities = City.where(:uf => uf)
+      cty = []
+      cities.each do |city|
+        cty << {:id => city.id, :n => city.name}
+        puts city.nome
+      end
+      render :json => {:cty => cty.compact}.as_json
     end
 
     def destroy
@@ -45,6 +46,6 @@ class OpmsController < ApplicationController
 
     private
     def opm_params
-      params.require(:opm).permit(:sigla, :name, :nome, :cidade, :descricao)
+      params.require(:opm).permit(:initial, :name, :city_id)
     end
 end
