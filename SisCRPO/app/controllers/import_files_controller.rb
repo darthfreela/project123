@@ -37,7 +37,7 @@ end
     @iimportedFile_show = importedFile.all
 
     if @importedFile.save
-        redirect_to new_import_file_path , notice: "Companhia cadastrada com sucesso."
+        redirect_to new_import_file_path , notice: " cadastrada com sucesso."
       else
         render action: :new
     end
@@ -51,10 +51,10 @@ end
 def update
       @importedFile = importedFile.find(params[:id])
       if @importedFile.update_attributes(importedFile_params)
-           redirect_to new_import_file_path, notice: "Companhia editada com sucesso."
+           redirect_to new_import_file_path, notice: "editada com sucesso."
       else
 
-            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o Companhia!" }
+            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o !" }
       end
 end
 

@@ -1,20 +1,44 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
 
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
+>>>>>>> 700b8cc51e8035976a3eb5687afced7bda6a374e
 
+<<<<<<< HEAD
+  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+
+  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+
+=======
+>>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-
+  
   resources :dashboard, :only => [:index]
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
+  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
+
+  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+=======
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
   resources :dashboard, :only => [:index]
 resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+>>>>>>> 700b8cc51e8035976a3eb5687afced7bda6a374e
 
   resources :report_overtime_supplementations, :only =>  [:index]
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"

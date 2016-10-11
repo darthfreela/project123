@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri', '~> 1.6', '>= 1.6.8.1'
+
 gem 'docx', '~> 0.2.07'
 
-gem 'string_utility_belt', '~> 0.4.0'
+#gem 'string_utility_belt', '~> 0.4.0'
 
 gem 'notifyjs_rails', '~> 0.0.2'
 
