@@ -1,56 +1,24 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
-
-resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-resources :dashboard, :only => [:index]
-
-resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
->>>>>>> 700b8cc51e8035976a3eb5687afced7bda6a374e
-
-<<<<<<< HEAD
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-
-=======
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-  
-  resources :dashboard, :only => [:index]
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
-  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
-=======
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
   resources :dashboard, :only => [:index]
-resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
->>>>>>> 700b8cc51e8035976a3eb5687afced7bda6a374e
+
+  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :report_overtime_supplementations, :only =>  [:index]
+
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
-
-  resources :disthoraext
 
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-   resources :disthoraext
+  resources :disthoraext
 
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
 
@@ -90,7 +58,7 @@ resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :d
 
   resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
+  resources :trainees, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 

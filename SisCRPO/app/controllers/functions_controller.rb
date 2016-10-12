@@ -10,10 +10,11 @@ class FunctionsController < ApplicationController
   def edit
     @function = Function.find(params[:id])
 
-    @select_funcoes = Function.where(manager_funcion_id: @function.manager_funcion_id)
-    if !@select_funcoes
-        @select_funcoes = []
-    end
+    # @select_funcoes = Function.where(manager_function_id: @function.manager_function_id)
+    @select_funcoes = Function.all
+    # if !@select_funcoes
+    #     @select_funcoes = []
+    # end
   end
 
 
@@ -47,6 +48,6 @@ class FunctionsController < ApplicationController
 
   private
   def function_params
-    params.require(:function).permit(:initials, :name, :vacancies, :actived, :manager_funcion_id)
+    params.require(:function).permit(:initials, :name, :vacancies, :actived, :manager_function_id)
   end
 end

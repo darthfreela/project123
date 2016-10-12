@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011000005) do
+ActiveRecord::Schema.define(version: 20161012135028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -227,6 +227,7 @@ ActiveRecord::Schema.define(version: 20161011000005) do
     t.boolean  "actived"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.date     "date_final_contract"
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -266,4 +267,5 @@ ActiveRecord::Schema.define(version: 20161011000005) do
     t.integer  "profile_id"
   end
 
+  add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
 end
