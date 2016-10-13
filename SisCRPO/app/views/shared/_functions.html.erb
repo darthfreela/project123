@@ -1,16 +1,12 @@
 <li class="notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <% user_profile = get_profile_user(current_user.profile_id)%>
-              <%= user_profile.name %>
-              <span class="label label-warning">5</span>
-            </a>
+
+            <% user_profile = get_profile_user(current_user.profile_id)%>
+            <%= link_to user_profile.name, {:controller => :users, :action => :change_current_profile}, :profile_id => current_user.profile_id, :class => "dropdown-toggle profiles", :method => "post" %>
+
 </li>
- <% other_functions = get_other_profiles ,-1 %>
+ <% other_functions = get_other_profiles %>
             <% get_other_profiles.each do | o |%>
             <li class="notifications-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <%= o.id %>
-                    <span class="label label-warning">5</span>
-                </a>
+                <%= link_to o, {:controller => :users, :action => :change_current_profile}, :profile_id => current_user.profile_id, :class => "dropdown-toggle", :method => "post" %>
             </li>
     <% end %>

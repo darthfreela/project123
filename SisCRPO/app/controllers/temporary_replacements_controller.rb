@@ -1,10 +1,10 @@
 class TemporaryReplacementsController < ApplicationController
   #autocomplete :food, :name, :full => true
 
-
   def new
       @tempReplacement = TemporaryReplacement.new
       @tempReplacement_show = TemporaryReplacement.all
+      @occupant
   end
 
   def edit

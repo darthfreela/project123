@@ -13,4 +13,6 @@ class TemporaryReplacement < ActiveRecord::Base
 
     #validates :motivoIndisponibilidade, presence:true, length: {maximum: 255}
     #validates :idBoletim, presence:true, numericality: true
+
+    has_many  :users
 end

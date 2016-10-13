@@ -51,6 +51,7 @@ class ProfilesController < ApplicationController
     redirect_to new_profile_path, notice: "Perfil removido com sucesso."
   end
 
+
   private
   def profile_params
     params.require(:profile).permit(:name, :active)

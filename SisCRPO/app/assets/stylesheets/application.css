@@ -58,3 +58,8 @@
 .select2 {
     width: 100% !important;
 }
+
+.profiles:hover {
+    background: rgb(239, 183, 49) !important;
+    font-weight: bold !important;
+}
