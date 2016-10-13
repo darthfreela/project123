@@ -2,8 +2,10 @@ class PlatoonsController < ApplicationController
   def new
     @platoon = Platoon.new
     @platoon_show = Platoon.all
+    
     #mock de cidades simulando retorno do banco
-    @select_gpms = Array.new
+    @select_gpms = Gpm.all
+    @select_city = City.where(:uf => "RS")
   end
 
   def create
@@ -11,9 +13,9 @@ class PlatoonsController < ApplicationController
       @platoon_show = Platoon.all
 
       #mock de cidades simulando retorno do banco
-      @select_gpms = Array.new
-    
-       if @platoon.save
+      @select_gpms = Gpm.all
+      @select_city = City.where(:uf => "RS")
+      if @platoon.save
         redirect_to new_platoon_path, notice: "Pelotão cadastrado com sucesso."
       else
         render action: :new

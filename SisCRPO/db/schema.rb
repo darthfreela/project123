@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161013140715) do
-=======
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161011015959) do
-=======
-ActiveRecord::Schema.define(version: 20161012135028) do
->>>>>>> 4b422807bd86a9c6216a61f6227d4f84744d10ad
->>>>>>> d74cc8155a8e48926ad1f6f9d4ea2aaed7030cad
+ActiveRecord::Schema.define(version: 20161013210924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +266,11 @@ ActiveRecord::Schema.define(version: 20161012135028) do
     t.integer  "post_graduation_id"
     t.integer  "profile_id"
     t.integer  "current_profile"
+    t.string   "image_path"
+    t.string   "cpf"
+    t.string   "email"
+    t.integer  "function_id"
+    t.integer  "platoon_id"
   end
 
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
