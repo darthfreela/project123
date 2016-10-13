@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe InformativeTextDailyBulletin, type: :model do
+RSpec.describe TextInformative, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -17,38 +17,7 @@
             </div>
         </div>
         <hr>
-        <div class="alert-error">
-            <%= flash[:error] %>
-          <% if @profile.errors.any? %>
-            <div id="error_explanation">
-                O formulário contém <%= pluralize(@profile.errors.count, "erro") %>.
-            </div>
-            <ul>
-                <% @profile.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-          <% end %>
-        </div>
-        <%= form_for @profile do |f| %>
-            <div class="box-body">
-            	<div class="form-group col-md-7">
-                            <!--<%= f.label :nome %>-->
-                    <label>Nome*</label>
-                    <%= f.text_field :nome, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-5">
-                    <!--<%= f.label :postograduacao_id %>-->
-                    <label>PostoGraduação*</label>
-                    <%= f.select :postograduacao_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
-                </div>
-            </div>
-            <div class="box-footer">
-                <%= f.submit "Salvar", Class: "btn btn-success" %>
-                <%= f.button "Limpar", Class: "btn btn-danger" %>
-                <div class=" small pull-right">* Campos obrigatórios</div>
-            </div>
-        <% end %>
+        <%= render 'form' %>
     </div>
     <div class="box">
         <div class="box-header">
@@ -68,29 +37,26 @@
         <hr>
         <div class="box-body">
         <% if @profile_show.count <= 0 %>
-                        <tr><td>Não existem companhias cadastradas.</td></tr>
+            Não existem companhias cadastradas.
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Nome</th>
-                            <th>Posto Graduação</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @profile_show.each do |o|%>
-                            <% if o.id >= 0 %>
-                                <tr>
-                                    <td><%= o.nome %></td>
-                                    <% @postograduacao.each do |tp| %>
-                                        <% if o.postograduacao_id == tp.id %>
-                                            <td><%= tp.nomePostoGraduacao %></td>
-                                        <% end %>
-                                    <% end %>
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'profiles', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'profiles', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
-                                </tr>
-                            <% end %>
+                            <tr>
+                                <td><%= o.id %></td>
+                                <td><%= o.name %></td>
+                                <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'profiles', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'profiles', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
+                            </tr>
+                            
                         <% end %>
                     </tbody>
                 </table>

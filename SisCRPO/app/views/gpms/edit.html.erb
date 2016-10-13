@@ -3,45 +3,6 @@
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de GPM</h3>
     </div>
-    <% if @gpm.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@gpm.errors.count, "erro") %>.
-        </div>
-        <ul>
-         <% @gpm.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= form_for @gpm do |f| %>
-      <div class="box-body">
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-2">
-            <%= f.label :sigla %>
-            <%= f.text_field :sigla, maxlength: "6", class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :nome %>
-            <%= f.text_field :nome, class:"form-control" %>
-          </div>
-          <div class="form-group col-md-5">
-            <%= f.label :cidade %>
-            <%= f.select :cidade, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control" %>
-          </div>
-        </div>
-        <div class="form-group col-md-12">
-          <div class="form-group col-md-7">
-            <%= f.label :descricao %>
-            <%= f.text_area :descricao, class:"form-control" %>
-          </div>
-        </div>
-      </div>
-      <div class="box-footer">
-        <%= f.submit "Salvar", class: "btn btn-success" %>
-        <%= f.button "Cancelar", class: "btn btn-danger" %>
-      </div>
-    <% end %>
+   <%= render "form" %>
   </div>
 </section>

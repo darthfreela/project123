@@ -35,56 +35,56 @@
 			<div class="box-body">
 				<div class="form-group col-md-3">
 					<label>ID Func. Substituido</label>
-					<%= f.text_field :idFuncOcupante, maxlength: "14", class:"form-control autocompleteFunc" %>					
+					<%= f.text_field @occupant.id_func, maxlength: "14", class:"form-control autocompleteFunc" %>
 				</div>
 				<div class="form-group col-md-5">
-					<label>Nome do Servidor Substituido</label>	
-					<%= f.text_field :nomeOcupante, maxlength: "80", class:"form-control" %>
+					<label>Nome do Substituido</label>
+					<%= f.text_field @occupant.name, maxlength: "80", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-2">
 					<label>Posto Grad.</label>
-					<%= f.text_field :idGraduacaoOcupante, maxlength: "14", class:"form-control" %>
+					<%= f.text_field @occupant.pg, maxlength: "14", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-2">
 					<label>Função</label>
-					<%= f.text_field :idFuncaoOcupante, maxlength: "14", class:"form-control" %>
+					<%= f.text_field @occupant.function, maxlength: "14", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-3">
 					<label>ID Func. Substituto</label>
-					<%= f.text_field :idFuncSubstituto, maxlength: "14", class:"form-control" %>
+					<%= f.text_field @substitute.id_func, maxlength: "14", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-5">
 					<label>Nome do Servidor Substituto</label>
-					<%= f.text_field :nomeSubstituto, maxlength: "80", class:"form-control" %>
+					<%= f.text_field @substitute.name, maxlength: "80", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-2">
 					<label>Posto Grad.</label>
-					<%= f.text_field :idGraduacaoSubstituto, maxlength: "14", class:"form-control" %>
+					<%= f.text_field @substitute.pg, maxlength: "14", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-2">
 					<label>Função</label>
-					<%= f.text_field :idFuncaoSubstituto, maxlength: "14", class:"form-control" %>
+					<%= f.text_field @substitute.function, maxlength: "14", class:"form-control" %>
 				</div>
 				<div class="form-group col-md-2">
 					<label>Nrº Boletim</label>
-					<%= f.text_field :idBoletim, PlaceHolder: "Nrº Boletim", maxlength: "80", class:"form-control timepicker" %>
+					<%= f.text_field :daily_buletim_id, PlaceHolder: "Nrº Boletim", maxlength: "80", class:"form-control timepicker" %>
 				</div>
 				<div class="form-group col-md-12">
 					<label>Motivo de Indisponibilidade</label>
-					<%= f.text_area :motivoIndisponibilidade, PlaceHolder: "Motivo de Indisponibilidade", maxlength: "255", class:"form-control" %>
+					<%= f.text_area :unavailability_reason, PlaceHolder: "Motivo de Indisponibilidade", maxlength: "255", class:"form-control" %>
 				</div>
-				<div class="form-group col-md-6">					
+				<div class="form-group col-md-6">
 					<label>Período</label>
-					<div class="row">	
-						<div class="col-md-4">					
-							<%= f.text_field :dataAssuncao, class:"form-control data"%>
+					<div class="row">
+						<div class="col-md-4">
+							<%= f.text_field :date_taking, class:"form-control data"%>
 						</div>
-						<div class="col-md-1">					
+						<div class="col-md-1">
 							à
 						</div>
-						<div class="col-md-4">					
-							<%= f.text_field :dataDispensa, class:"form-control data"%>	
-						</div>							
+						<div class="col-md-4">
+							<%= f.text_field :date_exemption, class:"form-control data"%>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -123,29 +123,20 @@
 								<th>Posto Grad.</th>
 								<th>Cargo Assumido Lei 10993/97</th>
 								<th></th>
-								<th></th>								
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<% @tempReplacement_show.each do |o|%>
 								<tr style="cursor:pointer">
 									<td><%= o.id %></td>
-									<td><%= o.idFuncSubstituto %></td>
-									<td><%= o.nomeSubstituto%></td>
-									<td><%= o.idGraduacaoSubstituto%></td>
-									<td><%= o.idFuncaoSubstituto%></td>							
 									<td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'temporary_replacements', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                 	<td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'temporary_replacements', :action => 'destroy', :id => o.id}, :data => {:confirm=>'Deseja realmente remover este registro?'},  class: 'btn btn-danger', method: :delete %></td>
-								</tr>								
+								</tr>
 								<tr>
 									<td></td>
 									<td colspan="7">
-										<b>Id Func. Ocupante:</b> <%= o.idFuncaoOcupante%><br>
-										<b>Nome Ocupante:</b> <%= o.nomeOcupante%><br>
-										<b>Data de Assunção:</b> <%= data_br o.dataAssuncao%> <br>
-										<b>Data de Dispensa:</b> <%= data_br o.dataDispensa%><br>
-										<b>N° Boletim:</b> <%= o.idBoletim%><br>
-									</td>
+								</td>
 								</tr>
 							<% end %>
 						</tbody>
@@ -157,7 +148,7 @@
 </section>
 <script>
     $(document).ready(function () {
-        $("#motivos tr:odd").addClass("odd");        
+        $("#motivos tr:odd").addClass("odd");
         $("#motivos tr:not(.odd)").hide();
         $("#motivos tr:first-child").show();
 

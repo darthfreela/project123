@@ -1,0 +1,20 @@
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Posto/Graduação</h3>
+    </div>
+    <% if @post_graduation.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+           O formulário contém <%= pluralize(@post_graduation.errors.count, "erro") %>.
+        </div>
+        <ul>
+         <% @post_graduation.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+   <%= render "form" %>
+  </div>
+</section>

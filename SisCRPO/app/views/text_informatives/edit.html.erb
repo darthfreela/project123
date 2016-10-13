@@ -17,22 +17,6 @@
         </div>
       </div>
       <hr>
-      <div class="alert-error">
-        <%= flash[:error] %>
-        <% if @informative_text.errors.any? %>
-          <div id="error_explanation">
-            <div class="alert-error">
-              O formulário contém <%= pluralize(@informative_text.errors.count, "erro") %>.
-            </div>
-            <ul>
-              <% @informative_text.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
-      <!-- form start -->
       <%= render 'form' %>
     </div>
 </section>

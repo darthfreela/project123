@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
-
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
+  
   resources :dashboard, :only => [:index]
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
-  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :report_overtime_supplementations, :only =>  [:index]
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
@@ -45,7 +44,7 @@ Rails.application.routes.draw do
 
   resources :pointing_hours, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :siglas, :only => [:new, :create, :edit, :destroy, :update]
+  resources :initials, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :substituicao_temporarias, :only => [:new, :create, :edit, :destroy, :update]
 
@@ -53,7 +52,7 @@ Rails.application.routes.draw do
 
   resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :tipo_servicos,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :service_types,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :platoons,  :only => [:new, :create, :edit, :destroy, :update, :cities_platoon]
   get "/cities_platoon" => "platoons#cities_platoon"
@@ -62,13 +61,11 @@ Rails.application.routes.draw do
 
   resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
+  resources :post_graduations, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :quadro_efetivo, :only => [:index]
+  resources :person_table, :only => [:index]
 
   resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
-
-  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :uniforms, :only => [:index, :new, :create, :edit, :destroy, :update]
 

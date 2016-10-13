@@ -16,20 +16,7 @@
         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
       </div>
     </div>
-    <div class="error"><%= flash[:error] %></div>
-      <% if @opm.errors.any? %>
-        <div id="error_explanation">
-          <div class="alert-error">
-            O formulário contém <%= pluralize(@opm.errors.count, "erro") %>.
-          </div>
-          <ul>
-            <% @opm.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-              <% end %>'
-          </ul>
-        </div>
-    <% end %>
-  <%= render 'form' %>
+    <%= render 'form' %>
   </div>
   <div class="box">
     <div class="box-header">

@@ -1,4 +1,19 @@
-<%= form_for @informative_text do |f| %>
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @text_informative.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@text_informative.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @text_informative.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<%= form_for @text_informative do |f| %>
   <div class="box-body">
     <div class="col-md-12">
       <div class="form-group col-md-2">

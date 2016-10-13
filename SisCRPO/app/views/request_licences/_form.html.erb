@@ -1,3 +1,18 @@
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @request_licence.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@request_licence.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @request_licence.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 <%= form_for @request_licence do |l| %>
   <div class="box-body">
     <div class="form-group col-md-4">

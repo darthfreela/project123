@@ -45,4 +45,14 @@ module ApplicationHelper
         date.strftime("%d/%m/%Y")
       end
     end
+
+ #profile da navbar-header
+ def get_profile_user(id)
+      return Profile.find(3)
+  end
+
+  #profiles secundarios
+  def get_other_profiles(id=-1)
+      return other_profiles = TemporaryReplacement.where(substitute_id_func: id)#.joins(:users).joins(:profiles)
+  end
 end

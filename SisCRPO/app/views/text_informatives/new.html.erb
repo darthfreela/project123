@@ -16,22 +16,6 @@
         </div>
       </div>
       <hr>
-      <div class="alert-error">
-        <%= flash[:error] %>
-        <% if @informative_text.errors.any? %>
-          <div id="error_explanation">
-            <div class="alert-error">
-              O formulário contém <%= pluralize(@informative_text.errors.count, "erro") %>.
-            </div>
-            <ul>
-              <% @informative_text.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
-      <!-- form start -->
       <%= render 'form' %>
     </div>
     <div class="box">
@@ -51,7 +35,7 @@
         </div>
         <hr>
         <div class="box-body">
-          <% if @informative_text_show.count < 1 %>
+          <% if @text_informative_show.count < 1 %>
             Não existem Textos Informativos cadastrados.
           <% else %>         
             <table id="motivos" class="table table-bordered table-striped">
@@ -65,17 +49,17 @@
                 </tr>
               </thead>
               <tbody>
-                <% @informative_text_show.each do |i|%>
+                <% @text_informative_show.each do |i|%>
                   <tr>
                     <td><%= i.id%></td>
                     <td><%= i.type_info %></td>
                     <td><%= i.description %></td>
                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
-                         {:controller => 'informative_text_daily_bulletins', :action => 'edit', :id => i.id},
+                         {:controller => 'text_informative_daily_bulletins', :action => 'edit', :id => i.id},
                           class: 'btn btn-warning', method: :get %>
                     </td>
                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                     {:controller => 'informative_text_daily_bulletins', :action => 'destroy', :id => i.id},
+                     {:controller => 'text_informative_daily_bulletins', :action => 'destroy', :id => i.id},
                       :data => {:confirm => "Realmente deseja excluir este registro?"},
                        class: 'btn btn-danger', method: :delete %>
                      </td>

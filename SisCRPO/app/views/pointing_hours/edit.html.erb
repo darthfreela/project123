@@ -17,20 +17,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             </div>
         </div>
-        <hr>
-        <div class="alert-error">
-            <%= flash[:error] %>
-          <% if @pointingHour.errors.any? %>
-            <div id="error_explanation">
-                O formulário contém <%= pluralize(@pointingHour.errors.count, "erro") %>.
-            </div>
-            <ul>
-                <% @pointingHour.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-          <% end %>
-        </div>
+        <hr>        
         <%= render 'form' %>
     </div>
 </section>

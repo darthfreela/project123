@@ -2,19 +2,7 @@
   <div class="box box-default">
     <div class="box-header with-border">
       <h3 class="box-title">Cadastro de OPM</h3>
-    </div>
-    <% if @opm.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@opm.errors.count, "erro") %>.
-        </div>
-        <ul>
-         <% @opm.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
+    </div>    
     <%= render 'form' %>
   </div>
 </section>

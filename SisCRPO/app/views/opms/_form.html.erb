@@ -1,3 +1,16 @@
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @opm.errors.any? %>
+    <div id="error_explanation">
+      O formulário contém <%= pluralize(@opm.errors.count, "erro") %>.
+    </div>
+    <ul>
+      <% @opm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 <%= form_for @opm do |f| %>
   <div class="box-body">
     <div class="form-group col-md-2">

@@ -1,0 +1,16 @@
+<li class="notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <% user_profile = get_profile_user(current_user.profile_id)%>
+              <%= user_profile.name %>
+              <span class="label label-warning">5</span>
+            </a>
+</li>
+ <% other_functions = get_other_profiles ,-1 %>
+            <% get_other_profiles.each do | o |%>
+            <li class="notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= o.id %>
+                    <span class="label label-warning">5</span>
+                </a>
+            </li>
+    <% end %>

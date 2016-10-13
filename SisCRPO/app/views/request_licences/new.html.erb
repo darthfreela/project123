@@ -19,19 +19,6 @@
         </button>
       </div>
     </div>
-    <div class="error"><%= flash[:error] %></div>
-    <% if @request_licence.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-            O formulário contém <%= pluralize(@request_licence.errors.count, "erro") %>.
-        </div>
-        <ul>
-            <% @request_licence.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-        </ul>
-      </div>
-    <% end %>
     <%= render 'form' %>
   </div>
 

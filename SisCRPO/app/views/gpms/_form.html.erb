@@ -1,40 +1,41 @@
 <div class="alert-error">
-      <%= flash[:error] %>
-     <% if @gpm.errors.any? %>
-        <div id="error_explanation">
-          <div class="alert-error">
-            O formulário contém <%= pluralize(@gpm.errors.count, "erro") %>.
-          </div>
-          <ul>
-            <% @gpm.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-      </div>
-    <% end %>
-  </div>
-
-  <%= form_for @gpm do |f| %>
-    <div class="box-body">
-      <div class="form-group col-md-2">
-        <label>Sigla*</label>
-        <%= f.text_field :initials, placeholder: "Sigla", maxlength: "6", class:"form-control" %>
-      </div>
-      <div class="form-group col-md-5">
-        <label>Nome*</label>
-        <%= f.text_field :name, placeholder: "Nome", class:"form-control" %>
-      </div>
-      <div class="form-group col-md-3">
-        <label>Cidade*</label>
-        <%= f.select :city_id, options_for_select(@select_cidades), {}, class: "form-control select2" %>
-      </div>
-      <div class="form-group col-md-2">
-          <label>Ativo*</label>
-          <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
-      </div>
-    </div>
-    <div class="box-footer">
-    <%= f.submit "Salvar", class: "btn btn-success" %>
-    <%= f.button "Limpar", class: "btn btn-danger" %>
+    <%= flash[:error] %>
+   <% if @gpm.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+          O formulário contém <%= pluralize(@gpm.errors.count, "erro") %>.
+        </div>
+        <ul>
+          <% @gpm.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
     </div>
   <% end %>
+</div>
+
+<%= form_for @gpm do |f| %>
+  <div class="box-body">
+    <div class="form-group col-md-2">
+      <label>Sigla*</label>
+      <%= f.text_field :initials, placeholder: "Sigla", maxlength: "6", class:"form-control" %>
+    </div>
+    <div class="form-group col-md-5">
+      <label>Nome*</label>
+      <%= f.text_field :name, placeholder: "Nome", class:"form-control" %>
+    </div>
+    <div class="form-group col-md-3">
+      <label>Cidade*</label>
+      <%= f.select :city_id, options_for_select(@select_cidades), {}, class: "form-control select2" %>
+    </div>
+    <div class="form-group col-md-2">
+        <label>Ativo*</label>
+        <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= f.submit "Salvar", class: "btn btn-success" %>
+    <%= f.button "Limpar", class: "btn btn-danger" %>
+    <div class=" small pull-right">* Campos obrigatórios</div>
+  </div>
+<% end %>
