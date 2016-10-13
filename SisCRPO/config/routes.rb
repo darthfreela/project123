@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
 
@@ -11,18 +12,27 @@ resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
+=======
+
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+
+  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
+
+  resources :dashboard, :only => [:index]
+
+  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+>>>>>>> 4b422807bd86a9c6216a61f6227d4f84744d10ad
 
   resources :report_overtime_supplementations, :only =>  [:index]
+
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
-
-  resources :disthoraext
 
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-   resources :disthoraext
+  resources :disthoraext
 
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
 
@@ -62,7 +72,7 @@ resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
+  resources :trainees, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
