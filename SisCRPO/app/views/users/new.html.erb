@@ -70,11 +70,11 @@
                         <% @user_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.idFunc %></td>
+                                    <td><%= o.id_func %></td>
                                     <td><%= o.name %></td>
                                     <td><%= o.email %></td>
-                                    <td><%= o.dataNascimento %></td>
-                                    <td><%= o.sexo %></td>
+                                    <td><%= o.birth %></td>
+                                    <td><%= o.gender %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
                                      {:controller => 'users', :action => 'edit', :id => o.id},
                                       class: 'btn btn-warning', method: :get %>

@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
-  
-  resources :dashboard, :only => [:index]
-
-  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
-=======
 post '/change_profile' => "users#change_current_profile"
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
@@ -16,22 +7,11 @@ resources :dashboard, :only => [:index]
 
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
-  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
+resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
-
-  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :dashboard, :only => [:index]
-
-  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
->>>>>>> d74cc8155a8e48926ad1f6f9d4ea2aaed7030cad
-
-  resources :report_overtime_supplementations, :only =>  [:index]
+resources :report_overtime_supplementations, :only =>  [:index]
 
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
