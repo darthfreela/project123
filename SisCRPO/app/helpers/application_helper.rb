@@ -52,7 +52,7 @@ module ApplicationHelper
   end
 
   #profiles secundarios
-  def get_other_profiles(id=-1)
-      return other_profiles = TemporaryReplacement.where(substitute_id_func: id)#.joins(:users).joins(:profiles)
+  def get_other_profiles
+      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id).joins(:users).
   end
 end
