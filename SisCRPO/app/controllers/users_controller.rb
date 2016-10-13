@@ -54,6 +54,14 @@ def destroy
     redirect_to new_user_path, notice: "Usuário removido com sucesso."
 end
 
+
+def change_current_profile
+  @user = User.find(current_user.id)
+  @user.update_attributes(current_profile: params[:profile_id])
+
+  redirect_to '/'
+end
+
   private
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation,

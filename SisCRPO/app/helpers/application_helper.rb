@@ -53,6 +53,6 @@ module ApplicationHelper
 
   #profiles secundarios
   def get_other_profiles
-      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id).joins(:users).
+      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id).joins("JOIN users ON users.id = temporary_replacements.occupant_id_func").joins("JOIN profiles ON profiles.id = users.profile_id")
   end
 end
