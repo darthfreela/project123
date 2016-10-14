@@ -10,7 +10,7 @@
                 </div>
                     <div class="form-group col-md-2">
                     <label>CPF</label>
-                    <%= f.text_field :name, PlaceHolder: "CPF", class:"form-control cpf" %>
+                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
                 </div>
                       <div class="form-group col-md-2">
                     <label>Data Nascimento</label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group col-md-5">
                     <label>E-mail</label>
-                    <%= f.text_field :name, PlaceHolder: "E-mail", class:"form-control" %>
+                    <%= f.text_field :email, PlaceHolder: "E-mail", class:"form-control" %>
                 </div>
                       <div class="form-group col-md-2">
                     <label>Ativo:</label>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group col-md-5">
                     <label>Posto / Graduação*</label>
-                    <%= f.select :post_graduation_id, @postograduacao.map{|s| [s.nomePostoGraduacao, s.id]}, {}, class: "form-control select2"%>
+                    <%= f.select :post_graduation_id, @postograduacao.map{|s| [s.name, s.id]}, {}, class: "form-control select2"%>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Login</label>
@@ -54,7 +54,11 @@
                 </div>
                 <div class="form-group col-md-7">
                     <label>Função</label>
-                    <%= f.select :function_id, @select_opms.map{|s| [s.funcao, s.id]}, {}, class: "form-control select2" %>
+                    <%= f.select :function_id, @select_funcoes.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
+                </div>
+                <div class="form-group col-md-7">
+                    <label>Perfil</label>
+                    <%= f.select :perfil_id, @select_perfis.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-2">
                     <label>CEP</label>
@@ -66,7 +70,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label>Bairro</label>
-                    <%= f.text_field :neighbornhood, PlaceHolder: "Bairro", class:"form-control" %>
+                    <%= f.text_field :neighborhood, PlaceHolder: "Bairro", class:"form-control" %>
                 </div>
                 <div class="form-group col-md-5">
                     <label>Cidade</label>

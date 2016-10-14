@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
-	has_one :postograduacaos
+
+	has_one :post_graduation
+
             has_many :users
 end

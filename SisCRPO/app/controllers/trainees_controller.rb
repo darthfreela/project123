@@ -34,6 +34,7 @@ class TraineesController < ApplicationController
 
   def edit
     @trainee = Trainee.find(params[:id])
+
     #mock de cidades simulando retorno do banco
     @select_cidades = Array.new
     (1..5).each do |i|
@@ -42,10 +43,14 @@ class TraineesController < ApplicationController
   end
 
   def update
-        @trainees = Trainee.find(params[:id])
-        @trainees.update_attributes(trainee_params)
-
-        redirect_to new_trainee_path, notice: "Estagiário editado com sucesso."
+        @trainee = Trainee.find(params[:id])
+        if @trainee.update_attributes(trainee_params)
+             redirect_to new_trainee_path, notice: "Estagiário editado com sucesso."
+        else
+              # mostra os erros no terminal ** muito util saporra
+              # Rails.logger.info(@trainee.errors.messages.inspect)
+              redirect_to new_trainee_path, :flash => { :error => "Erro ao editar o estagiário!" }
+        end
   end
 
   private
