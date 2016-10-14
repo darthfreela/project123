@@ -2,29 +2,22 @@ class OpmsController < ApplicationController
     def new
       @opm = Opm.new
       @opm_show = Opm.all
-      #mock de cidades simulando retorno do banco
+      
+      @select_cities = City.where(:uf => "RS")
+
     end
 
     def create
       @opm = Opm.new(opm_params)
       @opm_show = Opm.all
 
+      @select_cities = City.where(:uf => "RS")
+
       if @opm.save
         redirect_to new_opm_path, notice: "Opm cadastrada com sucesso."
       else
         render action: :new
       end
-    end
-
-    def cities_opm
-      uf = params[:uf]
-      cities = City.where(:uf => uf)
-      cty = []
-      cities.each do |city|
-        cty << {:id => city.id, :n => city.name}
-        puts city.nome
-      end
-      render :json => {:cty => cty.compact}.as_json
     end
 
     def destroy

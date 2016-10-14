@@ -21,18 +21,7 @@ class PlatoonsController < ApplicationController
         render action: :new
       end
   end
-  def cities_platoon
-    puts params[:uf]
-    uf = params[:uf]
-    cities = City.where(:uf => uf)
-    cty = []
-    cities.each do |city|
-      cty << {:id => city.id, :n => city.name}
-      puts city.nome
-    end
-    render :json => {:cty => cty.compact}.as_json
-  end
-
+  
    def destroy
       @platoon = Platoon.find(params[:id])
       @platoon.destroy
