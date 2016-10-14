@@ -1,5 +1,5 @@
 class RequestVacationsController < ApplicationController
-  def new
+	def new
         @lancamento_ferias = RequestVacation.new
         @lancamento_ferias_show = RequestVacation.all
         @user_atual = User.find(current_user.id)
@@ -10,7 +10,7 @@ class RequestVacationsController < ApplicationController
        @lancamento_ferias_show = RequestVacation.all
        @user_atual = User.find(current_user.id)
       if @lancamento_ferias.save
-        redirect_to new_release_vacation_path, notice: "Solicitação de férias concluída com sucesso."
+        redirect_to new_request_vacation_path, notice: "Solicitação de férias concluída com sucesso."
       else
         render action: :new
       end
@@ -19,13 +19,13 @@ class RequestVacationsController < ApplicationController
   def destroy
       @lancamento_ferias = RequestVacation.find(params[:id])
       @lancamento_ferias.destroy
-      redirect_to new_release_vacation_path, notice: "Solicitação de férias removida com sucesso."
+      redirect_to new_request_vacation_path, notice: "Solicitação de férias removida com sucesso."
     end
 
   def edit
      @lancamento_ferias = RequestVacation.find(params[:id])
-     @lancamento_ferias.inicial_date = @lancamento_ferias.inicial_date.strftime("%d/%m/%Y")
-     @lancamento_ferias.final_date = @lancamento_ferias.final_date.strftime("%d/%m/%Y")
+     @lancamento_ferias.date_begin = @lancamento_ferias.date_begin.strftime("%d/%m/%Y")
+     @lancamento_ferias.date_end = @lancamento_ferias.date_end.strftime("%d/%m/%Y")
      @user_atual = User.find(current_user.id)
   end
 
@@ -33,12 +33,11 @@ class RequestVacationsController < ApplicationController
       @lancamento_ferias = RequestVacation.find(params[:id])
       @lancamento_ferias.update_attributes(lancamento_ferias_params)
       @user_atual = User.find(current_user.id)
-      redirect_to new_release_vacation_path, notice: "Solicitação de férias editada com sucesso."
+      redirect_to new_request_vacation_path, notice: "Solicitação de férias editada com sucesso."
 end
 
 private
 def lancamento_ferias_params
-    params.require(:release_vacation).permit(:inicial_date, :final_date, :user_id)
+    params.require(:request_vacation).permit(:date_begin, :date_end, :user_id)
 end
-
 end

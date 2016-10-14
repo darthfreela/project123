@@ -22,7 +22,8 @@ class ServiceTypesController < ApplicationController
   end
 
   def edit
-    @select_funcao = Function.all
+      @botao = 'edit'
+      @select_funcao = Function.all
       @select_uniformes = Uniform.all
       @tpServico = ServiceType.find(params[:id])
   end

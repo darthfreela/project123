@@ -3,10 +3,7 @@ class TraineesController < ApplicationController
     @trainee = Trainee.new
     @trainee_show = Trainee.all
     #mock de cidades simulando retorno do banco
-    @select_cidades = Array.new
-    (1..5).each do |i|
-        @select_cidades <<  "#{i}"
-    end
+    @select_cities = City.where(:uf => "RS")
   end
 
  def create
@@ -14,10 +11,7 @@ class TraineesController < ApplicationController
       @trainee_show = Trainee.all
 
       #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
+      @select_cities = City.where(:uf => "RS")
 
       if @trainee.save
         redirect_to new_trainee_path, notice: "Estagiário cadastrado com sucesso."
@@ -33,13 +27,10 @@ class TraineesController < ApplicationController
   end
 
   def edit
+    @botao = 'edit'
     @trainee = Trainee.find(params[:id])
-
     #mock de cidades simulando retorno do banco
-    @select_cidades = Array.new
-    (1..5).each do |i|
-        @select_cidades <<  "#{i}"
-    end
+    @select_cities = City.where(:uf => "RS")
   end
 
   def update

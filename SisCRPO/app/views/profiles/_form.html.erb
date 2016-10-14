@@ -20,12 +20,16 @@
         </div>
         <div class="form-group col-md-3">
             <label>Ativo</label>
-            <%= f.select :actived, [['Sim', true], ['Não', false]],{}, class: "form-control select 2" %>
+            <%= f.select :actived, [['Sim', true], ['Não', false]],{}, class: "form-control select2" %>
         </div>
     </div>
     <div class="box-footer">
         <%= f.submit "Salvar", Class: "btn btn-success" %>
-        <%= f.button "Limpar", Class: "btn btn-danger" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
         <div class=" small pull-right">* Campos obrigatórios</div>
     </div>
 <% end %>

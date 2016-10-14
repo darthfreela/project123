@@ -7,10 +7,9 @@ class RequestLicencesController < ApplicationController
   end
 
     def create
+      puts :user_id +" <---"
       @request_licence = RequestLicence.new(request_licence_params)
       @request_licence_show = RequestLicence.all
-
-      @select_users = User.all
 
       if @request_licence.save
         redirect_to new_request_licence_path, notice: "Solicitação registrada com sucesso."
@@ -25,7 +24,8 @@ class RequestLicencesController < ApplicationController
       redirect_to new_request_licence_path, notice: "Solicitação excluída com sucesso."
     end
 
-    def edit
+    def editv
+      @botao = 'edit'
       @select_users = User.all
       @request_licence = RequestLicence.find(params[:id])
     end
@@ -40,6 +40,7 @@ class RequestLicencesController < ApplicationController
 
     private
     def request_licence_params
-        params.require(:request_licence).permit(:idFunc, :nome, :tipo, :ordem, :dataInicial, :dataFinal, :aprovado, :user_id )
+        puts :user_id +" <---"
+        params.require(:request_licence).permit(:licence_days, :type, :date_begin, :date_end, :user_id )
     end
 end

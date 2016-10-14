@@ -18,7 +18,7 @@
             <%= f.text_field :user_id, value:current_user.id, disabled:"true" , maxlength: "80", class:"form-control" %>
         </div>
         <div class="form-group col-md-7">
-            <label>Nome</label>
+            <label>Nome *</label>
             <%= f.text_field :user_id, value:current_user.name, disabled:"true" , maxlength: "80", class:"form-control" %>
         </div>
         <div class="form-group col-md-2">
@@ -38,12 +38,17 @@
             <%= f.text_field @hour_end, class:"form-control timepicker" %>
         </div>
         <div class="form-group col-md-7">
-            <label>Tipo De Serviço</label>
+            <label>Tipo De Serviço *</label>
             <%= f.select :service_type_id, @serviceType.map{|s| [s.nome, s.id]}, {}, class: "form-control select2"%>
         </div>
     </div>
     <div class="box-footer">
         <%= f.submit "Salvar", Class: "btn btn-success" %>
-        <%= f.button "Limpar", Class: "btn btn-danger" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
     </div>
 <% end %>

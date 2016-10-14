@@ -1,0 +1,61 @@
+<section class="content-header">
+    <h1>
+        Gerenciamento de Férias
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active"> Gerenciamento de Férias</li>
+    </ol>
+</section>
+<section class="content">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Editar Férias</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="error"><%= flash[:error] %></div>
+    <% if @lancamento_ferias.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+           O formulário contém <%= pluralize(@lancamento_ferias.errors.count, "erro") %>.
+        </div>
+        <ul>
+         <% @lancamento_ferias.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+        </ul>
+      </div>
+    <% end %>
+                    <%= form_for @lancamento_ferias do |f| %>
+                        <div class="box-body">
+                                <div class="form-group col-md-2">
+                                    <label>Id Func</label>
+                                    <input type="text" class="form-control " value="<%= @current_user.id_func%>" disabled="" />
+                                </div>
+                               <div class="form-group col-md-3">
+                                    <label>Posto/Graduação</label>
+                                    <input type="text" class="form-control " value="<%= @current_user.zip_code%>" disabled="" />
+                               </div>
+                               <div class="form-group col-md-6">
+                                    <label>Usuário</label>
+                                    <%= f.text_field :user_id, value: current_user.name, class:"form-control", :disabled=>"" %>
+                               </div>
+                                <div class="form-group col-md-2">
+                                    <label>Data Inicial</label>
+                                    <%= f.text_field :date_begin, class:"form-control data" %>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>Data Final</label>
+                                    <%= f.text_field :date_end, class:"form-control data" %>
+                                </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-success">Solicitar</button>
+                            <button type="close" class="btn btn-danger">Limpar</button>
+                        </div>
+                    <% end %>
+                </div>
+         </section>

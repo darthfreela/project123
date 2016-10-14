@@ -27,7 +27,9 @@ class OpmsController < ApplicationController
     end
 
     def edit
+      @botao = 'edit'
       @opm = Opm.find(params[:id])
+      @select_cities = City.where(:uf => "RS")
     end
 
     def update

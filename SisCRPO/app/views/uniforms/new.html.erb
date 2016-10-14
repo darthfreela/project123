@@ -18,30 +18,9 @@
         </button>
       </div>
     </div>
-<<<<<<< HEAD
     <!--INICIO form-->
       <%= render 'form' %>
     <!--FIM form-->
-=======
-    <div class="error"><%= flash[:error] %></div>
-    <% if @uniform.errors.any? %>
-      <div id="error_explanation">
-        <div class="alert-error">
-           O formulário contém <%= pluralize(@uniform.errors.count, "erro") %>.
-        </div>
-        <ul>
-         <% @uniform.errors.full_messages.each do |msg| %>
-           <li><%= msg %></li>
-         <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <!--INICIO form-->
-      <%= render 'form' %>
-    <!--FIM form-->
-
->>>>>>> d74cc8155a8e48926ad1f6f9d4ea2aaed7030cad
   </div>
   <div class="box">
       <div class="box-header">

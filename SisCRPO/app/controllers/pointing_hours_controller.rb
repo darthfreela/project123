@@ -17,6 +17,7 @@ def new
   end
 
 def edit
+    @botao = 'edit'
     @pointingHour = PointingHour.find(params[:id])
     @pointingHour.data_inicio = @pointingHour.data_inicio.strftime("%d/%m/%Y")
     @pointingHour.data_fim = @pointingHour.data_fim.strftime("%d/%m/%Y")
@@ -27,10 +28,9 @@ def update
       @pointingHour = PointingHour.find(params[:id])
       if @pointingHour.update_attributes(pointingHour_params)
         @serviceType = ServiceType.all
-           redirect_to new_pointing_hour_path, notice: "Apontamento de Horas editado com sucesso."
+          redirect_to new_pointing_hour_path, notice: "Apontamento de Horas editado com sucesso."
       else
-
-            redirect_to new_pointing_hour_path, :flash => { :error => "Erro ao editar o Apontamento de Horas!" }
+          redirect_to new_pointing_hour_path, :flash => { :error => "Erro ao editar o Apontamento de Horas!" }
       end
 end
 

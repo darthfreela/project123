@@ -22,6 +22,7 @@ class PostGraduationsController < ApplicationController
   end
 
   def edit
+    @botao = 'edit'
     @post_graduation = PostGraduation.find(params[:id])
   end
 

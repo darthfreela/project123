@@ -63,7 +63,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :request_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :service_types,  :only => [:new, :create, :edit, :destroy, :update]
 

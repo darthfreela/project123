@@ -45,7 +45,11 @@
               <tr>
                 <td><%= o.id %></td>
                 <td><%= o.initials %></td>
-                <td>Caxias do Sul</td>
+                <% @select_cities.each do |sc| %>
+                  <% if o.city_id == sc.id %>
+                    <td><%= sc.name %></td>
+                  <% end %>
+                <% end %>
                 <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'opms', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                 <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'opms', :action => 'destroy', :id => o.id}, :data => {:confirm=>'Deseja realmente remover este registro?'},  class: 'btn btn-danger', method: :delete %></td>
               </tr>

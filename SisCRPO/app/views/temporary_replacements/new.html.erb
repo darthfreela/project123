@@ -69,6 +69,22 @@
 							<% @tempReplacement_show.each do |o|%>
 								<tr style="cursor:pointer">
 									<td><%= o.id %></td>
+									<td><%= o.occupant_id_func %></td>
+									<% @users.each do |u| %>
+					                  <% if o.occupant_id_func == u.id_func %>
+					                    <td><%= u.name %></td>
+					                    <% @post_gratuations.each do |p| %>
+						                  <% if u.post_graduation_id == p.id %>
+						                	<td><%= p.name %></td>    
+						                  <% end %>
+						                <% end %>
+					                     <% @functions.each do |f| %>
+						                  <% if u.function_id == f.id %>
+						                	<td><%= f.name %></td>    
+						                  <% end %>
+						                <% end %>					                    
+					                  <% end %>
+					                <% end %>
 									<td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'temporary_replacements', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                 	<td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'temporary_replacements', :action => 'destroy', :id => o.id}, :data => {:confirm=>'Deseja realmente remover este registro?'},  class: 'btn btn-danger', method: :delete %></td>
 								</tr>

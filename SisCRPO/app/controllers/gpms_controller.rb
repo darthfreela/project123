@@ -2,22 +2,14 @@ class GpmsController < ApplicationController
     def new
       @gpm = Gpm.new
       @gpm_show = Gpm.all
-      #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
+      @select_cities = City.where(:uf => "RS")
     end
 
     def create
       @gpm = Gpm.new(gpm_params)
       @gpm_show = Gpm.all
 
-       #mock de cidades simulando retorno do banco
-      @select_cidades = Array.new
-      (1..5).each do |i|
-          @select_cidades <<  "#{i}"
-      end
+      @select_cities = City.where(:uf => "RS")
 
       if @gpm.save
         redirect_to new_gpm_path, notice: "Gpm cadastrada com sucesso."
@@ -33,7 +25,9 @@ class GpmsController < ApplicationController
     end
 
     def edit
+      @botao = 'edit'
       @gpm = Gpm.find(params[:id])
+      @select_cities = City.where(:uf => "RS")
     end
 
     def update
@@ -45,6 +39,6 @@ class GpmsController < ApplicationController
 
     private
     def gpm_params
-      params.require(:gpm).permit(:sigla, :nome, :cidade, :descricao)
+      params.require(:gpm).permit(:initial, :name, :city_id, :actived)
     end
 end

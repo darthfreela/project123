@@ -13,9 +13,9 @@ module ApplicationHelper
   end
 
   def abrir_menu(path)
-    puts path + " <---> " + controller.request.fullpath
+    
     'block' if path.include?(controller.request.fullpath)
-  end
+  end  
 
   def eh_controller_da_pagina_atual?(path, caminho_exato)
     if caminho_exato

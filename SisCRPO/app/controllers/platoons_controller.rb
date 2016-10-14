@@ -3,18 +3,17 @@ class PlatoonsController < ApplicationController
     @platoon = Platoon.new
     @platoon_show = Platoon.all
     
-    #mock de cidades simulando retorno do banco
     @select_gpms = Gpm.all
-    @select_city = City.where(:uf => "RS")
+    @select_cities = City.where(:uf => "RS")
+
   end
 
   def create
-      @platoon = Platoon.new(platoonsController_params)
+      @platoon = Platoon.new(platoon_params)
       @platoon_show = Platoon.all
 
-      #mock de cidades simulando retorno do banco
       @select_gpms = Gpm.all
-      @select_city = City.where(:uf => "RS")
+      @select_cities = City.where(:uf => "RS")
       if @platoon.save
         redirect_to new_platoon_path, notice: "Pelotão cadastrado com sucesso."
       else
@@ -29,14 +28,17 @@ class PlatoonsController < ApplicationController
     end
 
   def edit
+    @botao = 'edit'
     @platoon = Platoon.find(params[:id])
+    @select_gpms = Gpm.all
+    @select_cities = City.where(:uf => "RS")
   end
 
   def update
-      @platoon = Platoon.find(params[:id])
-      @platoon.update_attributes(platoon_params)
+    @platoon = Platoon.find(params[:id])
+    @platoon.update_attributes(platoon_params)
 
-      redirect_to new_platoon_path, notice: "Pelotão editado com sucesso."
+    redirect_to new_platoon_path, notice: "Pelotão editado com sucesso."
   end
 
  private

@@ -47,9 +47,10 @@
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Cidade</th>
+                            <th>Id</th>
                             <th>Nome</th>
                             <th>Unidade</th>
+                            <th>Cidade</th>                            
                             <th>Ativo</th>
                         </tr>
                     </thead>
@@ -57,9 +58,14 @@
                         <% @companie_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.city_id %></td>
+                                    <td><%= o.id %></td>
                                     <td><%= o.name %></td>
                                     <td><%= o.opm.name %></td>
+                                    <% @select_cities.each do |sc| %>
+                                        <% if o.city_id == sc.id %>
+                                          <td><%= sc.name %></td>
+                                        <% end %>
+                                    <% end %>
                                     <%if o.actived == true%>
                                       <td>Sim</td>
                                     <% else %>

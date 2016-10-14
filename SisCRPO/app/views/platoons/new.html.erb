@@ -40,6 +40,7 @@
             <th></th>
             <th>Nome</th>
             <th>Cidade</th>
+            <th>GPM</th>
             <th></th>
             <th></th>
             </tr>
@@ -49,7 +50,17 @@
               <tr>
                 <td><%= o.id %></td>
                 <td><%= o.name %></td>
-                <td><%= o.city_id %></td>
+                <% @select_cities.each do |sc| %>
+                  <% if o.city_id == sc.id %>
+                    <td><%= sc.name %></td>
+                  <% end %>
+                <% end %>
+                <% @select_gpms.each do |sg| %>
+                  <% if o.gpm_id == sg.id %>
+                    <td><%= sg.name %></td>
+                  <% end %>
+                <% end %>
+                
                 <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'platoons', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                 <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'platoons', :action => 'destroy', :id => o.id}, class: 'btn btn-danger', method: :delete %></td>
               </tr>

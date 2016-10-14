@@ -4,19 +4,26 @@ class TemporaryReplacementsController < ApplicationController
   def new
       @tempReplacement = TemporaryReplacement.new
       @tempReplacement_show = TemporaryReplacement.all
-      @occupant
+      @users = User.all
+      @post_gratuations = PostGraduation.all
+      @functions = Function.all
   end
 
   def edit
       @tempReplacement = TemporaryReplacement.find(params[:id])
       @tempReplacement.dataAssuncao = @tempReplacement.dataAssuncao.strftime("%d/%m/%Y")
       @tempReplacement.dataDispensa = @tempReplacement.dataDispensa.strftime("%d/%m/%Y")
+      @users = User.all
+      @post_gratuations = PostGraduation.all
+      @functions = Function.all
   end
 
   def create
       @tempReplacement = TemporaryReplacement.new(tempReplacement_params)
       @tempReplacement_show = TemporaryReplacement.all
-
+      @users = User.all
+      @post_gratuations = PostGraduation.all
+      @functions = Function.all
       if @tempReplacement.save
         redirect_to new_temporary_replacement_path, notice: "Substituição temporária cadastrada com sucesso."
       else

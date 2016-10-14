@@ -27,6 +27,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @botao = 'edit'
     @profile = Profile.find(params[:id])
     #mok
     @select_tipo_usuario = Array.new

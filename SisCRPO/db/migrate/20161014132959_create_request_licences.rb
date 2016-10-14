@@ -5,7 +5,7 @@ class CreateRequestLicences < ActiveRecord::Migration
       t.date :date_begin
       t.date :date_end
       t.integer :licence_days
-      t.integer :status
+      t.string :status
       t.integer :user_id
 
       t.timestamps null: false

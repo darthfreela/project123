@@ -5,6 +5,7 @@ class TextInformativesController < ApplicationController
   	end
 
   	def edit
+      @botao = 'edit'
     	@text_informative = TextInformative.find(params[:id])
   	end
 

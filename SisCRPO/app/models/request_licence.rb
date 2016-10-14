@@ -5,5 +5,5 @@ class RequestLicence < ActiveRecord::Base
       validates :date_end, presence: true
 
       # relacionamentos
-      belongs_to :user
+      # belongs_to :user
 end

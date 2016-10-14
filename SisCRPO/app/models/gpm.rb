@@ -1,6 +1,6 @@
 class Gpm < ActiveRecord::Base
 
-validates :sigla, :nome, :cidade, presence: true
+	validates :initials, :name, :city_id, presence: true
 
 
 end
