@@ -15,8 +15,8 @@ class UsersController < ApplicationController
     @select_funcoes = Function.all
 
     if @user.save
-        @user_function = UsersFunction.new(@user.id, :function_id)
-        @user_function.save
+        #@user_function = UsersFunction.new(@user.id, :function_id)
+        #@user_function.save
         redirect_to new_user_path , notice: "Usuário cadastrado com sucesso."
       else
         render action: :new
@@ -41,7 +41,7 @@ def update
 end
 
 def findIdFunc
-    @user = User.find(params[:idFunc])
+    @user = User.find(params[:id_func])
 end
 
 def destroy
@@ -61,9 +61,9 @@ end
   private
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation,
-                                 :ativo, :idFunc, :email,  :cpf, :nomeGuerra,
-                                 :imagemUsuario, :idUsuarioFuncao, :dataNascimento,
-                                 :sexo, :endereco, :bairro, :cidade, :estado, :cep,
-                                 :postograduacao_id)
+                                 :actived, :id_func, :email,  :cpf, :war_name,
+                                 :image_path, :function_id, :birth,
+                                 :gender, :address, :neighborhood, :city, :state, :zip_code,
+                                 :post_graduation_id)
   end
 end
