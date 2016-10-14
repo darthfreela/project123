@@ -47,12 +47,12 @@ module ApplicationHelper
     end
 
  #profile da navbar-header
- def get_profile_user(id)
-      return Profile.find(3)
+ def get_profile_user
+      return Profile.find(current_user.profile_id)
   end
 
   #profiles secundarios
   def get_other_profiles
-      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id).joins("JOIN users ON users.id = temporary_replacements.occupant_id_func").joins("JOIN profiles ON profiles.id = users.profile_id")
+      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id)
   end
 end
