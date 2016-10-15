@@ -8,6 +8,7 @@ class TraineesController < ApplicationController
 
  def create
       @trainee = Trainee.new(trainee_params)
+      @trainee.user_id_last_change = current_user.id
       @trainee_show = Trainee.all
 
       #mock de cidades simulando retorno do banco
@@ -35,6 +36,7 @@ class TraineesController < ApplicationController
 
   def update
         @trainee = Trainee.find(params[:id])
+        @trainee.user_id_last_change = current_user.id
         if @trainee.update_attributes(trainee_params)
              redirect_to new_trainee_path, notice: "Estagiário editado com sucesso."
         else

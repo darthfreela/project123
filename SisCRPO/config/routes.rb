@@ -31,8 +31,6 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  resources :disthoraext
-
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
 
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
@@ -45,13 +43,9 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
 
-  resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
-
   resources :request_dispenses
 
-  resources :disthoraext
-
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :extra_hour_distributions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
 
