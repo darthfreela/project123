@@ -6,8 +6,6 @@ post '/change_profile' => "users#change_current_profile"
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
 
-resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
-
 resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
 resources :import_files, :only =>  [:new, :edit, :destroy, :update]
@@ -15,8 +13,6 @@ resources :import_files, :only =>  [:new, :edit, :destroy, :update]
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :dashboard, :only => [:index]
-
-  resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
   resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
