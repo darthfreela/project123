@@ -58,10 +58,28 @@
             <% @solicitation_show.each do |l|%>
               <tr>
                 <td><%= l.id %></td>
-                <td><%= l.type_solicitation %></td>
+                <% if l.type_solicitation != nil && l.type_solicitation == 0 %>
+                  <td>Férias</td>
+                  <% else if l.type_solicitation != nil && l.type_solicitation == 1 %>
+                    <td>Dispensa</td>
+                      <% else %>
+                        <td>Licença</td>                      
+                  <% end %>
+                <% end %>
+
                 <td><%= data_br l.date_begin %></td>
                 <td><%= data_br l.date_end %></td>
-                <td><%= l.status %></td>
+                <% if l.status != nil && l.status == 0 %>
+                  <td><i class="fa fa-circle " title="Não Visualizado"> Não Visualizado</i></td>
+                  <% else if l.status != nil && l.status == 1 %>
+                    <td><i class="fa fa-circle " title="Visualizado"> Visualizado</i></td>
+                      <% else if l.status != nil && l.status == 2 %>
+                        <td><i class="fa fa-check " title="Aprovado"> Aprovado</i></td>
+                        <% else %>
+                          <td><i class="fa fa-times " title="Negado"> Negado</i></td>
+                      <% end %>
+                  <% end %>
+                <% end %>
 
                 <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
                  {:controller => 'solicitations', :action => 'edit', :id => l.id},

@@ -1,24 +1,25 @@
 class SolicitationsController < ApplicationController
   def new
       @solicitation = Solicitation.new
-      @solicitation_show = Solicitation.all
+      @solicitation_show = Solicitation.where(user_id: current_user.id_func).all
       # retorno do banco para popular select para usuário
       @select_users = User.all
   end
 
   def create
-    puts ("ENTROU aqui .............................................................................")
-    # puts :user_id +" <---"
     @solicitation = Solicitation.new(solicitation_params)
-    @solicitation_show = Solicitation.all
+    @solicitation.status = 0
 
-    puts "ENTROU aqui ............................................................................."
+    if @solicitation.type_solicitation != 2
+        @solicitation.type_license = nil
+        @solicitation.license_days = nil
+    end
+
+    @solicitation_show = Solicitation.where(user_id: current_user.id_func).all
+
     if @solicitation.save
       redirect_to new_solicitation_path, notice: "Solicitação registrada com sucesso."
     else
-      # mostra os erros no terminal ** muito util saporra
-      puts "Erro aqui ............................................................................."
-      Rails.logger.info(@solicitation.errors.messages.inspect)
       render action: :new
     end
   end
@@ -45,7 +46,6 @@ class SolicitationsController < ApplicationController
 
   private
   def solicitation_params
-      puts :user_id
       params.require(:solicitation).permit(:type_solicitation,
        :type_license ,:license_days, :date_begin, :date_end, :user_id, :description )
   end

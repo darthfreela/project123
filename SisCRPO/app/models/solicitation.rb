@@ -13,7 +13,6 @@ class Solicitation < ActiveRecord::Base
   '''
       validates :date_begin, presence: true
       validates :date_end, presence: true
-      validates :license_days, numericality: true
 
       # relacionamentos
       belongs_to :user
