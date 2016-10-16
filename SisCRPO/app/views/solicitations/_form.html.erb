@@ -1,0 +1,59 @@
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @solicitation.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@solicitation.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @solicitation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<%= form_for @solicitation do |l| %>
+  <div class="box-body">
+    <div class="form-group col-md-3">
+      <label>Id Func</label>
+      <%= l.text_field :user_id, value:current_user.id_func, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %>
+    </div>
+    <div class="form-group col-md-8">
+      <label>Nome</label>
+      <%= l.text_field :user_id, value:current_user.name, readonly:"true", maxlength: "80", class:"form-control" %>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Tipo da Solicitação*</label>
+      <%= l.select :type_solicitation, [['Férias',0], ['Dispensa',1], ['Licença',2]],{}, class: "form-control select2" %>
+    </div>
+    <div class="form-group col-md-3">
+      <label>Tipo de Licença*</label>
+      <%= l.select :type_license, [['Especial',0], ['Interesses próprios',1]],{}, class: "form-control select2" %>
+    </div>
+    <div class="form-group col-md-4">
+      <label>Tempo da Licença em dias*</label>
+      <%= l.select :license_days, [['30', 30], ['60', 60], ['90', 90]],{}, class: "form-control select2" %>
+    </div>
+    <div class="form-group col-md-2">
+        <label>Data Inicial*</label>
+        <%= l.date_field :date_begin, class:"form-control data",:value => l.object.date_begin.try(:strftime,"%d-%m-%Y") %>
+    </div>
+    <div class="form-group col-md-2">
+        <label>Data Final*</label>
+        <%= l.date_field :date_end, class:"form-control data",:value => l.object.date_end.try(:strftime,"%d-%m-%Y") %>
+    </div>
+    <div class="col-md-8 form-group ">
+        <label>Descrição da solicitação</label>
+        <%= l.text_area :description, PlaceHolder: "Descreva sua solicitação", maxlength: "300", class:"form-control" %>
+    </div>
+
+  </div>
+
+  <div class="box-footer">
+    <%= l.submit "Salvar", class: "btn btn-success" %>
+    <%= l.button "Limpar", class: "btn btn-danger" %>
+    <div class=" small pull-right">* Campos obrigatórios</div>
+  </div>
+<% end %>

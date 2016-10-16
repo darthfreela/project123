@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     #relacionamentos
     belongs_to :users_functions
     belongs_to :add_user_ref_to_pointing_hours
-    has_many :request_licence
+    has_one :solicitation
     has_one :postograduacaos
     has_many :request_dispenses
     belongs_to :postograduacao

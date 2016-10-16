@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014141045) do
+ActiveRecord::Schema.define(version: 20161016022930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,17 +185,6 @@ ActiveRecord::Schema.define(version: 20161014141045) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "request_solicitations", force: :cascade do |t|
-    t.string   "description"
-    t.date     "date_begin"
-    t.date     "date_end"
-    t.integer  "user_id"
-    t.integer  "status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "type_solicitation"
-  end
-
   create_table "request_vacations", force: :cascade do |t|
     t.date     "date_begin"
     t.date     "date_end"
@@ -213,6 +202,19 @@ ActiveRecord::Schema.define(version: 20161014141045) do
     t.boolean  "actived"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "solicitations", force: :cascade do |t|
+    t.string   "description"
+    t.date     "date_begin"
+    t.date     "date_end"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "type_solicitation"
+    t.integer  "type_license"
+    t.integer  "license_days"
   end
 
   create_table "temporary_replacements", force: :cascade do |t|

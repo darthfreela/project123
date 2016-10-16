@@ -81,6 +81,8 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :request_licences, :only => [:new, :create, :edit, :destroy, :update]
 
+  resources :solicitations, :only => [:index, :new, :create, :edit, :destroy, :update]
+
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
