@@ -2,6 +2,7 @@ class ImportedFilesController < ApplicationController
 require "docx"
 require "pry"
 
+
 def new
     @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
@@ -10,6 +11,7 @@ def new
 
 
     # Open docx
+<<<<<<< HEAD
     doc = Docx::Document.open('boletim.docx')
 
     i = 0
@@ -66,6 +68,36 @@ def new
     end
 
   end
+=======
+        doc = Docx::Document.open('boletim.docx')
+        first_table = doc.tables[0]
+        puts first_table.row_count
+        first_table.rows.each do |row| # Row-based iteration
+          puts row.cells.count
+          if row.cells.count == 5
+            #puts "Grad. #{row.cells[0]}"
+            @userdodemetrius = User.where(id_func: 2312794).first
+            if !@userdodemetrius.nil?
+                @tabela = ImportedFile.new
+                 @tabela.graduation = row.cells[0]
+                 @tabela.bulletin_name = row.cells[0]
+                 @tabela.id_func = row.cells[0]
+                 @tabela.opm = row.cells[0]
+                 @tabela.save
+
+              puts "Teste!! #{@userdodemetrius.name}"
+
+              #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+
+
+            end
+          end
+          # row.cells.each do |cell|
+          #   puts cell.text
+          # end
+        end
+>>>>>>> 60d4743d4fb213590ec80c8076b42d2d11b058e9
+
 
 end
 
