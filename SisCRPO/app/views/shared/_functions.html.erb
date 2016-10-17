@@ -1,0 +1,14 @@
+<li class="notifications-menu">
+
+            <% user_profile = get_profile_user %>
+            <%= link_to user_profile.name, {:controller => :users, :action => :change_current_profile,  :profile_id => current_user.profile_id }, :class => "dropdown-toggle profiles", :method => "post"%>
+
+</li>
+ <% other_functions = get_other_profiles %>
+            <% get_other_profiles.each do | o |%>
+            <% occupant = User.find(o.occupant_id_func)
+                   profile = Profile.find(occupant.profile_id) %>
+            <li class="notifications-menu">
+                <%= link_to profile.name, {:controller => :users, :action => :change_current_profile, :profile_id => profile.id}, :class => "dropdown-toggle profiles", :method => "post" %>
+            </li>
+    <% end %>

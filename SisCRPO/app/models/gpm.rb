@@ -1,14 +1,8 @@
 class Gpm < ActiveRecord::Base
 
-validates :initials, :name, presence: true
+	validates :initials, :name, :city_id, presence: true
 
+	# relacionamentos
+  has_one :extra_hour_distribution
 
 end
-
-# id integer NOT NULL DEFAULT nextval('gpms_id_seq'::regclass),
-#   initials character varying,
-#   name character varying,
-#   actived boolean,
-#   city_id integer,
-#   platoon_id integer,
-#   companies_id integer,

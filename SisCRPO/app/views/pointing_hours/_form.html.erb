@@ -1,0 +1,54 @@
+<div class="alert-error">
+    <%= flash[:error] %>
+    <% if @pointingHour.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@pointingHour.errors.count, "erro") %>.
+        </div>
+        <ul>
+            <% @pointingHour.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
+<%= form_for @pointingHour do |f| %>
+    <div class="box-body">
+    	<div class="form-group col-md-4">
+		    <label>Id Func</label>
+            <%= f.text_field :user_id, value:current_user.id, disabled:"true" , maxlength: "80", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-7">
+            <label>Nome *</label>
+            <%= f.text_field :user_id, value:current_user.name, disabled:"true" , maxlength: "80", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+		    <label>Data Inicio*</label>
+            <%= f.date_field :date_hour_begin, class:"form-control data" %>
+        </div>
+        <div class="form-group col-md-2">
+		    <label>Hora Inicio*</label>
+            <%= f.text_field @horadeinicio.hour_begin, class:"form-control timepicker" %>
+        </div>
+        <div class="form-group col-md-2">
+		    <label>Data Fim*</label>
+            <%= f.date_field :date_hour_end, class:"form-control data" %>
+        </div>
+        <div class="form-group col-md-2">
+		    <label>Hora Fim*</label>
+            <%= f.text_field @hour_end, class:"form-control timepicker" %>
+        </div>
+        <div class="form-group col-md-7">
+            <label>Tipo De Serviço *</label>
+            <%= f.select :service_type_id, @serviceType.map{|s| [s.nome, s.id]}, {}, class: "form-control select2"%>
+        </div>
+    </div>
+    <div class="box-footer">
+        <%= f.submit "Salvar", Class: "btn btn-success" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+    </div>
+<% end %>

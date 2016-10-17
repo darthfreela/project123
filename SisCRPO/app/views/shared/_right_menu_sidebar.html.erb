@@ -9,14 +9,15 @@
 </ul><!-- /.sidebar-menu -->
 <!-- Ferramentas de Usuário -->
 <ul class="sidebar-menu">
-  <li class="header"><span>Ferrmentas De Usuário</span></li>
+  <li class="header"><span>Ferramentas do Usuário</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i>
       <span>Gerenciar</span>
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_estagiario_path + "," + new_postograduacao_path + "," + new_service_type_path + "," + new_initial_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_distribuicao_horas_extra_path + "," + new_temporary_replacement_path + "," + new_informative_text_daily_bulletin_path + "," +new_licenca_path + "," + new_profile_path) %>;">
-      <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_trainee_path + "," + new_post_graduation_path + "," + new_service_type_path + "," + new_initial_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_extra_hour_distribution_path + "," + new_temporary_replacement_path + "," + new_text_informative_path + "," + new_solicitation_path + "," + new_profile_path + "," + new_request_vacation_path + "," + new_platoon_path + "," + new_post_graduation_path ) %>;">
+
+    <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Usuários</span>
@@ -46,8 +47,8 @@
           <span>Uniformes</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_estagiario_path, true) %>">
-        <%= link_to new_estagiario_path do %>
+      <li class="<%= ative_se_pagina_atual(new_trainee_path, true) %>">
+        <%= link_to new_trainee_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Estagiários</span>
         <% end  %>
@@ -73,19 +74,19 @@
       <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
         <%= link_to new_pointing_hour_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Apontamentos de Horas</span>
+          <span>Apontamento de Horas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_distribuicao_horas_extra_path, true) %>">
-        <%= link_to new_distribuicao_horas_extra_path do %>
+      <li class="<%= ative_se_pagina_atual(new_extra_hour_distribution_path, true) %>">
+        <%= link_to new_extra_hour_distribution_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Horas Extras</span>
+          <span>Distribuir Horas Extras</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_licenca_path, true) %>">
-        <%= link_to new_licenca_path do %>
+      <li class="<%= ative_se_pagina_atual(new_solicitation_path, true) %>">
+        <%= link_to new_solicitation_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Licença</span>
+          <span>Solicitações</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_profile_path, true) %>">
@@ -94,8 +95,8 @@
         <span>Perfil</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_release_vacation_path, true) %>">
-        <%= link_to new_release_vacation_path do %>
+      <li class="<%= ative_se_pagina_atual(new_request_vacation_path, true) %>">
+        <%= link_to new_request_vacation_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Lanç. Férias</span>
         <% end  %>
@@ -116,6 +117,8 @@
         <%= link_to new_rh_license_approval_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Aprovação Licença</span>
+        <% end  %>
+      </li>
       <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
         <%= link_to new_request_dispense_path do %>
           <i class="fa  fa-wrench"></i>
@@ -128,10 +131,10 @@
           <span>Aprovação de Dispensas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_approval_request_dispense_superior_path, true) %>">
-        <%= link_to new_approval_request_dispense_superior_path do %>
+      <li class="<%= ative_se_pagina_atual(new_approval_solicitation_path, true) %>">
+        <%= link_to new_approval_solicitation_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Aprovação Disp (Superior)</span>
+          <span>Aprovação de solicitações</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_imported_file_path, true) %>">
@@ -146,8 +149,20 @@
           <span>Importar </span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual( new_import_newsletter_path, true) %>">
-        <%= link_to  new_informative_text_daily_bulletin_path do %>
+      <li class="<%= ative_se_pagina_atual( new_platoon_path, true) %>">
+        <%= link_to  new_platoon_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Pelotão</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual( new_post_graduation_path, true) %>">
+        <%= link_to  new_post_graduation_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Posto/Graduação</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual( new_text_informative_path, true) %>">
+        <%= link_to  new_text_informative_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Textos Informativos</span>
         <% end  %>
@@ -155,7 +170,7 @@
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
-  <li class="header"><span>Ferramentas Administrativas</span></li>
+  <li class="header"><span>Ferramentas da Administração</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i>
@@ -176,6 +191,5 @@
         <% end %>
       </li>
     </ul>
-    <% end %>
   </li>
 </ul>

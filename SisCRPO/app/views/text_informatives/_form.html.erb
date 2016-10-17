@@ -1,0 +1,46 @@
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @text_informative.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@text_informative.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @text_informative.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<%= form_for @text_informative do |f| %>
+  <div class="box-body">
+    <div class="col-md-12">
+      <div class="form-group col-md-2">
+        <label>Tipo</label>        
+           <%= f.select :type, [
+                ['Afastamento','1'], 
+                ['Licenças(todas)','2'],
+                ['Substituições','3'], 
+                ['Transferências','4'],
+                ['Movimentação sanitária','5'], 
+                ['Entrega de Uniformes','6'], 
+                ['Ação e contenção','7'], 
+                ['Operações que participou','8'], 
+                ['Diversas', '9']
+              ],{},
+                class: "form-control select2" %>
+      </div>
+    </div>
+    <div class="col-md-12">                                    
+      <div class="form-group col-md-6">
+        <label>Descrição</label>                    
+        <%= f.text_area :description, maxlength: "255", class:"form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="box-footer">
+    <%= f.submit "Salvar", class: "btn btn-success" %>
+    <%= f.button "Cancelar", class: "btn btn-danger" %>
+  </div>
+<%end%>

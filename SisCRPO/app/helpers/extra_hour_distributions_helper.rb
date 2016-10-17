@@ -1,0 +1,2 @@
+module ExtraHourDistributionsHelper
+end

@@ -13,33 +13,32 @@
 </div>
 <%= form_for @companie do |f| %>
     <div class="box-body">
-        <div class="form-group col-md-5">
-            <!--<%= f.label :cidade %>-->
-
-            <label>Cidade</label>
-            <%= f.select :city_id, options_for_select(@select_cidades),{}, class: "form-control select2" %>
-        </div>
         <div class="form-group col-md-7">
-                    <!--<%= f.label :nome %>-->
             <label>Nome*</label>
             <%= f.text_field :name, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
         </div>
 
         <div class="form-group col-md-5">
             <label>OPM</label>
-            
             <%= f.select :opm_id ,@select_opms.map{|s| [s.name, s.id]} , {}, class: "form-control select2" %>
         </div>
-
+        
+        <div class="form-group col-md-5">
+            <label>Cidade</label>
+            <%= f.select :city_id, @select_cities.map{ |s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
+        </div>
         <div class="form-group col-md-2">
-            <!--<%= f.label :ativo %>-->
             <label>Ativo*</label>
-            <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
+            <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control select2" %>
         </div>
     </div>
     <div class="box-footer">
         <%= f.submit "Salvar", Class: "btn btn-success" %>
-        <%= f.button "Limpar", Class: "btn btn-danger" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
         <div class=" small pull-right">* Campos obrigatórios</div>
     </div>
 <% end %>

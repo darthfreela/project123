@@ -28,7 +28,9 @@
         <div class="box-header">
             <h3 class="box-title">Listar Companhias</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
             </div>
         </div>
         <div class="box-body">
@@ -42,14 +44,15 @@
         <hr>
         <div class="box-body">
         <% if @companie_show.count <= 0 %>
-                        <tr><td>Não existem companhias cadastradas.</td></tr>
+            Não existem companhias cadastradas.
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                         <tr>
-                            <th>Cidade</th>
+                            <th>Id</th>
                             <th>Nome</th>
-                            <th>OPM</th>
+                            <th>Unidade</th>
+                            <th>Cidade</th>
                             <th>Ativo</th>
                         </tr>
                     </thead>
@@ -57,9 +60,14 @@
                         <% @companie_show.each do |o|%>
                             <% if o.id >= 0 %>
                                 <tr>
-                                    <td><%= o.city_id %></td>
+                                    <td><%= o.id %></td>
                                     <td><%= o.name %></td>
                                     <td><%= o.opm.name %></td>
+                                    <% @select_cities.each do |sc| %>
+                                        <% if o.city_id == sc.id %>
+                                          <td><%= sc.name %></td>
+                                        <% end %>
+                                    <% end %>
                                     <%if o.actived == true%>
                                       <td>Sim</td>
                                     <% else %>

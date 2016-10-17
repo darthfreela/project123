@@ -1,14 +1,26 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+=======
+
+post '/change_profile' => "users#change_current_profile"
+>>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
 
+<<<<<<< HEAD
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+=======
+resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+>>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
 
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
+
+<<<<<<< HEAD
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 
   resources :dashboard, :only => [:index]
@@ -23,36 +35,38 @@ resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :report_overtime_supplementations, :only =>  [:index]
+=======
+  resources :dashboard, :only => [:index]
+
+  resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  post '/change_profile' => "users#change_current_profile"
+
+resources :report_overtime_supplementations, :only =>  [:index]
+
+>>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
-
-  resources :disthoraext
 
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-   resources :disthoraext
-
-  resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
+  resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
 
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
 
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
-  get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
-  get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
+  get 'approval_solicitation/:id' => 'approval_solicitation#edit'
+  get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
 
-  get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
-
-  resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
+  get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
 
   resources :request_dispenses
 
-  resources :disthoraext
-
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :extra_hour_distributions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
 
@@ -64,33 +78,35 @@ resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :d
 
   resources :temporary_replacements, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :release_vacations,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :request_vacations,  :only => [:new, :create, :edit, :destroy, :update]
 
   resources :service_types,  :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :pelotaos,  :only => [:new, :create, :edit, :destroy, :update]
+  resources :platoons,  :only => [:new, :create, :edit, :destroy, :update, :cities_platoon]
+  get "/cities_platoon" => "platoons#cities_platoon"
 
   resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-  resources :estagiarios, :only => [:new, :create, :edit, :destroy, :update]
+  resources :trainees, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
+  resources :post_graduations, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :person_table, :only => [:index]
 
   resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
-
-  resources :postograduacaos, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :uniforms, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :functions, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :opms, :only => [:index, :new, :create, :edit, :destroy, :update]
+  get "/cities_opm" => "platoons#cities_opm"
 
   resources :solicitacao_fers, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :licencas, :only => [:new, :create, :edit, :destroy, :update]
+  resources :request_licences, :only => [:new, :create, :edit, :destroy, :update]
+
+  resources :solicitations, :only => [:index, :new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
 

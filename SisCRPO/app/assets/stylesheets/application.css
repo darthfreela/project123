@@ -19,6 +19,7 @@
  *= require plugins/timepicker/bootstrap-timepicker.css
  *= require plugins/datepicker/datepicker3.css
  *= require plugins/datatables/dataTables.bootstrap.css
+ *= require plugins/timepicker/bootstrap-timepicker.css
  *= require_tree .
  *= require_self
  */
@@ -56,4 +57,9 @@
 
 .select2 {
     width: 100% !important;
+}
+
+.profiles:hover {
+    background: rgb(239, 183, 49) !important;
+    font-weight: bold !important;
 }

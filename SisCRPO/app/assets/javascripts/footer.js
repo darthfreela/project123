@@ -18,8 +18,9 @@
 //= require plugins/input-mask/jquery.inputmask.js
 //= require plugins/datepicker/bootstrap-datepicker.js
 //= require plugins/timepicker/bootstrap-timepicker.js
-//= require plugins/datatables/jquery.dataTables.min.js
-//= require plugins/datatables/dataTables.bootstrap.min.js
+//= require plugins/datatables/jquery.dataTables.js
+//= require plugins/datatables/dataTables.bootstrap.js
+//= require plugins/timepicker/bootstrap-timepicker.js
 $(function () {
 	// Iniciliazar combobox select2
 	$(".select2").select2();
@@ -76,9 +77,7 @@ $(function () {
 
 
 	// Formata'r cam'po data
-	$(".data").inputmask("99/99/9999");
-
-      
+	$(".data").inputmask("99/99/9999");     
 
 	$('.data').datepicker({
 		autoclose: true,
@@ -98,22 +97,27 @@ $(function () {
 	});
 	$('#calendar').fullCalendar({});   
 
-
-	$("#motivos").DataTable({
-        "language": {
-            "lengthMenu": "Mostrar _MENU_ entradas",
-            "zeroRecords": "Nenhum registro encontrado",
-            "info": "Mostrando _PAGE_ de _PAGES_ páginas",
-            "infoEmpty": "Nenhum registro encontrado",
-            "infoFiltered": "(filtrado apartir de  _MAX_ registros no total)",
-            "search": "Pesquisar: "
-        },
-        "oLanguage": {
-            "oPaginate": {
-              "sPrevious": "Anterior",
-              "sNext": "Próximo"
-        }
-      }
+	$("#example1").DataTable({
+		"language": {
+			"lengthMenu": "Mostrar _MENU_ entradas",
+			"zeroRecords": "Nenhum registro encontrado",
+			"info": "Mostrando _PAGE_ de _PAGES_ páginas",
+			"infoEmpty": "Nenhum registro encontrado",
+			"infoFiltered": "(filtrado apartir de  _MAX_ registros no total)",
+			"search": "Pesquisar: "
+		},
+		"oLanguage": {
+			"oPaginate": {
+				"sPrevious": "Anterior",
+				"sNext": "Próximo"
+			}
+		},
+		"paging": true,
+		"lengthChange": false,
+		"searching": false,
+		"ordering": true,
+		"info": true,
+		"autoWidth": false
     });
 
 });

@@ -13,9 +13,9 @@ module ApplicationHelper
   end
 
   def abrir_menu(path)
-    puts path + " <---> " + controller.request.fullpath
+    
     'block' if path.include?(controller.request.fullpath)
-  end
+  end  
 
   def eh_controller_da_pagina_atual?(path, caminho_exato)
     if caminho_exato
@@ -45,4 +45,14 @@ module ApplicationHelper
         date.strftime("%d/%m/%Y")
       end
     end
+
+ #profile da navbar-header
+ def get_profile_user
+      return Profile.find(current_user.profile_id)
+  end
+
+  #profiles secundarios
+  def get_other_profiles
+      return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id)
+  end
 end

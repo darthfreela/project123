@@ -1,0 +1,12 @@
+class CreateRequestVacations < ActiveRecord::Migration
+  def change
+    create_table :request_vacations do |t|
+      t.date :date_begin
+      t.date :date_end
+      t.string :status
+      t.integer :user_id
+
+      t.timestamps null: false
+    end
+  end
+end

@@ -1,7 +1,8 @@
 class Opm < ActiveRecord::Base
   has_many :gpm
-  validates :nome, presence: true
-  validates :sigla, presence: true
+  validates :initials, presence: true
+  validates :name, presence: true
+  validates :city_id, presence: true
 
 
   # relacionamentos

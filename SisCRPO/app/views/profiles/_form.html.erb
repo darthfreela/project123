@@ -1,0 +1,35 @@
+<div class="alert-error">
+    <%= flash[:error] %>
+    <% if @profile.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@profile.errors.count, "erro") %>.
+        </div>
+        <ul>
+            <% @profile.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>  
+        </ul>
+    <% end %>
+</div>
+
+<%= form_for @profile do |f| %>
+    <div class="box-body">
+        <div class="form-group col-md-7">
+            <label>Nome*</label>
+            <%= f.text_field :name, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-3">
+            <label>Ativo</label>
+            <%= f.select :actived, [['Sim', true], ['Não', false]],{}, class: "form-control select2" %>
+        </div>
+    </div>
+    <div class="box-footer">
+        <%= f.submit "Salvar", Class: "btn btn-success" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+    </div>
+<% end %>

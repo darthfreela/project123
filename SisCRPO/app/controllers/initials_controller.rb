@@ -1,41 +1,42 @@
 class InitialsController < ApplicationController
   def new
-        @sigla = Sigla.new
-        @sigla_show = Sigla.all
+        @initial = Initial.new
+        @initial_show = Initial.all
     end
 
     def create
-        @sigla = Sigla.new(sigla_params)
-        @sigla_show = Sigla.all
+        @initial = Initial.new(initial_params)
+        @initial_show = Initial.all
 
-        if @sigla.save
-            redirect_to new_sigla_path , notice: "Sigla cadastrada com sucesso."
+        if @initial.save
+            redirect_to new_initial_path , notice: "Sigla cadastrada com sucesso."
         else
             render action: :new
         end
     end
 
     def edit
-        @sigla = Sigla.find(params[:id])
+        @botao = 'edit'
+        @initial = Initial.find(params[:id])
     end
 
     def update
-        @sigla = Sigla.find(params[:id])
-        if @sigla.update_attributes(sigla_params)
-            redirect_to new_sigla_path, notice: "Sigla cadastrada com sucesso."
+        @initial = Initial.find(params[:id])
+        if @initial.update_attributes(initial_params)
+            redirect_to new_initial_path, notice: "Sigla cadastrada com sucesso."
         else
-            redirect_to new_sigla_path, :flash => { :error => "Erro ao editar a sigla!" }
+            redirect_to new_initial_path, :flash => { :error => "Erro ao editar a sigla!" }
         end
     end
 
     def destroy
-        @sigla = Sigla.find(params[:id])
-        @sigla.destroy
-        redirect_to new_sigla_path, notice: "Sigla removida com sucesso."
+        @initial = Initial.find(params[:id])
+        @initial.destroy
+        redirect_to new_initial_path, notice: "Sigla removida com sucesso."
     end
 
     private
-    def sigla_params
+    def initial_params
         params.require(:initial).permit(:initial, :name)
     end
 end

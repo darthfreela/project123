@@ -1,6 +1,5 @@
 class ImportedFilesController < ApplicationController
 require "docx"
-require "nokogiri"
 
 def new
     @importedFile = ImportedFile.new
@@ -24,6 +23,7 @@ def new
           #   puts cell.text
           # end
         end
+<<<<<<< HEAD
         #doc.paragraphs.each do |p|
           #puts p
           #if p.to_s.match(/([0-9]{7})/)
@@ -148,6 +148,8 @@ def new
         #    end
         # end
       #  end
+=======
+>>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
 
 end
 
