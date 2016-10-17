@@ -7,8 +7,6 @@ def new
     @importedFile_show = ImportedFile.all
     @user = User.all
 
-<<<<<<< HEAD
-=======
     # Open docx
         doc = Docx::Document.open('boletim.docx')
         first_table = doc.tables[0]
@@ -34,11 +32,11 @@ def new
           #    if u.id_func.to_s == p.to_s
                # @teste = p
 
-                
+
           #    end
-          #  end 
+          #  end
           #end
-          
+
         #end
 
       # Open .txt
@@ -47,7 +45,6 @@ def new
         #lines.each do |line|
         #@teste = line
         #end
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
 
 #f=File.open('BMP.doc')
 #doc =Nokogiri::XML(f)
@@ -86,7 +83,6 @@ def new
 
       #akii demetrius
       # Open docx
-<<<<<<< HEAD
         #doc = Docx::Document.open('boletim.docx')
         #doc.paragraphs.each do |p|
         #puts p
@@ -107,7 +103,7 @@ def new
         #puts first_table.rows[0].cells[0].text
         #puts first_table.columns[0].cells[0].text
         #end
-=======
+
       #  doc = Docx::Document.open('boletim.docx')
       #  doc.paragraphs.each do |p|
       # puts p
@@ -127,7 +123,7 @@ def new
       #  puts first_table.rows[0].cells[0].text
       #  puts first_table.columns[0].cells[0].text
       #  end
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
+
 
       #  doc = Docx::Document.open('boletim.docx')
       #  first_table = doc.tables[0]
