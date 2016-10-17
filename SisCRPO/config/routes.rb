@@ -1,26 +1,19 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-=======
 
 post '/change_profile' => "users#change_current_profile"
->>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
 
-<<<<<<< HEAD
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
   resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-=======
 resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
 resources :import_files, :only =>  [:new, :edit, :destroy, :update]
->>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
-<<<<<<< HEAD
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 
   resources :dashboard, :only => [:index]
@@ -35,7 +28,6 @@ resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :report_overtime_supplementations, :only =>  [:index]
-=======
   resources :dashboard, :only => [:index]
 
   resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
@@ -44,7 +36,6 @@ resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :d
 
 resources :report_overtime_supplementations, :only =>  [:index]
 
->>>>>>> 87c70323bc8f456e56ea0d7d8ea1286a7b9e5843
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
 
