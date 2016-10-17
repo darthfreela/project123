@@ -16,4 +16,5 @@ class Solicitation < ActiveRecord::Base
 
       # relacionamentos
       belongs_to :user
+      has_one :approval_solicitation
 end

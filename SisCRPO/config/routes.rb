@@ -27,17 +27,17 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-  resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
+  resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
 
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
 
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
-  get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
-  get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
+  get 'approval_solicitation/:id' => 'approval_solicitation#edit'
+  get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
 
-  get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
+  get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
 
   resources :request_dispenses
 

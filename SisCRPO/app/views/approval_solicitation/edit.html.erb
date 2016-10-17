@@ -1,0 +1,71 @@
+<section class="content">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Aprovação de Solicitação</h3>
+    </div>
+    <div class="error"><%= flash[:error] %></div>
+    <% if @approval_solicitation.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+            O formulário contém <%= pluralize(@approval_solicitation.errors.count, "erro") %>.
+        </div>
+        <ul>
+          <% @approval_solicitation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_for @approval_solicitation do |l| %>
+      <div class="box-body">
+        <div class="form-group col-md-12">
+          <div class="form-group col-md-4">
+            <label>Id Func</label>
+            <%= l.text_field :user, value:@approval_solicitation.user.id_func, disabled:"true", class:"form-control autocompleteFunc" %>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Nome do servidor</label>
+            <%= l.text_field :user ,value:@approval_solicitation.user.name, disabled:"true", class:"form-control autocompleteFunc" %>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Posto graduação</label>
+            <%= l.text_field :user, value:@approval_solicitation.user.post_graduation.initials, disabled:"true", class:"form-control autocompleteFunc" %>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Motivo da indisponibilidade</label>
+            <%= l.text_area :solicitation, value:@approval_solicitation.solicitation.description, disabled:"true", class:"form-control autocompleteFunc" %>
+          </div>
+          <div class="form-group col-md-4">
+            <label>Função Exercida</label>
+            <%= l.text_field :user,value:@approval_solicitation.user.function.name, disabled:"true", class:"form-control autocompleteFunc" %>
+          </div>
+
+          <div class="form-group col-md-2">
+              <label>Data Inicial*</label>
+               <%= l.date_field :solicitation, value:@approval_solicitation.solicitation.date_begin, class:"form-control data" %>
+          </div>
+          <div class="form-group col-md-2">
+              <label>Data Final*</label>
+              <%= l.date_field :solicitation, value:@approval_solicitation.solicitation.date_end, class:"form-control data" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-footer">
+        <%= link_to raw("<i class='fa fa-check-square-o  '> Permitir</i>"),
+          {:controller => 'approval_solicitation',
+            :action => 'approve', :id => @approval_solicitation.id},
+            :data => {:confirm => "Realmente deseja aprovar o registro ?"},
+            class: 'btn btn-success', method: :get %>
+        <%= link_to raw("<i class='fa fa-close'> Negar</i>"),
+          {:controller => 'approval_solicitation',
+            :action => 'reprove', :id => @approval_solicitation.id},
+            :data => {:confirm => "Realmente deseja negar o registro ?"},
+           class: 'btn btn-danger', method: :get %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+      </div>
+
+    <% end %>
+  </div>
+</section>
