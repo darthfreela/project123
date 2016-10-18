@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require autocomplete-rails
 //= require notifyjs_rails
+//= require jquery.form-validator
 
 $('#calendar').fullCalendar({});

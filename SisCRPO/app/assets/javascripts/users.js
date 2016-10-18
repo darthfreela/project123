@@ -45,4 +45,7 @@ $(function () {
 	$('.data').datepicker({
 		autoclose: true
 	});
+
 });
+
+
