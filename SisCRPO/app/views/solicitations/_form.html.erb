@@ -26,8 +26,13 @@
 
     <div class="form-group col-md-3">
       <label>Tipo da Solicitação*</label>
-      <%= l.select :type_solicitation, [['Férias',0], ['Dispensa',1], ['Licença',2]],{}, class: "form-control select2" %>
+      <% if @botao == 'edit' %>
+      <%= l.select :type_solicitation, [['Férias',0], ['Dispensa',1], ['Licença',2]],{},disabled:"true", class: "form-control select2" %>
+      <% else %>
+        <%= l.select :type_solicitation, [['Férias',0], ['Dispensa',1], ['Licença',2]],{}, class: "form-control select2" %>
+      <% end %>
     </div>
+
     <div id="tipo_licenca_id" class="form-group col-md-3">
       <label>Tipo de Licença*</label>
       <%= l.select :type_license, [['Especial',0], ['Interesses próprios',1]],{}, class: "form-control select2" %>
