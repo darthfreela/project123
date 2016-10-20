@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
+
 post '/change_profile' => "users#change_current_profile"
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create

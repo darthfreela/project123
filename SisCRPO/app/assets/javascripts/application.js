@@ -14,5 +14,3 @@
 //= require jquery_ujs
 //= require autocomplete-rails
 //= require notifyjs_rails
-
-$('#calendar').fullCalendar({});

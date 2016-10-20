@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014141045) do
+ActiveRecord::Schema.define(version: 20161017212630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "approval_solicitations", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "request_solicitation_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "solicitation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "bulletins", force: :cascade do |t|
@@ -85,9 +85,6 @@ ActiveRecord::Schema.define(version: 20161014141045) do
   end
 
   create_table "imported_files", force: :cascade do |t|
-    t.string   "id_user"
-    t.string   "nome"
-    t.string   "posto"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "user_id"
@@ -116,6 +113,15 @@ ActiveRecord::Schema.define(version: 20161014141045) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "instruction_bulletins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.date     "date_begin"
+    t.date     "date_end"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "instructions", force: :cascade do |t|
@@ -185,17 +191,6 @@ ActiveRecord::Schema.define(version: 20161014141045) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "request_solicitations", force: :cascade do |t|
-    t.string   "description"
-    t.date     "date_begin"
-    t.date     "date_end"
-    t.integer  "user_id"
-    t.integer  "status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "type_solicitation"
-  end
-
   create_table "request_vacations", force: :cascade do |t|
     t.date     "date_begin"
     t.date     "date_end"
@@ -213,6 +208,19 @@ ActiveRecord::Schema.define(version: 20161014141045) do
     t.boolean  "actived"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "solicitations", force: :cascade do |t|
+    t.string   "description"
+    t.date     "date_begin"
+    t.date     "date_end"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "type_solicitation"
+    t.integer  "type_license"
+    t.integer  "license_days"
   end
 
   create_table "temporary_replacements", force: :cascade do |t|

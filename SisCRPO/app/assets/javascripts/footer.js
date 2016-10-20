@@ -95,9 +95,8 @@ $(function () {
 			alert('sad');
 		}
 	});
-	$('#calendar').fullCalendar({});   
-
-	$("#example1").DataTable({
+	
+	$("#motivos").DataTable({
 		"language": {
 			"lengthMenu": "Mostrar _MENU_ entradas",
 			"zeroRecords": "Nenhum registro encontrado",
