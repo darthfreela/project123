@@ -1,0 +1,101 @@
+<section class="content-header">
+  <h1>
+    Gerenciamento de Solicitações
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Ferramentas do usuário</a></li>
+    <li class="active">Gerenciamento de Solicitações</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="box box-default collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Solicitação</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <%= render 'form' %>
+  </div>
+
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Listagem de Solicitações</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="box-body">
+        <div class="input-group input-group-sm">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+            </span>
+        </div>
+    </div>
+    <hr>
+    <div class="box-body">
+      <% if @solicitation_show.count <= 0 %>
+        Não existem solicitações cadastradas.
+      <% else %>
+        <table id="motivos" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Tipo da solicitação</th>
+              <th>Data Inicial</th>
+              <th>Data Final</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @solicitation_show.each do |l|%>
+              <tr>
+                <td><%= l.id %></td>
+                <% if l.type_solicitation != nil && l.type_solicitation == 0 %>
+                  <td>Férias</td>
+                  <% else if l.type_solicitation != nil && l.type_solicitation == 1 %>
+                    <td>Dispensa</td>
+                      <% else %>
+                        <td>Licença</td>
+                  <% end %>
+                <% end %>
+
+                <td><%= data_br l.date_begin %></td>
+                <td><%= data_br l.date_end %></td>
+                <% if l.approval_solicitation.status == nil || l.approval_solicitation.status == 0 %>
+                  <td><i class="fa fa-circle " title="Não Visualizado"> Não Visualizado</i></td>
+                  <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 1 %>
+                    <td><i class="fa fa-circle " title="Visualizado"> Visualizado</i></td>
+                      <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 2 %>
+                        <td><i class="fa fa-check " title="Aprovado"> Aprovado</i></td>
+                        <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 3 %>
+                          <td><i class="fa fa-times " title="Negado"> Negado</i></td>
+                        <% end %>
+                      <% end %>
+                  <% end %>
+                <% end %>
+
+                <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                 {:controller => 'solicitations', :action => 'edit', :id => l.id},
+                  class: 'btn btn-warning', method: :get %>
+                </td>
+                <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                 {:controller => 'solicitations', :action => 'destroy', :id => l.id},
+                  :data => {:confirm => "Realmente deseja excluir este registro?"},
+                   class: 'btn btn-danger', method: :delete %>
+                 </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</section>

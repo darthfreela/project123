@@ -24,7 +24,7 @@ class RequestLicencesController < ApplicationController
       redirect_to new_request_licence_path, notice: "Solicitação excluída com sucesso."
     end
 
-    def editv
+    def edit
       @botao = 'edit'
       @select_users = User.all
       @request_licence = RequestLicence.find(params[:id])

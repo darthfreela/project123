@@ -36,6 +36,7 @@ class TextInformativesController < ApplicationController
 
   	private
   	def text_informative_params
-	    params.require(:text_informative).permit(:type, :description)
+
+	    params.require(:text_informative).permit(:type_informative, :description)
   	end
 end

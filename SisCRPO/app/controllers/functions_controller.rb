@@ -8,13 +8,10 @@ class FunctionsController < ApplicationController
 
 
   def edit
+    @botao = 'edit'
     @function = Function.find(params[:id])
 
-    # @select_funcoes = Function.where(manager_function_id: @function.manager_function_id)
     @select_funcoes = Function.all
-    # if !@select_funcoes
-    #     @select_funcoes = []
-    # end
   end
 
 

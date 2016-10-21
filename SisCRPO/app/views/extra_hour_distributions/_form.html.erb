@@ -1,0 +1,61 @@
+<div class="alert-error">
+  <%= flash[:error] %>
+  <% if @extra_hour_distribution.errors.any? %>
+    <div id="error_explanation">
+         O formulário contém <%= pluralize(@extra_hour_distribution.errors.count, "erro") %>.
+    </div>
+    <ul>
+       <% @extra_hour_distribution.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%= form_for @extra_hour_distribution do |f| %>
+  <div class="box-body">
+    <div class="form-group row">
+      <div class="form-group col-md-5">
+          <label>GPM que sera distribuido as horas*</label>
+          <%= f.select :gpm_id ,@select_gpms.map{|s| [s.name, s.id]} ,  {:include_blank => 'Selecionar'}, class: "form-control select2" , 
+            data: {
+              :validation => "required",
+              "validation-error-msg" => "Este campo é obrigatorio." } %>
+      </div>
+      <div class="form-group col-md-2">
+        <label>Número de horas*</label>
+        <%= f.text_field :how_many_hours, placeholder: "Número de Horas", class:"form-control" , 
+            data: {
+              :validation => "required",
+              :suggestions => "12",
+              "validation-error-msg" => "Este campo é obrigatorio." } %>
+      </div>    
+      <div class="form-group col-md-2">
+          <label>Data Inicial*</label>
+          <%= f.date_field :date_begin, class:"form-control data",:value => f.object.date_begin.try(:strftime,"%d-%m-%Y")  , 
+            data: {
+              :validation => "required",
+              :suggestions => "11/11/2011",
+              "validation-error-msg" => "Este campo é obrigatorio." } %>
+      </div>
+      <div class="form-group col-md-2">
+          <label>Data Final*</label>
+          <%= f.date_field :date_end, class:"form-control data",:value => f.object.date_end.try(:strftime,"%d-%m-%Y")  , 
+            data: {
+              :validation => "required",
+              :suggestions => "11/11/2011",
+              "validation-error-msg" => "Este campo é obrigatorio." } %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="box-footer">
+      <%= f.submit "Salvar", Class: "btn btn-success" %>
+      <% if @botao == 'edit' %>
+        <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+      <% else %>
+        <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+      <% end %>
+      <div class=" small pull-right">* Campos obrigatórios</div>
+  </div>
+<% end %>

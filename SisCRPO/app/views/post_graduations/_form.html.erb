@@ -2,15 +2,24 @@
   <div class="box-body">
     <div class="form-group col-md-3">      
       <label>Sigla *</label>
-      <%= f.text_field :initials, placeholder: "Sigla", maxlength: "6", class:"form-control" %>
+      <%= f.text_field :initials, placeholder: "Sigla", maxlength: "6", class:"form-control" , 
+                        data: {
+                            :validation => "required",
+                            "validation-error-msg" => "Este campo é obrigatorio." } %>
     </div>
     <div class="form-group col-md-7">
       <label>Nome *</label>
-      <%= f.text_field :name, placeholder: "Nome do Posto/Graduação", class:"form-control" %>
+      <%= f.text_field :name, placeholder: "Nome do Posto/Graduação", class:"form-control" , 
+                        data: {
+                            :validation => "required",
+                            "validation-error-msg" => "Este campo é obrigatorio." } %>
     </div>
     <div class="form-group col-md-2">
       <label>Ativo *</label>
-      <%= f.select :active ,[["Ativo", true],["Desativado", false]],{}, class:"form-control select2" %>
+      <%= f.select :active ,[["Ativo", true],["Desativado", false]],{:include_blank => 'Selecionar'}, class:"form-control select2" , 
+                        data: {
+                            :validation => "required",
+                            "validation-error-msg" => "Este campo é obrigatorio." } %>
     </div>
   </div>
   <div class="box-footer">

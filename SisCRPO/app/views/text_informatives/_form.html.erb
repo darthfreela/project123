@@ -16,31 +16,43 @@
 <%= form_for @text_informative do |f| %>
   <div class="box-body">
     <div class="col-md-12">
-      <div class="form-group col-md-2">
-        <label>Tipo</label>        
-           <%= f.select :type, [
-                ['Afastamento','1'], 
-                ['Licenças(todas)','2'],
-                ['Substituições','3'], 
-                ['Transferências','4'],
-                ['Movimentação sanitária','5'], 
-                ['Entrega de Uniformes','6'], 
-                ['Ação e contenção','7'], 
-                ['Operações que participou','8'], 
-                ['Diversas', '9']
+      <div class="form-group col-md-6">
+        <label>Tipo *</label>        
+           <%= f.select :type_informative, [
+                ['Selecionar',''], 
+                ['Afastamento','Afastamento'], 
+                ['Licenças(todas)','Licenças(todas)'],
+                ['Substituições','Substituições'], 
+                ['Transferências','Transferências'],
+                ['Movimentação sanitária','Movimentação sanitária'], 
+                ['Entrega de Uniformes','Entrega de Uniformes'], 
+                ['Ação e contenção','Ação e contenção'], 
+                ['Operações que participou','Operações que participou'], 
+                ['Diversas', 'Diversas']
               ],{},
-                class: "form-control select2" %>
+                class: "form-control select2" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
       </div>
     </div>
     <div class="col-md-12">                                    
       <div class="form-group col-md-6">
-        <label>Descrição</label>                    
-        <%= f.text_area :description, maxlength: "255", class:"form-control" %>
+        <label>Descrição *</label>                    
+        <%= f.text_area :description, maxlength: "255", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
       </div>
     </div>
   </div>
   <div class="box-footer">
     <%= f.submit "Salvar", class: "btn btn-success" %>
-    <%= f.button "Cancelar", class: "btn btn-danger" %>
+     <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+        <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
   </div>
 <%end%>

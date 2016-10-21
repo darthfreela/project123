@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
  Não usar esse arquivo
  Usar imported_files
 
@@ -71,4 +70,3 @@ end
     params.require(:imported_file).permit(:id_user, :nome, :posto)
   end
 end
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3

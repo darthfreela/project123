@@ -52,14 +52,14 @@
                 <% @text_informative_show.each do |i|%>
                   <tr>
                     <td><%= i.id%></td>
-                    <td><%= i.type_info %></td>
+                    <td><%= i.type_informative %></td>
                     <td><%= i.description %></td>
                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
-                         {:controller => 'text_informative_daily_bulletins', :action => 'edit', :id => i.id},
+                         {:controller => 'text_informatives', :action => 'edit', :id => i.id},
                           class: 'btn btn-warning', method: :get %>
                     </td>
                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                     {:controller => 'text_informative_daily_bulletins', :action => 'destroy', :id => i.id},
+                     {:controller => 'text_informatives', :action => 'destroy', :id => i.id},
                       :data => {:confirm => "Realmente deseja excluir este registro?"},
                        class: 'btn btn-danger', method: :delete %>
                      </td>

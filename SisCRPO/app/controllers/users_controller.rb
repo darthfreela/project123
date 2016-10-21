@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
 def edit
+   @botao = 'edit'
       @user = User.find(params[:id])
       @postograduacao = PostGraduation.all
       @select_funcoes = Function.all

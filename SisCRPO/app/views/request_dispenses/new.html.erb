@@ -40,7 +40,7 @@
                 <div class="form-group col-md-4">
                      <!--<%= f.label :name %>-->
                     <label>Nome</label>
-                    <%= f.text_field :name, value:current_user.name, disabled:"true" , maxlength: "80", 
+                    <%= f.text_field :name, value:current_user.name, disabled:"true" , maxlength: "80",
                     class:"form-control autocompleteFunc" %>
                 </div>
                 <div class="form-group col-md-4">
@@ -117,10 +117,10 @@
                                     <% else if o.approved == 0 %>
                                         <td><i class="fa fa-circle " title="Visualizado"> Visualizado</i></td>
                                     <% else %>
-                                        <td><i class="fa fa-circle " title="Não Visualizado"> Não Visualizado</i></td> 
-                                    <% end %>       
-                                    <% end %>  
-                                    <% end %>   
+                                        <td><i class="fa fa-circle " title="Não Visualizado"> Não Visualizado</i></td>
+                                    <% end %>
+                                    <% end %>
+                                    <% end %>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'request_dispenses', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'request_dispenses', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este campo?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>

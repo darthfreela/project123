@@ -1,20 +1,74 @@
 class ImportedFilesController < ApplicationController
 require "docx"
-<<<<<<< HEAD
-=======
-require "nokogiri"
+require "pry"
 
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
+
 def new
     @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
     @user = User.all
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
+
+
     # Open docx
+<<<<<<< HEAD
+    doc = Docx::Document.open('boletim.docx')
+
+    i = 0
+
+    doc.paragraphs.each do |p|
+      i = i + 1 
+      if i <= 250
+        puts p
+      end
+    end
+    
+    doc.tables.each do |table|
+
+      table.rows.each do |row| # Row-based iteration
+
+      if row.cells.count != 5
+        next
+      end
+
+      # Separa os campos
+      graduation = row.cells[0]
+      name = row.cells[1]
+      id = row.cells[2]
+      opm = row.cells[3]
+      
+      # Bsuca usuario do banco
+      userDb = User.where(id_func: id.to_s.to_i).first
+
+      # Ignora se não encontra
+      if userDb.nil?
+        next
+      end
+
+      puts userDb.name
+      
+      # if !@userdodemetrius.nil?
+      #     @tabela = ImportedFile.new
+      #      @tabela.graduation = row.cells[0]
+      #      @tabela.bulletin_name = row.cells[0]
+      #      @tabela.id_func = row.cells[0]
+      #      @tabela.opm = row.cells[0]
+      #      @tabela.save
+
+      #   puts "Teste!! #{@userdodemetrius.name}"
+
+      #   #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+
+
+      # end
+
+      # row.cells.each do |cell|
+      #   puts cell.text
+      # end
+    end
+
+  end
+=======
         doc = Docx::Document.open('boletim.docx')
         first_table = doc.tables[0]
         puts first_table.row_count
@@ -22,189 +76,42 @@ def new
           puts row.cells.count
           if row.cells.count == 5
             #puts "Grad. #{row.cells[0]}"
-            @userdodemetrius = User.where(id_func: 2314312).first
+            @userdodemetrius = User.where(id_func: 2312794).first
             if !@userdodemetrius.nil?
-              puts "UUUIIIIII CACTCHORROOO!! #{@userdodemetrius.name}"
+                @tabela = ImportedFile.new
+                 @tabela.graduation = row.cells[0]
+                 @tabela.bulletin_name = row.cells[0]
+                 @tabela.id_func = row.cells[0]
+                 @tabela.opm = row.cells[0]
+                 @tabela.save
+
+              puts "Teste!! #{@userdodemetrius.name}"
+
+              #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+
+
             end
           end
           # row.cells.each do |cell|
           #   puts cell.text
           # end
         end
-        #doc.paragraphs.each do |p|
-          #puts p
-          #if p.to_s.match(/([0-9]{7})/)
-
-          #  @user.each do |u|
-          #    if u.id_func.to_s == p.to_s
-               # @teste = p
-
-                
-          #    end
-          #  end 
-          #end
-          
-        #end
-
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
-      # Open .txt
-        #lines = IO.readlines("BMP.doc","w+")
-        #puts lines.length
-        #lines.each do |line|
-        #@teste = line
-        #end
-<<<<<<< HEAD
-
-      # Open docx
-        doc = Docx::Document.open('boletim.docx')
-        doc.paragraphs.each do |p|
-        puts p
-        @teste = p
-        end
-
-        doc.bookmarks.each_pair do |bookmark_name, bookmark_object|
-        puts bookmark_name
-        end
-
-        doc = Docx::Document.open('boletim.docx')
-        doc.paragraphs.each do |p|
-        puts p.to_html
-        first_table = doc.tables[0]
-        puts first_table.row_count
-        puts first_table.column_count
-        puts first_table.rows[0].cells[0].text
-        puts first_table.columns[0].cells[0].text
-        end
-=======
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
-
-#f=File.open('BMP.doc')
-#doc =Nokogiri::XML(f)
-#f.close
-#@teste = doc
+>>>>>>> 60d4743d4fb213590ec80c8076b42d2d11b058e9
 
 
-
-
-
-#doc = Docx::Document.open('boletim.docx')
-  #     doc.paragraphs.each do |p|
-       # puts p.to_html
-    #  @teste = p.to_html
-      #  end
-
-
-
-#lines = IO.readlines("demetrius.txt","w+")
-  #puts lines.length
-   #lines.each do |line|
-
- #if line.include?('2320789')
-  #  @teste = line
-#else
-  #  @teste =1
-#end
-#end
-
-       #Open .txt
-      #lines = IO.readlines("BMP.doc","w+")
-      #puts lines.length
-      #lines.each do |line|
-      #@teste = line
-      #end
-
-      #akii demetrius
-      # Open docx
-<<<<<<< HEAD
-        #doc = Docx::Document.open('boletim.docx')
-        #doc.paragraphs.each do |p|
-        #puts p
-        #@teste = p
-        #end
-
-        #doc.bookmarks.each_pair do |bookmark_name, bookmark_object|
-        #puts bookmark_name
-        #end
-
-      #  doc = Docx::Document.open('boletim.docx')
-       # doc.paragraphs.each do |p|
-       # @teste = p
-
-        #first_table = doc.tables[0]
-        #puts first_table.row_count
-        #puts first_table.column_count
-        #puts first_table.rows[0].cells[0].text
-        #puts first_table.columns[0].cells[0].text
-        #end
-=======
-      #  doc = Docx::Document.open('boletim.docx')
-      #  doc.paragraphs.each do |p|
-      # puts p
-      #  @teste = puts
-      # end
-
-      #  doc.bookmarks.each_pair do |bookmark_name, bookmark_object|
-      #  puts bookmark_name
-      #  end
-
-      #  doc = Docx::Document.open('boletim.docx')
-      #  doc.paragraphs.each do |p|
-      #  puts p.to_html
-      #  first_table = doc.tables[0]
-      #  puts first_table.row_count
-      #  puts first_table.column_count
-      #  puts first_table.rows[0].cells[0].text
-      #  puts first_table.columns[0].cells[0].text
-      #  end
->>>>>>> 3eb52ac5047ee8afafd3c0ae2de73e3aaccd802a
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
-
-      #  doc = Docx::Document.open('boletim.docx')
-      #  first_table = doc.tables[0]
-      #  puts first_table.row_count
-      #  puts first_table.column_count
-      #  puts first_table.rows[0].cells[0].text
-      #  puts first_table.columns[0].cells[0].text
-
-      # Row-based iteration
-      #  Iterate through tables
-      #  doc.tables.each do |table|
-<<<<<<< HEAD
-      #    table.rows.each do |row| 
-=======
-      #    table.rows.each do |row|
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
-      #      row.cells.each do |cell|
-      #        puts cell.text
-      #      end
-      #   end
-
-        # Column-based iteration
-<<<<<<< HEAD
-        #  table.columns.each do |column| 
-=======
-        #  table.columns.each do |column|
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
-        #    column.cells.each do |cell|
-        #      puts cell.text
-        #    end
-        # end
-      #  end
-
-<<<<<<< HEAD
 end
 
   def create
     @importedFile = ImportedFile.new(importedFile_params)
-    @iimportedFile_show = importedFile.all
+    @iimportedFile_show = ImportedFile.all
 
     if @importedFile.save
-        redirect_to new_import_file_path , notice: "Companhia cadastrada com sucesso."
+        redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
       else
         render action: :new
     end
   end
-
+=begin
 def edit
     @importedFile = importedFile.find(params[:id])
 
@@ -213,61 +120,23 @@ end
 def update
       @importedFile = importedFile.find(params[:id])
       if @importedFile.update_attributes(importedFile_params)
-           redirect_to new_import_file_path, notice: "Companhia editada com sucesso."
+           redirect_to new_import_file_path, notice: "Boletim editado com sucesso."
       else
 
-            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o Companhia!" }
+            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o Boletim!" }
       end
 end
-
+=end
 def destroy
-      @importedFile = importedFile.find(params[:id])
+      @importedFile = ImportedFile.find(params[:id])
       @importedFile.destroy
-      redirect_to new_import_file_path, notice: "Companhia removida com sucesso."
+      redirect_to new_import_file_path, notice: "Boletim removido com sucesso."
 end
 
   private
   def importedFile_params
-    params.require(:imported_file).permit(:id_user, :nome, :posto)
-  end
-=======
->>>>>>> deff42c29890d6ac873c68d0a90db5b235348dc3
-end
-
-  def create
-    @importedFile = ImportedFile.new(importedFile_params)
-    @iimportedFile_show = importedFile.all
-
-    if @importedFile.save
-        redirect_to new_import_file_path , notice: "Companhia cadastrada com sucesso."
-      else
-        render action: :new
-    end
-  end
-
-def edit
-    @importedFile = importedFile.find(params[:id])
-
-end
-
-def update
-      @importedFile = importedFile.find(params[:id])
-      if @importedFile.update_attributes(importedFile_params)
-           redirect_to new_import_file_path, notice: "Companhia editada com sucesso."
-      else
-
-            redirect_to new_import_file_path, :flash => { :error => "Erro ao editar o Companhia!" }
-      end
-end
-
-def destroy
-      @importedFile = importedFile.find(params[:id])
-      @importedFile.destroy
-      redirect_to new_import_file_path, notice: "Companhia removida com sucesso."
-end
-
-  private
-  def importedFile_params
-    params.require(:imported_file).permit(:id_user, :nome, :posto)
+    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :graduation, :bulletin_name, :id_func, :opm, :name_func, :bulletin_date)
+    #id | id_user | nome | posto | created_at | updated_at | user_id | imported_file_path |
+     #title | description | graduation | bulletin_name | id_func | opm | name_func | bulletin_date
   end
 end

@@ -1,8 +1,12 @@
-<%= form_for @user do |f| %>
+
+<%= form_for @user, :html =>{id:'teste'} do |f| %>
             <div class="box-body">
                 <div class="form-group col-md-2">
                     <label>Id Funcional</label>
-                    <%= f.text_field :id_func, PlaceHolder: "Id Funcional", maxlength: "80", class:"form-control" %>
+                    <%= f.text_field :id_func, PlaceHolder: "Id Funcional", maxlength: "80", class:"form-control", data: {
+      :validation => "required",
+      :suggestions => "clovis, fachinello soares",
+      "validation-error-msg" => "Este campo é obrigatorio." } %>
                 </div>
                 <div class="form-group col-md-8">
                     <label>Nome</label>
@@ -26,7 +30,7 @@
                 </div>
                       <div class="form-group col-md-5">
                     <label>Imagem do usuário</label>
-                    <%= f.file_field :image_path, PlaceHolder: "Imagem do Usuário"%>
+                    <%= f.file_field :image_path %>
                 </div>
                 <div class="form-group col-md-5">
                     <label>E-mail</label>
@@ -58,7 +62,7 @@
                 </div>
                 <div class="form-group col-md-7">
                     <label>Perfil</label>
-                    <%= f.select :perfil_id, @select_perfis.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
+                    <%= f.select :profile_id, @select_perfis.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
                 </div>
                 <div class="form-group col-md-2">
                     <label>CEP</label>

@@ -3,6 +3,7 @@ class RequestVacationsController < ApplicationController
         @lancamento_ferias = RequestVacation.new
         @lancamento_ferias_show = RequestVacation.all
         @user_atual = User.find(current_user.id)
+        @post_graduation = PostGraduation.all
   end
 
   def create
@@ -23,6 +24,7 @@ class RequestVacationsController < ApplicationController
     end
 
   def edit
+     @botao = 'edit'
      @lancamento_ferias = RequestVacation.find(params[:id])
      @lancamento_ferias.date_begin = @lancamento_ferias.date_begin.strftime("%d/%m/%Y")
      @lancamento_ferias.date_end = @lancamento_ferias.date_end.strftime("%d/%m/%Y")

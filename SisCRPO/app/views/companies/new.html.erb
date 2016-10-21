@@ -28,7 +28,9 @@
         <div class="box-header">
             <h3 class="box-title">Listar Companhias</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
             </div>
         </div>
         <div class="box-body">
@@ -42,7 +44,7 @@
         <hr>
         <div class="box-body">
         <% if @companie_show.count <= 0 %>
-                        <tr><td>Não existem companhias cadastradas.</td></tr>
+            Não existem companhias cadastradas.
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
@@ -50,7 +52,7 @@
                             <th>Id</th>
                             <th>Nome</th>
                             <th>Unidade</th>
-                            <th>Cidade</th>                            
+                            <th>Cidade</th>
                             <th>Ativo</th>
                         </tr>
                     </thead>

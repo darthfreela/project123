@@ -21,6 +21,7 @@
 //= require plugins/datatables/jquery.dataTables.js
 //= require plugins/datatables/dataTables.bootstrap.js
 //= require plugins/timepicker/bootstrap-timepicker.js
+
 $(function () {
 	// Iniciliazar combobox select2
 	$(".select2").select2();
@@ -77,7 +78,7 @@ $(function () {
 
 
 	// Formata'r cam'po data
-	$(".data").inputmask("99/99/9999");     
+	$(".data").inputmask("99/99/9999");
 
 	$('.data').datepicker({
 		autoclose: true,
@@ -95,54 +96,35 @@ $(function () {
 			alert('sad');
 		}
 	});
-	
-	$("#motivos").DataTable({
-		"language": {
-			"lengthMenu": "Mostrar _MENU_ entradas",
-			"zeroRecords": "Nenhum registro encontrado",
-			"info": "Mostrando _PAGE_ de _PAGES_ páginas",
-			"infoEmpty": "Nenhum registro encontrado",
-			"infoFiltered": "(filtrado apartir de  _MAX_ registros no total)",
-			"search": "Pesquisar: "
-		},
-		"oLanguage": {
-			"oPaginate": {
-				"sPrevious": "Anterior",
-				"sNext": "Próximo"
-			}
-		},
-		"paging": true,
-		"lengthChange": false,
-		"searching": false,
-		"ordering": true,
-		"info": true,
-		"autoWidth": false
-    });
 
 });
 
 
 function soNums(e){
- 
+
     //teclas adicionais permitidas (tab,delete,backspace,setas direita e esquerda)
     keyCodesPermitidos = new Array(8,9,37,39,46);
-     
+
     //numeros e 0 a 9 do teclado alfanumerico
     for(x=48;x<=57;x++){
         keyCodesPermitidos.push(x);
     }
-     
+
     //numeros e 0 a 9 do teclado numerico
     for(x=96;x<=105;x++){
         keyCodesPermitidos.push(x);
     }
-     
+
     //Pega a tecla digitada
-    keyCode = e.which; 
-     
+    keyCode = e.which;
+
     //Verifica se a tecla digitada é permitida
     if ($.inArray(keyCode,keyCodesPermitidos) != -1){
         return true;
-    }    
+    }
     return false;
 }
+
+(function(){
+        $.validate();
+})();
