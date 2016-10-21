@@ -2,7 +2,7 @@ class Solicitation < ActiveRecord::Base
   '''
   Tipos existentes de solicitação:
     1- solicitação de férias
-    campos: user_id,date_begin,date_end,description,status(0-não visualizado,1-visualizado,2-aprovado,3-negado)
+    campos: user_id,date_begin,date_end,description
 
     2- solicitação de dispensas
     campos: igual ao 1

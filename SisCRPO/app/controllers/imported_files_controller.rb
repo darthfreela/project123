@@ -1,5 +1,6 @@
 class ImportedFilesController < ApplicationController
 require "docx"
+require "pry"
 
 
 def new
@@ -10,6 +11,64 @@ def new
 
 
     # Open docx
+<<<<<<< HEAD
+    doc = Docx::Document.open('boletim.docx')
+
+    i = 0
+
+    doc.paragraphs.each do |p|
+      i = i + 1 
+      if i <= 250
+        puts p
+      end
+    end
+    
+    doc.tables.each do |table|
+
+      table.rows.each do |row| # Row-based iteration
+
+      if row.cells.count != 5
+        next
+      end
+
+      # Separa os campos
+      graduation = row.cells[0]
+      name = row.cells[1]
+      id = row.cells[2]
+      opm = row.cells[3]
+      
+      # Bsuca usuario do banco
+      userDb = User.where(id_func: id.to_s.to_i).first
+
+      # Ignora se não encontra
+      if userDb.nil?
+        next
+      end
+
+      puts userDb.name
+      
+      # if !@userdodemetrius.nil?
+      #     @tabela = ImportedFile.new
+      #      @tabela.graduation = row.cells[0]
+      #      @tabela.bulletin_name = row.cells[0]
+      #      @tabela.id_func = row.cells[0]
+      #      @tabela.opm = row.cells[0]
+      #      @tabela.save
+
+      #   puts "Teste!! #{@userdodemetrius.name}"
+
+      #   #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+
+
+      # end
+
+      # row.cells.each do |cell|
+      #   puts cell.text
+      # end
+    end
+
+  end
+=======
         doc = Docx::Document.open('boletim.docx')
         first_table = doc.tables[0]
         puts first_table.row_count
@@ -37,6 +96,7 @@ def new
           #   puts cell.text
           # end
         end
+>>>>>>> 60d4743d4fb213590ec80c8076b42d2d11b058e9
 
 
 end

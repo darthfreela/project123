@@ -18,19 +18,6 @@
 				</button>
 			</div>
 		</div>
-		<div class="alert-error">
-            <%= flash[:error] %>
-            <% if @tempReplacement.errors.any? %>
-                <div id="error_explanation">
-                    O formulário contém <%= pluralize(@tempReplacement.errors.count, "erro") %>.
-                </div>
-                <ul>
-                    <% @tempReplacement.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            <% end %>
-        </div>
 		<%= render 'form' %>
 	</div>
 </section>

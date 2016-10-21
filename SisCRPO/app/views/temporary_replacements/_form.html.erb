@@ -1,62 +1,124 @@
+<div class="alert-error">
+    <%= flash[:error] %>
+    <% if @tempReplacement.errors.any? %>
+        <div id="error_explanation">
+            O formulário contém <%= pluralize(@tempReplacement.errors.count, "erro") %>.
+        </div>
+        <ul>
+            <% @tempReplacement.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</div>
 <%= form_for @tempReplacement do |f| %>
-            <div class="box-body">
-                <div class="form-group col-md-3">
-                    <label>ID Func. Substituido</label>
-                    <%= f.text_field :substitute_id_func, value:current_user.id_func, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %> 
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Nome do Substituido</label>
-                    <%= f.text_field @substitute_name, value:current_user.name, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>Posto Grad.</label>
-                    <%= f.text_field @substitute_post_graduation,value:current_user.post_graduation_id, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>Função</label>
-                    <%= f.text_field @substitute_function, value:current_user.function_id, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %>
-                </div>
-                <div class="form-group col-md-3">
-                    <label>ID Func. Substituto</label>
-                    <%= f.text_field :occupant_id_func, maxlength: "14", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Nome do Servidor Substituto</label>
-                    <%= f.text_field @occupant_name,value: "", maxlength: "80", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>Posto Grad.</label>
-                    <%= f.text_field @occupant_post_graduation,value: "" ,maxlength: "14", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>Função</label>
-                    <%= f.text_field @occupant_function,value: "", maxlength: "14", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>Nrº Boletim</label>
-                    <%= f.text_field :buletim_number, PlaceHolder: "Nrº Boletim", maxlength: "80", class:"form-control timepicker" %>
-                </div>
-                <div class="form-group col-md-12">
-                    <label>Motivo de Indisponibilidade</label>
-                    <%= f.text_area :unavailability_reason, PlaceHolder: "Motivo de Indisponibilidade", maxlength: "255", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Período</label>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <%= f.text_field :date_begin, class:"form-control data"%>
-                        </div>
-                        <div class="col-md-1">
-                            à
-                        </div>
-                        <div class="col-md-4">
-                            <%= f.text_field :date_end, class:"form-control data"%>
-                        </div>
+    <div class="box-body">
+        <div class="form-group row">
+            <div class="form-group col-md-3">
+                <label>ID Func. Substituido</label>
+                <%= f.text_field :substitute_id_func, value:current_user.id_func, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Nome do Substituido</label>
+                <%= f.text_field @substitute_name, value:current_user.name, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" %>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Posto Grad.</label>
+                <%= f.text_field @substitute_post_graduation,value:current_user.post_graduation_id, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Função</label>
+                <%= f.text_field @substitute_function, value:current_user.function_id, readonly:"true", maxlength: "80", class:"form-control autocompleteFunc" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-3">
+                <label>ID Func. Substituto</label>
+                <%= f.text_field :occupant_id_func, maxlength: "14", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Nome do Servidor Substituto</label>
+                <%= f.text_field @occupant_name,value: "", maxlength: "80", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+        
+            <div class="form-group col-md-2">
+                <label>Posto Grad.</label>
+                <%= f.text_field @occupant_post_graduation,value: "" ,maxlength: "14", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Função</label>
+                <%= f.text_field @occupant_function,value: "", maxlength: "14", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-2">
+                <label>Nrº Boletim</label>
+                <%= f.text_field :buletim_number, PlaceHolder: "Nrº Boletim", maxlength: "80", class:"form-control timepicker" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-12">
+                <label>Motivo de Indisponibilidade</label>
+                <%= f.text_area :unavailability_reason, PlaceHolder: "Motivo de Indisponibilidade", maxlength: "255", class:"form-control" , 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+                <label>Período</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <%= f.text_field :date_begin, class:"form-control data", 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
+                    </div>
+                    <div class="col-md-1">
+                        à
+                    </div>
+                    <div class="col-md-4">
+                        <%= f.text_field :date_end, class:"form-control data", 
+                          data: {
+                              :validation => "required",
+                              "validation-error-msg" => "Este campo é obrigatorio." } %>
                     </div>
                 </div>
             </div>
-            <div class="box-footer">
-                <%= f.submit "Salvar", class: "btn btn-success"%>
-                <%= f.button "Limpar", class: "btn btn-danger"%>
-            </div>
+        </div>
+    </div>
+    <div class="box-footer">        
+        <%= f.submit "Salvar", class: "btn btn-success" %>
+        <% if @botao == 'edit' %>
+            <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+            <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
         <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+    s</div>
+<% end %>

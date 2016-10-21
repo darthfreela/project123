@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017040430) do
+ActiveRecord::Schema.define(version: 20161021134653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 20161017040430) do
   create_table "approval_solicitations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "solicitation_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "manager_function_id"
+    t.integer  "status"
   end
 
   create_table "bulletins", force: :cascade do |t|
@@ -85,9 +87,6 @@ ActiveRecord::Schema.define(version: 20161017040430) do
   end
 
   create_table "imported_files", force: :cascade do |t|
-    t.string   "id_user"
-    t.string   "nome"
-    t.string   "posto"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "user_id"
@@ -116,6 +115,15 @@ ActiveRecord::Schema.define(version: 20161017040430) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "instruction_bulletins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.date     "date_begin"
+    t.date     "date_end"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "instructions", force: :cascade do |t|
@@ -209,7 +217,6 @@ ActiveRecord::Schema.define(version: 20161017040430) do
     t.date     "date_begin"
     t.date     "date_end"
     t.integer  "user_id"
-    t.integer  "status"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "type_solicitation"
@@ -232,9 +239,9 @@ ActiveRecord::Schema.define(version: 20161017040430) do
 
   create_table "text_informatives", force: :cascade do |t|
     t.string   "description"
-    t.string   "type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "type_informative"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "trainees", force: :cascade do |t|

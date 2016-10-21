@@ -41,7 +41,7 @@
     </div>
     <hr>
     <div class="box-body">
-      <% if @solicitation_show.count == 0 %>
+      <% if @solicitation_show.count <= 0 %>
         Não existem solicitações cadastradas.
       <% else %>
         <table id="motivos" class="table table-bordered table-striped">
@@ -63,20 +63,21 @@
                   <% else if l.type_solicitation != nil && l.type_solicitation == 1 %>
                     <td>Dispensa</td>
                       <% else %>
-                        <td>Licença</td>                      
+                        <td>Licença</td>
                   <% end %>
                 <% end %>
 
                 <td><%= data_br l.date_begin %></td>
                 <td><%= data_br l.date_end %></td>
-                <% if l.status != nil && l.status == 0 %>
+                <% if l.approval_solicitation.status == nil || l.approval_solicitation.status == 0 %>
                   <td><i class="fa fa-circle " title="Não Visualizado"> Não Visualizado</i></td>
-                  <% else if l.status != nil && l.status == 1 %>
+                  <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 1 %>
                     <td><i class="fa fa-circle " title="Visualizado"> Visualizado</i></td>
-                      <% else if l.status != nil && l.status == 2 %>
+                      <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 2 %>
                         <td><i class="fa fa-check " title="Aprovado"> Aprovado</i></td>
-                        <% else %>
+                        <% else if l.approval_solicitation.status != nil && l.approval_solicitation.status == 3 %>
                           <td><i class="fa fa-times " title="Negado"> Negado</i></td>
+                        <% end %>
                       <% end %>
                   <% end %>
                 <% end %>

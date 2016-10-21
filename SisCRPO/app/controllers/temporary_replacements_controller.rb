@@ -10,6 +10,7 @@ class TemporaryReplacementsController < ApplicationController
   end
 
   def edit
+      @botao = 'edit'
       @tempReplacement = TemporaryReplacement.find(params[:id])
       @tempReplacement.dataAssuncao = @tempReplacement.dataAssuncao.strftime("%d/%m/%Y")
       @tempReplacement.dataDispensa = @tempReplacement.dataDispensa.strftime("%d/%m/%Y")

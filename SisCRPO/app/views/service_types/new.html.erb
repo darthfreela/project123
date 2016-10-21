@@ -16,22 +16,7 @@
             </div>
         </div>
         <hr>
-        <div class="alert-error">
-            <%= flash[:error] %>
-            <% if @tpServico.errors.any? %>
-                <div id="error_explanation">
-                    O formulário contém <%= pluralize(@tpServico.errors.count, "erro") %>.
-                </div>
-                <ul>
-                    <% @tpServico.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            <% end %>
-        </div>
-
         <%= render 'form' %>
-
     </div>
     <div class="box">
         <div class="box-header">

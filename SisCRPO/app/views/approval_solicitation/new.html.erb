@@ -38,10 +38,10 @@
             <% @approval_solicitations.each do |e|%>
               <tr>
                 <td><%= e.id %></td>
-                <td><%= e.user.id %></td>
-                <td><%= e.user.name %></td>
-                <td><%= e.user.post_graduation.initials%></td>
-                <td><%= e.user.function.name %></td>
+                <td><%= e.solicitation.user.id %></td>
+                <td><%= e.solicitation.user.name %></td>
+                <td><%= e.solicitation.user.post_graduation.initials%></td>
+                <td><%= e.solicitation.user.function.name %></td>
                 <td>
                   <%= link_to raw("<i class='fa fa-check-square-o  '>Visualizar</i>"),
                   {:controller => 'approval_solicitation', :action => 'edit',

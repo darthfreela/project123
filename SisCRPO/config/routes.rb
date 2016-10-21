@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
 
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
@@ -16,10 +17,16 @@ resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
+=======
+  resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
+
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+>>>>>>> 5f96da85dd490cdf632fc82c78de4228bac87623
   resources :dashboard, :only => [:index]
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
+<<<<<<< HEAD
   resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
   post '/change_profile' => "users#change_current_profile"
@@ -28,20 +35,40 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
+=======
+  resources :report_overtime_supplementations, :only =>  [:index]
+
+  get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
+
+  get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
+
+  post '/change_profile' => "users#change_current_profile"
+
+  resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
+>>>>>>> 5f96da85dd490cdf632fc82c78de4228bac87623
 
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
+<<<<<<< HEAD
   resources :disthoraext
+=======
+  resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
+  get 'approval_solicitation/:id' => 'approval_solicitation#edit'
+  get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
+  get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
+>>>>>>> 5f96da85dd490cdf632fc82c78de4228bac87623
 
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
  
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
-
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
+<<<<<<< HEAD
   get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
   get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
 
@@ -49,6 +76,8 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
 
+=======
+>>>>>>> 5f96da85dd490cdf632fc82c78de4228bac87623
   resources :request_dispenses
 
   resources :disthoraext
@@ -97,7 +126,6 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
 
-
   devise_for :users
 
   concern :paginatable do
@@ -114,9 +142,6 @@ resources :report_overtime_supplementations, :only =>  [:index]
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-
-
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

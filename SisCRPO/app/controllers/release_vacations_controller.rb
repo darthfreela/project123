@@ -23,6 +23,7 @@ class RequestVacationsController < ApplicationController
     end
 
   def edit
+    @botao = 'edit'
      @lancamento_ferias = RequestVacation.find(params[:id])
      @lancamento_ferias.inicial_date = @lancamento_ferias.inicial_date.strftime("%d/%m/%Y")
      @lancamento_ferias.final_date = @lancamento_ferias.final_date.strftime("%d/%m/%Y")

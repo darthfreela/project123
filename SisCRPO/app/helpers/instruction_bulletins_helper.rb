@@ -1,0 +1,2 @@
+module InstructionBulletinsHelper
+end
