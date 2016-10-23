@@ -9,7 +9,7 @@ development:
 
   # conxão Local
   #database: crpoLocal
-  #username: 
+  #username:  
   #password: 
 
 test: &TEST
