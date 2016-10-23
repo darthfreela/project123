@@ -60,8 +60,22 @@ def change_current_profile
   redirect_to '/'
 end
 
-def change_password
+def change_password_page
 
+end
+
+def change_password_function
+      @user = User.find(current_user.id)
+      puts "----------------------------------------------------------------------"
+      #@user.password = params[:password]
+      #@user.password_confirmation = params[:password_confirmation]
+
+      if @user.update_attribute('password', params[:password])
+           redirect_to new_user_path, notice: "Senha modificada com sucesso."
+      else
+
+            redirect_to users_change_password_path , :flash => { :error => "Erro ao modificar senha." }
+      end
 end
 
   private

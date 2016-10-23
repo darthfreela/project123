@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
-post '/change_profile' => "users#change_current_profile"
+post '/users/change_profile' => "users#change_current_profile"
+
+get '/users/change_password' => "users#change_password_page"
+
+post '/users/change_password_function' => "users#change_password_function"
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]

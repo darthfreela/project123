@@ -32,7 +32,9 @@
                                                                                                    "," + new_profile_path +
                                                                                                    "," + new_request_vacation_path +
                                                                                                    "," + new_platoon_path +
-                                                                                                   "," + new_post_graduation_path ) %>">
+                                                                                                   "," + new_post_graduation_path +
+                                                                                                   "," + users_change_password_path
+                                                                                                    ) %>">
 
     <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
@@ -211,6 +213,12 @@
         <%= link_to report_overtime_supplementations_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Horas Extras/Supletamente</span>
+        <% end %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(users_change_password_path, true) %>">
+        <%= link_to users_change_password_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Trocar senha</span>
         <% end %>
       </li>
     </ul>
