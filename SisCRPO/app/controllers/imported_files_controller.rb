@@ -11,25 +11,50 @@ def new
 
 
     # Open docx
-<<<<<<< HEAD
+#<<<<<<< HEAD
     doc = Docx::Document.open('boletim.docx')
 
     i = 0
 
     doc.paragraphs.each do |p|
-      i = i + 1 
-      if i <= 250
+       i = i + 1 
+       # if i <= 7
+       #   #puts p
+       # end
+       if p.to_s["janeiro"]
         puts p
+       end
+
+       #if p.to_s["I #{196.chr}"]
+       if p.to_s["CLASSIFICAÇÃO DE PRAÇA"]
+         puts p
+         puts i
+         a = 0
+         doc.paragraphs.each do |chupa_juliano|
+          a += 1
+            if a == i+2
+              puts chupa_juliano
+            end
+         end
       end
+
+
+
+      
+      # if i == 17
+      #   puts p
+      # end
+
+
     end
-    
+    #<<<Consulta funcionando>>>>
     doc.tables.each do |table|
 
       table.rows.each do |row| # Row-based iteration
 
-      if row.cells.count != 5
-        next
-      end
+      # if row.cells.count != 5
+      #   next
+      # end
 
       # Separa os campos
       graduation = row.cells[0]
@@ -66,37 +91,37 @@ def new
       #   puts cell.text
       # end
     end
-
   end
-=======
-        doc = Docx::Document.open('boletim.docx')
-        first_table = doc.tables[0]
-        puts first_table.row_count
-        first_table.rows.each do |row| # Row-based iteration
-          puts row.cells.count
-          if row.cells.count == 5
-            #puts "Grad. #{row.cells[0]}"
-            @userdodemetrius = User.where(id_func: 2312794).first
-            if !@userdodemetrius.nil?
-                @tabela = ImportedFile.new
-                 @tabela.graduation = row.cells[0]
-                 @tabela.bulletin_name = row.cells[0]
-                 @tabela.id_func = row.cells[0]
-                 @tabela.opm = row.cells[0]
-                 @tabela.save
+      # <<<end Consulta funcionando>>>>
+# =======
+#         doc = Docx::Document.open('boletim.docx')
+#         first_table = doc.tables[0]
+#         puts first_table.row_count
+#         first_table.rows.each do |row| # Row-based iteration
+#           puts row.cells.count
+#           if row.cells.count == 5
+#             #puts "Grad. #{row.cells[0]}"
+#             @userdodemetrius = User.where(id_func: 2312794).first
+#             if !@userdodemetrius.nil?
+#                 @tabela = ImportedFile.new
+#                  @tabela.graduation = row.cells[0]
+#                  @tabela.bulletin_name = row.cells[0]
+#                  @tabela.id_func = row.cells[0]
+#                  @tabela.opm = row.cells[0]
+#                  @tabela.save
 
-              puts "Teste!! #{@userdodemetrius.name}"
+#               puts "Teste!! #{@userdodemetrius.name}"
 
-              #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+#               #@importedFile = ImportedFile.new(:user_id = row.cells[0])
 
 
-            end
-          end
-          # row.cells.each do |cell|
-          #   puts cell.text
-          # end
-        end
->>>>>>> 60d4743d4fb213590ec80c8076b42d2d11b058e9
+#             end
+#           end
+#           # row.cells.each do |cell|
+#           #   puts cell.text
+#           # end
+#         end
+# >>>>>>> 60d4743d4fb213590ec80c8076b42d2d11b058e9
 
 
 end

@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
 
 
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
-post '/change_profile' => "users#change_current_profile"
+post '/users/change_profile' => "users#change_current_profile"
+
+get '/users/change_password' => "users#change_password_page"
+
+post '/users/change_password_function' => "users#change_password_function"
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 resources :dashboard, :only => [:index]
@@ -17,7 +24,10 @@ resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
@@ -53,14 +63,20 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
   resources :disthoraext
 
   resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
   get 'approval_solicitation/:id' => 'approval_solicitation#edit'
   get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
   get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
 
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
 
@@ -68,7 +84,10 @@ resources :report_overtime_supplementations, :only =>  [:index]
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
   get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
   get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
 
@@ -76,7 +95,10 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
   resources :request_dispenses
 
   resources :disthoraext

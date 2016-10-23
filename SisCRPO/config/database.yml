@@ -8,11 +8,18 @@ development:
   password: admin123
 
   # conxão Local
+<<<<<<< HEAD
 
   # host: localhost
   # database: crpoLocal
   # username: postgres
   # password: gokussj9
+=======
+  #host: localhost
+  #database: crpoLocal
+  #username: postgres
+  #password: postgres
+>>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
 
 test: &TEST
   adapter: postgresql
