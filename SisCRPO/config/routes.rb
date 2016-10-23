@@ -24,6 +24,7 @@ resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
+
   resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
   post '/change_profile' => "users#change_current_profile"
@@ -32,6 +33,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
+
   resources :report_overtime_supplementations, :only =>  [:index]
 
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
@@ -44,6 +46,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
+
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
@@ -55,9 +58,8 @@ resources :report_overtime_supplementations, :only =>  [:index]
   get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
   get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
 
-
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
- 
+
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
