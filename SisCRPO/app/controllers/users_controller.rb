@@ -60,9 +60,13 @@ def change_current_profile
   redirect_to '/'
 end
 
+def change_password
+
+end
+
   private
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation,
+    params.require(:user).permit(:name, :username,
                                  :actived, :id_func, :email,  :cpf, :war_name,
                                  :image_path, :function_id, :birth,
                                  :gender, :address, :neighborhood, :city, :state, :zip_code,
