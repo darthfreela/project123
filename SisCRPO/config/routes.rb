@@ -125,6 +125,8 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
 
+  resources :solicitations, :only => [:index, :new, :create, :edit, :destroy, :update]
+
   devise_for :users
 
   concern :paginatable do
@@ -197,4 +199,3 @@ resources :report_overtime_supplementations, :only =>  [:index]
   #     resources :products
   #   end
 end
-

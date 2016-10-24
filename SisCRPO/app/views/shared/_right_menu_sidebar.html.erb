@@ -33,7 +33,8 @@
                                                                                                    "," + new_request_vacation_path +
                                                                                                    "," + new_platoon_path +
                                                                                                    "," + new_post_graduation_path +
-                                                                                                   "," + users_change_password_path
+                                                                                                   "," + users_change_password_path +
+                                                                                                   "," + new_solicitation_path 
                                                                                                     ) %>">
 
     <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
@@ -191,6 +192,18 @@
           <i class="fa fa-wrench"></i>
           <span>Boletim de Instrução</span>
         <% end %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_solicitation_path, true) %>">
+        <%= link_to new_solicitation_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Solicitações</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(new_approval_solicitation_path, true) %>">
+        <%= link_to new_approval_solicitation_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Aprovação de solicitações</span>
+        <% end  %>
       </li>
     </ul>
   </li>

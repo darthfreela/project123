@@ -1,18 +1,20 @@
 class SolicitationsController < ApplicationController
   def new
       @solicitation = Solicitation.new
-      @solicitation_show = Solicitation.joins(:approval_solicitation).where(user_id: current_user.id_func).all
+      @solicitation_show = Solicitation.joins(:approval_solicitation).where(user_id: current_user.id).all
   end
 
   def create
     @solicitation = Solicitation.new(solicitation_params)
 
+    @solicitation.user_id = current_user.id
     if @solicitation.type_solicitation != 2
         @solicitation.type_license = nil
         @solicitation.license_days = nil
     end
 
-    @solicitation_show = Solicitation.where(user_id: current_user.id_func).all
+    @solicitation_show = Solicitation.where(user_id: current_user.id).all
+
     if @solicitation.save
       @approval_solicitation = ApprovalSolicitation.new
       @approval_solicitation.solicitation_id =  @solicitation.id
