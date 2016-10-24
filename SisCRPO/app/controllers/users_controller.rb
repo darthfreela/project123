@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def new
     @user = User.new
     @user_show = User.all
@@ -59,9 +60,27 @@ def change_current_profile
   redirect_to '/'
 end
 
+def change_password_page
+
+end
+
+def change_password_function
+      @user = User.find(current_user.id)
+      puts "----------------------------------------------------------------------"
+      #@user.password = params[:password]
+      #@user.password_confirmation = params[:password_confirmation]
+
+      if @user.update_attribute('password', params[:password])
+           redirect_to new_user_path, notice: "Senha modificada com sucesso."
+      else
+
+            redirect_to users_change_password_path , :flash => { :error => "Erro ao modificar senha." }
+      end
+end
+
   private
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation,
+    params.require(:user).permit(:name, :username,
                                  :actived, :id_func, :email,  :cpf, :war_name,
                                  :image_path, :function_id, :birth,
                                  :gender, :address, :neighborhood, :city, :state, :zip_code,

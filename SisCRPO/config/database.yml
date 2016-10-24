@@ -8,9 +8,21 @@ development:
   #password: crpo2016#ftec
 
   # conxão Local
+<<<<<<< HEAD
   database: crpoLocal
   username: 
   password: 
+=======
+
+  # host: localhost
+  # database: crpoLocal
+  # username: postgres
+  # password: gokussj9
+  #host: localhost
+  #database: crpoLocal
+  #username: postgres
+  #password: postgres
+>>>>>>> 425a4ca60fd74f5e5ef51f8258af239cbcbfb4e7
 
 test: &TEST
   adapter: postgresql

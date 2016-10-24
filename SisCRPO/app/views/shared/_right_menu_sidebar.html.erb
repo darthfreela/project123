@@ -9,13 +9,33 @@
 </ul><!-- /.sidebar-menu -->
 <!-- Ferramentas de Usuário -->
 <ul class="sidebar-menu">
-  <li class="header"><span>Ferramentas do Usuário</span></li>
+  <li class="header"><span>Ferrmentas De Usuário</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i>
       <span>Gerenciar</span>
     </a>
-    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path + "," + new_opm_path + "," + new_gpm_path + "," + new_function_path + "," + new_uniform_path + "," + new_trainee_path + "," + new_post_graduation_path + "," + new_service_type_path + "," + new_initial_path + "," + new_company_path + "," + new_pointing_hour_path + "," + new_extra_hour_distribution_path + "," + new_temporary_replacement_path + "," + new_text_informative_path + "," + new_solicitation_path + "," + new_profile_path + "," + new_request_vacation_path + "," + new_platoon_path + "," + new_post_graduation_path ) %>;">
+
+    <ul class="treeview-menu" style="display: <%= abrir_menu(new_user_path +
+                                                                                                   "," + new_opm_path +
+                                                                                                   "," + new_gpm_path +
+                                                                                                   "," + new_function_path +
+                                                                                                   "," + new_uniform_path +
+                                                                                                   "," + new_trainee_path +
+                                                                                                   "," + new_post_graduation_path +
+                                                                                                   "," + new_service_type_path +
+                                                                                                   "," + new_initial_path +
+                                                                                                   "," + new_company_path +
+                                                                                                   "," + new_pointing_hour_path +
+                                                                                                   "," + new_temporary_replacement_path +
+                                                                                                   "," + new_text_informative_path +
+                                                                                                   "," + new_profile_path +
+                                                                                                   "," + new_request_vacation_path +
+                                                                                                   "," + new_platoon_path +
+                                                                                                   "," + new_post_graduation_path +
+                                                                                                   "," + users_change_password_path
+                                                                                                    ) %>">
+
     <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
         <%= link_to new_user_path do %>
           <i class="fa  fa-wrench"></i>
@@ -73,19 +93,19 @@
       <li class="<%= ative_se_pagina_atual(new_pointing_hour_path, true) %>">
         <%= link_to new_pointing_hour_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Apontamento de Horas</span>
+          <span>Apontamentos de Horas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_extra_hour_distribution_path, true) %>">
-        <%= link_to new_extra_hour_distribution_path do %>
+      <li class="<%= ative_se_pagina_atual(new_distribuicao_horas_extra_path, true) %>">
+        <%= link_to new_distribuicao_horas_extra_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Distribuir Horas Extras</span>
+          <span>Horas Extras</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_solicitation_path, true) %>">
-        <%= link_to new_solicitation_path do %>
+      <li class="<%= ative_se_pagina_atual(new_request_licence_path, true) %>">
+        <%= link_to new_request_licence_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Solicitações</span>
+          <span>Licença</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_profile_path, true) %>">
@@ -130,10 +150,10 @@
           <span>Aprovação de Dispensas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_approval_solicitation_path, true) %>">
-        <%= link_to new_approval_solicitation_path do %>
+      <li class="<%= ative_se_pagina_atual(new_approval_request_dispense_superior_path, true) %>">
+        <%= link_to new_approval_request_dispense_superior_path do %>
           <i class="fa  fa-wrench"></i>
-          <span>Aprovação de solicitações</span>
+          <span>Aprovação Disp (Superior)</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_imported_file_path, true) %>">
@@ -148,8 +168,20 @@
           <span>Importar </span>
         <% end  %>
       </li>
+      <li class="<%= ative_se_pagina_atual( new_import_newsletter_path, true) %>">
+        <%= link_to  new_text_informative_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Textos Informativos</span>
+        <% end  %>
+      </li>
       <li class="<%= ative_se_pagina_atual( new_platoon_path, true) %>">
         <%= link_to  new_platoon_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Pelotões</span>
+        <% end  %>
+
+      <li class="<%= ative_se_pagina_atual( new_post_graduation_path, true) %>">
+        <%= link_to  new_post_graduation_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Pelotão</span>
         <% end  %>
@@ -159,22 +191,11 @@
           <i class="fa fa-wrench"></i>
           <span>Boletim de Instrução</span>
         <% end %>
-      <li class="<%= ative_se_pagina_atual( new_post_graduation_path, true) %>">
-        <%= link_to  new_post_graduation_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Posto/Graduação</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual( new_text_informative_path, true) %>">
-        <%= link_to  new_text_informative_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Textos Informativos</span>
-        <% end  %>
       </li>
     </ul>
   </li>
   <!-- Ferramentas de Usuário -->
-  <li class="header"><span>Ferramentas da Administração</span></li>
+  <li class="header"><span>Ferramentas Administrativas</span></li>
   <li class="treeview">
     <a href="#">
       <i class="fa fa-wrench"></i>
@@ -192,6 +213,12 @@
         <%= link_to report_overtime_supplementations_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Horas Extras/Supletamente</span>
+        <% end %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(users_change_password_path, true) %>">
+        <%= link_to users_change_password_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Trocar senha</span>
         <% end %>
       </li>
     </ul>

@@ -1,37 +1,87 @@
 Rails.application.routes.draw do
+
+
+  resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
+
+post '/users/change_profile' => "users#change_current_profile"
+
+get '/users/change_password' => "users#change_password_page"
+
+post '/users/change_password_function' => "users#change_password_function"
+
+resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+resources :dashboard, :only => [:index]
+
+resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
+
+resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
+
+resources :import_files, :only =>  [:new, :edit, :destroy, :update]
+
+  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
+
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+
   resources :dashboard, :only => [:index]
 
   resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
-  resources :report_overtime_supplementations, :only =>  [:index]
+
+  resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
+
+  post '/change_profile' => "users#change_current_profile"
+
+resources :report_overtime_supplementations, :only =>  [:index]
+
   get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
   get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
-  
+
+  resources :report_overtime_supplementations, :only =>  [:index]
+
+  get "/cities_by_state" => "report_overtime_supplementations#cities_by_state"
+
+  get "/make_report_supplemention" => "report_overtime_supplementations#make_report_supplemention"
+
   post '/change_profile' => "users#change_current_profile"
 
   resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
-  
+
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
+
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
-  
+
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
-  
+
+
+  resources :disthoraext
+
   resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
   get 'approval_solicitation/:id' => 'approval_solicitation#edit'
   get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
   get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
-  
+
+
+  resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
+
   resources :approval_unavailability_and_removals, :only =>  [:new, :create, :edit, :destroy, :update]
   get 'approval_unavailability_and_removals/:id' => 'approval_unavailability_and_removals#view_request'
   get 'approval_unavailability_and_removals/approve/:id' => 'approval_unavailability_and_removals#approve'
 
+  get 'approval_request_dispense_superior/:id' => 'approval_request_dispense_superior#edit'
+  get 'approval_request_dispense_superior/approve/:id' => 'approval_request_dispense_superior#approve'
+
+  get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
+
+  resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
+
   resources :request_dispenses
 
-  resources :extra_hour_distributions, :only => [:index, :new, :create, :edit, :destroy, :update]
+  resources :disthoraext
+
+  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
 
@@ -49,40 +99,38 @@ Rails.application.routes.draw do
 
   resources :platoons,  :only => [:new, :create, :edit, :destroy, :update, :cities_platoon]
   get "/cities_platoon" => "platoons#cities_platoon"
-  
+
   resources :companies, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   resources :trainees, :only => [:new, :create, :edit, :destroy, :update]
-  
+
   resources :post_graduations, :only => [:new, :create, :edit, :destroy, :update]
-  
+
   resources :person_table, :only => [:index]
-  
+
   resources :gpms, :only => [:new, :create, :edit, :destroy, :update]
-  
+
   resources :uniforms, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   resources :functions, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   resources :opms, :only => [:index, :new, :create, :edit, :destroy, :update]
   get "/cities_opm" => "platoons#cities_opm"
-  
+
   resources :solicitacao_fers, :only => [:new, :create, :edit, :destroy, :update]
-  
+
   resources :request_licences, :only => [:new, :create, :edit, :destroy, :update]
-  
-  resources :solicitations, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
-  
+
   devise_for :users
 
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
-  
+
   devise_scope :user do
     authenticated :user do
       # Rails 4 users must specify the 'as' option to give it a unique name
@@ -149,3 +197,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
