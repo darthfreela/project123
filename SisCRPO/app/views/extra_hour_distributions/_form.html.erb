@@ -14,7 +14,7 @@
 
 <%= form_for @extra_hour_distribution do |f| %>
   <div class="box-body">
-    <div class="form-group row">
+    <div class="row">
       <div class="form-group col-md-5">
           <label>GPM que sera distribuido as horas*</label>
           <%= f.select :gpm_id ,@select_gpms.map{|s| [s.name, s.id]} ,  {:include_blank => 'Selecionar'}, class: "form-control select2" , 

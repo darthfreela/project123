@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017212630) do
-#ActiveRecord::Schema.define(version: 20161021134653) do
+ActiveRecord::Schema.define(version: 20161024211457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,12 +93,16 @@ ActiveRecord::Schema.define(version: 20161017212630) do
     t.string   "imported_file_path"
     t.string   "title"
     t.string   "description"
-    t.string   "graduation"
-    t.string   "bulletin_name"
-    t.integer  "id_func"
-    t.string   "opm"
-    t.string   "name_func"
     t.date     "bulletin_date"
+  end
+
+  create_table "imported_files_users", force: :cascade do |t|
+    t.integer  "id_user"
+    t.integer  "id_func_temp"
+    t.integer  "user_id"
+    t.integer  "id_imported_file"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "informatives", force: :cascade do |t|
@@ -308,6 +311,7 @@ ActiveRecord::Schema.define(version: 20161017212630) do
     t.string   "email"
     t.integer  "function_id"
     t.integer  "platoon_id"
+    t.boolean  "first_access"
   end
 
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
