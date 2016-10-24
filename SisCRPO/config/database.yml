@@ -1,25 +1,19 @@
 development:
   adapter: postgresql
   encoding: utf8
- database: dbcrpoftec
-  host: dbcrpoftec.conf6vxfcs4e.us-west-2.rds.amazonaws.com
+  #database: dbcrpoftec
+  #host: dbcrpoftec.conf6vxfcs4e.us-west-2.rds.amazonaws.com
   pool: 5
-  username: ad
-  password: admin123
+  #username: CRPOFTEC
+  #password: crpo2016#ftec
 
-  # conxão Local
-<<<<<<< HEAD
+# conxão Local
 
-  # host: localhost
-  # database: crpoLocal
-  # username: postgres
-  # password: gokussj9
-=======
-  #host: localhost
-  #database: crpoLocal
-  #username: postgres
-  #password: postgres
->>>>>>> de1060bd5964ab08de15d07d81235b71e5fccdf6
+  host: localhost
+  database: crpoLocal
+  username: postgres
+  password: gokussj9
+
 
 test: &TEST
   adapter: postgresql
