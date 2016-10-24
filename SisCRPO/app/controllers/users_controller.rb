@@ -66,11 +66,11 @@ end
 
 def change_password_function
       @user = User.find(current_user.id)
-      puts "----------------------------------------------------------------------"
       #@user.password = params[:password]
       #@user.password_confirmation = params[:password_confirmation]
 
       if @user.update_attribute('password', params[:password])
+          @user.update(first_access: false)
            redirect_to new_user_path, notice: "Senha modificada com sucesso."
       else
 

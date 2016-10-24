@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021134653) do
+ActiveRecord::Schema.define(version: 20161024145218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(version: 20161021134653) do
     t.string   "email"
     t.integer  "function_id"
     t.integer  "platoon_id"
+    t.boolean  "first_access"
   end
 
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"

@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+
   def titulo_page_header(page_title, page_subtitulo = nil)
     content_for :titulo_page_header do
       content_tag :h1 do
@@ -13,9 +15,9 @@ module ApplicationHelper
   end
 
   def abrir_menu(path)
-    
+
     'block' if path.include?(controller.request.fullpath)
-  end  
+  end
 
   def eh_controller_da_pagina_atual?(path, caminho_exato)
     if caminho_exato
@@ -55,4 +57,6 @@ module ApplicationHelper
   def get_other_profiles
       return other_profiles = TemporaryReplacement.where(substitute_id_func: current_user.id)
   end
+
+
 end
