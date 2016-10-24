@@ -68,15 +68,20 @@ class UsersController < ApplicationController
     puts "----------------------------------------------------------------------"
     #@user.password = params[:password]
     #@user.password_confirmation = params[:password_confirmation]
+    
+    @user = User.find(current_user.id)
+    #@user.password = params[:password]
+    #@user.password_confirmation = params[:password_confirmation]
 
     if @user.update_attribute('password', params[:password])
-      redirect_to new_user_path, notice: "Senha modificada com sucesso."
+      ss@user.update(first_access: false)
+           redirect_to new_user_path, notice: "Senha modificada com sucesso."
     else
       redirect_to users_change_password_path , :flash => { :error => "Erro ao modificar senha." }
     end
   end
 
-private
+  private
   def user_params
     params.require(:user).permit(:name, :username,
       :actived, :id_func, :email,  :cpf, :war_name,
