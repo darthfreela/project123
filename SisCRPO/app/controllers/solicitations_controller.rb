@@ -1,13 +1,16 @@
 class SolicitationsController < ApplicationController
   def new
       @solicitation = Solicitation.new
-      @solicitation_show = Solicitation.joins(:approval_solicitation).where(user_id: current_user.id).all
+      @solicitation_show = Solicitation.where(
+        user_id: current_user.id).all
+
   end
 
   def create
     @solicitation = Solicitation.new(solicitation_params)
 
     @solicitation.user_id = current_user.id
+    @solicitation.status = 0
     if @solicitation.type_solicitation != 2
         @solicitation.type_license = nil
         @solicitation.license_days = nil
@@ -37,6 +40,19 @@ class SolicitationsController < ApplicationController
   def edit
     @botao = 'edit'
     @solicitation = Solicitation.find(params[:id])
+
+    # busca as aprovações que estão relacionadas a essa solicitação
+    @solicitation_list_approved = ApprovalSolicitation.where(
+      solicitation_id: @solicitation, status: [2,3]).all
+
+      # se o id da função é igual quer dizer que o usuário superior não existe
+      # somente mostrará a próxima função se o id da função for diferente
+      if(@solicitation_list_approved.last.status != 3)
+        if(@solicitation_list_approved.last.user.function.manager_function_id != @solicitation_list_approved.last.user.function.id)
+          @last_function_to_approve = Function.where(
+            id: @solicitation_list_approved.last.user.function.manager_function_id).first
+        end
+      end
   end
 
   def update

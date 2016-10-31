@@ -49,6 +49,31 @@
               <label>Data Final*</label>
               <%= l.date_field :solicitation, :value => l.object.solicitation.date_end.try(:strftime,"%d-%m-%Y"), disabled:"true" , class:"form-control data" %>
           </div>
+
+          <% if @solicitation_list_approved.count > 0 %>
+            <div class="col-md-12 form-group ">
+                <label>Aprovado por:</label>
+                <table id="motivos" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Nome do superior</th>
+                      <th>Função</th>
+                      <th>Data</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @solicitation_list_approved.each do |l|%>
+                      <tr>
+                        <td><%= l.user.name %></td>
+                        <td><%= l.user.function.name %></td>
+                        <td><%= l.updated_at.to_s(:format_date) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+            </div>
+          <% end %>
+
         </div>
       </div>
 

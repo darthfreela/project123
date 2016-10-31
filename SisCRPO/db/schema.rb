@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024211457) do
-
+ActiveRecord::Schema.define(version: 20161030174515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -227,6 +226,7 @@ ActiveRecord::Schema.define(version: 20161024211457) do
     t.integer  "type_solicitation"
     t.integer  "type_license"
     t.integer  "license_days"
+    t.integer  "status"
   end
 
   create_table "temporary_replacements", force: :cascade do |t|
