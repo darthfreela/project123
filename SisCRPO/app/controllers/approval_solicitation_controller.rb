@@ -49,9 +49,32 @@ class ApprovalSolicitationController < ApplicationController
         redirect_to new_approval_solicitation_path,
          notice: "Solicitação aprovada com sucesso, e enviada para o próximo superior."
        else
-         # retorna com a mensagem de sucesso
+         @temporary_replacement = TemporaryReplacement.new
+         @temporary_replacement.occupant_id_func = @toApprove.solicitation.user.id
+         #razão de indisponibilidade
+         @temporary_replacement.unavailability_reason = @toApprove.solicitation.description
+         @temporary_replacement.date_begin = @toApprove.solicitation.date_begin
+         @temporary_replacement.date_end = @toApprove.solicitation.date_end
+         @temporary_replacement.solicitation_id = @toApprove.solicitation_id
+
+        #  Salva o registro para substituiçao temporaria
+        @temporary_replacement.save
+
+        #  id integer NOT NULL DEFAULT nextval('temporary_replacements_id_seq'::regclass),
+        #  substitute_id_func integer,
+        #  occupant_id_func integer,
+        #  unavailability_reason character varying,
+        #  date_begin date,
+        #  date_end date,
+        #  buletim_number integer,
+        #  status boolean,
+        #  exemption_clearence_id integer,
+        #  created_at timestamp without time zone NOT NULL,
+        #  updated_at timestamp without time zone NOT NULL,
+
+        # retorna com a mensagem de sucesso
          redirect_to new_approval_solicitation_path,
-          notice: "Solicitação aprovada com sucesso."
+          notice: "Solicitação aprovada com sucesso, foi enviada para o RH para substituir o solicitante."
        end
   end
 end
