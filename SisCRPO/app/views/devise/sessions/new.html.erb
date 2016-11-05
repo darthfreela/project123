@@ -24,12 +24,12 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
+
     <%= link_to '/' do %>
         <b>SisCRPO</b>
     <% end %>
   </div><!-- /.login-logo -->
   <div class="login-box-body">
-    <%= render 'shared/messages' %>
     <p class="login-box-msg"></p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group has-feedback">
@@ -40,6 +40,8 @@
         <%= f.password_field :password, class: 'form-control', placeholder: t('views.login.placeholders.type.password'), autocomplete: 'off' %>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert" style="color:red; text-align: center"><%= alert %></p>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">

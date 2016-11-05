@@ -1,8 +1,8 @@
-admin = User.new(id: -1,
-                 name: 'Administrador',
-                 username: 'admin',
-                 password: 'crpo@2016#ftec',
-                 password_confirmation: 'crpo@2016#ftec',
+admin = User.new(id: -2,
+                 name: 'ad',
+                 username: 'ad',
+                 password: 'admin123',
+                 password_confirmation: 'admin123',
                  )
 
 unless User.where(username: admin.username).exists?

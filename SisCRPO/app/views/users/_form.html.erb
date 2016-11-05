@@ -1,92 +1,109 @@
 
 <%= form_for @user, :html =>{id:'teste'} do |f| %>
+    <div class="box-body">
+        <div class="box box-default">
+            <h5 class="box-title">Dados Pessoais</h5>
             <div class="box-body">
-                <div class="form-group col-md-2">
-                    <label>Id Funcional</label>
-                    <%= f.text_field :id_func, PlaceHolder: "Id Funcional", maxlength: "80", class:"form-control", data: {
-      :validation => "required",
-      :suggestions => "clovis, fachinello soares",
-      "validation-error-msg" => "Este campo é obrigatorio." } %>
-                </div>
-                <div class="form-group col-md-8">
-                    <label>Nome</label>
-                    <%= f.text_field :name, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
-                </div>
+                <div class="row">
                     <div class="form-group col-md-2">
-                    <label>CPF</label>
-                    <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
+                        <label>Id Funcional</label>
+                        <%= f.text_field :id_func, PlaceHolder: "Id Funcional", maxlength: "80", class:"form-control", data: {
+                                :validation => "required",
+                                :suggestions => "clovis, fachinello soares",
+                                "validation-error-msg" => "Este campo é obrigatorio." } %>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Nome</label>
+                        <%= f.text_field :name, PlaceHolder: "Nome Completo", maxlength: "80", class:"form-control" %>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Nome de Guerra</label>
+                        <%= f.text_field :war_name, PlaceHolder:  "Nome de Guerra", class:"form-control" %>
+                    </div>
                 </div>
-                      <div class="form-group col-md-2">
-                    <label>Data Nascimento</label>
-                    <%= f.date_field :birth, class:"form-control data" %>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label>CPF</label>
+                        <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
+                    </div>
+                     <div class="form-group col-md-5">
+                        <label>E-mail</label>
+                        <%= f.text_field :email, PlaceHolder: "E-mail", class:"form-control" %>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Login</label>
+                        <%= f.text_field :username, PlaceHolder: "Usuário",  maxlength: "80", class:"form-control" %>
+                    </div>
+                 </div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label>Data Nascimento</label>
+                        <%= f.date_field :birth, class:"form-control data" %>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Sexo</label>
+                        <%= f.select :gender, [['Maculino', 'M'], ['Feminino', 'F']],  {:include_blank => 'Selecionar'}, class: "form-control select2" %>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label>Ativo:</label>
+                        <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],  {:include_blank => 'Selecionar'}, class: "form-control select2"%>
+                    </div>
                 </div>
-                      <div class="form-group col-md-8">
-                    <label>Nome de Guerra</label>
-                    <%= f.text_field :war_name, PlaceHolder:  "Nome de Guerra", class:"form-control" %>
+            </div>
+        </div>
+        <div class="box box-default">
+            <h5 class="box-title">Endereço</h5>
+            <div class="box-body">
+                <div class="row">                   
+                    <div class="form-group col-md-6">
+                        <label>Endereço</label>
+                        <%= f.text_field :address, PlaceHolder: "Endereço. Ex: 'Rua ....'", class:"form-control" %>
+                    </div>
+                     <div class="form-group col-md-3">
+                        <label>CEP</label>
+                        <%= f.text_field :zip_code, PlaceHolder: "CEP", class:"form-control cep" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Bairro</label>
+                        <%= f. text_field :neighborhood, PlaceHolder: "Bairro", class:"form-control" %>
+                    </div>                    
+                    <div class="form-group col-md-6">
+                        <label>Cidade</label>
+                        <%= f.select :city_id, @select_cities.map{ |s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" , 
+                                data: {
+                                    :validation => "required",
+                                    "validation-error-msg" => "Este campo é obrigatorio." } %>
+                    </div> 
                 </div>
-                      <div class="form-group col-md-2">
-                    <label>Sexo</label>
-                    <%= f.select :gender, [['Maculino', 'M'], ['Feminino', 'F']],{}, class: "form-control" %>
-                </div>
-                      <div class="form-group col-md-5">
-                    <label>Imagem do usuário</label>
-                    <%= f.file_field :image_path %>
-                </div>
-                <div class="form-group col-md-5">
-                    <label>E-mail</label>
-                    <%= f.text_field :email, PlaceHolder: "E-mail", class:"form-control" %>
-                </div>
-                      <div class="form-group col-md-2">
-                    <label>Ativo:</label>
-                    <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],{}, class: "form-control" %>
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Posto / Graduação*</label>
-                    <%= f.select :post_graduation_id, @postograduacao.map{|s| [s.name, s.id]}, {}, class: "form-control select2"%>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Login</label>
-                    <%= f.text_field :username, PlaceHolder: "Usuário",  maxlength: "80", class:"form-control" %>
-                </div>
-                      <div class="form-group col-md-4">
-                    <label>Senha</label>
-                    <%= f.password_field :password, class: "form-control" %>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Confirmar Senha</label>
-                    <%= f.password_field :password_confirmation, class: "form-control" %>
-                </div>
-                <div class="form-group col-md-7">
+            </div>
+        </div>
+        <div class="box box-default">
+            <h5 class="box-title">Dados Profissionais</h5>
+            <div class="box-body">
+                <div class="row">
+                     <div class="form-group col-md-6">
+                        <label>Posto / Graduação*</label>
+                        <%= f.select :post_graduation_id, @postograduacao.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2"%>
+                    </div>
+                    <div class="form-group col-md-6">
                     <label>Função</label>
-                    <%= f.select :function_id, @select_funcoes.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
-                </div>
-                <div class="form-group col-md-7">
-                    <label>Perfil</label>
-                    <%= f.select :profile_id, @select_perfis.map{|s| [s.name, s.id]}, {}, class: "form-control select2" %>
-                </div>
-                <div class="form-group col-md-2">
-                    <label>CEP</label>
-                    <%= f.text_field :zip_code, PlaceHolder: "CEP", class:"form-control cep" %>
-                </div>
-                <div class="form-group col-md-7">
-                    <label>Endereço</label>
-                    <%= f.text_field :address, PlaceHolder: "Endereço. Ex: 'Rua ....'", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-3">
-                    <label>Bairro</label>
-                    <%= f.text_field :neighborhood, PlaceHolder: "Bairro", class:"form-control" %>
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Cidade</label>
-                    <%= f.select :city_id, [['Caxias do Sul', '0'], ['Passo Fundo', '1'], ['Vacaria', '2']],{}, class: "form-control select2" %>
-                </div>
-                <div class="form-group col-md-5">
-                    <label>Estado</label>
-                    <%= f.select :state, [['Rio Grande Do Sul', 'RS'], ['Santa Catarina', 'SC'], ['São Paulo', 'SP']],{}, class: "form-control select2" %>
+                        <%= f.select :function_id, @select_funcoes.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Perfil</label>
+                            <%= f.select :profile_id, @select_perfis.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
+                    </div>
                 </div>
             </div>
-            <div class="box-footer">
-                <%= f.submit "Salvar", Class: "btn btn-success" %>
-                <%= f.button "Limpar", Class: "btn btn-danger" %>
-            </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <%= f.submit "Salvar", Class: "btn btn-success" %>
+        <% if @botao == 'edit' %>
+          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+        <% else %>
+          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
         <% end %>
+        <div class=" small pull-right">* Campos obrigatórios</div>
+    </div>
+<% end %>

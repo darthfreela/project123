@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :check_new_or_reseted_user
+  helper_method :is_first_access?
+
   def after_sign_in_path_for(resource)
     dashboard_path
   end
@@ -37,5 +40,26 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit( :password, :password_confirmation, :current_password)}
+  end
+
+  #verifica se é primeiro acesso
+  def is_first_access?
+    is_first = User.find(current_user)
+    if is_first.first_access == true
+      redirect_to users_change_password_path
+    end
+  end
+
+  #coloca a senha como id_func
+  def check_new_or_reseted_user
+    begin
+      user = User.find(current_user.id)
+      if user.first_access == true
+        user.update(password: user.id_func)
+      end
+    rescue => ex
+      puts ex.message
+    end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021134653) do
+ActiveRecord::Schema.define(version: 20161102133112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,12 +93,16 @@ ActiveRecord::Schema.define(version: 20161021134653) do
     t.string   "imported_file_path"
     t.string   "title"
     t.string   "description"
-    t.string   "graduation"
-    t.string   "bulletin_name"
-    t.integer  "id_func"
-    t.string   "opm"
-    t.string   "name_func"
     t.date     "bulletin_date"
+  end
+
+  create_table "imported_files_users", force: :cascade do |t|
+    t.integer  "id_user"
+    t.integer  "id_func_temp"
+    t.integer  "user_id"
+    t.integer  "id_imported_file"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "informatives", force: :cascade do |t|
@@ -178,9 +182,13 @@ ActiveRecord::Schema.define(version: 20161021134653) do
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.boolean  "actived"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "function_id"
+    t.integer  "functions_id"
   end
+
+  add_index "profiles", ["functions_id"], name: "index_profiles_on_functions_id", using: :btree
 
   create_table "request_licences", force: :cascade do |t|
     t.string   "type"
@@ -222,6 +230,7 @@ ActiveRecord::Schema.define(version: 20161021134653) do
     t.integer  "type_solicitation"
     t.integer  "type_license"
     t.integer  "license_days"
+    t.integer  "status"
   end
 
   create_table "temporary_replacements", force: :cascade do |t|
@@ -232,9 +241,9 @@ ActiveRecord::Schema.define(version: 20161021134653) do
     t.date     "date_end"
     t.integer  "buletim_number"
     t.boolean  "status"
-    t.integer  "exemption_clearence_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "solicitation_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "text_informatives", force: :cascade do |t|
@@ -307,7 +316,9 @@ ActiveRecord::Schema.define(version: 20161021134653) do
     t.string   "email"
     t.integer  "function_id"
     t.integer  "platoon_id"
+    t.boolean  "first_access"
   end
 
+  add_foreign_key "profiles", "functions"
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
 end
