@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-=======
->>>>>>> 70dd5e9dfe0b5df1a02166efe365e48c654f026c
 
  resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
@@ -22,10 +19,7 @@ resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update
 resources :import_files, :only =>  [:new, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
-<<<<<<< HEAD
-=======
 
->>>>>>> 70dd5e9dfe0b5df1a02166efe365e48c654f026c
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
@@ -61,20 +55,13 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 70dd5e9dfe0b5df1a02166efe365e48c654f026c
   resources :disthoraext
 
   resources :approval_solicitation, :only =>  [:new, :edit, :destroy, :update]
   get 'approval_solicitation/:id' => 'approval_solicitation#edit'
   get 'approval_solicitation/approve/:id' => 'approval_solicitation#approve'
   get 'approval_solicitation/reprove/:id' => 'approval_solicitation#reprove'
-<<<<<<< HEAD
-=======
 
->>>>>>> 70dd5e9dfe0b5df1a02166efe365e48c654f026c
 
   resources :approval_request_dispense_superior, :only =>  [:new, :edit, :destroy, :update]
 
@@ -88,10 +75,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
   get 'approval_request_dispense_superior/reprove/:id' => 'approval_request_dispense_superior#reprove'
 
   resources :disthoraext, :only =>  [:new, :create, :edit, :destroy, :update]
-<<<<<<< HEAD
-=======
 
->>>>>>> 70dd5e9dfe0b5df1a02166efe365e48c654f026c
   resources :request_dispenses
 
   resources :disthoraext

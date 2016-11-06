@@ -83,9 +83,9 @@ def new
 
 # aki começa diogo
 
-doc.paragraphs.each do |p|
-  @teste= p.to_html
-end
+#doc.paragraphs.each do |p|
+ # @teste= p.to_html
+#end
 
 
 
