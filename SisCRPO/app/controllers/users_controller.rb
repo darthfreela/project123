@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @select_funcoes = Function.all
     @select_perfis = Profile.all
     @select_cities = City.all
-    
+
     if @user.save
       #@user_function = UsersFunction.new(@user.id, :function_id)
       #@user_function.save
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to new_user_path, notice: "Usuário removido com sucesso."
   end
-  
+
   def change_current_profile
     User.find(current_user.id).update_column(:current_profile, params[:profile_id])
     redirect_to '/'
@@ -65,10 +65,10 @@ class UsersController < ApplicationController
 
   def change_password_function
     @user = User.find(current_user.id)
-    puts "----------------------------------------------------------------------"
+
     #@user.password = params[:password]
     #@user.password_confirmation = params[:password_confirmation]
-    
+
     @user = User.find(current_user.id)
     #@user.password = params[:password]
     #@user.password_confirmation = params[:password_confirmation]

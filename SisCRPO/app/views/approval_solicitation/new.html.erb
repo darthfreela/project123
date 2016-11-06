@@ -31,6 +31,7 @@
               <th>Nome do Servidor</th>
               <th>Posto Grad.</th>
               <th>Função Exercida</th>
+              <th>Status</th>
               <th></th>
             </tr>
           </thead>
@@ -42,6 +43,7 @@
                 <td><%= e.solicitation.user.name %></td>
                 <td><%= e.solicitation.user.post_graduation.initials%></td>
                 <td><%= e.solicitation.user.function.name %></td>
+                <td><i class="fa fa-circle " title="AA"> Aguardando aprovação</i></td>
                 <td>
                   <%= link_to raw("<i class='fa fa-check-square-o  '>Visualizar</i>"),
                   {:controller => 'approval_solicitation', :action => 'edit',

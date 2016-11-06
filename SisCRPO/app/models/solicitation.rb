@@ -13,6 +13,8 @@ class Solicitation < ActiveRecord::Base
   '''
       validates :date_begin, presence: true
       validates :date_end, presence: true
+      # formata a data na tela
+      Time::DATE_FORMATS[:format_date] = "%d/%m/%y- %H:%Mhrs"
 
       # relacionamentos
       belongs_to :user

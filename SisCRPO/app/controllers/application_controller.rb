@@ -57,7 +57,6 @@ class ApplicationController < ActionController::Base
       user = User.find(current_user.id)
       if user.first_access == true
         user.update(password: user.id_func)
-        puts 'CHEEEE'
       end
     rescue => ex
       puts ex.message
