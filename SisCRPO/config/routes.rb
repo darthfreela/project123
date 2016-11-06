@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
+ resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
 post '/users/change_profile' => "users#change_current_profile"
 
@@ -54,7 +54,6 @@ resources :report_overtime_supplementations, :only =>  [:index]
   resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
-
 
   resources :disthoraext
 
