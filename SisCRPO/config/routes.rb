@@ -78,9 +78,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
 
   resources :request_dispenses
 
-  resources :disthoraext
-
-  resources :distribuicao_horas_extras, :only =>  [:new, :create, :edit, :destroy, :update]
+  resources :extra_hour_distributions, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :profiles, :only =>  [:new, :create, :edit, :destroy, :update]
 
