@@ -6,19 +6,6 @@ development:
   pool: 5
   username: CRPOFTEC
   password: crpo2016#ftec
-  # conxão Local
-  #database: crpoLocal
-  #username: 
-  #password: 
-
-  # host: localhost
-  # database: crpoLocal
-  # username: postgres
-  # password: gokussj9
-  #host: localhost
-  #database: crpoLocal
-  #username: postgres
-  #password: postgres
 
 test: &TEST
   adapter: postgresql

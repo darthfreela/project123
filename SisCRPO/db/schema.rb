@@ -11,8 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161024211457) do
-
+=======
+ActiveRecord::Schema.define(version: 20161102133112) do
+>>>>>>> 7ed91c3d7a745088fcb2350597ed643432f4e8ce
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,9 +186,13 @@ ActiveRecord::Schema.define(version: 20161024211457) do
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.boolean  "actived"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "function_id"
+    t.integer  "functions_id"
   end
+
+  add_index "profiles", ["functions_id"], name: "index_profiles_on_functions_id", using: :btree
 
   create_table "request_licences", force: :cascade do |t|
     t.string   "type"
@@ -227,6 +234,7 @@ ActiveRecord::Schema.define(version: 20161024211457) do
     t.integer  "type_solicitation"
     t.integer  "type_license"
     t.integer  "license_days"
+    t.integer  "status"
   end
 
   create_table "temporary_replacements", force: :cascade do |t|
@@ -237,9 +245,9 @@ ActiveRecord::Schema.define(version: 20161024211457) do
     t.date     "date_end"
     t.integer  "buletim_number"
     t.boolean  "status"
-    t.integer  "exemption_clearence_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "solicitation_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "text_informatives", force: :cascade do |t|
@@ -315,5 +323,6 @@ ActiveRecord::Schema.define(version: 20161024211457) do
     t.boolean  "first_access"
   end
 
+  add_foreign_key "profiles", "functions"
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
 end

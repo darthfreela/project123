@@ -43,7 +43,10 @@
                 <%= f.submit "Importar", Class: "btn btn-success" %>
                 <%= f.button "Cancelar", Class: "btn btn-danger" %>
                 <div class=" small pull-right">
-                <%= @teste %>* Campos obrigatórios</div>
+               <div> <%= @tabela.bulletin_date %></div>
+               <div> <%= @tabela.title %></div>
+
+                * Campos obrigatórios</div>
             </div>
         <% end %>
     </div>
@@ -86,10 +89,8 @@
                                 <tr>
                                     <td><%= o.id %></td>
                                     <td><%= o.user_id %></td>
-                                    <td><%= o.name_func %></td>
-                                    <td><%= o.graduation %></td>
-                                    <td><%= o.bulletin_name %></td>
-                                    <td><%= o.bulletin_date %></td>
+
+
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'imported_files', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'imported_files', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este boletim?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
