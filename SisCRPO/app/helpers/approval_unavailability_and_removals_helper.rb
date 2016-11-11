@@ -1,2 +1,0 @@
-module ApprovalUnavailabilityAndRemovalsHelper
-end

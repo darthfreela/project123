@@ -30,11 +30,10 @@
                                                                                                    "," + new_temporary_replacement_path +
                                                                                                    "," + new_text_informative_path +
                                                                                                    "," + new_profile_path +
-                                                                                                   "," + new_request_vacation_path +
                                                                                                    "," + new_platoon_path +
                                                                                                    "," + new_post_graduation_path +
                                                                                                    "," + users_change_password_path +
-                                                                                                   "," + new_solicitation_path 
+                                                                                                   "," + new_solicitation_path
                                                                                                     ) %>">
 
     <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
@@ -97,28 +96,16 @@
           <span>Apontamentos de Horas</span>
         <% end  %>
       </li>
-      <li class="<%= ative_se_pagina_atual(new_distribuicao_horas_extra_path, true) %>">
-        <%= link_to new_distribuicao_horas_extra_path do %>
+      <li class="<%= ative_se_pagina_atual(new_extra_hour_distribution_path, true) %>">
+        <%= link_to new_extra_hour_distribution_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Horas Extras</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_request_licence_path, true) %>">
-        <%= link_to new_request_licence_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Licença</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_profile_path, true) %>">
         <%= link_to new_profile_path do %>
           <i class="fa  fa-wrench"></i>
         <span>Perfil</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_request_vacation_path, true) %>">
-        <%= link_to new_request_vacation_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Lanç. Férias</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_temporary_replacement_path, true) %>">
@@ -131,30 +118,6 @@
         <%= link_to new_management_hour_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Gerencia de Horas</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual( new_rh_license_approval_path, true) %>">
-        <%= link_to new_rh_license_approval_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Aprovação Licença</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_management_hour_path, true) %>">
-        <%= link_to new_request_dispense_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Solicitação de Dispensa</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_approval_unavailability_and_removal_path, true) %>">
-        <%= link_to new_approval_unavailability_and_removal_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Aprovação de Dispensas</span>
-        <% end  %>
-      </li>
-      <li class="<%= ative_se_pagina_atual(new_approval_request_dispense_superior_path, true) %>">
-        <%= link_to new_approval_request_dispense_superior_path do %>
-          <i class="fa  fa-wrench"></i>
-          <span>Aprovação Disp (Superior)</span>
         <% end  %>
       </li>
       <li class="<%= ative_se_pagina_atual(new_imported_file_path, true) %>">
