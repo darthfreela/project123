@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107225422) do
+ActiveRecord::Schema.define(version: 20161107232345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 20161107225422) do
   end
 
   create_table "imported_files_users", force: :cascade do |t|
-    t.integer  "id_user"
     t.integer  "id_func_temp"
     t.integer  "user_id"
     t.integer  "id_imported_file"
@@ -196,10 +195,11 @@ ActiveRecord::Schema.define(version: 20161107225422) do
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.boolean  "actived"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "function_id"
     t.integer  "functions_id"
+    t.boolean  "permission_rh"
   end
 
   add_index "profiles", ["functions_id"], name: "index_profiles_on_functions_id", using: :btree
