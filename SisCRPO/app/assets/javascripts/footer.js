@@ -126,5 +126,9 @@ function soNums(e){
 }
 
 (function(){
-        $.validate();
+        $.validate({
+            addValidClassOnAll : true,
+            lang: 'pt',
+        });
+
 })();

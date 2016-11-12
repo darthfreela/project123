@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 
- resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
+get 'user_preferences/index'
+
+resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
 post '/users/change_profile' => "users#change_current_profile"
 

@@ -8,11 +8,11 @@ def new
     @importedFile_show = ImportedFile.all
     @user = User.all
 
-    @tabela = ImportedFile.new
-      #
 
-    # Open docx
-   # regexTitle = Em\s[0-9]{2}\sde\s\w*\sde\s[0-9]{4}.
+    @tabela = ImportedFile.new
+
+
+
 
     doc = Docx::Document.open('boletim.docx')
 
@@ -25,38 +25,23 @@ def new
 
         if row.cells != "" && row.cells != "\n"
 
-
-
           primeiraCelula = row.cells
           break
-
         end
 
         if primeiraCelula != ""
           break
         end
-
       end
 
       if primeiraCelula != ""
           break
         end
-
     end
-
-
-    #puts "==============================="
-
-    #primeiraCelula = primeiraCelula.to_s.gsub! '\n', ''
-   # primeiraCelula = primeiraCelula.strip!
 
     primeiraCelula = primeiraCelula[0].to_s
 
-    #puts primeiraCelula
 
-    #puts "==============================="
-
-    ######
 i=0
 texto = ''
 regexTitle = ' '
@@ -71,7 +56,7 @@ regexAux =''
 
          regexDate = /Em\s[0-9]{2}\sde\s\w*\sde\s[0-9]{4}./.match(p.to_s)
            if !regexDate.nil?
-           @tabela.bulletin_date = regexDate
+           @tabela.date = regexDate
            end
          regexTitle = /[A-Z]{1,4}\s\W\s.*/.match(p.to_s)
            if !regexTitle.nil?
@@ -79,107 +64,135 @@ regexAux =''
           end
 
 
-
-
-         # regexContent = /#{regexTitle}(.*\n)+/.match(p.to_s)
+            if !regexTitle.nil?
+            @tabela.title = regexTitle
+          end
 
          puts regexDate
          puts regexTitle
-       #  puts regexContent
-
-
-
-
 
       else
-        puts "FIMMMMMMMMMMMMMMMMMMMMM"
+     #   puts "FIMMMMMMMMMMMMMMMMMMMMM"
         break
-
       end
    end
 
-#regexTitle = regexTitle.to_s.delete("\n")
-#puts regexTitle
-#if texto.size > 0
-  #texto.insert(texto.index(regexTitle), '&')
-#end
-puts "Akiiiiii -------------------"
-puts texto
-puts "Akiiiiii ----------------"
+#puts texto
 regexContent = /[A-Z]{1,4}\s\W\s.*/.match(texto)
   if !regexContent.nil?
-
+    @tabela.description = regexContent
   end
+  @tabela.save
+
+  id_boletim = @tabela.id
+
 puts regexContent
-puts "Fim regex content"
+#puts "Fim regex content"
 
 
-#doc.tables.each do |table|
+doc.tables.each do |table|
 
-      #table.rows.each do |row| # Row-based iteration
+      table.rows.each do |row| # Row-based iteration
 
 
       # Separa os campos
-      #graduation = row.cells[0]
-      #name = row.cells[1]
-      #id = row.cells[2]
-      #opm = row.cells[3]
+      graduation = row.cells[0]
+      name = row.cells[1]
+      id = row.cells[2]
+      opm = row.cells[3]
 
+      if opm.to_s["CRPO/Serra"]
+        puts "akiakiaksiadkasidsaidkasdisadkiasdias"
+      end
+
+if id.to_s.to_i >0
       # Bsuca usuario do banco
-      #userDb = User.where(id_func: id.to_s.to_i).first
+      userDb = User.where(id_func: id.to_s.to_i).first
+
 
       # Ignora se não encontra
-      #if userDb.nil?
-        #next
-      #end
+      if userDb.nil?
+        next
+      end
 
-      #puts userDb.name
+      @tabela_user = ImportedFilesUser.new
+            @tabela_user.graduation = graduation
+             @tabela_user.name = name
+            # @tabela_user.user_id = id.to_s.to_i
+             @tabela_user.opm = opm
+             @tabela_user.imported_file_id = id_boletim
 
-      # if !@userdodemetrius.nil?
-      #     @tabela = ImportedFile.new
-      #      @tabela.graduation = row.cells[0]
-      #      @tabela.bulletin_name = row.cells[0]
-      #      @tabela.id_func = row.cells[0]
-      #      @tabela.opm = row.cells[0]
-      #      @tabela.save
+             if userDb ==  id.to_s.to_i
+              @tabela_user.id_func_temp = id.to_s.to_i
+            else
+              @tabela_user.user_id = id.to_s.to_i
+             end
+             @tabela_user.save
 
-      #   puts "Teste!! #{@userdodemetrius.name}"
-
-      #   #@importedFile = ImportedFile.new(:user_id = row.cells[0])
-
-
-      # end
+      puts"ccccccccccccc"
+      puts userDb.name
+      puts "dddddddddddddddd"
 
 
 
-# aki começa diogo
+        #if !@userdodemetrius.nil?
+           # @tabela = ImportedFile.new
+             # @tabela.graduation = row.cells[0]
+             # @tabela.name = row.cells[0]
+             # @tabela.user_id = row.cells[0]
+             # @tabela.opm = row.cells[0]
+#             #@tabela.save
+ #puts "aaaaaaaaaaaaaaaaa"
+   #       puts "Teste!! #{@userdodemetrius.name}"
+  #puts "bbbbbbbbbbbbb"
 
-#doc.paragraphs.each do |p|
- # @teste= p.to_html
+         #@importedFile = ImportedFile.new(:user_id = row.cells[0])
+
+
+
 #end
+end
 
-
-
-
-
-    #end
-  #end
+    end
+  end
 
 
 end
 
+def create
+    @tabela = ImportedFile.new(importedFile_params)
+   # @tabela_show = ImportedFile.all
 
+    @tabela_user = ImportedFileUser.new(importedFileUser_params)
+    #@tabela_show = ImportedFile.all
 
-  def create
-    @importedFile = ImportedFile.new(importedFile_params)
-    @iimportedFile_show = ImportedFile.all
-
-    if @importedFile.save
-        redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
+    if @tabela.save
+        @tabela_user = ImportedFilesUser.new(importedFileUser_params)
+        if @imported_file_user.save
+            redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
+        else
+          destroy
+        end
       else
         render action: :new
     end
   end
+
+ # def create
+   # @importedFile = ImportedFile.new(importedFile_params)
+  #  @iimportedFile_show = ImportedFile.all
+
+    #if @importedFile.save
+       # @imported_file_user = ImportedFilesUser.new(importedFileUser_params)
+        #if @imported_file_user.save
+          #  redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
+        #else
+         # destroy
+       # end
+     # else
+      #  render action: :new
+    #end
+  #end
 
 def destroy
       @importedFile = ImportedFile.find(params[:id])
@@ -189,8 +202,14 @@ end
 
   private
   def importedFile_params
-    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :bulletin_date)
-    #| user_id |imported_file_path   | title | description | bulletin_date
+    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date, :description)
+  #user_id ,  imported_file_path , title , description , bulletin_date date,
+
+  end
+
+  private
+  def importedFileUser_params
+    params.require(:imported_files_user).permit(:id_func_temp, :user_id, :imported_file_id, :graduation, :name, :opm)
 
   end
 end

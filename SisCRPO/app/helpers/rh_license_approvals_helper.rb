@@ -1,2 +1,0 @@
-module RhLicenseApprovalsHelper
-end
