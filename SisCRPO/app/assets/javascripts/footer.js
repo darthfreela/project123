@@ -129,7 +129,6 @@ function soNums(e){
         $.validate({
             addValidClassOnAll : true,
             lang: 'pt',
-            modules : 'toggleDisabled, security, date'
         });
 
 })();
