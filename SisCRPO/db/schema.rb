@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161024211457) do
-=======
-ActiveRecord::Schema.define(version: 20161102133112) do
->>>>>>> 7ed91c3d7a745088fcb2350597ed643432f4e8ce
+ActiveRecord::Schema.define(version: 20161112171649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,15 +94,18 @@ ActiveRecord::Schema.define(version: 20161102133112) do
     t.string   "title"
     t.string   "description"
     t.date     "bulletin_date"
+    t.string   "date"
   end
 
   create_table "imported_files_users", force: :cascade do |t|
-    t.integer  "id_user"
     t.integer  "id_func_temp"
     t.integer  "user_id"
-    t.integer  "id_imported_file"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "name"
+    t.string   "graduation"
+    t.string   "opm"
+    t.integer  "imported_file_id"
   end
 
   create_table "informatives", force: :cascade do |t|
@@ -149,6 +148,17 @@ ActiveRecord::Schema.define(version: 20161102133112) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "title_notification"
+    t.string   "url_description"
+    t.datetime "date_expiration"
+    t.integer  "status"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "opms", force: :cascade do |t|
     t.string   "initials"
     t.string   "name"
@@ -186,10 +196,11 @@ ActiveRecord::Schema.define(version: 20161102133112) do
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.boolean  "actived"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "function_id"
     t.integer  "functions_id"
+    t.boolean  "permission_rh"
   end
 
   add_index "profiles", ["functions_id"], name: "index_profiles_on_functions_id", using: :btree
@@ -323,6 +334,7 @@ ActiveRecord::Schema.define(version: 20161102133112) do
     t.boolean  "first_access"
   end
 
+  add_foreign_key "imported_files_users", "imported_files"
   add_foreign_key "profiles", "functions"
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"
 end
