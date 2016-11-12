@@ -36,6 +36,9 @@ class ApprovalSolicitationController < ApplicationController
     @toApprove.update(:status => 2 ,:user_id => current_user.id)
     @toApprove.solicitation.update(:status => 2)
 
+    # guarda o id do usuario que solicitou
+    user_id_solicitation = @toApprove.solicitation.user.id
+
     # testa se o usuário tem uma função superior a sua...
       if current_user.function_id != @toApprove.user.function.manager_function_id
         # se tem cria um registro novo para ser aprovado com a função do superior
@@ -50,7 +53,7 @@ class ApprovalSolicitationController < ApplicationController
          notice: "Solicitação aprovada com sucesso, e enviada para o próximo superior."
        else
          @temporary_replacement = TemporaryReplacement.new
-         @temporary_replacement.occupant_id_func = @toApprove.solicitation.user.id
+         @temporary_replacement.occupant_id_func = user_id_solicitation
          #razão de indisponibilidade
          @temporary_replacement.unavailability_reason = @toApprove.solicitation.description
          @temporary_replacement.date_begin = @toApprove.solicitation.date_begin
@@ -60,21 +63,36 @@ class ApprovalSolicitationController < ApplicationController
         #  Salva o registro para substituiçao temporaria
         @temporary_replacement.save
 
-        #  id integer NOT NULL DEFAULT nextval('temporary_replacements_id_seq'::regclass),
-        #  substitute_id_func integer,
-        #  occupant_id_func integer,
-        #  unavailability_reason character varying,
-        #  date_begin date,
-        #  date_end date,
-        #  buletim_number integer,
-        #  status boolean,
-        #  exemption_clearence_id integer,
-        #  created_at timestamp without time zone NOT NULL,
-        #  updated_at timestamp without time zone NOT NULL,
+        #####################################################
+        #cria uma notificação no banco de dados
+        title_notification = ""
+
+        # switch no rails
+        case @toApprove.solicitation.type_solicitation # a_variable is the variable we want to compare
+          when 0    #compare to 0
+            title_notification = "Solicitação de férias"
+          when 1    #compare to 1
+            title_notification = "Solicitação de dispensa"
+          else
+            title_notification = "Solicitação de licença"
+          end
+
+        @notification = Notification.new
+        @notification.user_id = user_id_solicitation
+        @notification.description = "Usuário solicitante: " + @toApprove.solicitation.user.name
+        @notification.title_notification = title_notification
+        @notification.controller_description = "temporary_replacements"
+        @notification.action_description = "edit"
+        @notification.status = 0
+        @notification.id_action_notification = @temporary_replacement.id
+
+        # adiciona 48 horas para a data atual
+        @notification.date_expiration = Time.now + 2.days
+        @notification.save
 
         # retorna com a mensagem de sucesso
          redirect_to new_approval_solicitation_path,
-          notice: "Solicitação aprovada com sucesso, foi enviada para o RH para substituir o solicitante."
+          notice: "Solicitação aprovada com sucesso, foi enviada para o RH fazer a substituição temporária."
        end
   end
 end
