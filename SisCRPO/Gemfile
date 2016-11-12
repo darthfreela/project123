@@ -16,7 +16,7 @@ gem 'wicked_pdf'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
-gem 'jquery-form-validator-rails'
+gem 'dqs-jquery-form-validator-rails', '>= 2.2.8'
 
 gem 'jquery-ui-rails'
 

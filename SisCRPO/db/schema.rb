@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161112171649) do
+=======
+ActiveRecord::Schema.define(version: 20161112173907) do
+>>>>>>> ae3f0c7388a348ed7aec2b2638fccc5e331e37ff
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,11 +156,21 @@ ActiveRecord::Schema.define(version: 20161112171649) do
     t.integer  "user_id"
     t.string   "description"
     t.string   "title_notification"
+<<<<<<< HEAD
     t.string   "url_description"
     t.datetime "date_expiration"
     t.integer  "status"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+=======
+    t.string   "controller_description"
+    t.datetime "date_expiration"
+    t.integer  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "action_description"
+    t.integer  "id_action_notification"
+>>>>>>> ae3f0c7388a348ed7aec2b2638fccc5e331e37ff
   end
 
   create_table "opms", force: :cascade do |t|

@@ -1,0 +1,25 @@
+erro de formataçao rever indices, indicadores
+nome da disciplina - importante
+nome do curso
+numeros de indice
+lista de figura depois do indice
+justificar texto
+primeira pagina numerada
+msg 1 - mudar para nome da msg referente ao conteudo
+prototipo de telas - colocar descriçao dividir em grupos
+espaçamento simples sem antes e depois dentro das tabelas
+2 enter pra separar capititulo colocar no minimo 3 linhas de introduçao
+dg de classe antes do de sequencia
+revisar ve se os metodos de sequencia bate com os de calsse
+cortar o dg classe pra ficar em duas paginas separadas
+realinhas dg classe
+colocar 5 sites de referencia
+
+
+ppt colocar mais estatisticas, regras de negocio, esplicar sobre o processo, necessidade, tecnologia
+nao falar mal dos colegas, 
+
+dia 21 apresentação na aula
+
+ppt pronto proxima aula
+workflow de apresentação
