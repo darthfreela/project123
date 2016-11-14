@@ -10,12 +10,7 @@ def new
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
 
-  #  @tabela = ImportedFile.new aki 111111111111111
-
-
-
-
-    doc = Docx::Document.open('boletim.docx')
+      doc = Docx::Document.open('boletim.docx')
 
     primeiraCelula = ""
 
@@ -147,11 +142,6 @@ if id.to_s.to_i >0
       puts userDb.name
       puts "Existe no Db"
 
-
-
-
-
-
           end
        end
     end
@@ -160,10 +150,10 @@ end
 
 def create
     @importedFile = ImportedFile.new(importedFile_params)
-    @importedFile_show = ImportedFile.all
+    #@importedFile_show = ImportedFile.all
 
     @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
-    @importedFile_user_show = ImportedFilesUser.all
+    #@importedFile_user_show = ImportedFilesUser.all
 
     if @importedFile.save
         @importedFile_user = ImportedFilesUser.new(importedFileUser_params)

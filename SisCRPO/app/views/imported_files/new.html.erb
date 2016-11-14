@@ -84,8 +84,6 @@
                             <th>Título</th>
                             <th>Descrição</th>
                             <th>Data</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +95,6 @@
                                     <td><%= o.title %></td>
                                     <td><%= o.description %></td>
                                      <td><%= o.date %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'imported_files', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este boletim?'} , class: 'btn btn-danger', method: :delete %></td>
                                 </tr>
                             <% end %>
                         <% end %>
@@ -110,19 +107,18 @@
 
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
+                <div><h3>Usuários na estão cadastrados na base de daods</h3></div>
                         <tr>
                             <th>Id Func</th>
                             <th>ID Boletim</th>
                             <th>Graduação</th>
                             <th>Nome</th>
                             <th>OPM</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @importedFile_user_show.each do |f|%>
-                            <% if f.id_func_temp == "" %>
+                            <% if f.id_func_temp.nil? %>
                                 <tr>
                                     <td><%= f.user_id %></td>
                                     <td><%= f.imported_file_id %></td>
@@ -131,9 +127,10 @@
                                       <td><%= f.opm %></td>
                                 </tr>
                         <% end %>
+                       <% end %>
                     </tbody>
                 </table>
-            <% end %>
+
             </div>
             <!--  fim-->
               <!--  cmç-->
@@ -141,19 +138,17 @@
 
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
-                        <tr>
+                    <div><h3>Usuários não estão cadastrados na base de dados, efetue o cadastro</h3></div>
                             <th>Id Func</th>
                             <th>ID Boletim</th>
                             <th>Graduação</th>
                             <th>Nome</th>
                             <th>OPM</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% @importedFile_user_show.each do |u|%>
-                            <% if u.id_func_temp != "" %>
+                            <% if u.user_id.nil?  %>
                                 <tr>
                                     <td><%= u.id_func_temp %></td>
                                     <td><%= u.imported_file_id %></td>
@@ -162,9 +157,10 @@
                                       <td><%= u.opm %></td>
                                 </tr>
                         <% end %>
+                      <% end %>
                     </tbody>
                 </table>
-            <% end %>
+
             </div>
             <!--  fim-->
         <div class="box-footer"></div>
