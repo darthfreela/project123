@@ -35,7 +35,7 @@
                     <!-- variaveis para usar no tempo das notificações -->
                     <!-- diminui o valor da data atual com a data de expiração  -->
                     <% @date_expiration_subtract_date_now =
-                      ((l.date_expiration + 2.hour)- Time.now).to_i %>
+                      ((l.date_expiration)- Time.now).to_i %>
                     <!-- pega o valor em dias do tempo restante -->
                     <% @days_now = @date_expiration_subtract_date_now / 86400 %>
                     <!-- pega o valor das horas restantes -->
