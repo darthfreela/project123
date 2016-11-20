@@ -1,34 +1,102 @@
-<li class="dropdown tasks-menu closed">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">2</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Notificações</li>
+<li class="dropdown tasks-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-flag-o"></i>
+    <% if $notifications.count > 0 %>
+      <span class="label bg-green">
+        <%= $notifications.count %>
+      </span>
+    <% end %>
+  </a>
+
+  <ul class="dropdown-menu">
+    <div class="box-header with-border">
+    <% if $notifications.count > 0 %>
+      <h4> Novas notificações!</h4>
+    <% else %>
+      <h4> Não existem novas notificações!</h4>
+    <% end %>
+  </div>
+    <li>
+        <ul class="menu" >
+          <% if $notifications.count > 0 %>
+
+            <% $notifications.each do |l|%>
               <li>
-                <!-- inner menu: contains the actual data -->
-                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
-                  <li><!-- Task item -->
-                    <a href="#">
-                    <div class="pull-center">
-                          Fim de contrato Juliano Silva <span class="label label-danger">1 dia</span>
-                    </div>
-                    </a>
-                  </li>
-                  <li><!-- Task item -->
-                    <a href="#">
-                    <div class="pull-center">
-                          Dispensa 3º Sgt Antunes <span class="label label-warning">2 dias</span>
-                    </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                  <!-- end task item -->
-                </ul><div class="slimScrollBar" style="width: 3px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 188.679px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
+
+                <!-- monta a url para direcionar a notificação -->
+                <% @url_to_resolve = "/"+ l.controller_description.to_s + "/"+
+                 l.id_action_notification.to_s + "/"+ l.action_description.to_s %>
+
+                <a href="<%= @url_to_resolve %>">
+                  <div class="pull-center">
+                    <h5>Tipo: <%= l.title_notification %></h5>
+                    <%= l.description %>
+
+                    <!-- variaveis para usar no tempo das notificações -->
+                    <!-- diminui o valor da data atual com a data de expiração  -->
+                    <% @date_expiration_subtract_date_now =
+                      ((l.date_expiration + 2.hour)- Time.now).to_i %>
+                    <!-- pega o valor em dias do tempo restante -->
+                    <% @days_now = @date_expiration_subtract_date_now / 86400 %>
+                    <!-- pega o valor das horas restantes -->
+                    <% @hours_now =
+                      (@date_expiration_subtract_date_now - @days_now * 86400) / 3600 %>
+                    <!-- pega o valor em minutos que estão restando  -->
+                    <% @minutes_now =
+                      ((@date_expiration_subtract_date_now -
+                        @days_now * 86400) - @hours_now * 3600) / 60 %>
+
+                    <br>
+                    Tempo restante:
+                    <% if @days_now > 1 %>
+                      <span class="label label-warning">
+                    <% else %>
+                      <span class="label label-danger">
+                    <% end %>
+
+                      <!-- Mostra se os dias restantes são maiores que zero -->
+                      <% if @days_now > 0 %>
+                        <% if @days_now == 1 %>
+                          <%= @days_now %> Dia
+                        <% else %>
+                          <%= @days_now %> Dias
+                        <% end %>
+                      <% end %>
+
+                      <!-- Mostra se as horas restantes são maiores que zero -->
+                      <% if @hours_now > 0 %>
+                        <% if @hours_now == 1 %>
+                          <%= @hours_now %> Hora
+                        <% else %>
+                          <%= @hours_now %> Horas
+                        <% end %>
+                      <% end %>
+
+                      <!-- Mostra se os minutos restantes são maiores que zero -->
+                      <% if @minutes_now > 0 %>
+                        <% if @minutes_now == 1 %>
+                          <%= @minutes_now %> Minuto
+                        <% else %>
+                          <%= @minutes_now %> Minutos
+                        <% end %>
+                      <% else %>
+                        Tempo excedido!
+                      <% end %>
+                    </span>
+
+                  </div>
+                </a>
               </li>
-              <li>
-              <li class="footer">
-                <a href="#">Ver todas as notificações</a>
-              </li>
-            </ul>
-          </li>
+            <% end %>
+          <% end %>
+        </ul>
+
+    </li>
+    <!-- <li>
+      <li class="footer">
+        <a href="#">Ver todas as notificações</a>
+      </li>
+    </li> -->
+
+  </ul>
+</li>
