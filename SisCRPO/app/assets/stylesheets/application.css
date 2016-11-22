@@ -28,7 +28,7 @@
      color: #dd4a1a;
  }
  .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .tasks-menu > .dropdown-menu > li .menu > li > a {
-     white-space: normal;     
+     white-space: normal;
  }
 
  .navbar-nav > .notifications-menu > .dropdown-menu, .navbar-nav > .messages-menu > .dropdown-menu, .navbar-nav > .tasks-menu > .dropdown-menu {
@@ -73,4 +73,9 @@
 .profiles:hover {
     background: rgb(239, 183, 49) !important;
     font-weight: bold !important;
+}
+
+.profile-user-img {
+    height: 200px;
+    width: 200px;
 }
