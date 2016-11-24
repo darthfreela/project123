@@ -63,6 +63,10 @@ class UsersController < ApplicationController
   def change_password_page
   end
 
+  def verify_differences
+    
+  end 
+
   def change_password_function
     @user = User.find(current_user.id)
 
