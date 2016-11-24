@@ -78,15 +78,22 @@ class ApprovalSolicitationController < ApplicationController
           end
 
         @notification = Notification.new
+        # id do usuário que gerou a notificação
         @notification.user_id = user_id_solicitation
+        # descrição da notificação
         @notification.description = "Usuário solicitante: " + @toApprove.solicitation.user.name
+        # titulo da notificação
         @notification.title_notification = title_notification
+        # nome do controller que deve ir a notificação
         @notification.controller_description = "temporary_replacements"
+        # ação que deve acionar no controller para a notificação
         @notification.action_description = "edit"
+        # status (0- não visualizado, 1-visualizado)
         @notification.status = 0
+        # id para mandar juntamente com a ação na url
         @notification.id_action_notification = @temporary_replacement.id
 
-        # adiciona 48 horas para a data atual
+        # adiciona 48 horas ou 2 dias para a data atual
         @notification.date_expiration = Time.now + 2.days
         @notification.save
 

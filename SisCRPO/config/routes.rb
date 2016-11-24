@@ -9,6 +9,8 @@ post '/users/change_profile' => "users#change_current_profile"
 
 get '/users/change_password' => "users#change_password_page"
 
+post '/users/save_preferences' => "user_preferences#save_preferences"
+
 post '/users/change_password_function' => "users#change_password_function"
 
 resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create

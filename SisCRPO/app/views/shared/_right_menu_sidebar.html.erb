@@ -34,6 +34,7 @@
                                                                                                    "," + new_post_graduation_path +
                                                                                                    "," + users_change_password_path +
                                                                                                    "," + new_solicitation_path
+                                                                                                   "," + user_preferences_index_path
                                                                                                     ) %>">
 
     <li class="<%= ative_se_pagina_atual(new_user_path, true) %>">
@@ -166,6 +167,12 @@
         <%= link_to new_approval_solicitation_path do %>
           <i class="fa  fa-wrench"></i>
           <span>Aprovação de solicitações</span>
+        <% end  %>
+      </li>
+      <li class="<%= ative_se_pagina_atual(user_preferences_index_path, true) %>">
+        <%= link_to user_preferences_index_path do %>
+          <i class="fa  fa-wrench"></i>
+          <span>Preferencias do Usuário</span>
         <% end  %>
       </li>
     </ul>
