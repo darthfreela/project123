@@ -5,6 +5,8 @@ get 'user_preferences/index'
 
 resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
+resources :temporary_replacements_map, :only => [:new, :create, :edit, :destroy, :update]
+
 post '/users/change_profile' => "users#change_current_profile"
 
 get '/users/change_password' => "users#change_password_page"
