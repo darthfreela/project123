@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161112171649) do
-=======
-ActiveRecord::Schema.define(version: 20161112173907) do
->>>>>>> ae3f0c7388a348ed7aec2b2638fccc5e331e37ff
+ActiveRecord::Schema.define(version: 20161126155159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "manager_function_id"
+    t.integer  "post_graduation_id"
   end
 
   create_table "gpms", force: :cascade do |t|
@@ -156,13 +153,6 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.integer  "user_id"
     t.string   "description"
     t.string   "title_notification"
-<<<<<<< HEAD
-    t.string   "url_description"
-    t.datetime "date_expiration"
-    t.integer  "status"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-=======
     t.string   "controller_description"
     t.datetime "date_expiration"
     t.integer  "status"
@@ -170,15 +160,16 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.datetime "updated_at",             null: false
     t.string   "action_description"
     t.integer  "id_action_notification"
->>>>>>> ae3f0c7388a348ed7aec2b2638fccc5e331e37ff
   end
 
   create_table "opms", force: :cascade do |t|
     t.string   "initials"
     t.string   "name"
     t.integer  "city_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "telephone"
+    t.integer  "center_cost_number"
   end
 
   create_table "platoons", force: :cascade do |t|
@@ -262,6 +253,11 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.integer  "status"
   end
 
+  create_table "table_temporary_replacements_maps", force: :cascade do |t|
+    t.string "title"
+    t.string "path"
+  end
+
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "substitute_id_func"
     t.integer  "occupant_id_func"
@@ -302,6 +298,7 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.date     "date_final_contract"
+    t.string   "telephone"
   end
 
   create_table "uniforms", force: :cascade do |t|
@@ -346,8 +343,10 @@ ActiveRecord::Schema.define(version: 20161112173907) do
     t.integer  "function_id"
     t.integer  "platoon_id"
     t.boolean  "first_access"
+    t.string   "telephone"
   end
 
+  add_foreign_key "functions", "post_graduations"
   add_foreign_key "imported_files_users", "imported_files"
   add_foreign_key "profiles", "functions"
   add_foreign_key "temporary_replacements", "users", column: "substitute_id_func"

@@ -14,50 +14,51 @@
             <h3 class="box-title">Cadastro de Usuário</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-plus"></i>
+                    <i class="fa fa-plus"></i>
                 </button>
             </div>
         </div>
         <div class="alert-error">
             <%= flash[:error] %>
-          <% if @user.errors.any? %>
-
-            <div id="error_explanation">
-                O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
-            </div>
-            <ul>
-                <% @user.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-          <% end %>
+            <% if @user.errors.any? %>
+                <div id="error_explanation">
+                    O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+                </div>
+                <ul>
+                    <% @user.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            <% end %>
         </div>
+        
         <%= render 'form' %>
+
     </div>
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Listar Usuário</h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                  <i class="fa fa-minus"></i>
+                    <i class="fa fa-minus"></i>
                 </button>
             </div>
         </div>
         <div class="box-body">
             <div class="input-group input-group-sm">
                 <input type="text" class="form-control">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
-                </span>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                    </span>
             </div>
         </div>
         <hr>
         <div class="box-body">
-        <% if @user_show.count < 2 %>
-          Não existem usuários cadastrados.
-        <% else %>
-            <table id="motivos" class="table table-bordered table-striped">
-                <thead>
+            <% if @user_show.count < 2 %>
+                Não existem usuários cadastrados.
+            <% else %>
+                <table id="motivos" class="table table-bordered table-striped">
+                    <thead>
                         <tr>
                             <th>Id Funcional</th>
                             <th>Nome</th>
@@ -76,21 +77,40 @@
                                     <td><%= o.birth %></td>
                                     <td><%= o.gender %></td>
                                     <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
-                                     {:controller => 'users', :action => 'edit', :id => o.id},
-                                      class: 'btn btn-warning', method: :get %>
+                                        {:controller => 'users', :action => 'edit', :id => o.id},
+                                        class: 'btn btn-warning', method: :get %>
                                     </td>
                                     <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                                     {:controller => 'users', :action => 'destroy', :id => o.id},
-                                      :data => {:confirm => "Realmente deseja excluir este registro?"},
-                                       class: 'btn btn-danger', method: :delete %>
-                                     </td>
+                                        {:controller => 'users', :action => 'destroy', :id => o.id},
+                                        :data => {:confirm => "Realmente deseja excluir este registro?"},
+                                        class: 'btn btn-danger', method: :delete %>
+                                    </td>
                                 </tr>
                             <% end %>
                         <% end %>
                     </tbody>
                 </table>
             <% end %>
-            </div>
-
+        </div>
     </div>
 </section>
+<script type="text/javascript">
+        $(function () {
+            $("#motivos").DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ entradas",
+                    "zeroRecords": "Nenhum registro encontrado",
+                    "info": "Mostrando _PAGE_ de _PAGES_ páginas",
+                    "infoEmpty": "Nenhum registro encontrado",
+                    "infoFiltered": "(filtrado apartir de  _MAX_ registros no total)",
+                    "search": "Pesquisar: "
+                },
+                "oLanguage": {
+                    "oPaginate": {
+                      "sPrevious": "Anterior",
+                      "sNext": "Próximo"
+                }
+              }
+            });
+        });
+</script>
