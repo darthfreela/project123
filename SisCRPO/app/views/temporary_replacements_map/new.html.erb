@@ -1,0 +1,83 @@
+<section class="content-header">
+    <h1>
+        Mapa de Substituição Temporária
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Mapa de Substituição Temporária</li>
+    </ol>
+</section>
+<section class="content">
+  <div class="box box-default collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Mapa de Substituição Temporária</h3>
+    </div>
+
+    <!--INICIO form-->
+      <%= render 'form' %>
+    <!--FIM form-->
+
+  </div>
+  <!--Search-->
+   <div class="box">
+      <div class="box-header">
+          <h3 class="box-title">Listagem de Mapas</h3>
+          <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+          </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+          <div class="input-group input-group-sm">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                  <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+              </span>
+          </div>
+      </div>
+      <hr>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <% if @trainee_show.count < 1 %>
+          Não existem mapas salvos.
+        <% else %>
+            <table id="motivos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Data de Criação</th>
+                        <th>Hora de Criação</th>
+                        <th>Tamanho</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% @trainee_show.each do |e|%>
+                    <tr>
+                        <td><%= e.id %></td>
+                        <td><%= e.name %></td>
+                        <td><%= data_br e.date_final_contract %></td>
+                        <td><%= e.worked_days %></td>
+                        <td><%= e.transport_voucher %></td>
+                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
+                         {:controller => 'trainees', :action => 'edit', :id => e.id},
+                          class: 'btn btn-warning', method: :get %>
+                        </td>
+                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                         {:controller => 'trainees', :action => 'destroy', :id => e.id},
+                          :data => {:confirm=>'Deseja realmente remover este registro?'},
+                           class: 'btn btn-danger', method: :delete %>
+                         </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+            <% end %>
+        </div>
+    </div>
+</section>
