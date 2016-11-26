@@ -25,6 +25,31 @@ class SolicitationsController < ApplicationController
       @approval_solicitation.manager_function_id =  @solicitation.user.function.manager_function_id
       @approval_solicitation.save
 
+      #####################################################
+      #cria uma notificação no banco de dados
+      title_notification = "Aprovação de solicitação"
+
+      @notification = Notification.new
+      # id do usuário que gerou a notificação
+      @notification.user_id = @solicitation.user_id
+      # descrição da notificação
+      @notification.description = "Usuário solicitante: " + current_user.name
+      # titulo da notificação
+      @notification.title_notification = title_notification
+      # nome do controller que deve ir a notificação
+      @notification.controller_description = "approval_solicitation"
+      # ação que deve acionar no controller para a notificação
+      @notification.action_description = "edit"
+      # status (0- não visualizado, 1-visualizado)
+      @notification.status = 0
+      # id para mandar juntamente com a ação na url
+      @notification.id_action_notification = @approval_solicitation.id
+
+      # adiciona 48 horas ou 2 dias para a data atual
+      @notification.date_expiration = Time.now + 2.days
+      @notification.save
+
+
       redirect_to new_solicitation_path, notice: "Solicitação registrada com sucesso."
     else
       render action: :new

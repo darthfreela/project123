@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     has_many :request_dispenses
     belongs_to :post_graduation
     belongs_to :function
-    belongs_to :profiles
+    belongs_to :profile
     belongs_to  :temporary_replacements
 
   def email_required?

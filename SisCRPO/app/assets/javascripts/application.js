@@ -16,7 +16,7 @@
 //= require notifyjs_rails
 //= require dqs-jquery-form-validator/jquery.form-validator.min
 //= require dqs-jquery-form-validator/jquery.form-validator.min
-//= require dqs-jquery-form-validator/toggleDisabled
+<!--// = require dqs-jquery-form-validator/toggleDisabled-->
 //= require dqs-jquery-form-validator/security
 //= require dqs-jquery-form-validator/date
 //= require dqs-jquery-form-validator/lang/pt
