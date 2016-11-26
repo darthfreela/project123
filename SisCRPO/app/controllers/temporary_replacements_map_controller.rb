@@ -1,4 +1,5 @@
 class TemporaryReplacementsMapController < ApplicationController
+    include ApplicationHelper
 
     TABLE_HEADER = "<tr>
                                     <th>No</th>
@@ -15,7 +16,8 @@ class TemporaryReplacementsMapController < ApplicationController
 
    def new
     @replacements_array = TemporaryReplacement.all
-    puts generate_map_html @replacements_array
+    kit = PDFKit.new(generate_map_html(@replacements_array), :page_size => 'a4', :orientation => 'Landscape')
+    file = kit.to_pdf(Rails.root.join('temporary_replacements_pdf', "map_#{Time.now}.pdf"))
    end
 
    def generate_map_html(replacements)
@@ -27,15 +29,14 @@ class TemporaryReplacementsMapController < ApplicationController
                         </span>"
         check_header ="<table>
                                     <tr>
-                                        <td colspan="3">Ao Sr Diretor do DA/DF.</br>
+                                        <td colspan='3'>Ao Sr Diretor do DA/DF.</br>
                                              Em 02/02/2016
                                              </br>
-                                             </br>
-                                             </br>
+
                                              ___________________________________________</br>
                                              <b>CARLOS ANDRE ANTUNES - 3 Sgt Sct Art </b>
                                         </td>
-                                        <td colspan="2"><b>MAPA DE SUBSTITUI&Ccedil;&Atilde;O TEMPOR&Aacute;RIA</b></br>
+                                        <td colspan='2'><b>MAPA DE SUBSTITUI&Ccedil;&Atilde;O TEMPOR&Aacute;RIA</b></br>
                                             </br>
                                             OPM: CRPOSERRA - Sede</br>
                                             Tel: 54 - 3204 5500 </br>
@@ -43,20 +44,16 @@ class TemporaryReplacementsMapController < ApplicationController
                                             MOVIMENTO FINANCEIRO - MAR&Ccedil;O/2016 </br>
                                             Efetividade: FEVEREIRO/2016</br></br>
                                         </b></td>
-                                        <td colspan="2">
+                                        <td colspan='2'>
                                             Conferido em ___/_____/___
-                                            </br>
-                                            </br>
                                             </br>
                                             </br>_________________________
                                             </br>
                                             Respons&aacute;vel pelo SVenc
                                         </td>
-                                        <td colspan="3">
+                                        <td colspan='3'>
                                             Lan&ccedil;ar no mapa de Efetividade </br></br>
                                             MF ___/_____/___
-                                            </br>
-                                            </br>
                                             </br>
                                             _______________________
                                             </br>
@@ -69,7 +66,7 @@ class TemporaryReplacementsMapController < ApplicationController
             substitute = User.where(id_func: r.substitute_id_func).first
             occupant_function = Function.where(id: occupant.function_id).first
             occupant_function_post_graduation = PostGraduation.where(id: occupant_function.post_graduation_id)
-            number_days_to_pay = (r.date_end - r.date_begin).to_i
+            number_days_to_pay = 20#(r.date_end - r.date_begin).to_i
             rows = "#{rows} <tr>
                                             <td> #{r.id} </td>
                                             <td> #{substitute.id_func} </td>
@@ -77,8 +74,8 @@ class TemporaryReplacementsMapController < ApplicationController
                                             <td> #{substitute.post_graduation} </td>
                                             <td> #{occupant_function_post_graduation.name} </td>
                                             <td> #{occupant.id_func} </td>
-                                            <td> #{date_br r.date_begin} </td>
-                                            <td> #{date_br r.date_end} </td>
+                                            <td> #{data_br r.date_begin} </td>
+                                            <td> #{data_br r.date_end} </td>
                                             <td> #{number_days_to_pay} </td>
                                             <td> #{r.buletim_number} </td>
                                         </tr>
@@ -93,6 +90,9 @@ class TemporaryReplacementsMapController < ApplicationController
        end
        return "<html>
                         <style type='text/css'>
+                            table{
+                                width: 100%;
+                            }
                             table, th, td {
                                 border: 1px solid black;
                                 border-collapse: collapse;

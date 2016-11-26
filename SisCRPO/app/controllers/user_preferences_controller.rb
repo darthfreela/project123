@@ -19,7 +19,7 @@ class UserPreferencesController < ApplicationController
         @picture_string = "#{@user.name} #{@user.id} #{@user.war_name}"
         @picture_hash = Digest::SHA1.hexdigest @picture_string
 
-        File.open(Rails.root.join('app','assets', 'images', "img_profile_#{@picture_hash}.jpg"), 'wb') do |f|
+        File.open(Rails.root.join('app','assets', 'images', 'img_profiles',"img_profile_#{@picture_hash}.jpg"), 'wb') do |f|
             f.write(@picture.read)
         end
         save_image_profile
@@ -52,6 +52,6 @@ class UserPreferencesController < ApplicationController
   end
 
   def save_image_profile
-        User.update(current_user.id, :image_path => "/assets/" +  "img_profile_#{@picture_hash}.jpg")
+        User.update(current_user.id, :image_path => "/assets/img_profiles/" +  "img_profile_#{@picture_hash}.jpg")
   end
 end
