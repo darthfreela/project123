@@ -14,12 +14,31 @@ class UserPreferencesController < ApplicationController
     @zip_code = params[:zip_code]
     @neighborhood = params[:neighborhood]
     @city_id = params[:city_id]
+<<<<<<< HEAD
+    @picture = params[:picture]
+    File.open(Rails.root.join('app','assets', 'images', @user.name + "_img_profile.jpg"), 'wb') do |f|
+        f.write(@picture.read)
+    end
+
+    if save_params(@address, @zip_code, @neighborhood, @city_id)
+        redirect_to dashboard_index_path notice: "Alterações salvas com sucesso!"
+    end
+  end
+
+  private
+  def save_params(address, zip_code, neighborhood, city_id)
+    User.update(current_user.id, :address => address,
+                                             :zip_code => zip_code,
+                                             :neighborhood => neighborhood,
+                                             :city_id => city_id,
+                                             :image_path => "/assets/" +  @user.name + "_img_profile.jpg")
+=======
     if params[:picture] != nil
         @picture = params[:picture]
         @picture_string = "#{@user.name} #{@user.id} #{@user.war_name}"
         @picture_hash = Digest::SHA1.hexdigest @picture_string
 
-        File.open(Rails.root.join('app','assets', 'images', "img_profile_#{@picture_hash}.jpg"), 'wb') do |f|
+        File.open(Rails.root.join('app','assets', 'images', 'img_profiles',"img_profile_#{@picture_hash}.jpg"), 'wb') do |f|
             f.write(@picture.read)
         end
         save_image_profile
@@ -31,6 +50,7 @@ class UserPreferencesController < ApplicationController
     else
         redirect_to user_preferences_index_path notice: "Não foi possível editar as preferencias de usuário."
     end
+>>>>>>> e23c206f1abdb029f300fb9be6378ba0ca838dc3
   end
 
   private
@@ -52,6 +72,6 @@ class UserPreferencesController < ApplicationController
   end
 
   def save_image_profile
-        User.update(current_user.id, :image_path => "/assets/" +  "img_profile_#{@picture_hash}.jpg")
+        User.update(current_user.id, :image_path => "/assets/img_profiles/" +  "img_profile_#{@picture_hash}.jpg")
   end
 end

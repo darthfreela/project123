@@ -28,7 +28,11 @@
      color: #dd4a1a;
  }
  .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a, .navbar-nav > .tasks-menu > .dropdown-menu > li .menu > li > a {
+<<<<<<< HEAD
+     white-space: normal;     
+=======
      white-space: normal;
+>>>>>>> e23c206f1abdb029f300fb9be6378ba0ca838dc3
  }
 
  .navbar-nav > .notifications-menu > .dropdown-menu, .navbar-nav > .messages-menu > .dropdown-menu, .navbar-nav > .tasks-menu > .dropdown-menu {

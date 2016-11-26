@@ -43,13 +43,13 @@
                 <%= f.submit "Importar", Class: "btn btn-success" %>
                 <%= f.button "Cancelar", Class: "btn btn-danger" %>
                 <div class=" small pull-right">
-               <div> <%= @tabela.date %></div>
-               <div> <%= @tabela.title %></div>
-               <div> <%= @tabela.description %></div>
-<div> <%= @tabela_user.graduation %></div>
-<div> <%= @tabela_user.name %></div>
-<div> <%= @tabela_user.opm %></div>
-<div> <%= @tabela_user.user_id %></div>
+               <div> <%= @importedFile.date %></div>
+               <div> <%= @importedFile.title %></div>
+               <div> <%= @importedFile.description %></div>
+<div> <%= @importedFile_user.graduation %></div>
+<div> <%= @importedFile_user.name %></div>
+<div> <%= @importedFile_user.opm %></div>
+<div> <%= @importedFile_user.user_id %></div>
 
 
                 * Campos obrigatórios</div>
@@ -80,13 +80,10 @@
                 <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Id Func</th>
-                            <th>Nome</th>
-                            <th>Posto / Graduação</th>
-                            <th>Boletim</th>
+                            <th>Caminho do Arquivo</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Data</th>
-                            <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,11 +91,10 @@
                             <% if o.id >= 0 %>
                                 <tr>
                                     <td><%= o.id %></td>
-                                    <td><%= o.user_id %></td>
-
-
-                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'imported_files', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
-                                    <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"), {:controller => 'imported_files', :action => 'destroy', :id => o.id},  :data => {:confirm=>'Deseja realmente remover este boletim?'} , class: 'btn btn-danger', method: :delete %></td>
+                                    <td><%= o.imported_file_path %></td>
+                                    <td><%= o.title %></td>
+                                    <td><%= o.description %></td>
+                                     <td><%= o.date %></td>
                                 </tr>
                             <% end %>
                         <% end %>
@@ -106,6 +102,67 @@
                 </table>
             <% end %>
             </div>
+            <!--  cmç-->
+            <div class="box-body">
+
+            <table id="motivos" class="table table-bordered table-striped">
+                <thead>
+                <div><h3>Usuários na estão cadastrados na base de daods</h3></div>
+                        <tr>
+                            <th>Id Func</th>
+                            <th>ID Boletim</th>
+                            <th>Graduação</th>
+                            <th>Nome</th>
+                            <th>OPM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @importedFile_user_show.each do |f|%>
+                            <% if f.id_func_temp.nil? %>
+                                <tr>
+                                    <td><%= f.user_id %></td>
+                                    <td><%= f.imported_file_id %></td>
+                                    <td><%= f.graduation %></td>
+                                     <td><%= f.name %></td>
+                                      <td><%= f.opm %></td>
+                                </tr>
+                        <% end %>
+                       <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+            <!--  fim-->
+              <!--  cmç-->
+            <div class="box-body">
+
+            <table id="motivos" class="table table-bordered table-striped">
+                <thead>
+                    <div><h3>Usuários não estão cadastrados na base de dados, efetue o cadastro</h3></div>
+                            <th>Id Func</th>
+                            <th>ID Boletim</th>
+                            <th>Graduação</th>
+                            <th>Nome</th>
+                            <th>OPM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @importedFile_user_show.each do |u|%>
+                            <% if u.user_id.nil?  %>
+                                <tr>
+                                    <td><%= u.id_func_temp %></td>
+                                    <td><%= u.imported_file_id %></td>
+                                    <td><%= u.graduation %></td>
+                                     <td><%= u.name %></td>
+                                      <td><%= u.opm %></td>
+                                </tr>
+                        <% end %>
+                      <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+            <!--  fim-->
         <div class="box-footer"></div>
     </div>
 </section>
