@@ -7,14 +7,10 @@ def new
     @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
     @user = User.all
+    @importedFile_user = ImportedFilesUser.new
+    @importedFile_user_show = ImportedFilesUser.all
 
-
-    @tabela = ImportedFile.new
-
-
-
-
-    doc = Docx::Document.open('boletim.docx')
+      doc = Docx::Document.open('boletim.docx')
 
     primeiraCelula = ""
 
@@ -56,16 +52,16 @@ regexAux =''
 
          regexDate = /Em\s[0-9]{2}\sde\s\w*\sde\s[0-9]{4}./.match(p.to_s)
            if !regexDate.nil?
-           @tabela.date = regexDate
+           @importedFile.date = regexDate
            end
          regexTitle = /[A-Z]{1,4}\s\W\s.*/.match(p.to_s)
            if !regexTitle.nil?
-            @tabela.title = regexTitle
+            @importedFile.title = regexTitle
           end
 
 
             if !regexTitle.nil?
-            @tabela.title = regexTitle
+            @importedFile.title = regexTitle
           end
 
          puts regexDate
@@ -80,11 +76,11 @@ regexAux =''
 #puts texto
 regexContent = /[A-Z]{1,4}\s\W\s.*/.match(texto)
   if !regexContent.nil?
-    @tabela.description = regexContent
+    @importedFile.description = regexContent
   end
-  @tabela.save
+  @importedFile.save
 
-  id_boletim = @tabela.id
+  id_boletim = @importedFile.id
 
 puts regexContent
 #puts "Fim regex content"
@@ -101,75 +97,68 @@ doc.tables.each do |table|
       id = row.cells[2]
       opm = row.cells[3]
 
-      if opm.to_s["CRPO/Serra"]
-        puts "akiakiaksiadkasidsaidkasdisadkiasdias"
-      end
+
+if opm.to_s["CRPO/Serra"]
+
+ @importedFile_user = ImportedFilesUser.new
+            @importedFile_user.graduation = graduation
+             @importedFile_user.name = name
+            # @tabela_user.user_id = id.to_s.to_i
+             @importedFile_user.opm = opm
+             @importedFile_user.imported_file_id = id_boletim
+              @importedFile_user.id_func_temp = id.to_s.to_i
+
+             @importedFile_user.save
+
+      puts"Não existe no bd"
+      puts  name
+      puts "Não existe no bd"
+end
 
 if id.to_s.to_i >0
       # Bsuca usuario do banco
       userDb = User.where(id_func: id.to_s.to_i).first
-
-
       # Ignora se não encontra
       if userDb.nil?
         next
       end
 
-      @tabela_user = ImportedFilesUser.new
-            @tabela_user.graduation = graduation
-             @tabela_user.name = name
+
+      @importedFile_user = ImportedFilesUser.new
+            @importedFile_user.graduation = graduation
+             @importedFile_user.name = name
             # @tabela_user.user_id = id.to_s.to_i
-             @tabela_user.opm = opm
-             @tabela_user.imported_file_id = id_boletim
+             @importedFile_user.opm = opm
+             @importedFile_user.imported_file_id = id_boletim
 
              if userDb ==  id.to_s.to_i
-              @tabela_user.id_func_temp = id.to_s.to_i
+              @importedFile_user.id_func_temp = id.to_s.to_i
             else
-              @tabela_user.user_id = id.to_s.to_i
+              @importedFile_user.user_id = id.to_s.to_i
              end
-             @tabela_user.save
+             @importedFile_user.save
 
-      puts"ccccccccccccc"
+      puts"Existe no Db"
       puts userDb.name
-      puts "dddddddddddddddd"
+      puts "Existe no Db"
 
-
-
-        #if !@userdodemetrius.nil?
-           # @tabela = ImportedFile.new
-             # @tabela.graduation = row.cells[0]
-             # @tabela.name = row.cells[0]
-             # @tabela.user_id = row.cells[0]
-             # @tabela.opm = row.cells[0]
-#             #@tabela.save
- #puts "aaaaaaaaaaaaaaaaa"
-   #       puts "Teste!! #{@userdodemetrius.name}"
-  #puts "bbbbbbbbbbbbb"
-
-         #@importedFile = ImportedFile.new(:user_id = row.cells[0])
-
-
-
-#end
-end
-
+          end
+       end
     end
   end
-
-
 end
 
 def create
-    @tabela = ImportedFile.new(importedFile_params)
-   # @tabela_show = ImportedFile.all
+    @importedFile = ImportedFile.new(importedFile_params)
+    #@importedFile_show = ImportedFile.all
 
-    @tabela_user = ImportedFileUser.new(importedFileUser_params)
-    #@tabela_show = ImportedFile.all
+    @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
+    #@importedFile_user_show = ImportedFilesUser.all
 
-    if @tabela.save
-        @tabela_user = ImportedFilesUser.new(importedFileUser_params)
+    if @importedFile.save
+        @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
         if @imported_file_user.save
-            redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
+            redirect_to new_imported_files_path , notice: "Boletim cadastrado com sucesso."
         else
           destroy
         end
@@ -178,31 +167,15 @@ def create
     end
   end
 
- # def create
-   # @importedFile = ImportedFile.new(importedFile_params)
-  #  @iimportedFile_show = ImportedFile.all
-
-    #if @importedFile.save
-       # @imported_file_user = ImportedFilesUser.new(importedFileUser_params)
-        #if @imported_file_user.save
-          #  redirect_to new_import_file_path , notice: "Boletim cadastrado com sucesso."
-        #else
-         # destroy
-       # end
-     # else
-      #  render action: :new
-    #end
-  #end
-
 def destroy
       @importedFile = ImportedFile.find(params[:id])
       @importedFile.destroy
-      redirect_to new_import_file_path, notice: "Boletim removido com sucesso."
+      redirect_to new_imported_file_path, notice: "Boletim removido com sucesso."
 end
 
   private
   def importedFile_params
-    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date, :description)
+    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date)
   #user_id ,  imported_file_path , title , description , bulletin_date date,
 
   end
@@ -212,4 +185,3 @@ end
     params.require(:imported_files_user).permit(:id_func_temp, :user_id, :imported_file_id, :graduation, :name, :opm)
 
   end
-end

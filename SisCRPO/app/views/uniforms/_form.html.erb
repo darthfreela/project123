@@ -21,6 +21,8 @@
           <%= f.text_field :initials, placeholder: "Descreva uma sigla para o uniforme!",
            maxlength: "6", class:"form-control" , 
                               data: {
+                                  :multiple => "multiple", :validation => "length",
+                                  "validation-length" => "min4",
                                   :validation => "required",
                                   "validation-error-msg" => "Este campo é obrigatorio." } %>
         </div>
@@ -33,13 +35,15 @@
                                   "validation-error-msg" => "Este campo é obrigatorio." } %>
         </div>
       </div>
-      <div class="form-group col-md-12">
-        <label>Descrição para o uniforme*</label>
-        <%= f.text_area :description, placeholder: "Descreva o uniforme em 400 caracteres!",
-         class: "form-control", size: "24x6", 
-                            data: {
-                                :validation => "required",
-                                "validation-error-msg" => "Este campo é obrigatorio." } %>
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label>Descrição para o uniforme*</label>
+          <%= f.text_area :description, placeholder: "Descreva o uniforme em 400 caracteres!",
+           class: "form-control", size: "24x6", 
+                              data: {
+                                  :validation => "required",
+                                  "validation-error-msg" => "Este campo é obrigatorio." } %>
+        </div>
       </div>
     </div>
   <div class="box-footer">

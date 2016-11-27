@@ -21,3 +21,5 @@
 //= require dqs-jquery-form-validator/date
 //= require dqs-jquery-form-validator/lang/pt
 //= require_tree .
+//= require plugins/datatables/jquery.dataTables.js
+//= require plugins/datatables/dataTables.bootstrap.js

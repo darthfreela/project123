@@ -127,6 +127,7 @@ resources :report_overtime_supplementations, :only =>  [:index]
   resources :request_licences, :only => [:new, :create, :edit, :destroy, :update]
 
   resources :users, :only => [:index, :new, :create, :edit, :destroy, :update]
+  get "/users_verify_differences" => "users#verify_differences"
 
   resources :management_hours, :only => [:index, :new, :create, :edit, :destroy, :update]
 

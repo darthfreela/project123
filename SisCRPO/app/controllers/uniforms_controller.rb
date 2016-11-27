@@ -9,9 +9,9 @@ class UniformsController < ApplicationController
   end
 
   def create
+
     @uniform = Uniform.new(uniform_params)
     @uniform_show = Uniform.all
-
     if @uniform.save
       redirect_to new_uniform_path, notice: "Uniforme cadastrado com sucesso."
     else

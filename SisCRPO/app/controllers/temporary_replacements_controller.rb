@@ -12,8 +12,8 @@ class TemporaryReplacementsController < ApplicationController
   def edit
       @botao = 'edit'
       @tempReplacement = TemporaryReplacement.find(params[:id])
-      @tempReplacement.dataAssuncao = @tempReplacement.dataAssuncao.strftime("%d/%m/%Y")
-      @tempReplacement.dataDispensa = @tempReplacement.dataDispensa.strftime("%d/%m/%Y")
+      @tempReplacement.date_begin = @tempReplacement.date_begin.strftime("%d/%m/%Y")
+      @tempReplacement.date_end = @tempReplacement.date_end.strftime("%d/%m/%Y")
       @users = User.all
       @post_gratuations = PostGraduation.all
       @functions = Function.all
@@ -47,9 +47,7 @@ class TemporaryReplacementsController < ApplicationController
 
   private
   def tempReplacement_params
-      params.require(:temporary_replacement).permit(:idFuncOcupante, :nomeOcupante,
-        :idGraduacaoOcupante, :idFuncaoOcupante, :idFuncSubstituto, :nomeSubstituto,
-        :idFuncaoSubstituto, :idGraduacaoSubstituto, :situacao, :motivoIndisponibilidade,
-        :idSoliDispAfastamento, :dataAssuncao, :dataDispensa, :idBoletim)
+      params.require(:temporary_replacement).permit(:substitute_id_func, :occupant_id_func, 
+        :buletim_number, :unavailability_reason, :date_begin, :date_end)
   end
 end

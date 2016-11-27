@@ -6,7 +6,7 @@
 </li>
  <% other_functions = get_other_profiles %>
             <% get_other_profiles.each do | o |%>
-            <% occupant = User.find(o.occupant_id_func)
+            <% occupant = User.where(id_func: o.occupant_id_func).first
                    profile = Profile.find(occupant.profile_id) %>
             <li class="notifications-menu">
                 <%= link_to profile.name, {:controller => :users, :action => :change_current_profile, :profile_id => profile.id}, :class => "dropdown-toggle profiles", :method => "post" %>
