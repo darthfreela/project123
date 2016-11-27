@@ -41,7 +41,7 @@
       <hr>
       <!-- /.box-header -->
       <div class="box-body">
-        <% if @trainee_show.count < 1 %>
+        <% if 0 < 1 %>
           Não existem mapas salvos.
         <% else %>
             <table id="motivos" class="table table-bordered table-striped">
@@ -57,24 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <% @trainee_show.each do |e|%>
-                    <tr>
-                        <td><%= e.id %></td>
-                        <td><%= e.name %></td>
-                        <td><%= data_br e.date_final_contract %></td>
-                        <td><%= e.worked_days %></td>
-                        <td><%= e.transport_voucher %></td>
-                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
-                         {:controller => 'trainees', :action => 'edit', :id => e.id},
-                          class: 'btn btn-warning', method: :get %>
-                        </td>
-                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                         {:controller => 'trainees', :action => 'destroy', :id => e.id},
-                          :data => {:confirm=>'Deseja realmente remover este registro?'},
-                           class: 'btn btn-danger', method: :delete %>
-                         </td>
-                    </tr>
-                  <% end %>
+
                 </tbody>
             </table>
             <% end %>
