@@ -21,8 +21,12 @@ class TemporaryReplacementsMapController < ApplicationController
    def generate_pdf_by_html
     @replacements_array = TemporaryReplacement.all
     kit = PDFKit.new(generate_map_html(@replacements_array), :page_size => 'a4', :orientation => 'Landscape')
-    file = kit.to_pdf(Rails.root.join('temporary_replacements_pdf', "map_#{Time.now}.pdf"))
+    kit.to_pdf(Rails.root.join('temporary_replacements_pdf', "map_#{Time.now}.pdf"))
     redirect_to new_temporary_replacements_map_path, notice: "Mapa gerado com sucesso."
+   end
+
+   def save_in_data_base
+
    end
 
    def generate_map_html(replacements)
