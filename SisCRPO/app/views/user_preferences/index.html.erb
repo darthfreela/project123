@@ -97,7 +97,7 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label>Selecionar imagem de perfil</label></p>
-                  <label for="picture" class="btn bg-navy margin">Selecionar imagem</label>
+                  <label id="hidden_pic" for="picture" class="btn bg-navy margin">Selecionar imagem</label><i class="fa fa-fw fa-check-circle-o" style="display: none;" id='img_icon'></i>
                   <%= file_field_tag :picture, style: "visibility:hidden;" %>
                 </div>
 
