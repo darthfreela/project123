@@ -5,6 +5,8 @@ get 'user_preferences/index'
 
 post '/temporary_replacements_map/generate_pdf_by_html' => "temporary_replacements_map#generate_pdf_by_html"
 
+post '/temporary_replacements_map/download' => "temporary_replacements_map#download"
+
 resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
 resources :temporary_replacements_map, :only => [:new, :create, :edit, :destroy, :update]

@@ -41,9 +41,10 @@
       <hr>
       <!-- /.box-header -->
       <div class="box-body">
-        <% if 0 < 1 %>
+        <% if @maps.count < 1 %>
           Não existem mapas salvos.
         <% else %>
+
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -51,15 +52,32 @@
                         <th>Nome</th>
                         <th>Data de Criação</th>
                         <th>Hora de Criação</th>
-                        <th>Tamanho</th>
                         <th></th>
                         <th></th>
                     </tr>
+                    <% @maps.each do |m|%>
+                      <tr>
+                          <td><%= m.id %></td>
+                          <td><%= m.title %></td>
+                          <td><%= m.created_at.strftime("%d/%m/%Y") %></td>
+                          <td><%= m.created_at.strftime("%H:%M:%S") %></td>
+                          <td><%= link_to raw("<i class='fa fa-edit'>Download</i>"),
+                                        {:controller => 'temporary_replacements_map', :action => 'download', :file_name => m.title},
+                                        class: 'btn btn-warning', method: :post %>
+                           </td>
+                           <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                                       {:controller => 'temporary_replacements_map', :action => 'destroy', :id => m.id},
+                                        :data => {:confirm => "Realmente deseja excluir este mapa?"},
+                                        class: 'btn btn-danger', method: :delete %>
+                           </td>
+                      </tr>
+                    <% end %>
                 </thead>
                 <tbody>
 
                 </tbody>
             </table>
+
             <% end %>
         </div>
     </div>

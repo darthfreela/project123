@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126155159) do
+ActiveRecord::Schema.define(version: 20161127154005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -253,11 +253,6 @@ ActiveRecord::Schema.define(version: 20161126155159) do
     t.integer  "status"
   end
 
-  create_table "table_temporary_replacements_maps", force: :cascade do |t|
-    t.string "title"
-    t.string "path"
-  end
-
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "substitute_id_func"
     t.integer  "occupant_id_func"
@@ -269,6 +264,13 @@ ActiveRecord::Schema.define(version: 20161126155159) do
     t.integer  "solicitation_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "temporary_replacements_maps", force: :cascade do |t|
+    t.string   "title"
+    t.string   "path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "text_informatives", force: :cascade do |t|

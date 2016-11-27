@@ -15,18 +15,23 @@ class TemporaryReplacementsMapController < ApplicationController
                                 </tr>"
 
    def new
-
+      @maps = TemporaryReplacementsMap.all
    end
 
    def generate_pdf_by_html
     @replacements_array = TemporaryReplacement.all
+    title = "map_#{Time.now}.pdf"
     kit = PDFKit.new(generate_map_html(@replacements_array), :page_size => 'a4', :orientation => 'Landscape')
-    kit.to_pdf(Rails.root.join('temporary_replacements_pdf', "map_#{Time.now}.pdf"))
+    kit.to_pdf(Rails.root.join('temporary_replacements_pdf', title))
+    save_in_data_base title
     redirect_to new_temporary_replacements_map_path, notice: "Mapa gerado com sucesso."
    end
 
-   def save_in_data_base
-
+   def save_in_data_base(title)
+      tmp = TemporaryReplacementsMap.new
+      tmp.title = title
+      tmp.path = "/temporary_replacements_pdf/#{title}"
+      tmp.save
    end
 
    def generate_map_html(replacements)
@@ -115,51 +120,20 @@ class TemporaryReplacementsMapController < ApplicationController
                     </html>"
    end
 
-def create
-  @trainee = Trainee.new(trainee_params)
-  @trainee.user_id_last_change = current_user.id
-  @trainee_show = Trainee.all
 
-      #mock de cidades simulando retorno do banco
-      @select_cities = City.where(:uf => "RS")
-
-      if @trainee.save
-        redirect_to new_trainee_path, notice: "Estagiário cadastrado com sucesso."
-    else
-        render action: :new
-    end
-end
 
 def destroy
-  @trainee = Trainee.find(params[:id])
-  @trainee.destroy
-  redirect_to new_trainee_path, notice: "Estagiário removido com sucesso."
+  @map = TemporaryReplacementsMap.find(params[:id])
+  File.delete("#{Rails.root}/temporary_replacements_pdf/#{@map.title}")
+  @map.destroy
+  redirect_to new_temporary_replacements_map_path, notice: "Mapa removido com sucesso."
 end
 
-def edit
-    @botao = 'edit'
-    @trainee = Trainee.find(params[:id])
-    #mock de cidades simulando retorno do banco
-    @select_cities = City.where(:uf => "RS")
+def download
+   send_file "#{Rails.root}/temporary_replacements_pdf/#{params[:file_name]}"
 end
 
-def update
-    @trainee = Trainee.find(params[:id])
-    @trainee.user_id_last_change = current_user.id
-    if @trainee.update_attributes(trainee_params)
-       redirect_to new_trainee_path, notice: "Estagiário editado com sucesso."
-   else
-              # mostra os erros no terminal ** muito util saporra
-              # Rails.logger.info(@trainee.errors.messages.inspect)
-              redirect_to new_trainee_path, :flash => { :error => "Erro ao editar o estagiário!" }
-          end
-      end
 
-      private
-      def trainee_params
-         params.require(:trainee).permit(:name, :cpf, :gender, :birth, :semester,
-          :city_id, :email, :bank_agency_wallet, :worked_days, :worked_hours ,
-          :transport_voucher, :contract_term, :neighborhood, :zip_code,
-          :user_id_last_change,:actived, :date_final_contract)
-     end
+private
+
  end
