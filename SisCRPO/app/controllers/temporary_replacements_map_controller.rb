@@ -19,7 +19,10 @@ class TemporaryReplacementsMapController < ApplicationController
    end
 
    def generate_pdf_by_html
-    @replacements_array = TemporaryReplacement.all
+    @replacements_array = TemporaryReplacement.where(substitute_id_func: !nil)
+    puts "**************************************************************"
+    puts @replacements_array
+    puts "**************************************************************"
     title = "map_#{Time.now}.pdf"
     kit = PDFKit.new(generate_map_html(@replacements_array), :page_size => 'a4', :orientation => 'Landscape')
     kit.to_pdf(Rails.root.join('temporary_replacements_pdf', title))
