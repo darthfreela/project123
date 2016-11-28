@@ -43,16 +43,7 @@
                 <%= f.submit "Importar", Class: "btn btn-success" %>
                 <%= f.button "Cancelar", Class: "btn btn-danger" %>
                 <div class=" small pull-right">
-               <div> <%= @importedFile.date %></div>
-               <div> <%= @importedFile.title %></div>
-               <div> <%= @importedFile.description %></div>
-<div> <%= @importedFile_user.graduation %></div>
-<div> <%= @importedFile_user.name %></div>
-<div> <%= @importedFile_user.opm %></div>
-<div> <%= @importedFile_user.user_id %></div>
-
-
-                * Campos obrigatórios</div>
+               </div>
             </div>
         <% end %>
     </div>
@@ -107,7 +98,7 @@
 
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
-                <div><h3>Usuários na estão cadastrados na base de daods</h3></div>
+                <div><h3>Usuários ja estão cadastrados na base de dados</h3></div>
                         <tr>
                             <th>Id Func</th>
                             <th>ID Boletim</th>
@@ -144,6 +135,7 @@
                             <th>Graduação</th>
                             <th>Nome</th>
                             <th>OPM</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -155,6 +147,7 @@
                                     <td><%= u.graduation %></td>
                                      <td><%= u.name %></td>
                                       <td><%= u.opm %></td>
+                                      <td></td>
                                 </tr>
                         <% end %>
                       <% end %>

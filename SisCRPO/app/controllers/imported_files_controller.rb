@@ -2,15 +2,43 @@ class ImportedFilesController < ApplicationController
 require "docx"
 require "pry"
 
-
 def new
+  @importedFile = ImportedFile.new
+    @importedFile_show = ImportedFile.all
+    @user = User.all
+    @importedFile_user = ImportedFilesUser.new
+    @importedFile_user_show = ImportedFilesUser.all
+end
+
+def create
+    importar()
+   # @importedFile = ImportedFile.new(importedFile_params)
+    #@importedFile_show = ImportedFile.all
+
+   #@importedFile_user = ImportedFilesUser.new(importedFileUser_params)
+    #@importedFile_user_show = ImportedFilesUser.all
+
+    if @importedFile.save
+        @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
+        if @imported_file_user.save
+            redirect_to new_imported_files_path , notice: "Boletim cadastrado com sucesso."
+        else
+          destroy
+        end
+     else
+        render action: :new
+    end
+  end
+
+def importar()
+
     @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
     @user = User.all
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
 
-      doc = Docx::Document.open('boletim.docx')
+      doc = Docx::Document.open(path_file)
 
     primeiraCelula = ""
 
@@ -147,25 +175,6 @@ if id.to_s.to_i >0
     end
   end
 end
-
-def create
-    @importedFile = ImportedFile.new(importedFile_params)
-    #@importedFile_show = ImportedFile.all
-
-    @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
-    #@importedFile_user_show = ImportedFilesUser.all
-
-    if @importedFile.save
-        @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
-        if @imported_file_user.save
-            redirect_to new_imported_files_path , notice: "Boletim cadastrado com sucesso."
-        else
-          destroy
-        end
-      else
-        render action: :new
-    end
-  end
 
 def destroy
       @importedFile = ImportedFile.find(params[:id])

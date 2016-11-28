@@ -15,20 +15,16 @@ post '/users/save_preferences' => "user_preferences#save_preferences"
 
 post '/users/change_password_function' => "users#change_password_function"
 
-resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
+resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update, :importar]#falto metodo create
 resources :dashboard, :only => [:index]
 
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]
 
 resources :text_informatives, :only =>  [:new, :create, :edit, :destroy, :update]
 
-resources :import_files, :only =>  [:new, :edit, :destroy, :update]
-
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :instruction_bulletins, :only => [:new, :create, :edit, :destroy, :update]
 
-  resources :import_files, :only =>  [:new, :create, :edit, :destroy, :update]#falto metodo create
 
   resources :dashboard, :only => [:index]
 
@@ -57,7 +53,6 @@ resources :report_overtime_supplementations, :only =>  [:index]
   resources :informative_text_daily_bulletins, :only =>  [:new, :create, :edit, :destroy, :update]
 
 
-  resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update]
 
   resources :rh_license_approvals, :only =>  [:new, :create, :edit, :destroy, :update]
 
