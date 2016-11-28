@@ -41,9 +41,10 @@
       <hr>
       <!-- /.box-header -->
       <div class="box-body">
-        <% if @trainee_show.count < 1 %>
+        <% if @maps.count < 1 %>
           Não existem mapas salvos.
         <% else %>
+
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -51,32 +52,32 @@
                         <th>Nome</th>
                         <th>Data de Criação</th>
                         <th>Hora de Criação</th>
-                        <th>Tamanho</th>
                         <th></th>
                         <th></th>
                     </tr>
+                    <% @maps.each do |m|%>
+                      <tr>
+                          <td><%= m.id %></td>
+                          <td><%= m.title %></td>
+                          <td><%= m.created_at.strftime("%d/%m/%Y") %></td>
+                          <td><%= m.created_at.strftime("%H:%M:%S") %></td>
+                          <td><%= link_to raw("<i class='fa fa-edit'>Download</i>"),
+                                        {:controller => 'temporary_replacements_map', :action => 'download', :file_name => m.title},
+                                        class: 'btn btn-warning', method: :post %>
+                           </td>
+                           <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+                                       {:controller => 'temporary_replacements_map', :action => 'destroy', :id => m.id},
+                                        :data => {:confirm => "Realmente deseja excluir este mapa?"},
+                                        class: 'btn btn-danger', method: :delete %>
+                           </td>
+                      </tr>
+                    <% end %>
                 </thead>
                 <tbody>
-                  <% @trainee_show.each do |e|%>
-                    <tr>
-                        <td><%= e.id %></td>
-                        <td><%= e.name %></td>
-                        <td><%= data_br e.date_final_contract %></td>
-                        <td><%= e.worked_days %></td>
-                        <td><%= e.transport_voucher %></td>
-                        <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"),
-                         {:controller => 'trainees', :action => 'edit', :id => e.id},
-                          class: 'btn btn-warning', method: :get %>
-                        </td>
-                        <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                         {:controller => 'trainees', :action => 'destroy', :id => e.id},
-                          :data => {:confirm=>'Deseja realmente remover este registro?'},
-                           class: 'btn btn-danger', method: :delete %>
-                         </td>
-                    </tr>
-                  <% end %>
+
                 </tbody>
             </table>
+
             <% end %>
         </div>
     </div>

@@ -23,6 +23,10 @@
 //= require plugins/timepicker/bootstrap-timepicker.js
 
 $(function () {
+
+            $("#picture").click(function(){
+                $("#img_icon").show();
+            });
 	// Iniciliazar combobox select2
 	$(".select2").select2();
 

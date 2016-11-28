@@ -1,15 +1,14 @@
-
 <%= form_for @user, :html =>{id:'teste'} do |f| %>
     <div class="box-body">
         <div class="box box-default">
             <h5 class="box-title">Dados Pessoais</h5>
             <div class="box-body">
                 <div class="row">
-                    <div class="form-group col-md-2">
+                    <div id="user_id_func_div" class="form-group col-md-2">
                         <label>Id Funcional</label>
                         <%= f.text_field :id_func, PlaceHolder: "Id Funcional", maxlength: "80", class:"form-control", data: {
-                                :multiple => "multiple", :validation => "length",
-                                "validation-length" => "min4" } %>
+                            :multiple => "multiple", :validation => "length",
+                            "validation-length" => "min4" } %>
                     </div>
                     <div class="form-group col-md-5">
                         <label>Nome</label>
@@ -21,19 +20,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="form-group col-md-2">
+                    <div id="user_cpf_div" class="form-group col-md-2">
                         <label>CPF</label>
                         <%= f.text_field :cpf, PlaceHolder: "CPF", class:"form-control cpf" %>
                     </div>
-                     <div class="form-group col-md-5">
+                    <div class="form-group col-md-5">
                         <label>E-mail</label>
                         <%= f.text_field :email, PlaceHolder: "E-mail", class:"form-control" %>
                     </div>
-                    <div class="form-group col-md-5">
+                    <div id="user_username_div" class="form-group col-md-5">
                         <label>Login</label>
                         <%= f.text_field :username, PlaceHolder: "Usuário",  maxlength: "80", class:"form-control" %>
                     </div>
-                 </div>
+                </div>
                 <div class="row">
                     <div class="form-group col-md-2">
                         <label>Data Nascimento</label>
@@ -44,8 +43,8 @@
                         <%= f.select :gender, [['Maculino', 'M'], ['Feminino', 'F']],  {:include_blank => 'Selecionar'}, class: "form-control select2" %>
                     </div>
                     <div class="form-group col-md-5">
-                        <label>Ativo:</label>
-                        <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],  {:include_blank => 'Selecionar'}, class: "form-control select2"%>
+                        <label>Ativo</label>
+                        <%= f.select :actived, [['Sim', 'true'], ['Não', 'false']],  {}, class: "form-control select2"%>
                     </div>
                 </div>
             </div>
@@ -58,7 +57,7 @@
                         <label>Endereço</label>
                         <%= f.text_field :address, PlaceHolder: "Endereço. Ex: 'Rua ....'", class:"form-control" %>
                     </div>
-                     <div class="form-group col-md-3">
+                    <div class="form-group col-md-3">
                         <label>CEP</label>
                         <%= f.text_field :zip_code, PlaceHolder: "CEP", class:"form-control cep" %>
                     </div>
@@ -69,9 +68,9 @@
                     <div class="form-group col-md-6">
                         <label>Cidade</label>
                         <%= f.select :city_id, @select_cities.map{ |s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" ,
-                                data: {
-                                    :validation => "required",
-                                    "validation-error-msg" => "Este campo é obrigatorio." } %>
+                            data: {
+                            :validation => "required",
+                        "validation-error-msg" => "Este campo é obrigatorio." } %>
                     </div>
                 </div>
             </div>
@@ -80,17 +79,17 @@
             <h5 class="box-title">Dados Profissionais</h5>
             <div class="box-body">
                 <div class="row">
-                     <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
                         <label>Posto / Graduação*</label>
                         <%= f.select :post_graduation_id, @postograduacao.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2"%>
                     </div>
                     <div class="form-group col-md-6">
-                    <label>Função</label>
+                        <label>Função</label>
                         <%= f.select :function_id, @select_funcoes.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Perfil</label>
-                            <%= f.select :profile_id, @select_perfis.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
+                        <%= f.select :profile_id, @select_perfis.map{|s| [s.name, s.id]}, {:include_blank => 'Selecionar'}, class: "form-control select2" %>
                     </div>
                 </div>
             </div>
@@ -99,10 +98,42 @@
     <div class="box-footer">
         <%= f.submit "Salvar", Class: "btn btn-success" %>
         <% if @botao == 'edit' %>
-          <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
+            <a href="javascript:history.back()" class="btn btn-danger">Voltar</a>
         <% else %>
-          <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
+            <input name="limpar" value="Limpar" class="btn btn-danger" type="reset">
         <% end %>
         <div class=" small pull-right">* Campos obrigatórios</div>
     </div>
 <% end %>
+<script type="application/javascript">
+ $(function(){
+
+        $('#user_id_func').blur(function(){
+            validateFields("user_id_func", "Id Funcional já cadastrada!");
+        });
+
+        $('#user_cpf').blur(function(){
+            validateFields("user_cpf", "CPF já cadastrado!");
+        });
+
+        $('#user_username').blur(function(){
+            validateFields("user_username", "Login já cadastrado!");
+        });
+
+    })
+
+    function validateFields(field, msg){
+        $.getJSON("/users_verify_differences", field + '='+ $('#'+field).val(), function(j) {
+                
+                $.each(j.valor, function(i, item) { 
+                    if(item.n == "existing"){
+                        $('#'+field+'_div').addClass("has-error");
+                        $('#'+field).addClass("error");
+                        $('#'+field).attr("style", "border-color: rgb(185, 74, 72);");
+                        $('#'+field+'_div').append("<span class='help-block form-error'>"+ msg +"</span>");
+                    }
+
+                });
+            });
+    }
+</script>
