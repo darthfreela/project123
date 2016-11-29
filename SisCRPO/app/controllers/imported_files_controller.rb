@@ -2,6 +2,8 @@ class ImportedFilesController < ApplicationController
 require "docx"
 require "pry"
 
+
+
 def new
   @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
@@ -9,6 +11,7 @@ def new
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
 end
+
 
 def create
     importar()
@@ -30,7 +33,7 @@ def create
     end
   end
 
-def importar()
+def importar
 
     @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
@@ -38,7 +41,9 @@ def importar()
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
 
-      doc = Docx::Document.open(path_file)
+
+#boletim.docx
+      doc = Docx::Document.open('boletim.docx')
 
     primeiraCelula = ""
 
@@ -91,6 +96,7 @@ regexAux =''
             if !regexTitle.nil?
             @importedFile.title = regexTitle
           end
+
 
          puts regexDate
          puts regexTitle
@@ -182,15 +188,12 @@ def destroy
       redirect_to new_imported_file_path, notice: "Boletim removido com sucesso."
 end
 
-  private
-  def importedFile_params
+private
+def importedFile_params
     params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date)
-  #user_id ,  imported_file_path , title , description , bulletin_date date,
-
   end
 
   private
   def importedFileUser_params
     params.require(:imported_files_user).permit(:id_func_temp, :user_id, :imported_file_id, :graduation, :name, :opm)
-
   end

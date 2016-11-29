@@ -14,10 +14,7 @@ class UserPreferencesController < ApplicationController
     @zip_code = params[:zip_code]
     @neighborhood = params[:neighborhood]
     @city_id = params[:city_id]
-<<<<<<< HEAD
 
-=======
->>>>>>> 4048216f3d9e44a4829441d27bf49b4b1fcbeb1a
     @picture = params[:picture]
     File.open(Rails.root.join('app','assets', 'images', @user.name + "_img_profile.jpg"), 'wb') do |f|
         f.write(@picture.read)
@@ -35,10 +32,7 @@ class UserPreferencesController < ApplicationController
                                              :neighborhood => neighborhood,
                                              :city_id => city_id,
                                              :image_path => "/assets/" +  @user.name + "_img_profile.jpg")
-<<<<<<< HEAD
 
-=======
->>>>>>> 4048216f3d9e44a4829441d27bf49b4b1fcbeb1a
     if params[:picture] != nil
         @picture = params[:picture]
         @picture_string = "#{@user.name} #{@user.id} #{@user.war_name}"
@@ -56,10 +50,7 @@ class UserPreferencesController < ApplicationController
     else
         redirect_to user_preferences_index_path notice: "Não foi possível editar as preferencias de usuário."
     end
-<<<<<<< HEAD
 
-=======
->>>>>>> 4048216f3d9e44a4829441d27bf49b4b1fcbeb1a
   end
 
   private

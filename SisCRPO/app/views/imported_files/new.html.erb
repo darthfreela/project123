@@ -49,19 +49,12 @@
     </div>
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Listar </h3>
+            <h3 class="box-title">Dados Extraídos </h3>
             <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
             </div>
         </div>
-        <div class="box-body">
-            <div class="input-group input-group-sm">
-                <input type="text" class="form-control">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
-                </span>
-            </div>
-        </div>
+
         <hr>
         <div class="box-body">
         <% if @importedFile_show.count <= 0 %>
@@ -147,7 +140,7 @@
                                     <td><%= u.graduation %></td>
                                      <td><%= u.name %></td>
                                       <td><%= u.opm %></td>
-                                      <td></td>
+                                      <td><%= link_to raw("<i Class: 'btn btn-success'>Cadastrar</i>"), {:controller => 'users', :action => 'new', :id => u.id_func_temp, :name => u.name, :graduation => u.graduation, :opm => u.opm}, Class: 'btn btn-success', method: :get %></td>
                                 </tr>
                         <% end %>
                       <% end %>
