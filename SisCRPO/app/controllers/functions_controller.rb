@@ -4,6 +4,16 @@ class FunctionsController < ApplicationController
     @function = Function.new
     @function_show = Function.all
     @select_funcoes = Function.all
+
+    #######################################################################
+    ## adiciona uma função fake para salvar esse valor ao
+    # banco indicando que não possui uma proxima função
+    # superior
+    #######################################################################
+    @func = Function.new
+    @func.name = "Não possui um superior"
+    @func.id = -1
+    @select_funcoes.push(@func)
   end
 
 
@@ -12,6 +22,17 @@ class FunctionsController < ApplicationController
     @function = Function.find(params[:id])
 
     @select_funcoes = Function.all
+
+    #######################################################################
+    ## adiciona uma função fake para salvar esse valor ao
+    # banco indicando que não possui uma proxima função
+    # superior
+    #######################################################################
+    @func = Function.new
+    @func.name = "Não possui um superior"
+    @func.id = -1
+    @select_funcoes.push(@func)
+
   end
 
 

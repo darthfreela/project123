@@ -32,6 +32,8 @@ class SolicitationsController < ApplicationController
       @notification = Notification.new
       # id do usuário que gerou a notificação
       @notification.user_id = @solicitation.user_id
+      # id da funçaõ que deve apareçer a notificação
+      @notification.manager_function_id = @solicitation.user.function.manager_function_id
       # descrição da notificação
       @notification.description = "Usuário solicitante: " + current_user.name
       # titulo da notificação

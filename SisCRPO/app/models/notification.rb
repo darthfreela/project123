@@ -2,11 +2,11 @@ class Notification < ActiveRecord::Base
   '''
     Tabela que guarda as notificações do sistema
   '''
-  validates :description, presence: true
-  validates :title_notification, presence: true
-  validates :controller_description, presence: true
-  validates :action_description, presence: true
-  validates :status, presence: true
+  # validates :description, presence: true
+  # validates :title_notification, presence: true
+  # validates :controller_description, presence: true
+  # validates :action_description, presence: true
+  # validates :status, presence: true
 
   # relacionamentos
   belongs_to :user

@@ -2,9 +2,9 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     <i class="fa fa-flag-o"></i>
     <% if $notifications != nil %>
-      <% if $notifications.count > 0 %>
+      <% if $notifications.size > 0 %>
         <span class="label bg-green">
-          <%= $notifications.count %>
+          <%= $notifications.size %>
         </span>
       <% end %>
     <% end %>
@@ -13,7 +13,7 @@
   <ul class="dropdown-menu">
     <div class="box-header with-border">
     <% if $notifications != nil %>
-      <% if $notifications.count > 0 %>
+      <% if $notifications.size > 0 %>
         <h4> Novas notificações!</h4>
       <% end %>
     <% else %>
@@ -23,7 +23,7 @@
     <li>
         <ul class="menu" >
         <% if $notifications != nil %>
-          <% if $notifications.count > 0 %>
+          <% if $notifications.size > 0 %>
 
             <% $notifications.each do |l|%>
               <li>
@@ -32,60 +32,65 @@
                 <% @url_to_resolve = "/"+ l.controller_description.to_s + "/"+
                  l.id_action_notification.to_s + "/"+ l.action_description.to_s %>
 
-                <a href="<%= @url_to_resolve %>">
+                <a href="<%= @url_to_resolve %>" >
                   <div class="pull-center">
                     <h5>Tipo: <%= l.title_notification %></h5>
-                    <%= l.description %>
 
-                    <!-- variaveis para usar no tempo das notificações -->
-                    <!-- diminui o valor da data atual com a data de expiração  -->
-                    <% @date_expiration_subtract_date_now =
-                      ((l.date_expiration)- Time.now).to_i %>
-                    <!-- pega o valor em dias do tempo restante -->
-                    <% @days_now = @date_expiration_subtract_date_now / 86400 %>
-                    <!-- pega o valor das horas restantes -->
-                    <% @hours_now =
-                      (@date_expiration_subtract_date_now - @days_now * 86400) / 3600 %>
-                    <!-- pega o valor em minutos que estão restando  -->
-                    <% @minutes_now =
-                      ((@date_expiration_subtract_date_now -
-                        @days_now * 86400) - @hours_now * 3600) / 60 %>
+                      <%= l.description %>
 
                     <br>
                     Tempo restante:
-                    <% if @days_now > 1 %>
-                      <span class="label label-warning">
-                    <% else %>
+
+                    <% if l.date_expiration < Time.now %>
                       <span class="label label-danger">
-                    <% end %>
+                      Tempo excedido!
+                    <% else %>
+                      <!-- variaveis para usar no tempo das notificações -->
+                      <!-- diminui o valor da data atual com a data de expiração  -->
+                      <% @date_expiration_subtract_date_now =
+                        ((l.date_expiration)- Time.now).to_i %>
+                      <!-- pega o valor em dias do tempo restante -->
+                      <% @days_now = @date_expiration_subtract_date_now / 86400 %>
+                      <!-- pega o valor das horas restantes -->
+                      <% @hours_now =
+                        (@date_expiration_subtract_date_now - @days_now * 86400) / 3600 %>
+                      <!-- pega o valor em minutos que estão restando  -->
+                      <% @minutes_now =
+                        ((@date_expiration_subtract_date_now -
+                          @days_now * 86400) - @hours_now * 3600) / 60 %>
 
-                      <!-- Mostra se os dias restantes são maiores que zero -->
-                      <% if @days_now > 0 %>
-                        <% if @days_now == 1 %>
-                          <%= @days_now %> Dia
-                        <% else %>
-                          <%= @days_now %> Dias
-                        <% end %>
-                      <% end %>
-
-                      <!-- Mostra se as horas restantes são maiores que zero -->
-                      <% if @hours_now > 0 %>
-                        <% if @hours_now == 1 %>
-                          <%= @hours_now %> Hora
-                        <% else %>
-                          <%= @hours_now %> Horas
-                        <% end %>
-                      <% end %>
-
-                      <!-- Mostra se os minutos restantes são maiores que zero -->
-                      <% if @minutes_now > 0 %>
-                        <% if @minutes_now == 1 %>
-                          <%= @minutes_now %> Minuto
-                        <% else %>
-                          <%= @minutes_now %> Minutos
-                        <% end %>
+                      <% if @days_now > 1 %>
+                        <span class="label label-warning">
                       <% else %>
-                        Tempo excedido!
+                        <span class="label label-danger">
+                      <% end %>
+
+                        <!-- Mostra se os dias restantes são maiores que zero -->
+                        <% if @days_now > 0 %>
+                          <% if @days_now == 1 %>
+                            <%= @days_now %> Dia
+                          <% else %>
+                            <%= @days_now %> Dias
+                          <% end %>
+                        <% end %>
+
+                        <!-- Mostra se as horas restantes são maiores que zero -->
+                        <% if @hours_now > 0 %>
+                          <% if @hours_now == 1 %>
+                            <%= @hours_now %> Hora
+                          <% else %>
+                            <%= @hours_now %> Horas
+                          <% end %>
+                        <% end %>
+
+                        <!-- Mostra se os minutos restantes são maiores que zero -->
+                        <% if @minutes_now > 0 %>
+                          <% if @minutes_now == 1 %>
+                            <%= @minutes_now %> Minuto
+                          <% else %>
+                            <%= @minutes_now %> Minutos
+                          <% end %>
+                        <% end %>
                       <% end %>
                     </span>
 
