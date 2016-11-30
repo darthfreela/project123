@@ -7,30 +7,35 @@ require "pry"
 def new
   @importedFile = ImportedFile.new
     @importedFile_show = ImportedFile.all
+
     @user = User.all
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
+
 end
 
 
 def create
     importar()
-   # @importedFile = ImportedFile.new(importedFile_params)
-    #@importedFile_show = ImportedFile.all
 
-   #@importedFile_user = ImportedFilesUser.new(importedFileUser_params)
-    #@importedFile_user_show = ImportedFilesUser.all
+     #@importedFile = ImportedFile.new(importedFile_params)
+   #@importedFile = ImportedFile.new(importedFile_params)
+   #@importedFile_show = ImportedFile.all
 
-    if @importedFile.save
-        @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
-        if @imported_file_user.save
-            redirect_to new_imported_files_path , notice: "Boletim cadastrado com sucesso."
-        else
-          destroy
-        end
-     else
-        render action: :new
-    end
+  # @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
+  # @importedFile_user_show = ImportedFilesUser.all
+
+   # if @importedFile.save
+      #  @importedFile_user = ImportedFilesUser.new(importedFileUser_params)
+     #   if @imported_file_user.save
+
+            redirect_to new_imported_file_path , notice: "Boletim cadastrado com sucesso."
+       # else
+         # destroy
+        #end
+     #else
+       # render action: :new
+    #end
   end
 
 def importar
@@ -188,12 +193,12 @@ def destroy
       redirect_to new_imported_file_path, notice: "Boletim removido com sucesso."
 end
 
-private
-def importedFile_params
-    params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date)
-  end
+#private
+#def importedFile_params
+ #   params.require(:imported_file).permit(:user_id, :imported_file_path, :title, :description, :date)
+  #end
 
-  private
-  def importedFileUser_params
-    params.require(:imported_files_user).permit(:id_func_temp, :user_id, :imported_file_id, :graduation, :name, :opm)
-  end
+  #private
+  #def importedFileUser_params
+   # params.require(:imported_files_user).permit(:id_func_temp, :user_id, :imported_file_id, :graduation, :name, :opm)
+  #end
