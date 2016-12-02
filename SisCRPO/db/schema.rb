@@ -254,6 +254,11 @@ ActiveRecord::Schema.define(version: 20161202180920) do
     t.integer  "status"
   end
 
+  create_table "table_temporary_replacements_maps", force: :cascade do |t|
+    t.string "title"
+    t.string "path"
+  end
+
   create_table "temporary_replacements", force: :cascade do |t|
     t.integer  "substitute_id_func"
     t.integer  "occupant_id_func"
