@@ -20,9 +20,6 @@ class TemporaryReplacementsMapController < ApplicationController
 
    def generate_pdf_by_html
     @replacements_array = TemporaryReplacement.where(substitute_id_func: !nil)
-    puts "**************************************************************"
-    puts @replacements_array
-    puts "**************************************************************"
     title = "map_#{Time.now}.pdf"
     kit = PDFKit.new(generate_map_html(@replacements_array), :page_size => 'a4', :orientation => 'Landscape')
     kit.to_pdf(Rails.root.join('temporary_replacements_pdf', title))
@@ -38,6 +35,7 @@ class TemporaryReplacementsMapController < ApplicationController
    end
 
    def generate_map_html(replacements)
+        options = TemporaryReplacementsMapOption.first
         rows = ''
         header = "<span>
                             <b>ESTADO DO RIO GRANDE DO SUL</br>
@@ -51,13 +49,13 @@ class TemporaryReplacementsMapController < ApplicationController
                                              </br>
 
                                              ___________________________________________</br>
-                                             <b>CARLOS ANDRE ANTUNES - 3 Sgt Sct Art </b>
+                                             <b>#{options.director_tag}</b>
                                         </td>
                                         <td colspan='2'><b>MAPA DE SUBSTITUI&Ccedil;&Atilde;O TEMPOR&Aacute;RIA</b></br>
                                             </br>
-                                            OPM: CRPOSERRA - Sede</br>
-                                            Tel: 54 - 3204 5500 </br>
-                                            Numero do centro de custo: 555555 </br>
+                                            OPM: #{options.opm_tag}</br>
+                                            Tel: #{options.telephone_tag}</br>
+                                            Numero do centro de custo: #{options.cost_center_tag} </br>
                                             MOVIMENTO FINANCEIRO - MAR&Ccedil;O/2016 </br>
                                             Efetividade: FEVEREIRO/2016</br></br>
                                         </b></td>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+resources :temporary_replacements_map_options, :only => [:new, :edit, :update]
+
 get 'user_preferences/index'
 
 post '/temporary_replacements_map/generate_pdf_by_html' => "temporary_replacements_map#generate_pdf_by_html"

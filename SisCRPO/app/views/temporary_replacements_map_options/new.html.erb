@@ -1,0 +1,93 @@
+<section class="content-header">
+    <h1>
+        Parâmetros do Mapa de Substituição Temporária
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Ferramentas do usuário</a></li>
+        <li class="active">Parâmetros</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-default collapsed-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Parâmetros</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <%= render 'form' %>
+    </div>
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Parâmetro Atual</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="input-group input-group-sm">
+                <input type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+                </span>
+            </div>
+            <div style="overflow: scroll">
+                <% if @tempReplacement_show.count < 1%>
+                    Não existem siglas cadastradas.
+                <% else %>
+                    <table id="motivos" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Diretor do DA/DF</th>
+                                <th>Nome da  OPM</th>
+                                <th>Telefone da OPM</th>
+                                <th>Centro de Custo</th>
+                                <th>Última Atualização</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @parameter.each do |o|%>
+                                <tr style="cursor:pointer">
+                                    <td><%= o.id %></td>
+                                    <td><%= o.director_tag %></td>
+                                    <td><%= o.opm_tag %></td>
+                                    <td><%= o.opm_telephone_tag %></td>
+                                    <td><%= o.cost_center_tag %></td>
+                                    <td><%= o.updated_at %></td>
+                                      <% end %>
+                                    <% end %>
+                                    <td><%= link_to raw("<i class='fa fa-edit'>Editar</i>"), {:controller => 'temporary_replacements_map_options', :action => 'edit', :id => o.id}, class: 'btn btn-warning', method: :get %></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="7">
+                                </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#motivos tr:odd").addClass("odd");
+        $("#motivos tr:not(.odd)").hide();
+        $("#motivos tr:first-child").show();
+
+        $("#motivos tr.odd").click(function () {
+            $(this).next("tr").toggle();
+            $(this).find(".arrow").toggleClass("up");
+        });
+        //$("#motivos").jExpand();
+    });
+</script>
