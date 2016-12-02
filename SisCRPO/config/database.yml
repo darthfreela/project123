@@ -6,7 +6,7 @@ development:
   pool: 5
   username: CRPOFTEC
   password: crpo2016#ftec
-  #database: crpo
+  #database: crpoLocal
   #username: 
   #password: 
 
