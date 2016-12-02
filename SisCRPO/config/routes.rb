@@ -19,7 +19,7 @@ post '/users/save_preferences' => "user_preferences#save_preferences"
 
 post '/users/change_password_function' => "users#change_password_function"
 
-resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update, :importar]#falto metodo create
+resources :imported_files, :only =>  [:new, :create, :edit, :destroy, :update, :importar, :generate]#falto metodo create
 resources :dashboard, :only => [:index]
 
 resources :import_newsletters, :only =>  [:new, :edit, :destroy, :update]

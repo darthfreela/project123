@@ -2,6 +2,13 @@ class ImportedFilesController < ApplicationController
 require "docx"
 require "pry"
 
+#deleltar
+include ApplicationHelper
+
+    TABLE_HEADER = "<tr>
+                                    <th>Teste</th>
+                                  </tr>"
+    #deleltar
 
 
 def new
@@ -13,6 +20,8 @@ def new
     @importedFile_user_show = ImportedFilesUser.all
 
 end
+
+
 
 
 def create
@@ -186,6 +195,70 @@ if id.to_s.to_i >0
     end
   end
 end
+#excluir
+def generate
+    @importedFile_array = ImportedFile.where(id: @importedFile.id)
+    puts "**************************************************************"
+    puts @importedFile_array
+    puts "**************************************************************"
+    title = "map_#{Time.now}.pdf"
+    kit = PDFKit.new(generate_map_html(@importedFile_array), :page_size => 'a4', :orientation => 'Landscape')
+    kit.to_pdf(Rails.root.join('imported_file_pdf', title))
+    save_in_data_base title
+    redirect_to new_imported_file_path, notice: "Mapa gerado com sucesso."
+   end
+#excluir
+
+  def generate_map_html(importedFile)
+        rows = ''
+        header = "<span>
+                            <b>ESTADO DO RIO GRANDE DO SUL</br>
+                            SECRETARIA DE SEGURAN&Ccedil;A P&Uacute;BLICA </br>
+                            BRIGADA MILITAR - CRPO SERRA</b>
+                        </span>"
+        check_header ="<table>
+                                    <tr>
+                                        <td colspan='3'>Ao Sr Diretor do DA/DF.</br>
+                                             Em 02/02/2016
+                                             </br>
+
+                                             ___________________________________________</br>
+                                             <b>CARLOS ANDRE ANTUNES - 3 Sgt Sct Art </b>
+                                        </td>
+                                      </tr>"
+        #criar tela html
+       importedFile.each do | r |
+            titlearq = ImportedFile.where(id: r.id).first
+            rows = "#{rows} <tr>
+                                            <td> #{titlearq.title} </td>
+                                        </tr>
+                                        <tr>
+                                        <td> 3 </td>
+                                        <td> 15 </td>
+                                        <td> substituts</td>
+                                        <td> 3o tchan </td>
+                                        <td colspan='6' style='background-color: grey;'><center> Titular em Ferias </center> </td>
+
+                                        </tr>"
+       end
+       return "<html>
+                        <style type='text/css'>
+                            table{
+                                width: 100%;
+                            }
+                            table, th, td {
+                                border: 1px solid black;
+                                border-collapse: collapse;
+                            }
+                        </style>
+                        #{header}
+                        #{check_header}
+                        #{TABLE_HEADER}
+                        #{rows}
+                        </table>
+                    </html>"
+   end
+
 
 def destroy
       @importedFile = ImportedFile.find(params[:id])
