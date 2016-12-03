@@ -30,28 +30,31 @@
             </ul>
           <% end %>
         </div>
-        <%= form_for @importedFile , :multipart => true do |f| %>
+        <%= form_tag @importedFile , :multipart => true do  %>
             <div class="box-body">
                 <div class="form-group col-md-17">
 
                 <div class="form-group col-md-17">
                     <label>Selecione o Arquivo*</label>
-                    <%= f.file_field :imported_file_path %>
+                    <i class="fa fa-fw fa-check-circle-o" style="display: none;" id='img_icon'></i>
+                  <%= file_field_tag :imported_file_path %>
+                
                 </div>
             </div>
             <div class="box-footer">
-                <%= f.submit "Importar", Class: "btn btn-success" %>
-                <%= f.button "Cancelar", Class: "btn btn-danger" %>
+                <%= submit_tag "Importar", Class: "btn btn-success" %>
+                <%= button_tag "Cancelar", Class: "btn btn-danger" %>
                 <div class=" small pull-right">
                </div>
             </div>
         <% end %>
     </div>
+    
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">Dados Extraídos: </h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></but>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></but>
             </div>
         </div>
 
@@ -92,7 +95,7 @@
 
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
-                <div><h3>Usuários ja estão cadastrados na base de dados</h3></div>
+                <div><h3>Usuários que já estão cadastrados na base de dados</h3></div>
                         <tr>
                             <th>Id Func</th>
                             <th>ID Boletim</th>
@@ -123,7 +126,7 @@
 
             <table id="motivos" class="table table-bordered table-striped">
                 <thead>
-                    <div><h3>Usuários não estão cadastrados na base de dados, efetue o cadastro</h3></div>
+                    <div><h3>Usuários que não estão cadastrados na base de dados, efetue o cadastro</h3></div>
                             <th>Id Func</th>
                             <th>ID Boletim</th>
                             <th>Graduação</th>

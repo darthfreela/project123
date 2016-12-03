@@ -6,6 +6,9 @@ development:
   pool: 5
   username: CRPOFTEC
   password: crpo2016#ftec
+  #database: crpoLocal
+  #username: 
+  #password: 
 
 test: &TEST
   adapter: postgresql
