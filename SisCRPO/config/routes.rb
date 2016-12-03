@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+
+resources :imported_files_pdf, :only => [:new, :edit, :update]
+
 resources :temporary_replacements_map_options, :only => [:new, :edit, :update]
 
 get 'user_preferences/index'
