@@ -74,7 +74,7 @@ $(function () {
       $(".vigencia").inputmask("99 meses");
 
       $(".bancoAg").inputmask("999 - 9999-9/99999999-9");
-
+      $("#temporary_replacements_map_option_opm_telephone_tag").inputmask("(99) 9999-9999");
       $("#diasTrabalhados").keyup(function(){
         $("#valeTransporte").val($("#diasTrabalhados").val()*2);
         $("#horasTrabalhadas").val($("#diasTrabalhados").val()*6);

@@ -1,84 +1,90 @@
 <section class="content-header">
-    <h1>
-        Mapa de Substituição Temporária
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Ferramentas do usuário</a></li>
-        <li class="active">Mapa de Substituição Temporária</li>
-    </ol>
+  <h1>
+    Mapa de Substituição Temporária
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Ferramentas do usuário</a></li>
+    <li class="active">Mapa de Substituição Temporária</li>
+  </ol>
 </section>
 <section class="content">
-  <div class="box box-default collapsed-box">
+  <div class="box">
     <div class="box-header with-border">
       <h3 class="box-title">Mapa de Substituição Temporária</h3>
+
     </div>
+    <div class="box-body">
+        <div class="row">
+    <div class="form-group col-md-5">
 
-    <!--INICIO form-->
+      <!--INICIO form-->
       <%= render 'form' %>
-    <!--FIM form-->
-
+      <!--FIM form-->
+    </div>
+    </div>
+    </div>
   </div>
   <!--Search-->
-   <div class="box">
-      <div class="box-header">
-          <h3 class="box-title">Listagem de Mapas</h3>
-          <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                <i class="fa fa-minus"></i>
-              </button>
-          </div>
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Listagem de Mapas</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
       </div>
-      <!-- /.box-header -->
-      <div class="box-body">
-          <div class="input-group input-group-sm">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                  <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
-              </span>
-          </div>
-      </div>
-      <hr>
-      <!-- /.box-header -->
-      <div class="box-body">
-        <% if @maps.count < 1 %>
-          Não existem mapas salvos.
-        <% else %>
-
-            <table id="motivos" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nome</th>
-                        <th>Data de Criação</th>
-                        <th>Hora de Criação</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <% @maps.each do |m|%>
-                      <tr>
-                          <td><%= m.id %></td>
-                          <td><%= m.title %></td>
-                          <td><%= m.created_at.strftime("%d/%m/%Y") %></td>
-                          <td><%= m.created_at.strftime("%H:%M:%S") %></td>
-                          <td><%= link_to raw("<i class='fa fa-edit'>Download</i>"),
-                                        {:controller => 'temporary_replacements_map', :action => 'download', :file_name => m.title},
-                                        class: 'btn btn-warning', method: :post %>
-                           </td>
-                           <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
-                                       {:controller => 'temporary_replacements_map', :action => 'destroy', :id => m.id},
-                                        :data => {:confirm => "Realmente deseja excluir este mapa?"},
-                                        class: 'btn btn-danger', method: :delete %>
-                           </td>
-                      </tr>
-                    <% end %>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-
-            <% end %>
-        </div>
     </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <div class="input-group input-group-sm">
+        <input type="text" class="form-control">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-info btn-flat">Pesquisar</button>
+        </span>
+      </div>
+    </div>
+    <hr>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <% if @maps.count < 1 %>
+      Não existem mapas salvos.
+      <% else %>
+
+      <table id="motivos" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Data de Criação</th>
+            <th>Hora de Criação</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <% @maps.each do |m|%>
+          <tr>
+            <td><%= m.id %></td>
+            <td><%= m.title %></td>
+            <td><%= m.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= m.created_at.strftime("%H:%M:%S") %></td>
+            <td><%= link_to raw("<i class='fa fa-edit'>Download</i>"),
+              {:controller => 'temporary_replacements_map', :action => 'download', :file_name => m.title},
+              class: 'btn btn-warning', method: :post %>
+            </td>
+            <td><%= link_to raw("<i class='fa fa-close'>Remover</i>"),
+             {:controller => 'temporary_replacements_map', :action => 'destroy', :id => m.id},
+             :data => {:confirm => "Realmente deseja excluir este mapa?"},
+             class: 'btn btn-danger', method: :delete %>
+           </td>
+         </tr>
+         <% end %>
+       </thead>
+       <tbody>
+
+       </tbody>
+     </table>
+
+     <% end %>
+   </div>
+ </div>
 </section>

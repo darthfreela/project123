@@ -27,6 +27,10 @@ class TemporaryReplacementsMapController < ApplicationController
     redirect_to new_temporary_replacements_map_path, notice: "Mapa gerado com sucesso."
    end
 
+   def redirect_to_options
+    redirect_to new_temporary_replacements_map_option_path
+   end
+
    def save_in_data_base(title)
       tmp = TemporaryReplacementsMap.new
       tmp.title = title
@@ -48,13 +52,13 @@ class TemporaryReplacementsMapController < ApplicationController
                                              Em 02/02/2016
                                              </br>
 
-                                             ___________________________________________</br>
+                                             ___________________________________</br>
                                              <b>#{options.director_tag}</b>
                                         </td>
                                         <td colspan='2'><b>MAPA DE SUBSTITUI&Ccedil;&Atilde;O TEMPOR&Aacute;RIA</b></br>
                                             </br>
                                             OPM: #{options.opm_tag}</br>
-                                            Tel: #{options.telephone_tag}</br>
+                                            Tel: #{options.opm_telephone_tag}</br>
                                             Numero do centro de custo: #{options.cost_center_tag} </br>
                                             MOVIMENTO FINANCEIRO - MAR&Ccedil;O/2016 </br>
                                             Efetividade: FEVEREIRO/2016</br></br>
