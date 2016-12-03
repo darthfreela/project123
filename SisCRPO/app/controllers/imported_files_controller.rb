@@ -25,6 +25,8 @@ end
 
 
 def create
+
+  @file_path = params[ :imported_file_path ]
     importar()
 
      #@importedFile = ImportedFile.new(importedFile_params)
@@ -54,10 +56,11 @@ def importar
     @user = User.all
     @importedFile_user = ImportedFilesUser.new
     @importedFile_user_show = ImportedFilesUser.all
+    
 
 
 #boletim.docx
-      doc = Docx::Document.open('boletim.docx')
+      doc = Docx::Document.open(@file_path.path)
 
     primeiraCelula = ""
 
